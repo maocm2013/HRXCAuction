@@ -1,0 +1,68 @@
+2013-05-06 11:11:24[com.malcolm.note.util.JdbcUtil:23] DEBUG filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-06 11:11:27[com.malcolm.note.dao.NoteInfoDao:94] DEBUG 查询sql=select pk_id pkId,note_name noteName,note_comment noteComment,dead_line_date deadLineDate,priority priority,note_state noteState from note_info where 1=1  order by dead_line_date,priority
+2013-05-06 11:11:27[com.malcolm.note.util.JdbcUtil:23] DEBUG filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-06 11:11:34[com.malcolm.note.util.JdbcUtil:23] DEBUG filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-06 11:11:39[com.malcolm.note.util.JdbcUtil:23] DEBUG filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-06 11:11:40[com.malcolm.note.util.JdbcUtil:23] DEBUG filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-06 11:19:28[com.malcolm.note.util.JdbcUtil:23] DEBUG filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-06 11:19:31[com.malcolm.note.dao.NoteInfoDao:94] DEBUG 查询sql=select pk_id pkId,note_name noteName,note_comment noteComment,dead_line_date deadLineDate,priority priority,note_state noteState from note_info where 1=1  order by dead_line_date,priority
+2013-05-06 11:19:31[com.malcolm.note.util.JdbcUtil:23] DEBUG filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-06 11:20:29[com.malcolm.note.util.JdbcUtil:23] DEBUG filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-06 11:20:32[com.malcolm.note.dao.NoteInfoDao:94] DEBUG 查询sql=select pk_id pkId,note_name noteName,note_comment noteComment,dead_line_date deadLineDate,priority priority,note_state noteState from note_info where 1=1  order by dead_line_date,priority
+2013-05-06 11:20:32[com.malcolm.note.util.JdbcUtil:23] DEBUG filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-06 12:43:02[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-06 12:43:09[com.malcolm.note.dao.NoteInfoDao:94] DEBUG 查询sql=select pk_id pkId,note_name noteName,note_comment noteComment,dead_line_date deadLineDate,priority priority,note_state noteState from note_info where 1=1  order by dead_line_date,priority
+2013-05-06 12:43:26[com.malcolm.note.dao.NoteInfoDao:94] DEBUG 查询sql=select pk_id pkId,note_name noteName,note_comment noteComment,dead_line_date deadLineDate,priority priority,note_state noteState from note_info where 1=1  order by dead_line_date,priority
+2013-05-17 10:41:44[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-17 10:41:53[com.malcolm.note.dao.NoteInfoDao:94] DEBUG 查询sql=select pk_id pkId,note_name noteName,note_comment noteComment,dead_line_date deadLineDate,priority priority,note_state noteState from note_info where 1=1  order by dead_line_date,priority
+2013-05-17 10:43:45[com.malcolm.note.dao.NoteInfoDao:94] DEBUG 查询sql=select pk_id pkId,note_name noteName,note_comment noteComment,dead_line_date deadLineDate,priority priority,note_state noteState from note_info where 1=1  order by dead_line_date,priority
+2013-05-17 10:45:17[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-17 11:12:12[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-20 14:29:03[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-20 14:30:42[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-20 14:57:46[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-22 08:44:57[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-22 08:46:22[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-22 08:46:48[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-22 08:47:42[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-22 08:55:48[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-22 08:56:11[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-22 08:56:57[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-22 09:01:34[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-22 09:01:59[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-22 09:03:15[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-29 10:08:35[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-29 10:17:28[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-29 10:17:57[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-29 10:18:18[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-29 10:18:27[com.malcolm.note.dao.NoteInfoDao:94] DEBUG 查询sql=select pk_id pkId,note_name noteName,note_comment noteComment,dead_line_date deadLineDate,priority priority,note_state noteState from note_info where 1=1  order by dead_line_date,priority
+2013-05-29 10:21:55[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-29 10:21:59[com.malcolm.note.dao.NoteInfoDao:94] DEBUG 查询sql=select pk_id pkId,note_name noteName,note_comment noteComment,dead_line_date deadLineDate,priority priority,note_state noteState from note_info where 1=1  order by dead_line_date,priority
+2013-05-29 14:32:48[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 10:21:39[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 10:31:08[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 10:43:48[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 10:45:54[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 10:46:30[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 10:46:54[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 10:49:11[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 10:55:31[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 13:48:31[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 13:50:09[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 13:51:30[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 14:10:30[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 14:12:01[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 14:13:03[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 14:15:22[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 14:18:21[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 14:19:10[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 14:19:47[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 15:59:21[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 16:04:53[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 16:05:09[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 16:15:35[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 16:17:01[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 16:23:40[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 17:06:02[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-05-30 17:06:42[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
+2013-07-18 13:41:07[com.malcolm.note.util.JdbcUtil:31] DEBUG db_filePath=E:\my_workspace\MiniNote\config\note.db
