@@ -54,8 +54,8 @@
       <SubComponents>
         <Component class="org.jdesktop.swingx.JXButton" name="addBton">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/add.png&quot;))" type="code"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/add.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="&#x6dfb;&#x52a0;"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -68,8 +68,8 @@
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="deleteBton">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/delete.png&quot;))" type="code"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/delete.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="&#x5220;&#x9664;"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -82,8 +82,8 @@
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="editBton">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/edit.png&quot;))" type="code"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/edit.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="&#x4fee;&#x6539;"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -96,8 +96,8 @@
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="searchBton">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/search.png&quot;))" type="code"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/search.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="&#x67e5;&#x8be2;"/>
             <Property name="focusable" type="boolean" value="false"/>
@@ -108,10 +108,10 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="org.jdesktop.swingx.JXButton" name="expBton">
+        <Component class="org.jdesktop.swingx.JXButton" name="exportBton">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/export.png&quot;))" type="code"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/export.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="&#x5bfc;&#x51fa;"/>
             <Property name="focusable" type="boolean" value="false"/>

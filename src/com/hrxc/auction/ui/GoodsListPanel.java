@@ -31,7 +31,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
         deleteBton = new org.jdesktop.swingx.JXButton();
         editBton = new org.jdesktop.swingx.JXButton();
         searchBton = new org.jdesktop.swingx.JXButton();
-        expBton = new org.jdesktop.swingx.JXButton();
+        exportBton = new org.jdesktop.swingx.JXButton();
         jXTitledSeparator1 = new org.jdesktop.swingx.JXTitledSeparator();
         jXTitledSeparator2 = new org.jdesktop.swingx.JXTitledSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -42,7 +42,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
         toolBar.setFloatable(false);
         toolBar.setRollover(true);
 
-        addBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add.png")));
+        addBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add.png"))); // NOI18N
         addBton.setToolTipText("添加");
         addBton.setFocusable(false);
         addBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -50,7 +50,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
         addBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(addBton);
 
-        deleteBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/delete.png")));
+        deleteBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/delete.png"))); // NOI18N
         deleteBton.setToolTipText("删除");
         deleteBton.setFocusable(false);
         deleteBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -58,7 +58,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
         deleteBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(deleteBton);
 
-        editBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edit.png")));
+        editBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edit.png"))); // NOI18N
         editBton.setToolTipText("修改");
         editBton.setFocusable(false);
         editBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -66,7 +66,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
         editBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(editBton);
 
-        searchBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png")));
+        searchBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
         searchBton.setToolTipText("查询");
         searchBton.setFocusable(false);
         searchBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -74,13 +74,13 @@ public class GoodsListPanel extends javax.swing.JPanel {
         searchBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(searchBton);
 
-        expBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png")));
-        expBton.setToolTipText("导出");
-        expBton.setFocusable(false);
-        expBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        expBton.setPreferredSize(new java.awt.Dimension(40, 40));
-        expBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(expBton);
+        exportBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
+        exportBton.setToolTipText("导出");
+        exportBton.setFocusable(false);
+        exportBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportBton.setPreferredSize(new java.awt.Dimension(40, 40));
+        exportBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        toolBar.add(exportBton);
 
         jXTitledSeparator1.setTitle("数据区域");
 
@@ -124,7 +124,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXButton addBton;
     private org.jdesktop.swingx.JXButton deleteBton;
     private org.jdesktop.swingx.JXButton editBton;
-    private org.jdesktop.swingx.JXButton expBton;
+    private org.jdesktop.swingx.JXButton exportBton;
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXTable jXTable1;
     private org.jdesktop.swingx.JXTitledSeparator jXTitledSeparator1;
