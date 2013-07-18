@@ -51,6 +51,7 @@ public class AuctionMain {
         //</editor-fold>
 
         /* Create and display the form */
+        //TODO:程序启动后应单独启动一个线程进行数据文件备份
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame frame = new AuctionFrame();
