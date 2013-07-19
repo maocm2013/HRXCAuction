@@ -4,6 +4,10 @@
  */
 package com.hrxc.auction.ui;
 
+import com.hrxc.auction.action.GoodsListAction;
+import com.hrxc.auction.action.GoodsListTableConfig;
+import com.hrxc.auction.util.UITools;
+
 /**
  *
  * @author user
@@ -30,12 +34,14 @@ public class GoodsListPanel extends javax.swing.JPanel {
         addBton = new org.jdesktop.swingx.JXButton();
         deleteBton = new org.jdesktop.swingx.JXButton();
         editBton = new org.jdesktop.swingx.JXButton();
-        searchBton = new org.jdesktop.swingx.JXButton();
-        exportBton = new org.jdesktop.swingx.JXButton();
-        jXTitledSeparator1 = new org.jdesktop.swingx.JXTitledSeparator();
-        jXTitledSeparator2 = new org.jdesktop.swingx.JXTitledSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jXTable1 = new org.jdesktop.swingx.JXTable();
+        GoodsListTableConfig.MyTableModel model = new GoodsListTableConfig().new MyTableModel();
+        dataTable = new org.jdesktop.swingx.JXTable(model);
+        jXLabel1 = new org.jdesktop.swingx.JXLabel();
+        fd_goodsNo = new org.jdesktop.swingx.JXTextField();
+        jXLabel2 = new org.jdesktop.swingx.JXLabel();
+        fd_goodsName = new org.jdesktop.swingx.JXTextField();
+        searchBton = new org.jdesktop.swingx.JXButton();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -66,69 +72,73 @@ public class GoodsListPanel extends javax.swing.JPanel {
         editBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(editBton);
 
+        dataTable.setModel(model);
+        //初始化显示数据
+        Object[][] datas = GoodsListAction.getAllTableData(null, null);
+        model.refreshContents(datas);
+
+        //隐藏第一列（主键）
+        UITools.hideColumn(dataTable, 1);
+        jScrollPane1.setViewportView(dataTable);
+
+        jXLabel1.setText("图录号：");
+
+        jXLabel2.setText("拍品名称：");
+
         searchBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
         searchBton.setToolTipText("查询");
         searchBton.setFocusable(false);
         searchBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         searchBton.setPreferredSize(new java.awt.Dimension(40, 40));
         searchBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(searchBton);
-
-        exportBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
-        exportBton.setToolTipText("导出");
-        exportBton.setFocusable(false);
-        exportBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exportBton.setPreferredSize(new java.awt.Dimension(40, 40));
-        exportBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        toolBar.add(exportBton);
-
-        jXTitledSeparator1.setTitle("数据区域");
-
-        jXTitledSeparator2.setTitle("查询区域");
-
-        jXTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jXTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jXLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fd_goodsNo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fd_goodsName, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchBton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addComponent(toolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jXTitledSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
-            .addComponent(jXTitledSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jXLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fd_goodsNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fd_goodsName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(searchBton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jXTitledSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(jXTitledSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton addBton;
+    private org.jdesktop.swingx.JXTable dataTable;
     private org.jdesktop.swingx.JXButton deleteBton;
     private org.jdesktop.swingx.JXButton editBton;
-    private org.jdesktop.swingx.JXButton exportBton;
+    private org.jdesktop.swingx.JXTextField fd_goodsName;
+    private org.jdesktop.swingx.JXTextField fd_goodsNo;
     private javax.swing.JScrollPane jScrollPane1;
-    private org.jdesktop.swingx.JXTable jXTable1;
-    private org.jdesktop.swingx.JXTitledSeparator jXTitledSeparator1;
-    private org.jdesktop.swingx.JXTitledSeparator jXTitledSeparator2;
+    private org.jdesktop.swingx.JXLabel jXLabel1;
+    private org.jdesktop.swingx.JXLabel jXLabel2;
     private org.jdesktop.swingx.JXButton searchBton;
     private javax.swing.JToolBar toolBar;
     // End of variables declaration//GEN-END:variables

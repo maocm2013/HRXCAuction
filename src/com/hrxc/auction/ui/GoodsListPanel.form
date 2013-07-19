@@ -23,22 +23,42 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="toolBar" max="32767" attributes="0"/>
-          <Component id="jXTitledSeparator2" alignment="0" pref="690" max="32767" attributes="0"/>
-          <Component id="jXTitledSeparator1" alignment="0" max="32767" attributes="0"/>
-          <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jScrollPane1" pref="690" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Component id="jXLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="fd_goodsNo" min="-2" pref="90" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jXLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="fd_goodsName" min="-2" pref="172" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="searchBton" min="-2" pref="45" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Component id="toolBar" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="toolBar" min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jXLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fd_goodsNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jXLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fd_goodsName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="searchBton" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jXTitledSeparator2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-              <Component id="jXTitledSeparator1" min="-2" max="-2" attributes="0"/>
+              <Component id="toolBar" min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="340" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="295" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -94,46 +114,8 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="org.jdesktop.swingx.JXButton" name="searchBton">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/search.png"/>
-            </Property>
-            <Property name="toolTipText" type="java.lang.String" value="&#x67e5;&#x8be2;"/>
-            <Property name="focusable" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[40, 40]"/>
-            </Property>
-            <Property name="verticalTextPosition" type="int" value="3"/>
-          </Properties>
-        </Component>
-        <Component class="org.jdesktop.swingx.JXButton" name="exportBton">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/export.png"/>
-            </Property>
-            <Property name="toolTipText" type="java.lang.String" value="&#x5bfc;&#x51fa;"/>
-            <Property name="focusable" type="boolean" value="false"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[40, 40]"/>
-            </Property>
-            <Property name="verticalTextPosition" type="int" value="3"/>
-          </Properties>
-        </Component>
       </SubComponents>
     </Container>
-    <Component class="org.jdesktop.swingx.JXTitledSeparator" name="jXTitledSeparator1">
-      <Properties>
-        <Property name="title" type="java.lang.String" value="&#x6570;&#x636e;&#x533a;&#x57df;"/>
-      </Properties>
-    </Component>
-    <Component class="org.jdesktop.swingx.JXTitledSeparator" name="jXTitledSeparator2">
-      <Properties>
-        <Property name="title" type="java.lang.String" value="&#x67e5;&#x8be2;&#x533a;&#x57df;"/>
-      </Properties>
-    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -141,19 +123,47 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="org.jdesktop.swingx.JXTable" name="jXTable1">
+        <Component class="org.jdesktop.swingx.JXTable" name="dataTable">
           <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="4">
-                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                <Column editable="true" title="Title 4" type="java.lang.Object"/>
-              </Table>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="model" type="code"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new org.jdesktop.swingx.JXTable(model)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="GoodsListTableConfig.MyTableModel model = new GoodsListTableConfig().new MyTableModel();"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;Object[][] datas = GoodsListAction.getAllTableData(null, null);&#xa;model.refreshContents(datas);&#xa;&#xa;//&#x9690;&#x85cf;&#x7b2c;&#x4e00;&#x5217;&#xff08;&#x4e3b;&#x952e;&#xff09;&#xa;UITools.hideColumn(dataTable, 1);"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x56fe;&#x5f55;&#x53f7;&#xff1a;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXTextField" name="fd_goodsNo">
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x62cd;&#x54c1;&#x540d;&#x79f0;&#xff1a;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXTextField" name="fd_goodsName">
+    </Component>
+    <Component class="org.jdesktop.swingx.JXButton" name="searchBton">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/search.png"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="&#x67e5;&#x8be2;"/>
+        <Property name="focusable" type="boolean" value="false"/>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[40, 40]"/>
+        </Property>
+        <Property name="verticalTextPosition" type="int" value="3"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
