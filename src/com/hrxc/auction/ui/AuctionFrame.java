@@ -5,6 +5,7 @@
 package com.hrxc.auction.ui;
 
 import com.hrxc.auction.util.TreeMenuConfig;
+import java.awt.Toolkit;
 
 /**
  *
@@ -36,6 +37,7 @@ public class AuctionFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("华软信诚拍卖系统V1.0");
+        setIconImage(Toolkit.getDefaultToolkit().createImage(getClass().getResource("/app01.png")));
         setName("auctionFrame"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1024, 600));
         setResizable(false);
