@@ -1,6 +1,10 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.hrxc.auction.dao;
 
-import com.hrxc.auction.domain.GoodsList;
+import com.hrxc.auction.domain.BiddingPaddle;
 import com.hrxc.auction.util.JdbcUtil;
 import com.hrxc.auction.util.UITools;
 import java.sql.Connection;
@@ -18,43 +22,43 @@ import org.apache.log4j.Logger;
  *
  * @author user
  */
-public class GoodsListDao {
+public class BiddingPaddleDao {
 
     private static final Logger log = Logger.getLogger(GoodsListDao.class);
-    private static final String SQL_BASIC_QUERY = "select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1 ";
-    private static final String SQL_DELETE_BY_ID = "delete from goods_list where pk_id=?";
-    private static final String SQL_INSERT = "insert into goods_list(goods_no,goods_Name,goods_Intact,goods_Size,certificate_No,keep_Price,market_Price,onset_Price,pk_id)values(?,?,?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATE_BY_ID = "update goods_list set goods_no=?,goods_Name=?,goods_Intact=?,goods_Size=?,certificate_No=?,keep_Price=?,market_Price=?,onset_Price=? where pk_id=?";
+    private static final String SQL_BASIC_QUERY = "select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1 ";
+    private static final String SQL_DELETE_BY_ID = "delete from bidding_paddle where pk_id=?";
+    private static final String SQL_INSERT = "insert into bidding_paddle(paddle_No,cust_Name,cert_Type,cert_No,cust_Tel,cust_Addr,cash_Deposit,remarks,pk_id)values(?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATE_BY_ID = "update bidding_paddle set paddle_No=?,cust_Name=?,cert_Type=?,cert_No=?,cust_Tel=?,cust_Addr=?,cash_Deposit=?,remarks=? where pk_id=?";
 
     /**
      * 根据条件进行查询
      *
-     * @param goodsNo
-     * @param goodsName
+     * @param paddleNo
+     * @param custName
      * @return
      * @throws SQLException
      */
-    public List getAllObjectInfo(String goodsNo, String goodsName) throws SQLException {
+    public List getAllObjectInfo(String paddleNo, String custName) throws SQLException {
         Connection conn = null;
         QueryRunner queryRunner = null;
-        List<GoodsList> list = null;
+        List<BiddingPaddle> list = null;
         StringBuilder sb = new StringBuilder(SQL_BASIC_QUERY);
         try {
             ArrayList<Object> params = new ArrayList<Object>();
-            if (StringUtils.isNotEmpty(goodsNo)) {
-                params.add(goodsNo.trim());
-                sb.append(" and goods_no=? ");
+            if (StringUtils.isNotEmpty(paddleNo)) {
+                params.add(paddleNo.trim());
+                sb.append(" and paddle_No=? ");
             }
-            if (StringUtils.isNotEmpty(goodsName)) {
-                params.add(goodsName.trim());
-                sb.append(" and goods_Name like '%'||?||'%' ");
+            if (StringUtils.isNotEmpty(custName)) {
+                params.add(custName.trim());
+                sb.append(" and cust_Name like '%'||?||'%' ");
             }
-            sb.append(" order by goods_no");
+            sb.append(" order by paddle_No");
             log.debug("getAllObjectInfo.sql=" + sb.toString());
 
             conn = JdbcUtil.getConn();
             queryRunner = new QueryRunner();
-            list = (List<GoodsList>) queryRunner.query(conn, sb.toString(), new BeanListHandler(GoodsList.class), params.toArray());
+            list = (List<BiddingPaddle>) queryRunner.query(conn, sb.toString(), new BeanListHandler(BiddingPaddle.class), params.toArray());
         } finally {
             DbUtils.close(conn);
         }
@@ -68,15 +72,15 @@ public class GoodsListDao {
      * @return
      * @throws SQLException
      */
-    public GoodsList getObjectById(String pkId) throws SQLException {
+    public BiddingPaddle getObjectById(String pkId) throws SQLException {
         Connection conn = null;
         QueryRunner queryRunner = null;
-        GoodsList dto = null;
+        BiddingPaddle dto = null;
         String sql = SQL_BASIC_QUERY.concat(" and pk_id=?");
         try {
             conn = JdbcUtil.getConn();
             queryRunner = new QueryRunner();
-            dto = (GoodsList) queryRunner.query(conn, sql, new BeanHandler(GoodsList.class), pkId);
+            dto = (BiddingPaddle) queryRunner.query(conn, sql, new BeanHandler(BiddingPaddle.class), pkId);
         } finally {
             DbUtils.close(conn);
         }
@@ -112,7 +116,7 @@ public class GoodsListDao {
      * @param dto
      * @throws SQLException
      */
-    public void saveOrUpdateObject(GoodsList dto) throws SQLException {
+    public void saveOrUpdateObject(BiddingPaddle dto) throws SQLException {
         Connection conn = null;
         QueryRunner queryRunner = null;
         try {
@@ -120,14 +124,14 @@ public class GoodsListDao {
             queryRunner = new QueryRunner();
             Object[] params = new Object[9];
             int seq = 0;
-            params[seq++] = dto.getGoodsNo();
-            params[seq++] = dto.getGoodsName();
-            params[seq++] = dto.getGoodsIntact();
-            params[seq++] = dto.getGoodsSize();
-            params[seq++] = dto.getCertificateNo();
-            params[seq++] = dto.getKeepPrice();
-            params[seq++] = dto.getMarketPrice();
-            params[seq++] = dto.getOnsetPrice();
+            params[seq++] = dto.getPaddleNo();
+            params[seq++] = dto.getCustName();
+            params[seq++] = dto.getCertType();
+            params[seq++] = dto.getCertNo();
+            params[seq++] = dto.getCustTel();
+            params[seq++] = dto.getCustAddr();
+            params[seq++] = dto.getCashDeposit();
+            params[seq++] = dto.getRemarks();
             if (StringUtils.isNotEmpty(dto.getPkId())) {
                 params[seq++] = dto.getPkId();
                 queryRunner.update(conn, SQL_UPDATE_BY_ID, params);
@@ -140,3 +144,4 @@ public class GoodsListDao {
         }
     }
 }
+

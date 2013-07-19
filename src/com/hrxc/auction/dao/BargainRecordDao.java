@@ -1,6 +1,10 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.hrxc.auction.dao;
 
-import com.hrxc.auction.domain.GoodsList;
+import com.hrxc.auction.domain.BargainRecord;
 import com.hrxc.auction.util.JdbcUtil;
 import com.hrxc.auction.util.UITools;
 import java.sql.Connection;
@@ -18,43 +22,43 @@ import org.apache.log4j.Logger;
  *
  * @author user
  */
-public class GoodsListDao {
+public class BargainRecordDao {
 
     private static final Logger log = Logger.getLogger(GoodsListDao.class);
-    private static final String SQL_BASIC_QUERY = "select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1 ";
-    private static final String SQL_DELETE_BY_ID = "delete from goods_list where pk_id=?";
-    private static final String SQL_INSERT = "insert into goods_list(goods_no,goods_Name,goods_Intact,goods_Size,certificate_No,keep_Price,market_Price,onset_Price,pk_id)values(?,?,?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATE_BY_ID = "update goods_list set goods_no=?,goods_Name=?,goods_Intact=?,goods_Size=?,certificate_No=?,keep_Price=?,market_Price=?,onset_Price=? where pk_id=?";
+    private static final String SQL_BASIC_QUERY = "select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1 ";
+    private static final String SQL_DELETE_BY_ID = "delete from bargain_record where pk_id=?";
+    private static final String SQL_INSERT = "insert into bargain_record(paddle_No,goods_No,bargain_Confirm_No,hammer_Price,commission,other_Fund,bargain_Price,account_Paid,non_Payment,pk_id)values(?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATE_BY_ID = "update bargain_record set paddle_No=?,goods_No=?,bargain_Confirm_No=?,hammer_Price=?,commission=?,other_Fund=?,bargain_Price=?,account_Paid=?,non_Payment=? where pk_id=?";
 
     /**
      * 根据条件进行查询
      *
-     * @param goodsNo
-     * @param goodsName
+     * @param paddleNo
+     * @param custName
      * @return
      * @throws SQLException
      */
-    public List getAllObjectInfo(String goodsNo, String goodsName) throws SQLException {
+    public List getAllObjectInfo(String paddleNo, String custName) throws SQLException {
         Connection conn = null;
         QueryRunner queryRunner = null;
-        List<GoodsList> list = null;
+        List<BargainRecord> list = null;
         StringBuilder sb = new StringBuilder(SQL_BASIC_QUERY);
         try {
             ArrayList<Object> params = new ArrayList<Object>();
-            if (StringUtils.isNotEmpty(goodsNo)) {
-                params.add(goodsNo.trim());
-                sb.append(" and goods_no=? ");
+            if (StringUtils.isNotEmpty(paddleNo)) {
+                params.add(paddleNo.trim());
+                sb.append(" and paddle_No=? ");
             }
-            if (StringUtils.isNotEmpty(goodsName)) {
-                params.add(goodsName.trim());
-                sb.append(" and goods_Name like '%'||?||'%' ");
+            if (StringUtils.isNotEmpty(custName)) {
+                params.add(custName.trim());
+                sb.append(" and goods_No=? ");
             }
-            sb.append(" order by goods_no");
+            sb.append(" order by paddle_No");
             log.debug("getAllObjectInfo.sql=" + sb.toString());
 
             conn = JdbcUtil.getConn();
             queryRunner = new QueryRunner();
-            list = (List<GoodsList>) queryRunner.query(conn, sb.toString(), new BeanListHandler(GoodsList.class), params.toArray());
+            list = (List<BargainRecord>) queryRunner.query(conn, sb.toString(), new BeanListHandler(BargainRecord.class), params.toArray());
         } finally {
             DbUtils.close(conn);
         }
@@ -68,15 +72,15 @@ public class GoodsListDao {
      * @return
      * @throws SQLException
      */
-    public GoodsList getObjectById(String pkId) throws SQLException {
+    public BargainRecord getObjectById(String pkId) throws SQLException {
         Connection conn = null;
         QueryRunner queryRunner = null;
-        GoodsList dto = null;
+        BargainRecord dto = null;
         String sql = SQL_BASIC_QUERY.concat(" and pk_id=?");
         try {
             conn = JdbcUtil.getConn();
             queryRunner = new QueryRunner();
-            dto = (GoodsList) queryRunner.query(conn, sql, new BeanHandler(GoodsList.class), pkId);
+            dto = (BargainRecord) queryRunner.query(conn, sql, new BeanHandler(BargainRecord.class), pkId);
         } finally {
             DbUtils.close(conn);
         }
@@ -112,22 +116,23 @@ public class GoodsListDao {
      * @param dto
      * @throws SQLException
      */
-    public void saveOrUpdateObject(GoodsList dto) throws SQLException {
+    public void saveOrUpdateObject(BargainRecord dto) throws SQLException {
         Connection conn = null;
         QueryRunner queryRunner = null;
         try {
             conn = JdbcUtil.getConn();
             queryRunner = new QueryRunner();
-            Object[] params = new Object[9];
+            Object[] params = new Object[10];
             int seq = 0;
+            params[seq++] = dto.getPaddleNo();
             params[seq++] = dto.getGoodsNo();
-            params[seq++] = dto.getGoodsName();
-            params[seq++] = dto.getGoodsIntact();
-            params[seq++] = dto.getGoodsSize();
-            params[seq++] = dto.getCertificateNo();
-            params[seq++] = dto.getKeepPrice();
-            params[seq++] = dto.getMarketPrice();
-            params[seq++] = dto.getOnsetPrice();
+            params[seq++] = dto.getBargainConfirmNo();
+            params[seq++] = dto.getHammerPrice();
+            params[seq++] = dto.getCommission();
+            params[seq++] = dto.getOtherFund();
+            params[seq++] = dto.getBargainPrice();
+            params[seq++] = dto.getAccountPaid();
+            params[seq++] = dto.getNonPayment();
             if (StringUtils.isNotEmpty(dto.getPkId())) {
                 params[seq++] = dto.getPkId();
                 queryRunner.update(conn, SQL_UPDATE_BY_ID, params);
@@ -140,3 +145,5 @@ public class GoodsListDao {
         }
     }
 }
+
+
