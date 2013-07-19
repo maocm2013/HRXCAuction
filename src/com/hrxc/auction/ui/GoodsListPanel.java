@@ -36,6 +36,10 @@ public class GoodsListPanel extends javax.swing.JPanel {
         editBton = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         GoodsListTableConfig.MyTableModel model = new GoodsListTableConfig().new MyTableModel();
+
+        //初始化显示数据
+        Object[][] datas = GoodsListAction.getAllTableData(null, null);
+        model.refreshContents(datas);
         dataTable = new org.jdesktop.swingx.JXTable(model);
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
         fd_goodsNo = new org.jdesktop.swingx.JXTextField();
@@ -72,11 +76,6 @@ public class GoodsListPanel extends javax.swing.JPanel {
         editBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         toolBar.add(editBton);
 
-        dataTable.setModel(model);
-        //初始化显示数据
-        Object[][] datas = GoodsListAction.getAllTableData(null, null);
-        model.refreshContents(datas);
-
         //隐藏第一列（主键）
         UITools.hideColumn(dataTable, 1);
         jScrollPane1.setViewportView(dataTable);
@@ -91,6 +90,11 @@ public class GoodsListPanel extends javax.swing.JPanel {
         searchBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         searchBton.setPreferredSize(new java.awt.Dimension(40, 40));
         searchBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        searchBton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -129,6 +133,16 @@ public class GoodsListPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtonActionPerformed
+        String goodsNo = fd_goodsNo.getText().trim();
+        String goodsName = fd_goodsName.getText().trim();
+        GoodsListTableConfig.MyTableModel model = (GoodsListTableConfig.MyTableModel) dataTable.getModel();
+        model.refreshContents(GoodsListAction.getAllTableData(goodsNo, goodsName));
+        //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
+        dataTable.setModel(model);
+    }//GEN-LAST:event_searchBtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton addBton;
     private org.jdesktop.swingx.JXTable dataTable;

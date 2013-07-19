@@ -40,7 +40,7 @@ public class BiddingPaddleAction {
     }
 
     private static Object[][] List2TableData(List<BiddingPaddle> list) {
-        Object[][] data = new String[list.size()][BiddingPaddleTableConfig.tableColumnNames.length];
+        Object[][] data = new Object[list.size()][BiddingPaddleTableConfig.tableColumnNames.length];
         for (int i = 0; i < list.size(); i++) {
             int seq = 0;
             BiddingPaddle dto = list.get(i);

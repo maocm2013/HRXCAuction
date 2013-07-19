@@ -40,7 +40,7 @@ public class BargainRecordAction {
     }
 
     private static Object[][] List2TableData(List<BargainRecord> list) {
-        Object[][] data = new String[list.size()][BargainRecordTableConfig.tableColumnNames.length];
+        Object[][] data = new Object[list.size()][BargainRecordTableConfig.tableColumnNames.length];
         for (int i = 0; i < list.size(); i++) {
             int seq = 0;
             BargainRecord dto = list.get(i);

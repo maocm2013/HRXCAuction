@@ -40,7 +40,7 @@ public class GoodsListAction {
     }
 
     private static Object[][] List2TableData(List<GoodsList> list) {
-        Object[][] data = new String[list.size()][GoodsListTableConfig.tableColumnNames.length];
+        Object[][] data = new Object[list.size()][GoodsListTableConfig.tableColumnNames.length];
         for (int i = 0; i < list.size(); i++) {
             int seq = 0;
             GoodsList dto = list.get(i);
