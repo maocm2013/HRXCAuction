@@ -139,7 +139,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtonActionPerformed
-        GoodsListEditDialog dialog = new GoodsListEditDialog((javax.swing.JFrame)this.getRootPane().getParent(), true, null);
+        GoodsListEditDialog dialog = new GoodsListEditDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, null);
         dialog.setLocationRelativeTo(this);
         dialog.setVisible(true);
     }//GEN-LAST:event_addBtonActionPerformed
@@ -147,12 +147,18 @@ public class GoodsListPanel extends javax.swing.JPanel {
     private void searchBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtonActionPerformed
         String goodsNo = fd_goodsNo.getText().trim();
         String goodsName = fd_goodsName.getText().trim();
-        GoodsListTableConfig.MyTableModel model = (GoodsListTableConfig.MyTableModel) dataTable.getModel();
-        model.refreshContents(GoodsListAction.getAllTableData(goodsNo, goodsName));
-        //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
-        dataTable.setModel(model);
+        refreshNoteTableDatas(goodsNo,goodsName);
     }//GEN-LAST:event_searchBtonActionPerformed
 
+    /**
+     * 刷新表单数据
+     */
+    public void refreshNoteTableDatas(String goodsNo,String goodsName) {
+        GoodsListTableConfig.MyTableModel model = (GoodsListTableConfig.MyTableModel) dataTable.getModel();
+        model.refreshContents(GoodsListAction.getAllTableData(goodsNo, goodsNo));
+        //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
+        dataTable.setModel(model);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton addBton;
     private org.jdesktop.swingx.JXTable dataTable;

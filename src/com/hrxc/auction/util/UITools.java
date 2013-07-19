@@ -8,16 +8,25 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
+import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author user
  */
 public class UITools {
+
+    private static final Logger log = Logger.getLogger(UITools.class);
 
     /**
      * 生成32位UUID
@@ -67,27 +76,29 @@ public class UITools {
         }
         return new DefaultComboBoxModel(v);
     }
-    
+
     /**
      * 获取小时选择下拉选项
-     * @return 
+     *
+     * @return
      */
-    public static DefaultComboBoxModel getHourComboxModel(){
+    public static DefaultComboBoxModel getHourComboxModel() {
         String[] v = new String[24];
-        for(int i = 0; i < v.length; i++){
-            v[i] = StringUtils.leftPad(String.valueOf(i), 2,"0");
+        for (int i = 0; i < v.length; i++) {
+            v[i] = StringUtils.leftPad(String.valueOf(i), 2, "0");
         }
         return new DefaultComboBoxModel(v);
     }
-    
+
     /**
      * 获取分钟选择下拉选项
-     * @return 
+     *
+     * @return
      */
-    public static DefaultComboBoxModel getMinComboxModel(){
+    public static DefaultComboBoxModel getMinComboxModel() {
         String[] v = new String[60];
-        for(int i = 0; i < v.length; i++){
-            v[i] = StringUtils.leftPad(String.valueOf(i), 2,"0");
+        for (int i = 0; i < v.length; i++) {
+            v[i] = StringUtils.leftPad(String.valueOf(i), 2, "0");
         }
         return new DefaultComboBoxModel(v);
     }
@@ -128,5 +139,68 @@ public class UITools {
             }
         }
         return list;
+    }
+
+    /**
+     * 从bean中根据属性名称获取响应值
+     *
+     * @param bean
+     * @param propName
+     * @return
+     */
+    public static String getBeanPropertyValue(Object bean, String propName) {
+        String s = "";
+        try {
+            if (bean != null) {
+                s = BeanUtils.getProperty(bean, propName);
+            }
+        } catch (Exception ex) {
+            log.error("getBeanPropertyValue.error:", ex);
+        }
+        return s;
+    }
+
+    /**
+     * 在焦点失去的时候进行文本校验
+     *
+     * @param tc
+     * @param msgLabel 信息显示标签
+     * @param isEmpty 是否可以为空
+     * @param isNumber 是否为数值
+     * @param isDigit 是否为纯数字
+     */
+    public static boolean vilidateText(JTextComponent tc, JLabel msgLabel, boolean isEmpty, boolean isNumber, boolean isDigit) {
+        //验证空值
+        if (isEmpty) {
+            if (StringUtils.isEmpty(tc.getText())) {
+                msgLabel.setText("<html><font color=red style=font-size:14pt;font-family:黑体><b>文本不能为空！</b></font></html>");
+                tc.requestFocus();
+                tc.selectAll();
+                return false;
+            } 
+        }
+
+        //验证是否数值
+        if (isNumber) {
+            if (!NumberUtils.isNumber(tc.getText())) {
+                msgLabel.setText("<html><font color=red style=font-size:14pt;font-family:黑体><b>文本必须为数值！</b></font></html>");
+                tc.requestFocus();
+                tc.selectAll();
+                return false;
+            } 
+        }
+
+        //验证是否纯数字
+        if (isDigit) {
+            if (!NumberUtils.isDigits(tc.getText())) {
+                msgLabel.setText("<html><font color=red style=font-size:14pt;font-family:黑体><b>文本必须为纯数字！</b></font></html>");
+                tc.requestFocus();
+                tc.selectAll();
+                return false;
+            } 
+        }
+        
+        msgLabel.setText("");
+        return true;
     }
 }

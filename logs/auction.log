@@ -15,3 +15,107 @@
 2013-07-19 15:14:33[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
 2013-07-19 15:14:33[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
 2013-07-19 15:14:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 15:31:17[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 15:31:17[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:16:58[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:16:58[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:21:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:21:57[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:29:30[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:29:30[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:30:50[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:30:50[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:33:24[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:33:24[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:34:12[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:34:12[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:34:58[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:34:58[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:36:59[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:36:59[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:38:03[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:38:03[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:43:11[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:43:11[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:44:28[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:44:28[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:50:33[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:50:33[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:51:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:51:56[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 16:56:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 16:56:53[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 17:21:03[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 17:21:03[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 17:47:00[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 17:47:00[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 17:50:41[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 17:50:41[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 17:52:07[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 17:52:08[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 17:54:58[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 17:54:58[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 17:55:07[com.hrxc.auction.util.UITools:200] DEBUG 3--------null
+2013-07-19 17:55:59[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 17:55:59[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 17:56:05[com.hrxc.auction.util.UITools:200] DEBUG 3--------123
+2013-07-19 17:57:21[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 17:57:21[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 17:57:28[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:28[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:29[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:29[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:29[com.hrxc.auction.util.UITools:200] DEBUG 3--------ewwqe
+2013-07-19 17:57:32[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:32[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:32[com.hrxc.auction.util.UITools:200] DEBUG 3--------ewwqe
+2013-07-19 17:57:32[com.hrxc.auction.util.UITools:200] DEBUG 3--------werw
+2013-07-19 17:57:36[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:36[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:36[com.hrxc.auction.util.UITools:200] DEBUG 3--------ewwqe
+2013-07-19 17:57:36[com.hrxc.auction.util.UITools:200] DEBUG 3--------werw
+2013-07-19 17:57:36[com.hrxc.auction.util.UITools:200] DEBUG 3--------sdadsa
+2013-07-19 17:57:39[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:39[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:39[com.hrxc.auction.util.UITools:200] DEBUG 3--------ewwqe
+2013-07-19 17:57:39[com.hrxc.auction.util.UITools:200] DEBUG 3--------werw
+2013-07-19 17:57:39[com.hrxc.auction.util.UITools:200] DEBUG 3--------sdadsa
+2013-07-19 17:57:39[com.hrxc.auction.util.UITools:200] DEBUG 3--------dasd
+2013-07-19 17:57:42[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:42[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:42[com.hrxc.auction.util.UITools:200] DEBUG 3--------ewwqe
+2013-07-19 17:57:42[com.hrxc.auction.util.UITools:200] DEBUG 3--------werw
+2013-07-19 17:57:42[com.hrxc.auction.util.UITools:200] DEBUG 3--------sdadsa
+2013-07-19 17:57:42[com.hrxc.auction.util.UITools:200] DEBUG 3--------dasd
+2013-07-19 17:57:43[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:43[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:43[com.hrxc.auction.util.UITools:200] DEBUG 3--------ewwqe
+2013-07-19 17:57:43[com.hrxc.auction.util.UITools:200] DEBUG 3--------werw
+2013-07-19 17:57:43[com.hrxc.auction.util.UITools:200] DEBUG 3--------sdadsa
+2013-07-19 17:57:43[com.hrxc.auction.util.UITools:200] DEBUG 3--------dasd
+2013-07-19 17:57:46[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:46[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:57:46[com.hrxc.auction.util.UITools:200] DEBUG 3--------ewwqe
+2013-07-19 17:57:46[com.hrxc.auction.util.UITools:200] DEBUG 3--------werw
+2013-07-19 17:57:46[com.hrxc.auction.util.UITools:200] DEBUG 3--------sdadsa
+2013-07-19 17:57:46[com.hrxc.auction.util.UITools:200] DEBUG 3--------dasd
+2013-07-19 17:57:46[com.hrxc.auction.util.UITools:200] DEBUG 3--------123
+2013-07-19 17:58:00[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:58:00[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:58:00[com.hrxc.auction.util.UITools:200] DEBUG 3--------ewwqe
+2013-07-19 17:58:00[com.hrxc.auction.util.UITools:200] DEBUG 3--------werw
+2013-07-19 17:58:00[com.hrxc.auction.util.UITools:200] DEBUG 3--------sdadsa
+2013-07-19 17:58:00[com.hrxc.auction.util.UITools:200] DEBUG 3--------dasd
+2013-07-19 17:58:00[com.hrxc.auction.util.UITools:200] DEBUG 3--------123
+2013-07-19 17:58:07[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:58:07[com.hrxc.auction.util.UITools:200] DEBUG 3--------qweqw
+2013-07-19 17:58:07[com.hrxc.auction.util.UITools:200] DEBUG 3--------ewwqe
+2013-07-19 17:58:07[com.hrxc.auction.util.UITools:200] DEBUG 3--------werw
+2013-07-19 17:58:07[com.hrxc.auction.util.UITools:200] DEBUG 3--------sdadsa
+2013-07-19 17:58:07[com.hrxc.auction.util.UITools:200] DEBUG 3--------dasd
+2013-07-19 17:58:07[com.hrxc.auction.util.UITools:200] DEBUG 3--------123
+2013-07-19 17:58:58[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 17:58:58[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 18:10:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-19 18:10:35[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-19 18:11:15[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no

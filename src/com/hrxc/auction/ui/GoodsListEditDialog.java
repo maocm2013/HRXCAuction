@@ -4,7 +4,10 @@
  */
 package com.hrxc.auction.ui;
 
+import com.hrxc.auction.action.GoodsListAction;
 import com.hrxc.auction.domain.GoodsList;
+import com.hrxc.auction.util.UITools;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,7 +18,7 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
     /**
      * Creates new form GoodsListEditDialog
      */
-    public GoodsListEditDialog(java.awt.Frame parent, boolean modal,GoodsList dto) {
+    public GoodsListEditDialog(java.awt.Frame parent, boolean modal, GoodsList dto) {
         super(parent, modal);
         this.dto = dto;
         initComponents();
@@ -49,6 +52,7 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
         fd_marketPrice = new org.jdesktop.swingx.JXTextField();
         closeBt = new org.jdesktop.swingx.JXButton();
         submitBt = new org.jdesktop.swingx.JXButton();
+        msgLabel = new org.jdesktop.swingx.JXLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(640, 480));
@@ -59,25 +63,51 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
         jXTitledSeparator1.setFont(new java.awt.Font("黑体", 0, 12)); // NOI18N
         jXTitledSeparator1.setTitle("数据信息修改");
 
+        fd_goodsNo.setText(UITools.getBeanPropertyValue(dto, "goodsNo"));
+
         jXLabel2.setText("拍品名称：");
+
+        fd_goodsName.setText(UITools.getBeanPropertyValue(dto, "goodsName"));
 
         jXLabel3.setText("完残度：");
 
+        fd_goodsIntact.setText(UITools.getBeanPropertyValue(dto, "goodsIntact"));
+
         jXLabel4.setText("尺寸：");
+
+        fd_goodsSize.setText(UITools.getBeanPropertyValue(dto, "goodsSize"));
 
         jXLabel5.setText("证书后七位：");
 
+        fd_onsetPrice.setText(UITools.getBeanPropertyValue(dto, "onsetPrice"));
+
         jXLabel6.setText("保留价：");
+
+        fd_certificateNo.setText(UITools.getBeanPropertyValue(dto, "certificateNo"));
 
         jXLabel7.setText("市场估价：");
 
+        fd_keepPrice.setText(UITools.getBeanPropertyValue(dto, "keepPrice"));
+
         jXLabel8.setText("起拍价：");
+
+        fd_marketPrice.setText(UITools.getBeanPropertyValue(dto, "marketPrice"));
 
         closeBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dialog-close.png"))); // NOI18N
         closeBt.setText("关闭");
+        closeBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeBtActionPerformed(evt);
+            }
+        });
 
         submitBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dialog-ok.png"))); // NOI18N
         submitBt.setText("提交");
+        submitBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitBtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,18 +115,18 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jXTitledSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(170, 170, 170)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jXLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jXLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jXLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jXLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jXLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jXLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jXLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jXLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jXLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(fd_goodsNo, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -107,11 +137,15 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
                             .addComponent(fd_certificateNo, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fd_keepPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fd_marketPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(260, 260, 260)
-                        .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(submitBt, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(msgLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(90, 90, 90)
+                            .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(submitBt, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(183, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -155,12 +189,53 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(submitBt, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(msgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void closeBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_closeBtActionPerformed
+
+    private void submitBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtActionPerformed
+        //进行输入项验证
+        if (UITools.vilidateText(fd_goodsNo, msgLabel, true, false, false)
+                && UITools.vilidateText(fd_goodsNo, msgLabel, true, false, false)
+                && UITools.vilidateText(fd_goodsName, msgLabel, true, false, false)
+                && UITools.vilidateText(fd_goodsIntact, msgLabel, true, false, false)
+                && UITools.vilidateText(fd_goodsSize, msgLabel, true, false, false)
+                && UITools.vilidateText(fd_certificateNo, msgLabel, true, false, false)
+                && UITools.vilidateText(fd_keepPrice, msgLabel, false, true, false)
+                && UITools.vilidateText(fd_marketPrice, msgLabel, false, true, false)
+                && UITools.vilidateText(fd_onsetPrice, msgLabel, false, true, false)) {
+
+            //如果数据对象为空则新建
+            if (dto == null) {
+                dto = new GoodsList();
+            }
+
+            //拼装数据对象属性
+            dto.setGoodsNo(fd_goodsNo.getText().trim());
+            dto.setGoodsName(fd_goodsName.getText().trim());
+            dto.setGoodsIntact(fd_goodsIntact.getText().trim());
+            dto.setGoodsSize(fd_goodsSize.getText().trim());
+            dto.setCertificateNo(fd_certificateNo.getText().trim());
+            dto.setKeepPrice(Integer.valueOf(fd_keepPrice.getText().trim()));
+            dto.setMarketPrice(Integer.valueOf(fd_marketPrice.getText().trim()));
+            dto.setOnsetPrice(Integer.valueOf(fd_onsetPrice.getText().trim()));
+
+            GoodsListAction.saveOrUpdateObject(dto);
+            JOptionPane.showMessageDialog(this, "保存成功！");
+            this.dispose();
+            
+            GoodsListPanel panel = (GoodsListPanel)this.getParent();
+            panel.refreshNoteTableDatas(null, null);
+        }
+    }//GEN-LAST:event_submitBtActionPerformed
     private GoodsList dto;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton closeBt;
@@ -181,6 +256,7 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
     private org.jdesktop.swingx.JXLabel jXLabel7;
     private org.jdesktop.swingx.JXLabel jXLabel8;
     private org.jdesktop.swingx.JXTitledSeparator jXTitledSeparator1;
+    private org.jdesktop.swingx.JXLabel msgLabel;
     private org.jdesktop.swingx.JXButton submitBt;
     // End of variables declaration//GEN-END:variables
 }
