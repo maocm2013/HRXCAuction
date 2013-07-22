@@ -80,6 +80,8 @@ public class AuctionFrame extends javax.swing.JFrame {
             rightPanel.setViewportView(new GoodsListPanel());
         }else if(menuName.equals(TreeMenuConfig.MenuName.M_00_02)){
             rightPanel.setViewportView(new BiddingPaddlePanel());
+        }else if(menuName.equals(TreeMenuConfig.MenuName.M_00_03)){
+            rightPanel.setViewportView(new BargainRecordPanel());
         }
     }//GEN-LAST:event_menuTreeValueChanged
 

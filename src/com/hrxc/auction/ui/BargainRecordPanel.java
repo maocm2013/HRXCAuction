@@ -4,9 +4,9 @@
  */
 package com.hrxc.auction.ui;
 
-import com.hrxc.auction.action.BiddingPaddleAction;
-import com.hrxc.auction.action.BiddingPaddleTableConfig;
-import com.hrxc.auction.domain.BiddingPaddle;
+import com.hrxc.auction.action.BargainRecordAction;
+import com.hrxc.auction.action.BargainRecordTableConfig;
+import com.hrxc.auction.domain.BargainRecord;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -16,14 +16,14 @@ import org.apache.log4j.Logger;
  *
  * @author user
  */
-public class BiddingPaddlePanel extends javax.swing.JPanel {
+public class BargainRecordPanel extends javax.swing.JPanel {
 
-    private static final Logger log = Logger.getLogger(BiddingPaddlePanel.class);
+    private static final Logger log = Logger.getLogger(BargainRecordPanel.class);
 
     /**
-     * Creates new form BiddingPaddlePanel
+     * Creates new form BargainRecordPanel
      */
-    public BiddingPaddlePanel() {
+    public BargainRecordPanel() {
         initComponents();
     }
 
@@ -41,16 +41,16 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         deleteBton = new org.jdesktop.swingx.JXButton();
         editBton = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        BiddingPaddleTableConfig.MyTableModel model = new BiddingPaddleTableConfig().new MyTableModel();
+        BargainRecordTableConfig.MyTableModel model = new BargainRecordTableConfig().new MyTableModel();
 
         //初始化显示数据
-        Object[][] datas = BiddingPaddleAction.getAllTableData(null, null);
+        Object[][] datas = BargainRecordAction.getAllTableData(null, null);
         model.refreshContents(datas);
         dataTable = new org.jdesktop.swingx.JXTable(model);
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
         fd_paddleNo = new org.jdesktop.swingx.JXTextField();
         jXLabel2 = new org.jdesktop.swingx.JXLabel();
-        fd_custName = new org.jdesktop.swingx.JXTextField();
+        fd_goodsNo = new org.jdesktop.swingx.JXTextField();
         searchBton = new org.jdesktop.swingx.JXButton();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -104,7 +104,7 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
 
         jXLabel1.setText("竞买号牌：");
 
-        jXLabel2.setText("竞买人姓名：");
+        jXLabel2.setText("图录号：");
 
         searchBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
         searchBton.setText("查询");
@@ -128,8 +128,8 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fd_custName, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fd_goodsNo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(searchBton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(toolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -142,7 +142,7 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
                     .addComponent(jXLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fd_paddleNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fd_custName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fd_goodsNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchBton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,15 +152,15 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtonActionPerformed
-        BiddingPaddleEditDialog dialog = new BiddingPaddleEditDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, null, this);
+        BargainRecordEditDialog dialog = new BargainRecordEditDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, null, this);
         dialog.setLocationRelativeTo(this);
         dialog.setVisible(true);
     }//GEN-LAST:event_addBtonActionPerformed
 
     private void searchBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtonActionPerformed
         String paddleNo = fd_paddleNo.getText().trim();
-        String custName = fd_custName.getText().trim();
-        refreshTableDatas(paddleNo, custName);
+        String goodsNo = fd_goodsNo.getText().trim();
+        refreshTableDatas(paddleNo, goodsNo);
     }//GEN-LAST:event_searchBtonActionPerformed
 
     private void editBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtonActionPerformed
@@ -169,8 +169,8 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         } else {
             ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
             String pkId = list.get(0);
-            BiddingPaddle dto = BiddingPaddleAction.getObjectById(pkId);
-            BiddingPaddleEditDialog dialog = new BiddingPaddleEditDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, dto, this);
+            BargainRecord dto = BargainRecordAction.getObjectById(pkId);
+            BargainRecordEditDialog dialog = new BargainRecordEditDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, dto, this);
             dialog.setLocationRelativeTo(this);
             dialog.setVisible(true);
         }
@@ -182,7 +182,7 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         } else {
             if (JOptionPane.showConfirmDialog(this.getRootPane(), "请确认您是否要删除数据？") == JOptionPane.YES_OPTION) {
                 ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
-                BiddingPaddleAction.deleteObjectById(list);
+                BargainRecordAction.deleteObjectById(list);
                 JOptionPane.showMessageDialog(this.getRootPane(), list.size() + "条记录删除成功！");
                 refreshTableDatas(null, null);
             }
@@ -192,9 +192,9 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
     /**
      * 刷新表单数据
      */
-    public void refreshTableDatas(String paddleNo, String custName) {
-        BiddingPaddleTableConfig.MyTableModel model = (BiddingPaddleTableConfig.MyTableModel) dataTable.getModel();
-        model.refreshContents(BiddingPaddleAction.getAllTableData(paddleNo, custName));
+    public void refreshTableDatas(String paddleNo, String goodsNo) {
+        BargainRecordTableConfig.MyTableModel model = (BargainRecordTableConfig.MyTableModel) dataTable.getModel();
+        model.refreshContents(BargainRecordAction.getAllTableData(paddleNo, goodsNo));
         //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
         dataTable.setModel(model);
     }
@@ -203,7 +203,7 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXTable dataTable;
     private org.jdesktop.swingx.JXButton deleteBton;
     private org.jdesktop.swingx.JXButton editBton;
-    private org.jdesktop.swingx.JXTextField fd_custName;
+    private org.jdesktop.swingx.JXTextField fd_goodsNo;
     private org.jdesktop.swingx.JXTextField fd_paddleNo;
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXLabel jXLabel1;

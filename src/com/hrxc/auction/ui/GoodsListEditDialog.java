@@ -19,7 +19,7 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
     /**
      * Creates new form GoodsListEditDialog
      */
-    public GoodsListEditDialog(java.awt.Frame parent, boolean modal, GoodsList dto,JPanel listDataPanel) {
+    public GoodsListEditDialog(java.awt.Frame parent, boolean modal, GoodsList dto, JPanel listDataPanel) {
         super(parent, modal);
         this.dto = dto;
         this.listDataPanel = listDataPanel;
@@ -228,12 +228,14 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
             dto.setMarketPrice(Integer.valueOf(fd_marketPrice.getText().trim()));
             dto.setOnsetPrice(Integer.valueOf(fd_onsetPrice.getText().trim()));
 
-            GoodsListAction.saveOrUpdateObject(dto);
-            JOptionPane.showMessageDialog(this, "保存成功！");
-            this.dispose();
-            
-            GoodsListPanel panel = (GoodsListPanel)this.listDataPanel;
-            panel.refreshTableDatas(null, null);
+            if (JOptionPane.showConfirmDialog(this.getRootPane(), "请确认您是否要保存数据？") == JOptionPane.YES_OPTION) {
+                GoodsListAction.saveOrUpdateObject(dto);
+                JOptionPane.showMessageDialog(this, "保存成功！");
+                this.dispose();
+                GoodsListPanel panel = (GoodsListPanel) this.listDataPanel;
+                panel.refreshTableDatas(null, null);
+            }
+
         }
     }//GEN-LAST:event_submitBtActionPerformed
     private GoodsList dto;
