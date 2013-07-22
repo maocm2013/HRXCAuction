@@ -6,13 +6,19 @@ package com.hrxc.auction.ui;
 
 import com.hrxc.auction.action.GoodsListAction;
 import com.hrxc.auction.action.GoodsListTableConfig;
+import com.hrxc.auction.domain.GoodsList;
 import com.hrxc.auction.util.UITools;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author user
  */
 public class GoodsListPanel extends javax.swing.JPanel {
+
+    private static final Logger log = Logger.getLogger(GoodsListPanel.class);
 
     /**
      * Creates new form GoodsListPanel
@@ -72,6 +78,11 @@ public class GoodsListPanel extends javax.swing.JPanel {
         deleteBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         deleteBton.setPreferredSize(new java.awt.Dimension(40, 40));
         deleteBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        deleteBton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtonActionPerformed(evt);
+            }
+        });
         toolBar.add(deleteBton);
 
         editBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edit.png"))); // NOI18N
@@ -80,6 +91,11 @@ public class GoodsListPanel extends javax.swing.JPanel {
         editBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         editBton.setPreferredSize(new java.awt.Dimension(40, 40));
         editBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        editBton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtonActionPerformed(evt);
+            }
+        });
         toolBar.add(editBton);
 
         //隐藏第一列（主键）
@@ -94,9 +110,6 @@ public class GoodsListPanel extends javax.swing.JPanel {
         searchBton.setText("查询");
         searchBton.setToolTipText("");
         searchBton.setFocusable(false);
-        searchBton.setMaximumSize(new java.awt.Dimension(95, 41));
-        searchBton.setMinimumSize(new java.awt.Dimension(95, 41));
-        searchBton.setPreferredSize(new java.awt.Dimension(95, 41));
         searchBton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchBtonActionPerformed(evt);
@@ -139,7 +152,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtonActionPerformed
-        GoodsListEditDialog dialog = new GoodsListEditDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, null);
+        GoodsListEditDialog dialog = new GoodsListEditDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, null, this);
         dialog.setLocationRelativeTo(this);
         dialog.setVisible(true);
     }//GEN-LAST:event_addBtonActionPerformed
@@ -147,15 +160,41 @@ public class GoodsListPanel extends javax.swing.JPanel {
     private void searchBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtonActionPerformed
         String goodsNo = fd_goodsNo.getText().trim();
         String goodsName = fd_goodsName.getText().trim();
-        refreshNoteTableDatas(goodsNo,goodsName);
+        refreshTableDatas(goodsNo, goodsName);
     }//GEN-LAST:event_searchBtonActionPerformed
+
+    private void editBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtonActionPerformed
+        if (UITools.getCheckedRows(dataTable) != 1) {
+            JOptionPane.showMessageDialog(this.getRootPane(), "请确认您选择了一条记录！");
+        } else {
+            ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
+            String pkId = list.get(0);
+            GoodsList dto = GoodsListAction.getObjectById(pkId);
+            GoodsListEditDialog dialog = new GoodsListEditDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, dto, this);
+            dialog.setLocationRelativeTo(this);
+            dialog.setVisible(true);
+        }
+    }//GEN-LAST:event_editBtonActionPerformed
+
+    private void deleteBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtonActionPerformed
+        if (UITools.getCheckedRows(dataTable) == 0) {
+            JOptionPane.showMessageDialog(this.getRootPane(), "您至少需要选择一条记录！");
+        } else {
+            if (JOptionPane.showConfirmDialog(this.getRootPane(), "请确认您是否要删除数据？") == JOptionPane.YES_OPTION) {
+                ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
+                GoodsListAction.deleteObjectById(list);
+                JOptionPane.showMessageDialog(this.getRootPane(), list.size() + "条记录删除成功！");
+                refreshTableDatas(null, null);
+            }
+        }
+    }//GEN-LAST:event_deleteBtonActionPerformed
 
     /**
      * 刷新表单数据
      */
-    public void refreshNoteTableDatas(String goodsNo,String goodsName) {
+    public void refreshTableDatas(String goodsNo, String goodsName) {
         GoodsListTableConfig.MyTableModel model = (GoodsListTableConfig.MyTableModel) dataTable.getModel();
-        model.refreshContents(GoodsListAction.getAllTableData(goodsNo, goodsNo));
+        model.refreshContents(GoodsListAction.getAllTableData(goodsNo, goodsName));
         //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
         dataTable.setModel(model);
     }

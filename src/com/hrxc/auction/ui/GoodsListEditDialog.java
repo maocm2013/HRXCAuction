@@ -8,6 +8,7 @@ import com.hrxc.auction.action.GoodsListAction;
 import com.hrxc.auction.domain.GoodsList;
 import com.hrxc.auction.util.UITools;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -18,9 +19,10 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
     /**
      * Creates new form GoodsListEditDialog
      */
-    public GoodsListEditDialog(java.awt.Frame parent, boolean modal, GoodsList dto) {
+    public GoodsListEditDialog(java.awt.Frame parent, boolean modal, GoodsList dto,JPanel listDataPanel) {
         super(parent, modal);
         this.dto = dto;
+        this.listDataPanel = listDataPanel;
         initComponents();
     }
 
@@ -232,11 +234,12 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "保存成功！");
             this.dispose();
             
-            GoodsListPanel panel = (GoodsListPanel)this.getParent();
-            panel.refreshNoteTableDatas(null, null);
+            GoodsListPanel panel = (GoodsListPanel)this.listDataPanel;
+            panel.refreshTableDatas(null, null);
         }
     }//GEN-LAST:event_submitBtActionPerformed
     private GoodsList dto;
+    private JPanel listDataPanel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton closeBt;
     private org.jdesktop.swingx.JXTextField fd_certificateNo;
