@@ -15,7 +15,7 @@ public class BiddingPaddle {
     private String certNo;
     private String custTel;
     private String custAddr;
-    private String cashDeposit;
+    private Integer cashDeposit;
     private String remarks;
 
     public String getPkId() {
@@ -74,11 +74,11 @@ public class BiddingPaddle {
         this.custAddr = custAddr;
     }
 
-    public String getCashDeposit() {
+    public Integer getCashDeposit() {
         return cashDeposit;
     }
 
-    public void setCashDeposit(String cashDeposit) {
+    public void setCashDeposit(Integer cashDeposit) {
         this.cashDeposit = cashDeposit;
     }
 

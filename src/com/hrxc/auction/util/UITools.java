@@ -142,7 +142,7 @@ public class UITools {
     }
 
     /**
-     * 从bean中根据属性名称获取响应值
+     * 从bean中根据属性名称获取相应值
      *
      * @param bean
      * @param propName
@@ -153,6 +153,28 @@ public class UITools {
         try {
             if (bean != null) {
                 s = BeanUtils.getProperty(bean, propName);
+            }
+        } catch (Exception ex) {
+            log.error("getBeanPropertyValue.error:", ex);
+        }
+        return s;
+    }
+
+    /**
+     * 从bean中根据属性名称获取相应值
+     *
+     * @param bean
+     * @param propName
+     * @param defaultValue
+     * @return
+     */
+    public static String getBeanPropertyValue(Object bean, String propName, String defaultValue) {
+        String s = "";
+        try {
+            if (bean != null) {
+                s = BeanUtils.getProperty(bean, propName);
+            } else {
+                s = defaultValue;
             }
         } catch (Exception ex) {
             log.error("getBeanPropertyValue.error:", ex);
@@ -177,7 +199,7 @@ public class UITools {
                 tc.requestFocus();
                 tc.selectAll();
                 return false;
-            } 
+            }
         }
 
         //验证是否数值
@@ -187,7 +209,7 @@ public class UITools {
                 tc.requestFocus();
                 tc.selectAll();
                 return false;
-            } 
+            }
         }
 
         //验证是否纯数字
@@ -197,9 +219,9 @@ public class UITools {
                 tc.requestFocus();
                 tc.selectAll();
                 return false;
-            } 
+            }
         }
-        
+
         msgLabel.setText("");
         return true;
     }

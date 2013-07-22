@@ -4,8 +4,8 @@
  */
 package com.hrxc.auction.ui;
 
-import com.hrxc.auction.action.GoodsListAction;
-import com.hrxc.auction.domain.GoodsList;
+import com.hrxc.auction.action.BiddingPaddleAction;
+import com.hrxc.auction.domain.BiddingPaddle;
 import com.hrxc.auction.util.UITools;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -14,12 +14,12 @@ import javax.swing.JPanel;
  *
  * @author user
  */
-public class GoodsListEditDialog extends javax.swing.JDialog {
+public class BiddingPaddleEditDialog extends javax.swing.JDialog {
 
     /**
-     * Creates new form GoodsListEditDialog
+     * Creates new form BiddingPaddleEditDialog
      */
-    public GoodsListEditDialog(java.awt.Frame parent, boolean modal, GoodsList dto,JPanel listDataPanel) {
+    public BiddingPaddleEditDialog(java.awt.Frame parent, boolean modal, BiddingPaddle dto,JPanel listDataPanel) {
         super(parent, modal);
         this.dto = dto;
         this.listDataPanel = listDataPanel;
@@ -37,21 +37,21 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
 
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
         jXTitledSeparator1 = new org.jdesktop.swingx.JXTitledSeparator();
-        fd_goodsNo = new org.jdesktop.swingx.JXTextField();
+        fd_paddleNo = new org.jdesktop.swingx.JXTextField();
         jXLabel2 = new org.jdesktop.swingx.JXLabel();
-        fd_goodsName = new org.jdesktop.swingx.JXTextField();
+        fd_custName = new org.jdesktop.swingx.JXTextField();
         jXLabel3 = new org.jdesktop.swingx.JXLabel();
-        fd_goodsIntact = new org.jdesktop.swingx.JXTextField();
+        fd_certType = new org.jdesktop.swingx.JXTextField();
         jXLabel4 = new org.jdesktop.swingx.JXLabel();
-        fd_goodsSize = new org.jdesktop.swingx.JXTextField();
+        fd_certNo = new org.jdesktop.swingx.JXTextField();
         jXLabel5 = new org.jdesktop.swingx.JXLabel();
-        fd_onsetPrice = new org.jdesktop.swingx.JXTextField();
+        fd_remarks = new org.jdesktop.swingx.JXTextField();
         jXLabel6 = new org.jdesktop.swingx.JXLabel();
-        fd_certificateNo = new org.jdesktop.swingx.JXTextField();
+        fd_custTel = new org.jdesktop.swingx.JXTextField();
         jXLabel7 = new org.jdesktop.swingx.JXLabel();
-        fd_keepPrice = new org.jdesktop.swingx.JXTextField();
+        fd_custAddr = new org.jdesktop.swingx.JXTextField();
         jXLabel8 = new org.jdesktop.swingx.JXLabel();
-        fd_marketPrice = new org.jdesktop.swingx.JXTextField();
+        fd_cashDeposit = new org.jdesktop.swingx.JXTextField();
         closeBt = new org.jdesktop.swingx.JXButton();
         submitBt = new org.jdesktop.swingx.JXButton();
         msgLabel = new org.jdesktop.swingx.JXLabel();
@@ -59,40 +59,40 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jXLabel1.setText("图录号：");
+        jXLabel1.setText("竞买号牌：");
 
         jXTitledSeparator1.setFont(new java.awt.Font("黑体", 0, 12)); // NOI18N
         jXTitledSeparator1.setTitle("数据信息修改");
 
-        fd_goodsNo.setText(UITools.getBeanPropertyValue(dto, "goodsNo"));
+        fd_paddleNo.setText(UITools.getBeanPropertyValue(dto, "paddleNo"));
 
-        jXLabel2.setText("拍品名称：");
+        jXLabel2.setText("竞买人姓名：");
 
-        fd_goodsName.setText(UITools.getBeanPropertyValue(dto, "goodsName"));
+        fd_custName.setText(UITools.getBeanPropertyValue(dto, "custName"));
 
-        jXLabel3.setText("完残度：");
+        jXLabel3.setText("证件名称：");
 
-        fd_goodsIntact.setText(UITools.getBeanPropertyValue(dto, "goodsIntact"));
+        fd_certType.setText(UITools.getBeanPropertyValue(dto, "certType","身份证"));
 
-        jXLabel4.setText("尺寸：");
+        jXLabel4.setText("证件号码：");
 
-        fd_goodsSize.setText(UITools.getBeanPropertyValue(dto, "goodsSize"));
+        fd_certNo.setText(UITools.getBeanPropertyValue(dto, "certNo"));
 
-        jXLabel5.setText("证书后七位：");
+        jXLabel5.setText("联系方式：");
 
-        fd_onsetPrice.setText(UITools.getBeanPropertyValue(dto, "onsetPrice","0"));
+        fd_remarks.setText(UITools.getBeanPropertyValue(dto, "remarks"));
 
-        jXLabel6.setText("保留价：");
+        jXLabel6.setText("通讯地址：");
 
-        fd_certificateNo.setText(UITools.getBeanPropertyValue(dto, "certificateNo"));
+        fd_custTel.setText(UITools.getBeanPropertyValue(dto, "custTel"));
 
-        jXLabel7.setText("市场估价：");
+        jXLabel7.setText("保证金（元）：");
 
-        fd_keepPrice.setText(UITools.getBeanPropertyValue(dto, "keepPrice"));
+        fd_custAddr.setText(UITools.getBeanPropertyValue(dto, "custAddr"));
 
-        jXLabel8.setText("起拍价：");
+        jXLabel8.setText("备注：");
 
-        fd_marketPrice.setText(UITools.getBeanPropertyValue(dto, "marketPrice"));
+        fd_cashDeposit.setText(UITools.getBeanPropertyValue(dto, "cashDeposit"));
 
         closeBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dialog-close.png"))); // NOI18N
         closeBt.setText("关闭");
@@ -130,14 +130,14 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
                             .addComponent(jXLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fd_goodsNo, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fd_goodsName, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fd_goodsIntact, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fd_goodsSize, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fd_onsetPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fd_certificateNo, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fd_keepPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fd_marketPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(fd_paddleNo, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fd_custName, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fd_certType, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fd_certNo, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fd_remarks, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fd_custTel, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fd_custAddr, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fd_cashDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(12, 12, 12)
@@ -147,7 +147,7 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
                             .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(submitBt, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,35 +157,35 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jXLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fd_goodsNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fd_paddleNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fd_goodsName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fd_custName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jXLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fd_goodsIntact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fd_certType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jXLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fd_goodsSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fd_certNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jXLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fd_certificateNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fd_custTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jXLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fd_keepPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fd_custAddr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jXLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fd_marketPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fd_cashDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jXLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fd_onsetPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fd_remarks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,50 +204,50 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
 
     private void submitBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtActionPerformed
         //进行输入项验证
-        if (UITools.vilidateText(fd_goodsNo, msgLabel, true, false, false)
-                && UITools.vilidateText(fd_goodsName, msgLabel, true, false, false)
-                && UITools.vilidateText(fd_goodsIntact, msgLabel, true, false, false)
-                && UITools.vilidateText(fd_goodsSize, msgLabel, true, false, false)
-                && UITools.vilidateText(fd_certificateNo, msgLabel, true, false, false)
-                && UITools.vilidateText(fd_keepPrice, msgLabel, false, true, false)
-                && UITools.vilidateText(fd_marketPrice, msgLabel, false, true, false)
-                && UITools.vilidateText(fd_onsetPrice, msgLabel, false, true, false)) {
+        if (UITools.vilidateText(fd_paddleNo, msgLabel, true, false, false)
+                && UITools.vilidateText(fd_custName, msgLabel, true, false, false)
+                && UITools.vilidateText(fd_certType, msgLabel, true, false, false)
+                && UITools.vilidateText(fd_certNo, msgLabel, true, false, false)
+                && UITools.vilidateText(fd_custTel, msgLabel, true, false, false)
+                && UITools.vilidateText(fd_custAddr, msgLabel, true, false, false)
+                && UITools.vilidateText(fd_cashDeposit, msgLabel, false, true, true)
+                && UITools.vilidateText(fd_remarks, msgLabel, false, false, false)) {
 
             //如果数据对象为空则新建
             if (dto == null) {
-                dto = new GoodsList();
+                dto = new BiddingPaddle();
             }
 
             //拼装数据对象属性
-            dto.setGoodsNo(fd_goodsNo.getText().trim());
-            dto.setGoodsName(fd_goodsName.getText().trim());
-            dto.setGoodsIntact(fd_goodsIntact.getText().trim());
-            dto.setGoodsSize(fd_goodsSize.getText().trim());
-            dto.setCertificateNo(fd_certificateNo.getText().trim());
-            dto.setKeepPrice(Integer.valueOf(fd_keepPrice.getText().trim()));
-            dto.setMarketPrice(Integer.valueOf(fd_marketPrice.getText().trim()));
-            dto.setOnsetPrice(Integer.valueOf(fd_onsetPrice.getText().trim()));
+            dto.setPaddleNo(fd_paddleNo.getText().trim());
+            dto.setCustName(fd_custName.getText().trim());
+            dto.setCertType(fd_certType.getText().trim());
+            dto.setCertNo(fd_certNo.getText().trim());
+            dto.setCustTel(fd_custTel.getText().trim());
+            dto.setCustAddr(fd_custAddr.getText().trim());
+            dto.setCashDeposit(Integer.valueOf(fd_cashDeposit.getText().trim()));
+            dto.setRemarks(fd_remarks.getText().trim());
 
-            GoodsListAction.saveOrUpdateObject(dto);
+            BiddingPaddleAction.saveOrUpdateObject(dto);
             JOptionPane.showMessageDialog(this, "保存成功！");
             this.dispose();
             
-            GoodsListPanel panel = (GoodsListPanel)this.listDataPanel;
+            BiddingPaddlePanel panel = (BiddingPaddlePanel)this.listDataPanel;
             panel.refreshTableDatas(null, null);
         }
     }//GEN-LAST:event_submitBtActionPerformed
-    private GoodsList dto;
+    private BiddingPaddle dto;
     private JPanel listDataPanel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton closeBt;
-    private org.jdesktop.swingx.JXTextField fd_certificateNo;
-    private org.jdesktop.swingx.JXTextField fd_goodsIntact;
-    private org.jdesktop.swingx.JXTextField fd_goodsName;
-    private org.jdesktop.swingx.JXTextField fd_goodsNo;
-    private org.jdesktop.swingx.JXTextField fd_goodsSize;
-    private org.jdesktop.swingx.JXTextField fd_keepPrice;
-    private org.jdesktop.swingx.JXTextField fd_marketPrice;
-    private org.jdesktop.swingx.JXTextField fd_onsetPrice;
+    private org.jdesktop.swingx.JXTextField fd_cashDeposit;
+    private org.jdesktop.swingx.JXTextField fd_certNo;
+    private org.jdesktop.swingx.JXTextField fd_certType;
+    private org.jdesktop.swingx.JXTextField fd_custAddr;
+    private org.jdesktop.swingx.JXTextField fd_custName;
+    private org.jdesktop.swingx.JXTextField fd_custTel;
+    private org.jdesktop.swingx.JXTextField fd_paddleNo;
+    private org.jdesktop.swingx.JXTextField fd_remarks;
     private org.jdesktop.swingx.JXLabel jXLabel1;
     private org.jdesktop.swingx.JXLabel jXLabel2;
     private org.jdesktop.swingx.JXLabel jXLabel3;
