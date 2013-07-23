@@ -70,32 +70,32 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
 
         jXLabel2.setText("图录号：");
 
-        fd_goodsNo.setText(UITools.getBeanPropertyValue(dto, "custName"));
+        fd_goodsNo.setText(UITools.getBeanPropertyValue(dto, "goodsNo"));
 
         jXLabel3.setText("成交确认书编号：");
 
-        fd_bargainConfirmNo.setText(UITools.getBeanPropertyValue(dto, "certType","身份证"));
+        fd_bargainConfirmNo.setText(UITools.getBeanPropertyValue(dto, "bargainConfirmNo"));
 
         jXLabel4.setText("落槌价：");
 
-        fd_hammerPrice.setText(UITools.getBeanPropertyValue(dto, "certNo"));
+        fd_hammerPrice.setText(UITools.getBeanPropertyValue(dto, "hammerPrice"));
 
         jXLabel5.setText("佣金：");
 
-        fd_accountPaid.setText(UITools.getBeanPropertyValue(dto, "remarks"));
+        fd_accountPaid.setText(UITools.getBeanPropertyValue(dto, "accountPaid"));
 
         jXLabel6.setText("其他款项：");
 
-        fd_commission.setText(UITools.getBeanPropertyValue(dto, "custTel"));
+        fd_commission.setText(UITools.getBeanPropertyValue(dto, "commission"));
         fd_commission.setEditable(false);
 
         jXLabel7.setText("总成交价：");
 
-        fd_otherFund.setText(UITools.getBeanPropertyValue(dto, "custAddr"));
+        fd_otherFund.setText(UITools.getBeanPropertyValue(dto, "otherFund"));
 
         jXLabel8.setText("已付款：");
 
-        fd_bargainPrice.setText(UITools.getBeanPropertyValue(dto, "cashDeposit"));
+        fd_bargainPrice.setText(UITools.getBeanPropertyValue(dto, "bargainPrice"));
         fd_bargainPrice.setEditable(false);
 
         closeBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dialog-close.png"))); // NOI18N
@@ -116,7 +116,7 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
 
         jXLabel9.setText("未付款：");
 
-        fd_accountPaid.setText(UITools.getBeanPropertyValue(dto, "remarks"));
+        fd_nonPayment.setText(UITools.getBeanPropertyValue(dto, "nonPayment"));
         fd_nonPayment.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -218,28 +218,34 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_closeBtActionPerformed
 
     private void submitBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtActionPerformed
-        //按照公式进行相关运算
-        //佣金按照落锤价的10%计算
-        fd_commission.setText(String.valueOf(Integer.parseInt(fd_hammerPrice.getText().trim())*0.1));
-        //总价=落锤价+佣金+其他款项
-        fd_bargainPrice.setText(String.valueOf(Integer.parseInt(fd_hammerPrice.getText().trim())
-                + Integer.parseInt(fd_commission.getText().trim())
-                + Integer.parseInt(fd_otherFund.getText().trim())));
-        //未付款=总价-已付款
-        fd_nonPayment.setText(String.valueOf(Integer.parseInt(fd_bargainPrice.getText().trim())
-                - Integer.parseInt(fd_accountPaid.getText().trim())));
-        
         //进行输入项验证
         if (UITools.vilidateText(fd_paddleNo, msgLabel, true, false, false)
                 && UITools.vilidateText(fd_goodsNo, msgLabel, true, false, false)
                 && UITools.vilidateText(fd_bargainConfirmNo, msgLabel, true, false, false)
                 && UITools.vilidateText(fd_hammerPrice, msgLabel, false, true, false)
-                && UITools.vilidateText(fd_commission, msgLabel, false, true, false)
+                //&& UITools.vilidateText(fd_commission, msgLabel, false, true, false)
                 && UITools.vilidateText(fd_otherFund, msgLabel, false, true, false)
-                && UITools.vilidateText(fd_bargainPrice, msgLabel, false, true, true)
-                && UITools.vilidateText(fd_accountPaid, msgLabel, false, true, false)
-                && UITools.vilidateText(fd_nonPayment, msgLabel, false, true, false)) {
+                //&& UITools.vilidateText(fd_bargainPrice, msgLabel, false, true, true)
+                && UITools.vilidateText(fd_accountPaid, msgLabel, false, true, false) //&& UITools.vilidateText(fd_nonPayment, msgLabel, false, true, false)
+                ) {
+            
+            //按照公式进行相关运算
+            int int_hammerPrice = Integer.parseInt(fd_hammerPrice.getText().trim());
+            int int_otherFund = Integer.parseInt(fd_otherFund.getText().trim());
+            int int_accountPaid = Integer.parseInt(fd_accountPaid.getText().trim());
 
+            //佣金按照落锤价的10%计算
+            int int_commission = new Double(int_hammerPrice * 0.1).intValue();
+            fd_commission.setText(String.valueOf(int_commission));
+
+            //总价=落锤价+佣金+其他款项
+            int int_bargainPrice = int_hammerPrice + int_commission + int_otherFund;
+            fd_bargainPrice.setText(String.valueOf(int_bargainPrice));
+
+            //未付款=总价-已付款
+            int int_nonPayment = int_bargainPrice - int_accountPaid;
+            fd_nonPayment.setText(String.valueOf(int_nonPayment));
+            
             //如果数据对象为空则新建
             if (dto == null) {
                 dto = new BargainRecord();
@@ -255,7 +261,7 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
             dto.setBargainPrice(Integer.valueOf(fd_bargainPrice.getText().trim()));
             dto.setAccountPaid(Integer.valueOf(fd_accountPaid.getText().trim()));
             dto.setNonPayment(Integer.valueOf(fd_nonPayment.getText().trim()));
-            
+
             if (JOptionPane.showConfirmDialog(this.getRootPane(), "请确认您是否要保存数据？") == JOptionPane.YES_OPTION) {
                 BargainRecordAction.saveOrUpdateObject(dto);
                 JOptionPane.showMessageDialog(this, "保存成功！");

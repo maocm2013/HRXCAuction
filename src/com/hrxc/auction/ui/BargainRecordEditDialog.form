@@ -157,7 +157,7 @@
     </Component>
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_goodsNo">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_goodsNo.setText(UITools.getBeanPropertyValue(dto, &quot;custName&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_goodsNo.setText(UITools.getBeanPropertyValue(dto, &quot;goodsNo&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel3">
@@ -167,7 +167,7 @@
     </Component>
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_bargainConfirmNo">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_bargainConfirmNo.setText(UITools.getBeanPropertyValue(dto, &quot;certType&quot;,&quot;&#x8eab;&#x4efd;&#x8bc1;&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_bargainConfirmNo.setText(UITools.getBeanPropertyValue(dto, &quot;bargainConfirmNo&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel4">
@@ -177,7 +177,7 @@
     </Component>
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_hammerPrice">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_hammerPrice.setText(UITools.getBeanPropertyValue(dto, &quot;certNo&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_hammerPrice.setText(UITools.getBeanPropertyValue(dto, &quot;hammerPrice&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel5">
@@ -187,7 +187,7 @@
     </Component>
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_accountPaid">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_accountPaid.setText(UITools.getBeanPropertyValue(dto, &quot;remarks&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_accountPaid.setText(UITools.getBeanPropertyValue(dto, &quot;accountPaid&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel6">
@@ -200,7 +200,7 @@
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_commission.setText(UITools.getBeanPropertyValue(dto, &quot;custTel&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_commission.setText(UITools.getBeanPropertyValue(dto, &quot;commission&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel7">
@@ -210,7 +210,7 @@
     </Component>
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_otherFund">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_otherFund.setText(UITools.getBeanPropertyValue(dto, &quot;custAddr&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_otherFund.setText(UITools.getBeanPropertyValue(dto, &quot;otherFund&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel8">
@@ -223,7 +223,7 @@
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_bargainPrice.setText(UITools.getBeanPropertyValue(dto, &quot;cashDeposit&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_bargainPrice.setText(UITools.getBeanPropertyValue(dto, &quot;bargainPrice&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="org.jdesktop.swingx.JXButton" name="closeBt">
@@ -260,7 +260,7 @@
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_accountPaid.setText(UITools.getBeanPropertyValue(dto, &quot;remarks&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_nonPayment.setText(UITools.getBeanPropertyValue(dto, &quot;nonPayment&quot;));"/>
       </AuxValues>
     </Component>
   </SubComponents>
