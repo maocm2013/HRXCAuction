@@ -124,7 +124,7 @@ public class PrintTestFrame extends javax.swing.JFrame {
         }
 
         public void drawPage(Graphics2D g2, double width, double height) {
-            drawDoc(g2);
+            drawList(g2);
 //            g2.draw(new Rectangle2D.Double(0, 0, width / 2, 20));  //起点（x,y），宽，高
 //
 //            g2.draw(new Rectangle2D.Double(width / 2, 0, width / 2, 20));
@@ -138,7 +138,7 @@ public class PrintTestFrame extends javax.swing.JFrame {
         }
 
         public void drawPage(Graphics2D g2) {
-            drawDoc(g2);
+            drawList(g2);
 //            g2.draw(new Rectangle2D.Double(0, 0, 150, 20));  //起点（x,y），宽，高
 //
 //            g2.draw(new Rectangle2D.Double(150, 0, 150, 20));
@@ -151,30 +151,82 @@ public class PrintTestFrame extends javax.swing.JFrame {
 
         }
 
-        private void drawDoc(Graphics2D g2) {
-
-            Font font1 = new Font("黑体", Font.PLAIN, 14);
-            Font font2 = new Font("宋体", Font.PLAIN, 12);
+        private void drawPaddle(Graphics2D g2) {
+            Font titleFont = new Font("黑体", Font.PLAIN, 14);
 
             AttributedString ats =
                     new AttributedString("北京华软信诚拍卖行有限公司竞买号牌登记表");
-            ats.addAttribute(TextAttribute.FONT, font1);
+            ats.addAttribute(TextAttribute.FONT, titleFont);
             g2.drawString(ats.getIterator(), 60, 20);
 
-            ats = new AttributedString("竞买人姓名：");
-            ats.addAttribute(TextAttribute.FONT, font2);
-            ats.addAttribute(TextAttribute.RUN_DIRECTION, TextAttribute.RUN_DIRECTION_RTL);
-            g2.drawString(ats.getIterator(), 10, 40);
-
-            ats = new AttributedString("王三");
-            ats.addAttribute(TextAttribute.FONT, font2);
-            ats.addAttribute(TextAttribute.RUN_DIRECTION, TextAttribute.RUN_DIRECTION_LTR);
-            g2.drawString(ats.getIterator(), 90, 40);
-
+            g2.drawString("竞买人姓名：王三", 10, 40);
             g2.drawString("竞买号牌：102", 200, 40);
+
             g2.drawString("证件名称：身份证", 10, 60);
             g2.drawString("证件号码：410323198303094512", 200, 60);
+
+            g2.drawString("联系方式：18601020269", 10, 80);
+
+            g2.drawString("通讯地址：北京市海淀区农大南路33好中电大厦", 10, 100);
+
+            g2.drawString("保证金（元）：￥500", 10, 120);
+
+            g2.drawString("竞买人签字：", 200, 140);
+            g2.drawString("日期：", 200, 160);
         }
+    }
+
+    private void drawList(Graphics2D g2) {
+        Font titleFont_14 = new Font("黑体", Font.PLAIN, 14);
+        Font titleFont_20 = new Font("黑体", Font.PLAIN, 20);
+
+        AttributedString ats =
+                new AttributedString("北京华软信诚拍卖行有限公司");
+        ats.addAttribute(TextAttribute.FONT, titleFont_14);
+        g2.drawString(ats.getIterator(), 160, 20);
+        ats =
+                new AttributedString("结  款  单");
+        ats.addAttribute(TextAttribute.FONT, titleFont_20);
+        g2.drawString(ats.getIterator(), 200, 40);
+
+
+        g2.drawString("竞买人姓名：王三", 10, 60);
+        g2.drawString("证件号码：410323198303094512", 150, 60);
+        g2.drawString("竞买号牌：102", 360, 60);
+
+        g2.drawRect(5, 65, 520, 400);
+
+        g2.drawString("阁下您好：", 10, 80);
+        g2.drawString("您已竞得如下拍品，请认真核对以下信息，并交纳相关费用。", 30, 100);
+
+        //输出列表数据
+        int y_coord = 120;
+        int x_coord_paddleNo = 10;
+        int x_coord_paddleName = 50;
+        int x_coord_hammerPrice = 250;
+        int x_coord_commission = 320;
+        int x_coord_otherFund = 380;
+        int x_coord_bargainPrice = 460;
+        g2.drawString("图录号", x_coord_paddleNo, y_coord);
+        g2.drawString("名称", x_coord_paddleName, y_coord);
+        g2.drawString("落锤价（元）", x_coord_hammerPrice, y_coord);
+        g2.drawString("佣金（元）", x_coord_commission, y_coord);
+        g2.drawString("其他费用（元）", x_coord_otherFund, y_coord);
+        g2.drawString("合计（元）", x_coord_bargainPrice, y_coord);
+
+        for (int i = 0; i < 10; i++) {
+            y_coord = y_coord + 20;
+            g2.drawString("151", x_coord_paddleNo, y_coord);
+            g2.drawString("太阳石108佛珠蓝玉髓隔珠、紫水晶", x_coord_paddleName, y_coord);
+            g2.drawString("5000", x_coord_hammerPrice, y_coord);
+            g2.drawString("500", x_coord_commission, y_coord);
+            g2.drawString("", x_coord_otherFund, y_coord);
+            g2.drawString("5500", x_coord_bargainPrice, y_coord);
+        }
+
+        g2.drawString("合计件数：3", 10, 480);
+        g2.drawString("总金额：25300", 150, 480);
+        g2.drawString("竞买人签字：", 360, 480);
     }
 
     public static void main(String args[]) {
