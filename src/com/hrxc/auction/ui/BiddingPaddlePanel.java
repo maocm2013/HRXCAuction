@@ -221,7 +221,7 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         } else {
             ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
             String pkId = list.get(0);
-            BiddingPaddlePrintDialog dialog = new BiddingPaddlePrintDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, pkId, Constant.PrintType.TYPE_PADDLE_INFO_PRINT);
+            BiddingRecordPrintDialog dialog = new BiddingRecordPrintDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, pkId, Constant.PrintType.TYPE_PADDLE_INFO_PRINT);
             dialog.setLocationRelativeTo(this);
             dialog.setVisible(true);
         }
@@ -233,7 +233,7 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         } else {
             ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
             String pkId = list.get(0);
-            BiddingPaddlePrintDialog dialog = new BiddingPaddlePrintDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, pkId, Constant.PrintType.TYPE_SETTLE_LIST_PRINT);
+            BiddingRecordPrintDialog dialog = new BiddingRecordPrintDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, pkId, Constant.PrintType.TYPE_SETTLE_LIST_PRINT);
             dialog.setLocationRelativeTo(this);
             dialog.setVisible(true);
         }

@@ -14,15 +14,15 @@ import org.apache.log4j.Logger;
  *
  * @author user
  */
-public class BiddingPaddlePrintDialog extends javax.swing.JDialog {
-    private static final Logger log = Logger.getLogger(BiddingPaddlePrintDialog.class);
+public class BiddingRecordPrintDialog extends javax.swing.JDialog {
+    private static final Logger log = Logger.getLogger(BiddingRecordPrintDialog.class);
     private String pkId_biddingPaddle;
     private String printType;
 
     /**
-     * Creates new form BiddingPaddlePrintDialog
+     * Creates new form BiddingRecordPrintDialog
      */
-    public BiddingPaddlePrintDialog(java.awt.Frame parent, boolean modal, String pkId_biddingPaddle, String printType) {
+    public BiddingRecordPrintDialog(java.awt.Frame parent, boolean modal, String pkId_biddingPaddle, String printType) {
         super(parent, modal);
         this.pkId_biddingPaddle = pkId_biddingPaddle;
         this.printType = printType;
@@ -39,7 +39,7 @@ public class BiddingPaddlePrintDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         bt_print = new org.jdesktop.swingx.JXButton();
-        printPanel = new PaddleInfoPrintPanel(pkId_biddingPaddle,printType);
+        printPanel = new com.hrxc.auction.ui.BiddingRecordPrintPanel(pkId_biddingPaddle,printType);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("数据打印输出");
@@ -58,7 +58,7 @@ public class BiddingPaddlePrintDialog extends javax.swing.JDialog {
         printPanel.setLayout(printPanelLayout);
         printPanelLayout.setHorizontalGroup(
             printPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
         printPanelLayout.setVerticalGroup(
             printPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,11 +69,11 @@ public class BiddingPaddlePrintDialog extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(222, 222, 222)
+            .addComponent(printPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bt_print, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(printPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

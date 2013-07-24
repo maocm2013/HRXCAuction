@@ -18,16 +18,16 @@ import org.apache.log4j.Logger;
  *
  * @author user
  */
-public class PaddleInfoPrintPanel extends AbstractPrintPanel {
+public class BiddingRecordPrintPanel extends AbstractPrintPanel {
 
-    private static final Logger log = Logger.getLogger(PaddleInfoPrintPanel.class);
+    private static final Logger log = Logger.getLogger(BiddingRecordPrintPanel.class);
     private String pkId_biddingPaddle;
     private String printType;
 
-    public PaddleInfoPrintPanel() {
+    public BiddingRecordPrintPanel() {
     }
 
-    public PaddleInfoPrintPanel(String pkId_biddingPaddle, String printType) {
+    public BiddingRecordPrintPanel(String pkId_biddingPaddle, String printType) {
         this.pkId_biddingPaddle = pkId_biddingPaddle;
         this.printType = printType;
     }
