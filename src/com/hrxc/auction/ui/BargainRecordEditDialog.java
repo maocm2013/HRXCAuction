@@ -91,7 +91,7 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
 
         jXLabel7.setText("总成交价：");
 
-        fd_otherFund.setText(UITools.getBeanPropertyValue(dto, "otherFund"));
+        fd_otherFund.setText(UITools.getBeanPropertyValue(dto, "otherFund","0"));
 
         jXLabel8.setText("已付款：");
 

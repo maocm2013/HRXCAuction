@@ -206,9 +206,7 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
         //进行输入项验证
         if (UITools.vilidateText(fd_goodsNo, msgLabel, true, false, false)
                 && UITools.vilidateText(fd_goodsName, msgLabel, true, false, false)
-                && UITools.vilidateText(fd_goodsIntact, msgLabel, true, false, false)
                 && UITools.vilidateText(fd_goodsSize, msgLabel, true, false, false)
-                && UITools.vilidateText(fd_certificateNo, msgLabel, true, false, false)
                 && UITools.vilidateText(fd_keepPrice, msgLabel, false, true, false)
                 && UITools.vilidateText(fd_marketPrice, msgLabel, false, true, false)
                 && UITools.vilidateText(fd_onsetPrice, msgLabel, false, true, false)) {

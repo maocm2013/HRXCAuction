@@ -210,7 +210,7 @@
     </Component>
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_otherFund">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_otherFund.setText(UITools.getBeanPropertyValue(dto, &quot;otherFund&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_otherFund.setText(UITools.getBeanPropertyValue(dto, &quot;otherFund&quot;,&quot;0&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel8">
