@@ -24,7 +24,7 @@ import org.apache.log4j.Logger;
  */
 public class BiddingPaddleDao {
 
-    private static final Logger log = Logger.getLogger(GoodsListDao.class);
+    private static final Logger log = Logger.getLogger(BiddingPaddleDao.class);
     private static final String SQL_BASIC_QUERY = "select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1 ";
     private static final String SQL_DELETE_BY_ID = "delete from bidding_paddle where pk_id=?";
     private static final String SQL_INSERT = "insert into bidding_paddle(paddle_No,cust_Name,cert_Type,cert_No,cust_Tel,cust_Addr,cash_Deposit,remarks,pk_id)values(?,?,?,?,?,?,?,?,?)";

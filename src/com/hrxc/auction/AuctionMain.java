@@ -5,7 +5,9 @@
 package com.hrxc.auction;
 
 import com.hrxc.auction.ui.AuctionFrame;
+import com.hrxc.auction.ui.LoginDialog;
 import com.hrxc.auction.util.Configuration;
+import java.util.logging.Level;
 import javax.swing.JFrame;
 import org.apache.log4j.Logger;
 
@@ -14,7 +16,8 @@ import org.apache.log4j.Logger;
  * @author user
  */
 public class AuctionMain {
-     private static final Logger log = Logger.getLogger(AuctionMain.class);
+
+    private static final Logger log = Logger.getLogger(AuctionMain.class);
 
     /**
      * @param args the command line arguments
@@ -23,10 +26,11 @@ public class AuctionMain {
         try {
             //Log4j初始化
             Configuration.initLog4j();
+            
         } catch (Exception ex) {
-            log.error("log4j init error:",ex);
+            log.error("log4j init error:", ex);
         }
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -40,13 +44,13 @@ public class AuctionMain {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            log.error("lookAndFeel set error:",ex);
+            log.error("lookAndFeel set error:", ex);
         } catch (InstantiationException ex) {
-            log.error("lookAndFeel set error:",ex);
+            log.error("lookAndFeel set error:", ex);
         } catch (IllegalAccessException ex) {
-            log.error("lookAndFeel set error:",ex);
+            log.error("lookAndFeel set error:", ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            log.error("lookAndFeel set error:",ex);
+            log.error("lookAndFeel set error:", ex);
         }
         //</editor-fold>
 
@@ -55,6 +59,23 @@ public class AuctionMain {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame frame = new AuctionFrame();
+
+                //首先进行登陆
+                LoginDialog dialog = new LoginDialog(frame, true);
+                //居中显示
+                dialog.setLocationRelativeTo(null);
+                dialog.setVisible(true);
+                while (true) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        log.error("Thread.error:", ex);
+                    }
+                    if (dialog.isLoginState()) {
+                        break;
+                    }
+                }
+                
                 //居中显示
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);

@@ -1643,3 +1643,6 @@ java.lang.NoSuchMethodException: Unknown property 'remarks' on class 'class com.
 2013-07-24 15:06:09[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
 2013-07-24 15:06:09[com.hrxc.auction.ui.BiddingRecordPrintPanel:51] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
 2013-07-24 15:06:10[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-24 16:05:11[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-24 16:05:11[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 16:51:37[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db

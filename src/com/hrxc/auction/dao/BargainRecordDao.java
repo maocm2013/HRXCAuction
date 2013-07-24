@@ -24,7 +24,7 @@ import org.apache.log4j.Logger;
  */
 public class BargainRecordDao {
 
-    private static final Logger log = Logger.getLogger(GoodsListDao.class);
+    private static final Logger log = Logger.getLogger(BargainRecordDao.class);
     private static final String SQL_BASIC_QUERY = "select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1 ";
     private static final String SQL_DELETE_BY_ID = "delete from bargain_record where pk_id=?";
     private static final String SQL_INSERT = "insert into bargain_record(paddle_No,goods_No,bargain_Confirm_No,hammer_Price,commission,other_Fund,bargain_Price,account_Paid,non_Payment,pk_id)values(?,?,?,?,?,?,?,?,?,?)";
