@@ -177,6 +177,7 @@ public class PrintTestFrame extends javax.swing.JFrame {
     }
 
     private void drawList(Graphics2D g2) {
+       
         Font titleFont_14 = new Font("黑体", Font.PLAIN, 14);
         Font titleFont_20 = new Font("黑体", Font.PLAIN, 20);
 

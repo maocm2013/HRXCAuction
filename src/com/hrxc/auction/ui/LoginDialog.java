@@ -8,13 +8,15 @@ import com.hrxc.auction.action.UserInfoAction;
 import com.hrxc.auction.domain.UserInfo;
 import com.hrxc.auction.util.SystemContext;
 import javax.swing.JOptionPane;
-import org.apache.commons.lang3.StringUtils;
+import com.hrxc.auction.util.MD5;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author user
  */
 public class LoginDialog extends javax.swing.JDialog {
+    private static final Logger log = Logger.getLogger(LoginDialog.class);
 
     private boolean loginState = false;
 
@@ -139,10 +141,19 @@ public class LoginDialog extends javax.swing.JDialog {
     private void loginBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtonActionPerformed
         //登陆验证
         String userNo = fd_userNo.getText();
-        String password = fd_password.getPassword().toString();
+        StringBuffer password = new StringBuffer();
+        char[] c = fd_password.getPassword();
+        if(c != null && c.length > 1){
+            for(int i = 0; i < c.length; i++){
+                password.append(c[i]);
+            }
+        }
+        
+        log.debug("userNo=" + userNo + ",password=" + password);
         UserInfo user = UserInfoAction.getUserInfo(userNo);
+        MD5 md5 = new MD5();
         if (user != null
-                && user.getPassword().equals(password)) {
+                && user.getPassword().equals(md5.encryptMD5(password.toString()))) {
             
             //设置系统用户信息
             SystemContext.getInstance().setUser(user);
@@ -153,6 +164,7 @@ public class LoginDialog extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this.getRootPane(), "用户编号或密码输入错误！");
         }
     }//GEN-LAST:event_loginBtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField fd_password;
     private org.jdesktop.swingx.JXTextField fd_userNo;

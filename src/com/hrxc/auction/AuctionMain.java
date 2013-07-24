@@ -26,7 +26,7 @@ public class AuctionMain {
         try {
             //Log4j初始化
             Configuration.initLog4j();
-            
+
         } catch (Exception ex) {
             log.error("log4j init error:", ex);
         }
@@ -62,6 +62,13 @@ public class AuctionMain {
 
                 //首先进行登陆
                 LoginDialog dialog = new LoginDialog(frame, true);
+                //设置关闭窗体时的监听动作
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
                 //居中显示
                 dialog.setLocationRelativeTo(null);
                 dialog.setVisible(true);
@@ -75,7 +82,7 @@ public class AuctionMain {
                         break;
                     }
                 }
-                
+
                 //居中显示
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);

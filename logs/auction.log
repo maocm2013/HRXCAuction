@@ -1646,3 +1646,18 @@ java.lang.NoSuchMethodException: Unknown property 'remarks' on class 'class com.
 2013-07-24 16:05:11[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
 2013-07-24 16:05:11[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
 2013-07-24 16:51:37[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 17:06:09[com.hrxc.auction.ui.LoginDialog:144] DEBUG userNo=admin,password=[C@b30913
+2013-07-24 17:06:09[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 17:09:08[com.hrxc.auction.ui.LoginDialog:151] DEBUG userNo=admin,password=aslkdfjlask
+2013-07-24 17:09:08[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 17:09:25[com.hrxc.auction.ui.LoginDialog:151] DEBUG userNo=admin,password=aslkdfjlask
+2013-07-24 17:09:31[com.hrxc.auction.ui.LoginDialog:151] DEBUG userNo=admin,password=123456
+2013-07-24 17:10:01[com.hrxc.auction.ui.LoginDialog:151] DEBUG userNo=admin,password=123456
+2013-07-24 17:10:01[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 17:10:04[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-24 17:24:17[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-24 17:24:17[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 17:24:34[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=,password=
+2013-07-24 17:24:34[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 17:24:40[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=skfdjs
+2013-07-24 17:24:47[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
