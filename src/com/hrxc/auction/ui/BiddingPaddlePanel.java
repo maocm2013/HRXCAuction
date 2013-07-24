@@ -7,6 +7,7 @@ package com.hrxc.auction.ui;
 import com.hrxc.auction.action.BiddingPaddleAction;
 import com.hrxc.auction.action.BiddingPaddleTableConfig;
 import com.hrxc.auction.domain.BiddingPaddle;
+import com.hrxc.auction.util.Constant;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -40,6 +41,8 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         addBton = new org.jdesktop.swingx.JXButton();
         deleteBton = new org.jdesktop.swingx.JXButton();
         editBton = new org.jdesktop.swingx.JXButton();
+        paddleInfoPrintBton = new org.jdesktop.swingx.JXButton();
+        settleListPrintBton = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         BiddingPaddleTableConfig.MyTableModel model = new BiddingPaddleTableConfig().new MyTableModel();
 
@@ -97,6 +100,29 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
             }
         });
         toolBar.add(editBton);
+
+        paddleInfoPrintBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/print.png"))); // NOI18N
+        paddleInfoPrintBton.setText("竞买号牌信息打印");
+        paddleInfoPrintBton.setFocusable(false);
+        paddleInfoPrintBton.setMaximumSize(new java.awt.Dimension(145, 43));
+        paddleInfoPrintBton.setMinimumSize(new java.awt.Dimension(145, 43));
+        paddleInfoPrintBton.setPreferredSize(new java.awt.Dimension(145, 43));
+        paddleInfoPrintBton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paddleInfoPrintBtonActionPerformed(evt);
+            }
+        });
+        toolBar.add(paddleInfoPrintBton);
+
+        settleListPrintBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/print.png"))); // NOI18N
+        settleListPrintBton.setText("结款单打印");
+        settleListPrintBton.setFocusable(false);
+        settleListPrintBton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                settleListPrintBtonActionPerformed(evt);
+            }
+        });
+        toolBar.add(settleListPrintBton);
 
         //隐藏第一列（主键）
         UITools.hideColumn(dataTable, 1);
@@ -189,6 +215,30 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_deleteBtonActionPerformed
 
+    private void paddleInfoPrintBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paddleInfoPrintBtonActionPerformed
+        if (UITools.getCheckedRows(dataTable) != 1) {
+            JOptionPane.showMessageDialog(this.getRootPane(), "请确认您选择了一条记录！");
+        } else {
+            ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
+            String pkId = list.get(0);
+            BiddingPaddlePrintDialog dialog = new BiddingPaddlePrintDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, pkId, Constant.PrintType.TYPE_PADDLE_INFO_PRINT);
+            dialog.setLocationRelativeTo(this);
+            dialog.setVisible(true);
+        }
+    }//GEN-LAST:event_paddleInfoPrintBtonActionPerformed
+
+    private void settleListPrintBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settleListPrintBtonActionPerformed
+        if (UITools.getCheckedRows(dataTable) != 1) {
+            JOptionPane.showMessageDialog(this.getRootPane(), "请确认您选择了一条记录！");
+        } else {
+            ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
+            String pkId = list.get(0);
+            BiddingPaddlePrintDialog dialog = new BiddingPaddlePrintDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, pkId, Constant.PrintType.TYPE_SETTLE_LIST_PRINT);
+            dialog.setLocationRelativeTo(this);
+            dialog.setVisible(true);
+        }
+    }//GEN-LAST:event_settleListPrintBtonActionPerformed
+
     /**
      * 刷新表单数据
      */
@@ -208,7 +258,9 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.JXLabel jXLabel1;
     private org.jdesktop.swingx.JXLabel jXLabel2;
+    private org.jdesktop.swingx.JXButton paddleInfoPrintBton;
     private org.jdesktop.swingx.JXButton searchBton;
+    private org.jdesktop.swingx.JXButton settleListPrintBton;
     private javax.swing.JToolBar toolBar;
     // End of variables declaration//GEN-END:variables
 }

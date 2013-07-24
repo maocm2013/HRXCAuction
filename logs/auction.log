@@ -1015,3 +1015,517 @@ java.lang.NoSuchMethodException: Unknown property 'remarks' on class 'class com.
 2013-07-23 09:30:10[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  order by paddle_No
 2013-07-23 09:30:16[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and goods_No=?  order by paddle_No
 2013-07-23 09:30:20[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and goods_No=?  order by paddle_No
+2013-07-24 10:46:05[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 10:46:05[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 10:47:52[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 10:47:52[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 10:50:05[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 10:50:05[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 10:51:24[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 10:51:24[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 10:55:16[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 10:55:16[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 11:04:21[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 11:04:21[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 11:33:45[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 11:33:45[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 11:34:26[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 11:34:26[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 11:35:48[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 11:35:48[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 12:37:40[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 12:37:40[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 12:38:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 12:38:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 12:41:11[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 12:41:11[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 12:42:25[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 12:42:25[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 12:45:39[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 12:45:39[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 12:45:52[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-24 12:45:52[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 12:45:53[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-24 12:45:53[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 12:45:53[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-24 13:01:08[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 13:01:08[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 13:04:57[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 13:04:57[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 13:05:00[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:00[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:02[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:02[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:03[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:09[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:10[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:10[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:11[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:11[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:12[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:12[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:16[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:16[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:16[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:16[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:05:34[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:05:34[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 13:06:19[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 13:06:19[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 13:32:02[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 13:32:02[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 13:38:15[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 13:38:15[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 13:38:17[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:39:33[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 13:39:33[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 13:39:36[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 13:39:36[com.hrxc.auction.ui.PaddleInfoPrintPanel:32] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 14:08:04[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 14:08:04[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 14:08:07[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 14:08:07[com.hrxc.auction.ui.PaddleInfoPrintPanel:84] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 14:08:07[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-24 14:08:46[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-24 14:08:46[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 14:08:49[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-24 14:08:49[com.hrxc.auction.ui.PaddleInfoPrintPanel:84] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 14:08:49[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-24 14:09:17[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-24 14:09:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:84] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 14:09:17[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-24 14:09:17[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-24 14:09:17[com.hrxc.auction.ui.PaddleInfoPrintPanel:84] DEBUG print panel dto.pkId=E60F0CC87B8748669A562BC321A0D318
+2013-07-24 14:09:17[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-24 14:09:18[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-24 14:09:50[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-24 14:09:52[com.hrxc.auction.dao.GoodsListDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  order by paddle_No
+2013-07-24 14:10:00[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-24 14:10:20[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-24 14:10:45[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-24 14:11:15[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-24 14:11:20[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no

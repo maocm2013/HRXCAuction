@@ -19,12 +19,27 @@ public class BargainRecordAction {
     private static final Logger log = Logger.getLogger(BargainRecordAction.class);
     private static final BargainRecordDao dao = new BargainRecordDao();
 
+    /**
+     * 根据竞拍好品获取所有成交记录
+     * @param paddleNo
+     * @return 
+     */
+    public static List<BargainRecord> getBargainRecordListByPaddleNo(String paddleNo) {
+        List<BargainRecord> list = null;
+        try {
+            list = dao.getAllObjectInfo(paddleNo, null);
+        } catch (Exception ex) {
+            log.error("error:", ex);
+        }
+        return list;
+    }
 
     /**
      * 根据条件查询数据信息
+     *
      * @param paddleNo
      * @param custName
-     * @return 
+     * @return
      */
     public static Object[][] getAllTableData(String paddleNo, String custName) {
         Object[][] data = null;
@@ -62,7 +77,8 @@ public class BargainRecordAction {
 
     /**
      * 保存或新增数据信息
-     * @param dto 
+     *
+     * @param dto
      */
     public static void saveOrUpdateObject(BargainRecord dto) {
         try {
@@ -74,8 +90,9 @@ public class BargainRecordAction {
 
     /**
      * 根据主键查询数据信息
+     *
      * @param pkId
-     * @return 
+     * @return
      */
     public static BargainRecord getObjectById(String pkId) {
         BargainRecord dto = null;
@@ -89,7 +106,8 @@ public class BargainRecordAction {
 
     /**
      * 主键集合删除数据信息
-     * @param list 
+     *
+     * @param list
      */
     public static void deleteObjectById(ArrayList<String> list) {
         try {

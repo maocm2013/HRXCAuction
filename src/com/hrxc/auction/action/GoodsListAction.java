@@ -19,12 +19,30 @@ public class GoodsListAction {
     private static final Logger log = Logger.getLogger(GoodsListAction.class);
     private static final GoodsListDao dao = new GoodsListDao();
 
+    /**
+     * 根据拍品编号获取拍品信息
+     * @param goodsNo
+     * @return 
+     */
+    public static GoodsList getGoodsListByGoodsNo(String goodsNo) {
+        GoodsList dto = null;
+        try {
+            List<GoodsList> list = dao.getAllObjectInfo(goodsNo, null);
+            if (list != null && list.size() > 0) {
+                dto = list.get(0);
+            }
+        } catch (Exception ex) {
+            log.error("error:", ex);
+        }
+        return dto;
+    }
 
     /**
      * 根据条件查询数据信息
+     *
      * @param goodsNo
      * @param goodsName
-     * @return 
+     * @return
      */
     public static Object[][] getAllTableData(String goodsNo, String goodsName) {
         Object[][] data = null;
@@ -61,7 +79,8 @@ public class GoodsListAction {
 
     /**
      * 保存或新增数据信息
-     * @param dto 
+     *
+     * @param dto
      */
     public static void saveOrUpdateObject(GoodsList dto) {
         try {
@@ -73,8 +92,9 @@ public class GoodsListAction {
 
     /**
      * 根据主键查询数据信息
+     *
      * @param pkId
-     * @return 
+     * @return
      */
     public static GoodsList getObjectById(String pkId) {
         GoodsList dto = null;
@@ -88,7 +108,8 @@ public class GoodsListAction {
 
     /**
      * 主键集合删除数据信息
-     * @param list 
+     *
+     * @param list
      */
     public static void deleteObjectById(ArrayList<String> list) {
         try {
