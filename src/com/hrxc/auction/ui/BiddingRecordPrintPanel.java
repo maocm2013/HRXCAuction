@@ -55,13 +55,13 @@ public class BiddingRecordPrintPanel extends AbstractPrintPanel {
         AttributedString ats =
                 new AttributedString("北京华软信诚拍卖行有限公司竞买号牌登记表");
         ats.addAttribute(TextAttribute.FONT, titleFont);
-        g2.drawString(ats.getIterator(), 60, 20);
+        g2.drawString(ats.getIterator(), 120, 20);
 
         g2.drawString("竞买人姓名：".concat(dto.getCustName()), 10, 40);
-        g2.drawString("竞买号牌：".concat(dto.getPaddleNo()), 200, 40);
+        g2.drawString("竞买号牌：".concat(dto.getPaddleNo()), 300, 40);
 
         g2.drawString("证件名称：".concat(dto.getCertType()), 10, 60);
-        g2.drawString("证件号码：".concat(dto.getCertNo()), 200, 60);
+        g2.drawString("证件号码：".concat(dto.getCertNo()), 300, 60);
 
         g2.drawString("联系方式：".concat(dto.getCustTel()), 10, 80);
 
@@ -69,8 +69,8 @@ public class BiddingRecordPrintPanel extends AbstractPrintPanel {
 
         g2.drawString("保证金（元）：￥".concat(dto.getCashDeposit().toString()), 10, 120);
 
-        g2.drawString("竞买人签字：", 200, 140);
-        g2.drawString("日期：", 200, 160);
+        g2.drawString("竞买人签字：", 300, 140);
+        g2.drawString("日期：", 300, 160);
     }
 
     /**

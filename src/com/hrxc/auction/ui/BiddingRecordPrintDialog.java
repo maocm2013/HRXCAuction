@@ -8,6 +8,7 @@ import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.MediaPrintableArea;
 import org.apache.log4j.Logger;
 
 /**
@@ -90,7 +91,9 @@ public class BiddingRecordPrintDialog extends javax.swing.JDialog {
     private void bt_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_printActionPerformed
         PrinterJob job = PrinterJob.getPrinterJob();
         job.setPrintable((AbstractPrintPanel)printPanel);
-        PrintRequestAttributeSet attributes = new HashPrintRequestAttributeSet();
+        //A4纸张规格为210*297mm 根据其规格进行预先设置页边距
+        MediaPrintableArea attr_area = new MediaPrintableArea(10,10,200,287,MediaPrintableArea.MM);
+        PrintRequestAttributeSet attributes = new HashPrintRequestAttributeSet(attr_area);
         if (job.printDialog(attributes)) {
             try {
                 job.print(attributes);
