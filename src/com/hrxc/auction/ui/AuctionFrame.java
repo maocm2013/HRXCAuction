@@ -38,7 +38,8 @@ public class AuctionFrame extends javax.swing.JFrame {
         menuTree = new org.jdesktop.swingx.JXTree();
         rightPanel = new javax.swing.JScrollPane();
         userInfoLabel = new org.jdesktop.swingx.JXLabel();
-        jXButton1 = new org.jdesktop.swingx.JXButton();
+        logoutBton = new org.jdesktop.swingx.JXButton();
+        modifyPasswordBton = new org.jdesktop.swingx.JXButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("华软信诚拍卖系统V1.0");
@@ -61,8 +62,13 @@ public class AuctionFrame extends javax.swing.JFrame {
         jSplitPane1.setLeftComponent(leftPanel);
         jSplitPane1.setRightComponent(rightPanel);
 
-        jXButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app-exit.png"))); // NOI18N
-        jXButton1.setText("退出");
+        userInfoLabel.setFont(new java.awt.Font("黑体", 0, 14)); // NOI18N
+
+        logoutBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app-exit.png"))); // NOI18N
+        logoutBton.setText("退出");
+
+        modifyPasswordBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modify_password.png"))); // NOI18N
+        modifyPasswordBton.setText("修改密码");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,21 +76,26 @@ public class AuctionFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSplitPane1)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jXButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(modifyPasswordBton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(logoutBton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(userInfoLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jXButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(logoutBton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(modifyPasswordBton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(userInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE))
         );
@@ -106,9 +117,10 @@ public class AuctionFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JToolBar jToolBar1;
-    private org.jdesktop.swingx.JXButton jXButton1;
     private javax.swing.JScrollPane leftPanel;
+    private org.jdesktop.swingx.JXButton logoutBton;
     private org.jdesktop.swingx.JXTree menuTree;
+    private org.jdesktop.swingx.JXButton modifyPasswordBton;
     private javax.swing.JScrollPane rightPanel;
     private org.jdesktop.swingx.JXLabel userInfoLabel;
     // End of variables declaration//GEN-END:variables
