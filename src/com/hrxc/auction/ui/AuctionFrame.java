@@ -4,8 +4,11 @@
  */
 package com.hrxc.auction.ui;
 
+import com.hrxc.auction.domain.UserInfo;
+import com.hrxc.auction.util.SystemContext;
 import com.hrxc.auction.util.TreeMenuConfig;
 import java.awt.Toolkit;
+import org.jdesktop.swingx.JXLabel;
 
 /**
  *
@@ -34,6 +37,8 @@ public class AuctionFrame extends javax.swing.JFrame {
         leftPanel = new javax.swing.JScrollPane();
         menuTree = new org.jdesktop.swingx.JXTree();
         rightPanel = new javax.swing.JScrollPane();
+        userInfoLabel = new org.jdesktop.swingx.JXLabel();
+        jXButton1 = new org.jdesktop.swingx.JXButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("华软信诚拍卖系统V1.0");
@@ -56,19 +61,32 @@ public class AuctionFrame extends javax.swing.JFrame {
         jSplitPane1.setLeftComponent(leftPanel);
         jSplitPane1.setRightComponent(rightPanel);
 
+        jXButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app-exit.png"))); // NOI18N
+        jXButton1.setText("退出");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
+            .addComponent(jSplitPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(userInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jXButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(userInfoLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jXButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,8 +106,14 @@ public class AuctionFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JToolBar jToolBar1;
+    private org.jdesktop.swingx.JXButton jXButton1;
     private javax.swing.JScrollPane leftPanel;
     private org.jdesktop.swingx.JXTree menuTree;
     private javax.swing.JScrollPane rightPanel;
+    private org.jdesktop.swingx.JXLabel userInfoLabel;
     // End of variables declaration//GEN-END:variables
+
+    public JXLabel getUserInfoLabel() {
+        return userInfoLabel;
+    }
 }

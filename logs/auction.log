@@ -1661,3 +1661,9 @@ java.lang.NoSuchMethodException: Unknown property 'remarks' on class 'class com.
 2013-07-24 17:24:34[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
 2013-07-24 17:24:40[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=skfdjs
 2013-07-24 17:24:47[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-24 17:46:24[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-24 17:46:24[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 17:48:55[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-24 17:48:55[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-24 17:49:28[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-24 17:49:28[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db

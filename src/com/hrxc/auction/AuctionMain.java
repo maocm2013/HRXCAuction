@@ -4,9 +4,11 @@
  */
 package com.hrxc.auction;
 
+import com.hrxc.auction.domain.UserInfo;
 import com.hrxc.auction.ui.AuctionFrame;
 import com.hrxc.auction.ui.LoginDialog;
 import com.hrxc.auction.util.Configuration;
+import com.hrxc.auction.util.SystemContext;
 import java.util.logging.Level;
 import javax.swing.JFrame;
 import org.apache.log4j.Logger;
@@ -58,7 +60,7 @@ public class AuctionMain {
         //TODO:程序启动后应单独启动一个线程进行数据文件备份
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JFrame frame = new AuctionFrame();
+                AuctionFrame frame = new AuctionFrame();
 
                 //首先进行登陆
                 LoginDialog dialog = new LoginDialog(frame, true);
@@ -83,6 +85,10 @@ public class AuctionMain {
                     }
                 }
 
+                //设置用户信息显示
+                UserInfo user = SystemContext.getInstance().getUser();
+                frame.getUserInfoLabel().setText("工号：" + user.getUserNo() + "|名称：" + user.getUserName());
+                
                 //居中显示
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
