@@ -9,13 +9,37 @@ package com.hrxc.auction.domain;
  */
 public class BiddingPaddle {
     private String pkId;
+    /**
+     * 竞买号牌编号
+     */
     private String paddleNo;
+    /**
+     * 竞买人姓名
+     */
     private String custName;
+    /**
+     * 证件类型
+     */
     private String certType;
+    /**
+     * 证件号码
+     */
     private String certNo;
+    /**
+     * 联系电话
+     */
     private String custTel;
+    /**
+     * 通讯地址
+     */
     private String custAddr;
+    /**
+     * 保证金
+     */
     private Integer cashDeposit;
+    /**
+     * 备注
+     */
     private String remarks;
 
     public String getPkId() {

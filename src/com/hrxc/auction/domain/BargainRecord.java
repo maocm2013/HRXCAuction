@@ -9,14 +9,41 @@ package com.hrxc.auction.domain;
  */
 public class BargainRecord {
     private String pkId;
+    /**
+     * 号牌编号
+     */
     private String paddleNo;
+    /**
+     * 拍品编号
+     */
     private String goodsNo;
+    /**
+     * 成交确认书编号
+     */
     private String bargainConfirmNo;
+    /**
+     * 落锤价
+     */
     private Integer hammerPrice;
+    /**
+     * 佣金
+     */
     private Integer commission;
+    /**
+     * 其它款项
+     */
     private Integer otherFund;
+    /**
+     * 成交总价
+     */
     private Integer bargainPrice;
+    /**
+     * 已付款
+     */
     private Integer accountPaid;
+    /**
+     * 未付款
+     */
     private Integer nonPayment;
 
     public String getPkId() {

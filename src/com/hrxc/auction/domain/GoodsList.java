@@ -9,13 +9,37 @@ package com.hrxc.auction.domain;
  */
 public class GoodsList {
     private String pkId;
+    /**
+     * 拍品编号
+     */
     private String goodsNo;
+    /**
+     * 名称
+     */
     private String goodsName;
+    /**
+     * 完残度
+     */
     private String goodsIntact;
+    /**
+     * 尺寸
+     */
     private String goodsSize;
+    /**
+     * 证书编号
+     */
     private String certificateNo;
+    /**
+     * 保留价
+     */
     private Integer keepPrice;
+    /**
+     * 市场估价
+     */
     private Integer marketPrice;
+    /**
+     * 起拍价
+     */
     private Integer onsetPrice;
 
     public String getPkId() {
