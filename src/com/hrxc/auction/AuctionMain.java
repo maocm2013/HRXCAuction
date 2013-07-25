@@ -9,8 +9,6 @@ import com.hrxc.auction.ui.AuctionFrame;
 import com.hrxc.auction.ui.LoginDialog;
 import com.hrxc.auction.util.Configuration;
 import com.hrxc.auction.util.SystemContext;
-import java.util.logging.Level;
-import javax.swing.JFrame;
 import org.apache.log4j.Logger;
 
 /**
