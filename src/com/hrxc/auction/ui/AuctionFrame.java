@@ -1,11 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hrxc.auction.ui;
 
-import com.hrxc.auction.domain.UserInfo;
-import com.hrxc.auction.util.SystemContext;
+import com.hrxc.auction.AuctionMain;
 import com.hrxc.auction.util.TreeMenuConfig;
 import java.awt.Toolkit;
 import org.jdesktop.swingx.JXLabel;
@@ -66,9 +61,19 @@ public class AuctionFrame extends javax.swing.JFrame {
 
         logoutBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app-exit.png"))); // NOI18N
         logoutBton.setText("退出");
+        logoutBton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBtonActionPerformed(evt);
+            }
+        });
 
         modifyPasswordBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modify_password.png"))); // NOI18N
         modifyPasswordBton.setText("修改密码");
+        modifyPasswordBton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifyPasswordBtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,13 +112,25 @@ public class AuctionFrame extends javax.swing.JFrame {
         String menuName = evt.getPath().getLastPathComponent().toString();
         if (menuName.equals(TreeMenuConfig.MenuName.M_00_01)) {
             rightPanel.setViewportView(new GoodsListPanel());
-        }else if(menuName.equals(TreeMenuConfig.MenuName.M_00_02)){
+        } else if (menuName.equals(TreeMenuConfig.MenuName.M_00_02)) {
             rightPanel.setViewportView(new BiddingPaddlePanel());
-        }else if(menuName.equals(TreeMenuConfig.MenuName.M_00_03)){
+        } else if (menuName.equals(TreeMenuConfig.MenuName.M_00_03)) {
             rightPanel.setViewportView(new BargainRecordPanel());
         }
     }//GEN-LAST:event_menuTreeValueChanged
 
+    private void logoutBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtonActionPerformed
+        this.dispose();
+        AuctionMain.toLoginDialog(this);
+    }//GEN-LAST:event_logoutBtonActionPerformed
+
+    private void modifyPasswordBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyPasswordBtonActionPerformed
+        //首先进行登陆
+        ModifyPasswordDialog dialog = new ModifyPasswordDialog(this, true);
+        //居中显示
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_modifyPasswordBtonActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JToolBar jToolBar1;

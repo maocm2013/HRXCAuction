@@ -2985,3 +2985,19 @@ java.awt.print.PrinterException: 另一个程序正在使用此文件，进程�
 2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
 2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
 2013-07-25 12:43:55[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 13:59:05[com.hrxc.auction.ui.LoginDialog:146] DEBUG userNo=admin,password=123456
+2013-07-25 13:59:05[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 13:59:11[com.hrxc.auction.ui.LoginDialog:146] DEBUG userNo=admin,password=sakjf
+2013-07-25 13:59:16[com.hrxc.auction.ui.LoginDialog:146] DEBUG userNo=admin,password=123456
+2013-07-25 14:37:46[com.hrxc.auction.ui.LoginDialog:141] DEBUG userNo=admin,password=123456
+2013-07-25 14:37:46[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 14:39:42[com.hrxc.auction.ui.LoginDialog:141] DEBUG userNo=admin,password=123456
+2013-07-25 14:39:42[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 14:43:03[com.hrxc.auction.ui.LoginDialog:141] DEBUG userNo=admin,password=123456
+2013-07-25 14:43:03[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 14:46:23[com.hrxc.auction.ui.LoginDialog:141] DEBUG userNo=admin,password=111111
+2013-07-25 14:46:23[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 14:46:41[com.hrxc.auction.ui.LoginDialog:141] DEBUG userNo=admin,password=123456
+2013-07-25 14:47:14[com.hrxc.auction.ui.LoginDialog:141] DEBUG userNo=admin,password=123456
+2013-07-25 14:47:20[com.hrxc.auction.ui.LoginDialog:141] DEBUG userNo=admin,password=123456
+2013-07-25 14:47:32[com.hrxc.auction.ui.LoginDialog:141] DEBUG userNo=admin,password=123456

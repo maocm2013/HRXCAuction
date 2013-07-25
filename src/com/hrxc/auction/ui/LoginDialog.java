@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hrxc.auction.ui;
 
 import com.hrxc.auction.action.UserInfoAction;
@@ -9,6 +5,7 @@ import com.hrxc.auction.domain.UserInfo;
 import com.hrxc.auction.util.SystemContext;
 import javax.swing.JOptionPane;
 import com.hrxc.auction.util.MD5;
+import com.hrxc.auction.util.UITools;
 import org.apache.log4j.Logger;
 
 /**
@@ -16,19 +13,17 @@ import org.apache.log4j.Logger;
  * @author user
  */
 public class LoginDialog extends javax.swing.JDialog {
+
     private static final Logger log = Logger.getLogger(LoginDialog.class);
-
-    private boolean loginState = false;
-
-    public boolean isLoginState() {
-        return loginState;
-    }
+    
+    private AuctionFrame frame;
 
     /**
      * Creates new form LoginDialog
      */
-    public LoginDialog(java.awt.Frame parent, boolean modal) {
+    public LoginDialog(AuctionFrame parent, boolean modal) {
         super(parent, modal);
+        this.frame = parent;
         initComponents();
     }
 
@@ -141,30 +136,28 @@ public class LoginDialog extends javax.swing.JDialog {
     private void loginBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtonActionPerformed
         //登陆验证
         String userNo = fd_userNo.getText();
-        StringBuffer password = new StringBuffer();
-        char[] c = fd_password.getPassword();
-        if(c != null && c.length > 1){
-            for(int i = 0; i < c.length; i++){
-                password.append(c[i]);
-            }
-        }
-        
+        String password = UITools.char2String(fd_password.getPassword());
+
         log.debug("userNo=" + userNo + ",password=" + password);
         UserInfo user = UserInfoAction.getUserInfo(userNo);
         MD5 md5 = new MD5();
         if (user != null
-                && user.getPassword().equals(md5.encryptMD5(password.toString()))) {
-            
+                && user.getPassword().equals(md5.encryptMD5(password))) {
+
             //设置系统用户信息
             SystemContext.getInstance().setUser(user);
-            
-            loginState = true;
             this.dispose();
-        }else{
+
+            //设置用户信息显示
+            frame.getUserInfoLabel().setText("工号：" + user.getUserNo() + "|名称：" + user.getUserName());
+
+            //居中显示
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        } else {
             JOptionPane.showMessageDialog(this.getRootPane(), "用户编号或密码输入错误！");
         }
     }//GEN-LAST:event_loginBtonActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField fd_password;
     private org.jdesktop.swingx.JXTextField fd_userNo;

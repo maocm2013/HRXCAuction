@@ -9,11 +9,9 @@ import java.util.UUID;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
-import javax.swing.JTextField;
 import javax.swing.text.JTextComponent;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -224,5 +222,20 @@ public class UITools {
 
         msgLabel.setText("");
         return true;
+    }
+
+    /**
+     * 将char[]转换为字符串
+     * @param c
+     * @return 
+     */
+    public static String char2String(char[] c) {
+        StringBuilder str = new StringBuilder("");
+        if (c != null && c.length > 1) {
+            for (int i = 0; i < c.length; i++) {
+                str.append(c[i]);
+            }
+        }
+        return str.toString();
     }
 }

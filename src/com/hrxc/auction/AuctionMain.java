@@ -1,14 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hrxc.auction;
 
-import com.hrxc.auction.domain.UserInfo;
 import com.hrxc.auction.ui.AuctionFrame;
 import com.hrxc.auction.ui.LoginDialog;
 import com.hrxc.auction.util.Configuration;
-import com.hrxc.auction.util.SystemContext;
 import org.apache.log4j.Logger;
 
 /**
@@ -59,38 +53,23 @@ public class AuctionMain {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 AuctionFrame frame = new AuctionFrame();
-
-                //首先进行登陆
-                LoginDialog dialog = new LoginDialog(frame, true);
-                //设置关闭窗体时的监听动作
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                //居中显示
-                dialog.setLocationRelativeTo(null);
-                dialog.setVisible(true);
-                while (true) {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException ex) {
-                        log.error("Thread.error:", ex);
-                    }
-                    if (dialog.isLoginState()) {
-                        break;
-                    }
-                }
-
-                //设置用户信息显示
-                UserInfo user = SystemContext.getInstance().getUser();
-                frame.getUserInfoLabel().setText("工号：" + user.getUserNo() + "|名称：" + user.getUserName());
-                
-                //居中显示
-                frame.setLocationRelativeTo(null);
-                frame.setVisible(true);
+                toLoginDialog(frame);
             }
         });
+    }
+
+    public static void toLoginDialog(AuctionFrame frame) {
+        //首先进行登陆
+        LoginDialog dialog = new LoginDialog(frame, true);
+        //设置关闭窗体时的监听动作
+        dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                System.exit(0);
+            }
+        });
+        //居中显示
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
     }
 }
