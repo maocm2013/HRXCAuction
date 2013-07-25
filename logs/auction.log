@@ -2031,3 +2031,957 @@ java.lang.NoSuchMethodException: Unknown property 'remarks' on class 'class com.
 2013-07-25 11:33:33[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
 2013-07-25 11:33:33[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
 2013-07-25 11:33:33[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 11:38:09[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-25 11:38:09[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 11:38:12[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-25 11:38:14[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 11:38:14[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=﻿001
+2013-07-25 11:38:26[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 11:38:26[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=﻿001
+2013-07-25 11:38:26[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 11:38:26[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=﻿001
+2013-07-25 11:38:26[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:31:30[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-25 12:31:30[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 12:31:33[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-25 12:31:35[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:31:37[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 12:31:37[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=101
+2013-07-25 12:31:50[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:31:50[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=101
+2013-07-25 12:31:50[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:31:50[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=101
+2013-07-25 12:31:51[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:32:22[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 12:32:22[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=101
+2013-07-25 12:32:39[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-25 12:32:39[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 12:32:41[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-25 12:32:44[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:32:45[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 12:32:45[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=101
+2013-07-25 12:32:56[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:32:56[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=101
+2013-07-25 12:32:56[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:32:56[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=101
+2013-07-25 12:32:57[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:33:29[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 12:33:29[com.hrxc.auction.ui.BiddingRecordPrintPanel:81] DEBUG print panel dto.pkId=101
+2013-07-25 12:33:29[com.hrxc.auction.dao.BargainRecordDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:33:35[com.hrxc.auction.ui.BiddingRecordPrintPanel:81] DEBUG print panel dto.pkId=101
+2013-07-25 12:33:35[com.hrxc.auction.dao.BargainRecordDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:35[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:33:35[com.hrxc.auction.ui.BiddingRecordPrintPanel:81] DEBUG print panel dto.pkId=101
+2013-07-25 12:33:35[com.hrxc.auction.dao.BargainRecordDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:33:36[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:35:21[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-25 12:35:21[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 12:35:24[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-25 12:35:27[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:35:29[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 12:35:29[com.hrxc.auction.ui.BiddingRecordPrintPanel:81] DEBUG print panel dto.pkId=101
+2013-07-25 12:35:29[com.hrxc.auction.dao.BargainRecordDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:29[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:50[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-25 12:35:50[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 12:35:52[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-25 12:35:55[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:35:56[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 12:35:56[com.hrxc.auction.ui.BiddingRecordPrintPanel:81] DEBUG print panel dto.pkId=101
+2013-07-25 12:35:56[com.hrxc.auction.dao.BargainRecordDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:35:56[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:36:09[com.hrxc.auction.ui.BiddingRecordPrintDialog:101] ERROR 打印输出失败：
+java.awt.print.PrinterException: 另一个程序正在使用此文件，进程无法访问。
+
+	at sun.awt.windows.WPrinterJob._startDoc(Native Method)
+	at sun.awt.windows.WPrinterJob.startDoc(WPrinterJob.java:1249)
+	at sun.print.RasterPrinterJob.print(RasterPrinterJob.java:1371)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.bt_printActionPerformed(BiddingRecordPrintDialog.java:99)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.access$000(BiddingRecordPrintDialog.java:18)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog$1.actionPerformed(BiddingRecordPrintDialog.java:54)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:178)
+	at java.awt.Dialog$1.run(Dialog.java:1044)
+	at java.awt.Dialog$3.run(Dialog.java:1096)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.awt.Dialog.show(Dialog.java:1094)
+	at java.awt.Component.show(Component.java:1584)
+	at java.awt.Component.setVisible(Component.java:1536)
+	at java.awt.Window.setVisible(Window.java:841)
+	at java.awt.Dialog.setVisible(Dialog.java:984)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.settleListPrintBtonActionPerformed(BiddingPaddlePanel.java:238)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.access$400(BiddingPaddlePanel.java:20)
+	at com.hrxc.auction.ui.BiddingPaddlePanel$5.actionPerformed(BiddingPaddlePanel.java:122)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:174)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:169)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:122)
+2013-07-25 12:36:57[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-25 12:36:57[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 12:37:00[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-25 12:37:02[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-25 12:37:05[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:37:06[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 12:37:06[com.hrxc.auction.ui.BiddingRecordPrintPanel:81] DEBUG print panel dto.pkId=101
+2013-07-25 12:37:06[com.hrxc.auction.dao.BargainRecordDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:06[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:46[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-25 12:37:46[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 12:37:48[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-25 12:37:50[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:37:53[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 12:37:53[com.hrxc.auction.ui.BiddingRecordPrintPanel:81] DEBUG print panel dto.pkId=101
+2013-07-25 12:37:53[com.hrxc.auction.dao.BargainRecordDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:37:53[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:10[com.hrxc.auction.ui.BiddingRecordPrintDialog:101] ERROR 打印输出失败：
+java.awt.print.PrinterException: 另一个程序正在使用此文件，进程无法访问。
+
+	at sun.awt.windows.WPrinterJob._startDoc(Native Method)
+	at sun.awt.windows.WPrinterJob.startDoc(WPrinterJob.java:1249)
+	at sun.print.RasterPrinterJob.print(RasterPrinterJob.java:1371)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.bt_printActionPerformed(BiddingRecordPrintDialog.java:99)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.access$000(BiddingRecordPrintDialog.java:18)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog$1.actionPerformed(BiddingRecordPrintDialog.java:54)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:178)
+	at java.awt.Dialog$1.run(Dialog.java:1044)
+	at java.awt.Dialog$3.run(Dialog.java:1096)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.awt.Dialog.show(Dialog.java:1094)
+	at java.awt.Component.show(Component.java:1584)
+	at java.awt.Component.setVisible(Component.java:1536)
+	at java.awt.Window.setVisible(Window.java:841)
+	at java.awt.Dialog.setVisible(Dialog.java:984)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.settleListPrintBtonActionPerformed(BiddingPaddlePanel.java:238)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.access$400(BiddingPaddlePanel.java:20)
+	at com.hrxc.auction.ui.BiddingPaddlePanel$5.actionPerformed(BiddingPaddlePanel.java:122)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:174)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:169)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:122)
+2013-07-25 12:38:37[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-25 12:38:37[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 12:38:40[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-25 12:38:42[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:38:44[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 12:38:44[com.hrxc.auction.ui.BiddingRecordPrintPanel:81] DEBUG print panel dto.pkId=101
+2013-07-25 12:38:44[com.hrxc.auction.dao.BargainRecordDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:44[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:38:57[com.hrxc.auction.ui.BiddingRecordPrintPanel:81] DEBUG print panel dto.pkId=101
+2013-07-25 12:38:57[com.hrxc.auction.dao.BargainRecordDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:38:57[com.hrxc.auction.ui.BiddingRecordPrintPanel:81] DEBUG print panel dto.pkId=101
+2013-07-25 12:38:57[com.hrxc.auction.dao.BargainRecordDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:57[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:38:58[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:39:19[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 12:39:19[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=101
+2013-07-25 12:39:25[com.hrxc.auction.ui.BiddingRecordPrintDialog:101] ERROR 打印输出失败：
+java.awt.print.PrinterException: 另一个程序正在使用此文件，进程无法访问。
+
+	at sun.awt.windows.WPrinterJob._startDoc(Native Method)
+	at sun.awt.windows.WPrinterJob.startDoc(WPrinterJob.java:1249)
+	at sun.print.RasterPrinterJob.print(RasterPrinterJob.java:1371)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.bt_printActionPerformed(BiddingRecordPrintDialog.java:99)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.access$000(BiddingRecordPrintDialog.java:18)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog$1.actionPerformed(BiddingRecordPrintDialog.java:54)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:178)
+	at java.awt.Dialog$1.run(Dialog.java:1044)
+	at java.awt.Dialog$3.run(Dialog.java:1096)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.awt.Dialog.show(Dialog.java:1094)
+	at java.awt.Component.show(Component.java:1584)
+	at java.awt.Component.setVisible(Component.java:1536)
+	at java.awt.Window.setVisible(Window.java:841)
+	at java.awt.Dialog.setVisible(Dialog.java:984)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.paddleInfoPrintBtonActionPerformed(BiddingPaddlePanel.java:226)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.access$300(BiddingPaddlePanel.java:20)
+	at com.hrxc.auction.ui.BiddingPaddlePanel$4.actionPerformed(BiddingPaddlePanel.java:112)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:174)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:169)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:122)
+2013-07-25 12:41:55[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-25 12:41:55[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 12:41:58[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  order by goods_no
+2013-07-25 12:41:58[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-25 12:42:01[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:42:03[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 12:42:03[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=101
+2013-07-25 12:42:12[com.hrxc.auction.ui.BiddingRecordPrintDialog:101] ERROR 打印输出失败：
+java.awt.print.PrinterException: 另一个程序正在使用此文件，进程无法访问。
+
+	at sun.awt.windows.WPrinterJob._startDoc(Native Method)
+	at sun.awt.windows.WPrinterJob.startDoc(WPrinterJob.java:1249)
+	at sun.print.RasterPrinterJob.print(RasterPrinterJob.java:1371)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.bt_printActionPerformed(BiddingRecordPrintDialog.java:99)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.access$000(BiddingRecordPrintDialog.java:18)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog$1.actionPerformed(BiddingRecordPrintDialog.java:54)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:178)
+	at java.awt.Dialog$1.run(Dialog.java:1044)
+	at java.awt.Dialog$3.run(Dialog.java:1096)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.awt.Dialog.show(Dialog.java:1094)
+	at java.awt.Component.show(Component.java:1584)
+	at java.awt.Component.setVisible(Component.java:1536)
+	at java.awt.Window.setVisible(Window.java:841)
+	at java.awt.Dialog.setVisible(Dialog.java:984)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.paddleInfoPrintBtonActionPerformed(BiddingPaddlePanel.java:226)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.access$300(BiddingPaddlePanel.java:20)
+	at com.hrxc.auction.ui.BiddingPaddlePanel$4.actionPerformed(BiddingPaddlePanel.java:112)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:174)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:169)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:122)
+2013-07-25 12:42:22[com.hrxc.auction.ui.BiddingRecordPrintDialog:101] ERROR 打印输出失败：
+java.awt.print.PrinterException: 另一个程序正在使用此文件，进程无法访问。
+
+	at sun.awt.windows.WPrinterJob._startDoc(Native Method)
+	at sun.awt.windows.WPrinterJob.startDoc(WPrinterJob.java:1249)
+	at sun.print.RasterPrinterJob.print(RasterPrinterJob.java:1371)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.bt_printActionPerformed(BiddingRecordPrintDialog.java:99)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.access$000(BiddingRecordPrintDialog.java:18)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog$1.actionPerformed(BiddingRecordPrintDialog.java:54)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:178)
+	at java.awt.Dialog$1.run(Dialog.java:1044)
+	at java.awt.Dialog$3.run(Dialog.java:1096)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.awt.Dialog.show(Dialog.java:1094)
+	at java.awt.Component.show(Component.java:1584)
+	at java.awt.Component.setVisible(Component.java:1536)
+	at java.awt.Window.setVisible(Window.java:841)
+	at java.awt.Dialog.setVisible(Dialog.java:984)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.paddleInfoPrintBtonActionPerformed(BiddingPaddlePanel.java:226)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.access$300(BiddingPaddlePanel.java:20)
+	at com.hrxc.auction.ui.BiddingPaddlePanel$4.actionPerformed(BiddingPaddlePanel.java:112)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:174)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:169)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:122)
+2013-07-25 12:42:40[com.hrxc.auction.ui.BiddingRecordPrintDialog:101] ERROR 打印输出失败：
+java.awt.print.PrinterException: 另一个程序正在使用此文件，进程无法访问。
+
+	at sun.awt.windows.WPrinterJob._startDoc(Native Method)
+	at sun.awt.windows.WPrinterJob.startDoc(WPrinterJob.java:1249)
+	at sun.print.RasterPrinterJob.print(RasterPrinterJob.java:1371)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.bt_printActionPerformed(BiddingRecordPrintDialog.java:99)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.access$000(BiddingRecordPrintDialog.java:18)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog$1.actionPerformed(BiddingRecordPrintDialog.java:54)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:178)
+	at java.awt.Dialog$1.run(Dialog.java:1044)
+	at java.awt.Dialog$3.run(Dialog.java:1096)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.awt.Dialog.show(Dialog.java:1094)
+	at java.awt.Component.show(Component.java:1584)
+	at java.awt.Component.setVisible(Component.java:1536)
+	at java.awt.Window.setVisible(Window.java:841)
+	at java.awt.Dialog.setVisible(Dialog.java:984)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.paddleInfoPrintBtonActionPerformed(BiddingPaddlePanel.java:226)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.access$300(BiddingPaddlePanel.java:20)
+	at com.hrxc.auction.ui.BiddingPaddlePanel$4.actionPerformed(BiddingPaddlePanel.java:112)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:174)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:169)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:122)
+2013-07-25 12:43:02[com.hrxc.auction.ui.LoginDialog:152] DEBUG userNo=admin,password=123456
+2013-07-25 12:43:02[com.hrxc.auction.util.JdbcUtil:30] DEBUG db_filePath=E:\nb_project\HRXCAuction\config\data.db
+2013-07-25 12:43:04[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  order by paddle_No
+2013-07-25 12:43:08[com.hrxc.auction.dao.BiddingPaddleDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:43:09[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 12:43:09[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=101
+2013-07-25 12:43:20[com.hrxc.auction.ui.BiddingRecordPrintDialog:101] ERROR 打印输出失败：
+java.awt.print.PrinterException: 另一个程序正在使用此文件，进程无法访问。
+
+	at sun.awt.windows.WPrinterJob._startDoc(Native Method)
+	at sun.awt.windows.WPrinterJob.startDoc(WPrinterJob.java:1249)
+	at sun.print.RasterPrinterJob.print(RasterPrinterJob.java:1371)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.bt_printActionPerformed(BiddingRecordPrintDialog.java:99)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog.access$000(BiddingRecordPrintDialog.java:18)
+	at com.hrxc.auction.ui.BiddingRecordPrintDialog$1.actionPerformed(BiddingRecordPrintDialog.java:54)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:178)
+	at java.awt.Dialog$1.run(Dialog.java:1044)
+	at java.awt.Dialog$3.run(Dialog.java:1096)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.awt.Dialog.show(Dialog.java:1094)
+	at java.awt.Component.show(Component.java:1584)
+	at java.awt.Component.setVisible(Component.java:1536)
+	at java.awt.Window.setVisible(Window.java:841)
+	at java.awt.Dialog.setVisible(Dialog.java:984)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.paddleInfoPrintBtonActionPerformed(BiddingPaddlePanel.java:226)
+	at com.hrxc.auction.ui.BiddingPaddlePanel.access$300(BiddingPaddlePanel.java:20)
+	at com.hrxc.auction.ui.BiddingPaddlePanel$4.actionPerformed(BiddingPaddlePanel.java:112)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1995)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2318)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:387)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:242)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:236)
+	at java.awt.Component.processMouseEvent(Component.java:6290)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6055)
+	at java.awt.Container.processEvent(Container.java:2039)
+	at java.awt.Component.dispatchEventImpl(Component.java:4653)
+	at java.awt.Container.dispatchEventImpl(Container.java:2097)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4575)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4236)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4166)
+	at java.awt.Container.dispatchEventImpl(Container.java:2083)
+	at java.awt.Window.dispatchEventImpl(Window.java:2482)
+	at java.awt.Component.dispatchEvent(Component.java:4481)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:648)
+	at java.awt.EventQueue.access$000(EventQueue.java:84)
+	at java.awt.EventQueue$1.run(EventQueue.java:607)
+	at java.awt.EventQueue$1.run(EventQueue.java:605)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:621)
+	at java.awt.EventQueue$2.run(EventQueue.java:619)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:618)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:269)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:184)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:174)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:169)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:122)
+2013-07-25 12:43:36[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:43:36[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=101
+2013-07-25 12:43:36[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:43:36[com.hrxc.auction.ui.BiddingRecordPrintPanel:52] DEBUG print panel dto.pkId=101
+2013-07-25 12:43:37[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:43:48[com.hrxc.auction.ui.AbstractPrintPanel:19] DEBUG AbstractPrintPanel.paintComponent
+2013-07-25 12:43:48[com.hrxc.auction.ui.BiddingRecordPrintPanel:81] DEBUG print panel dto.pkId=101
+2013-07-25 12:43:48[com.hrxc.auction.dao.BargainRecordDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:48[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:43:54[com.hrxc.auction.ui.BiddingRecordPrintPanel:81] DEBUG print panel dto.pkId=101
+2013-07-25 12:43:54[com.hrxc.auction.dao.BargainRecordDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print
+2013-07-25 12:43:54[com.hrxc.auction.ui.BiddingRecordPrintPanel:81] DEBUG print panel dto.pkId=101
+2013-07-25 12:43:54[com.hrxc.auction.dao.BargainRecordDao:57] DEBUG getAllObjectInfo.sql=select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment from bargain_record where 1=1  and paddle_No=?  order by paddle_No
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:54[com.hrxc.auction.dao.GoodsListDao:53] DEBUG getAllObjectInfo.sql=select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1  and goods_no=?  order by goods_no
+2013-07-25 12:43:55[com.hrxc.auction.ui.AbstractPrintPanel:27] DEBUG AbstractPrintPanel.print

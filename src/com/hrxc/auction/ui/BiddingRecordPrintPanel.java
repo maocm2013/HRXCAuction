@@ -51,27 +51,23 @@ public class BiddingRecordPrintPanel extends AbstractPrintPanel {
         BiddingPaddle dto = BiddingPaddleAction.getObjectById(pkId_biddingPaddle);
         log.debug("print panel dto.pkId=" + dto.getPkId());
 
-        Font titleFont = new Font("黑体", Font.PLAIN, 14);
+        Font titleFont = new Font("黑体", Font.PLAIN, 18);
+        g2.drawString(getFontedAttributedString(titleFont,"北京华软信诚拍卖行有限公司竞买号牌登记表"), 90, 70);
 
-        AttributedString ats =
-                new AttributedString("北京华软信诚拍卖行有限公司竞买号牌登记表");
-        ats.addAttribute(TextAttribute.FONT, titleFont);
-        g2.drawString(ats.getIterator(), 120, 20);
+        g2.drawString("竞买人姓名：".concat(dto.getCustName()), 10, 110);
+        g2.drawString("竞买号牌：".concat(dto.getPaddleNo()), 300, 110);
 
-        g2.drawString("竞买人姓名：".concat(dto.getCustName()), 10, 60);
-        g2.drawString("竞买号牌：".concat(dto.getPaddleNo()), 300, 60);
+        g2.drawString("证件名称：".concat(dto.getCertType()), 10, 140);
+        g2.drawString("证件号码：".concat(dto.getCertNo()), 300, 140);
 
-        g2.drawString("证件名称：".concat(dto.getCertType()), 10, 90);
-        g2.drawString("证件号码：".concat(dto.getCertNo()), 300, 90);
+        g2.drawString("联系方式：".concat(dto.getCustTel()), 10, 170);
 
-        g2.drawString("联系方式：".concat(dto.getCustTel()), 10, 120);
+        g2.drawString("通讯地址：".concat(dto.getCustAddr()), 10, 200);
 
-        g2.drawString("通讯地址：".concat(dto.getCustAddr()), 10, 150);
+        g2.drawString("保证金（元）：￥".concat(dto.getCashDeposit().toString()), 10, 230);
 
-        g2.drawString("保证金（元）：￥".concat(dto.getCashDeposit().toString()), 10, 180);
-
-        g2.drawString("竞买人签字：", 300, 220);
-        g2.drawString("日期：", 300, 260);
+        g2.drawString("竞买人签字：", 300, 270);
+        g2.drawString("日期：", 300, 310);
     }
 
     /**
@@ -106,7 +102,7 @@ public class BiddingRecordPrintPanel extends AbstractPrintPanel {
         g2.drawString("证件号码：".concat(dto.getCertNo()), 150, 60);
         g2.drawString("竞买号牌：".concat(dto.getPaddleNo()), 360, 60);
 
-        g2.drawRect(5, 65, 520, 290);
+        g2.drawRect(5, 65, 520, 270);
 
         g2.drawString(getFontedAttributedString(titleFont_10,"阁下您好："), 10, 75);
         g2.drawString(getFontedAttributedString(titleFont_10,"您已竞得如下拍品，请认真核对以下信息，并交纳相关费用。"), 30, 90);
@@ -145,9 +141,9 @@ public class BiddingRecordPrintPanel extends AbstractPrintPanel {
             }
         }
 
-        g2.drawString("合计件数：".concat(String.valueOf(settleList_num)), 10, 370);
-        g2.drawString("总金额：".concat(String.valueOf(totalAmount)), 150, 370);
-        g2.drawString("竞买人签字：", 360, 370);
+        g2.drawString("合计件数：".concat(String.valueOf(settleList_num)), 10, 350);
+        g2.drawString("总金额：".concat(String.valueOf(totalAmount)), 150, 350);
+        g2.drawString("竞买人签字：", 360, 350);
     }
 
     /**

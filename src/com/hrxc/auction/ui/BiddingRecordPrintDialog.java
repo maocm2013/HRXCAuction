@@ -92,7 +92,7 @@ public class BiddingRecordPrintDialog extends javax.swing.JDialog {
         PrinterJob job = PrinterJob.getPrinterJob();
         job.setPrintable((AbstractPrintPanel)printPanel);
         //A4纸张规格为210*297mm 根据其规格进行预先设置页边距
-        MediaPrintableArea attr_area = new MediaPrintableArea(5,5,200,287,MediaPrintableArea.MM);
+        MediaPrintableArea attr_area = new MediaPrintableArea(10,5,200,287,MediaPrintableArea.MM);
         PrintRequestAttributeSet attributes = new HashPrintRequestAttributeSet(attr_area);
         if (job.printDialog(attributes)) {
             try {
