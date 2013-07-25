@@ -82,7 +82,7 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
 
         jXLabel5.setText("佣金：");
 
-        fd_accountPaid.setText(UITools.getBeanPropertyValue(dto, "accountPaid"));
+        fd_accountPaid.setText(UITools.getBeanPropertyValue(dto, "accountPaid","500"));
 
         jXLabel6.setText("其他款项：");
 
