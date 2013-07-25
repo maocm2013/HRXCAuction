@@ -88,11 +88,11 @@ public class BiddingPaddleEditDialog extends javax.swing.JDialog {
 
         jXLabel7.setText("保证金（元）：");
 
-        fd_custAddr.setText(UITools.getBeanPropertyValue(dto, "custAddr"));
+        fd_custAddr.setText(UITools.getBeanPropertyValue(dto, "custAddr","北京市"));
 
         jXLabel8.setText("备注：");
 
-        fd_cashDeposit.setText(UITools.getBeanPropertyValue(dto, "cashDeposit"));
+        fd_cashDeposit.setText(UITools.getBeanPropertyValue(dto, "cashDeposit","500"));
 
         closeBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dialog-close.png"))); // NOI18N
         closeBt.setText("关闭");

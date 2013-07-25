@@ -4,13 +4,16 @@
  */
 package com.hrxc.auction.ui;
 
+import com.hrxc.auction.action.BaseTableModel;
 import com.hrxc.auction.action.GoodsListAction;
 import com.hrxc.auction.action.GoodsListTableConfig;
 import com.hrxc.auction.domain.GoodsList;
+import com.hrxc.auction.util.ExcelHelper;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 /**
  *
@@ -40,6 +43,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
         addBton = new org.jdesktop.swingx.JXButton();
         deleteBton = new org.jdesktop.swingx.JXButton();
         editBton = new org.jdesktop.swingx.JXButton();
+        exortBton = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         GoodsListTableConfig.MyTableModel model = new GoodsListTableConfig().new MyTableModel();
 
@@ -97,6 +101,19 @@ public class GoodsListPanel extends javax.swing.JPanel {
             }
         });
         toolBar.add(editBton);
+
+        exortBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
+        exortBton.setToolTipText("修改");
+        exortBton.setFocusable(false);
+        exortBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exortBton.setPreferredSize(new java.awt.Dimension(40, 40));
+        exortBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exortBton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exortBtonActionPerformed(evt);
+            }
+        });
+        toolBar.add(exortBton);
 
         //隐藏第一列（主键）
         UITools.hideColumn(dataTable, 1);
@@ -189,6 +206,11 @@ public class GoodsListPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_deleteBtonActionPerformed
 
+    private void exortBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exortBtonActionPerformed
+        HSSFWorkbook wb = ExcelHelper.createExcel((BaseTableModel) dataTable.getModel());
+        UITools.exportExcel(this.getRootPane(), wb);
+    }//GEN-LAST:event_exortBtonActionPerformed
+
     /**
      * 刷新表单数据
      */
@@ -203,6 +225,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXTable dataTable;
     private org.jdesktop.swingx.JXButton deleteBton;
     private org.jdesktop.swingx.JXButton editBton;
+    private org.jdesktop.swingx.JXButton exortBton;
     private org.jdesktop.swingx.JXTextField fd_goodsName;
     private org.jdesktop.swingx.JXTextField fd_goodsNo;
     private javax.swing.JScrollPane jScrollPane1;

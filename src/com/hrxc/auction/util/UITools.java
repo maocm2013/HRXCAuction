@@ -1,5 +1,8 @@
 package com.hrxc.auction.util;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -8,8 +11,12 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComponent;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.text.JTextComponent;
@@ -17,6 +24,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.log4j.Logger;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 /**
  *
@@ -226,8 +234,9 @@ public class UITools {
 
     /**
      * 将char[]转换为字符串
+     *
      * @param c
-     * @return 
+     * @return
      */
     public static String char2String(char[] c) {
         StringBuilder str = new StringBuilder("");
@@ -237,5 +246,47 @@ public class UITools {
             }
         }
         return str.toString();
+    }
+
+    /**
+     * 导出Excel
+     * @param com
+     * @param wb 
+     */
+    public static void exportExcel(JComponent com,HSSFWorkbook wb) {
+        //保存为Excel文件  
+        FileOutputStream out = null;
+        try {
+
+            JFileChooser fileChooser = new JFileChooser();
+            //限制文件过滤
+            FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                    "Excel 97-2003(*.xls)", "xls");
+            fileChooser.setFileFilter(filter);
+
+            File defaultFile = new File("export.xls");
+            fileChooser.setSelectedFile(defaultFile);
+
+            int ret = fileChooser.showSaveDialog(com.getRootPane());
+            if (ret == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                if (selectedFile.exists()) {
+                    int copy = JOptionPane.showConfirmDialog(com.getRootPane(), "是否要覆盖当前文件", "保存", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (copy == JOptionPane.YES_OPTION) {
+                        fileChooser.approveSelection();
+                        out = new FileOutputStream(selectedFile);
+                        wb.write(out);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            log.error("error:", e);
+        } finally {
+            try {
+                out.close();
+            } catch (IOException e) {
+                 log.error("error:", e);
+            }
+        }
     }
 }

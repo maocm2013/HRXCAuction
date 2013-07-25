@@ -200,7 +200,7 @@
     </Component>
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_custAddr">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_custAddr.setText(UITools.getBeanPropertyValue(dto, &quot;custAddr&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_custAddr.setText(UITools.getBeanPropertyValue(dto, &quot;custAddr&quot;,&quot;&#x5317;&#x4eac;&#x5e02;&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel8">
@@ -210,7 +210,7 @@
     </Component>
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_cashDeposit">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_cashDeposit.setText(UITools.getBeanPropertyValue(dto, &quot;cashDeposit&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_cashDeposit.setText(UITools.getBeanPropertyValue(dto, &quot;cashDeposit&quot;,&quot;500&quot;));"/>
       </AuxValues>
     </Component>
     <Component class="org.jdesktop.swingx.JXButton" name="closeBt">
