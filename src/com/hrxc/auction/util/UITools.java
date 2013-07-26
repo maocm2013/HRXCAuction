@@ -250,10 +250,11 @@ public class UITools {
 
     /**
      * 导出Excel
+     *
      * @param com
-     * @param wb 
+     * @param wb
      */
-    public static void exportExcel(JComponent com,HSSFWorkbook wb) {
+    public static void exportExcel(JComponent com, HSSFWorkbook wb) {
         //保存为Excel文件  
         FileOutputStream out = null;
         try {
@@ -274,10 +275,15 @@ public class UITools {
                     int copy = JOptionPane.showConfirmDialog(com.getRootPane(), "是否要覆盖当前文件", "保存", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (copy == JOptionPane.YES_OPTION) {
                         fileChooser.approveSelection();
-                        out = new FileOutputStream(selectedFile);
-                        wb.write(out);
+                    }else{
+                        return;
                     }
+                } else {
+                    selectedFile.createNewFile();
+
                 }
+                out = new FileOutputStream(selectedFile);
+                wb.write(out);
             }
         } catch (IOException e) {
             log.error("error:", e);
@@ -285,7 +291,7 @@ public class UITools {
             try {
                 out.close();
             } catch (IOException e) {
-                 log.error("error:", e);
+                log.error("error:", e);
             }
         }
     }
