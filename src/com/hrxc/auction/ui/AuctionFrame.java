@@ -110,11 +110,11 @@ public class AuctionFrame extends javax.swing.JFrame {
 
     private void menuTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_menuTreeValueChanged
         String menuName = evt.getPath().getLastPathComponent().toString();
-        if (menuName.equals(TreeMenuConfig.MenuName.M_00_01)) {
+        if (menuName.equals(TreeMenuConfig.MenuName.M_09_00_01)) {
             rightPanel.setViewportView(new GoodsListPanel());
-        } else if (menuName.equals(TreeMenuConfig.MenuName.M_00_02)) {
+        } else if (menuName.equals(TreeMenuConfig.MenuName.M_09_00_02)) {
             rightPanel.setViewportView(new BiddingPaddlePanel());
-        } else if (menuName.equals(TreeMenuConfig.MenuName.M_00_03)) {
+        } else if (menuName.equals(TreeMenuConfig.MenuName.M_09_00_03)) {
             rightPanel.setViewportView(new BargainRecordPanel());
         }
     }//GEN-LAST:event_menuTreeValueChanged
