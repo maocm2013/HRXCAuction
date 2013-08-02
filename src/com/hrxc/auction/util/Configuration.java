@@ -14,8 +14,8 @@ import org.apache.log4j.PropertyConfigurator;
  * @author user
  */
 public class Configuration {
-    private static Logger log = Logger.getLogger(Configuration.class);
 
+    private static Logger log = Logger.getLogger(Configuration.class);
     private static final Configuration configuration = new Configuration();
 
     public static Configuration getInstance() {
@@ -28,22 +28,31 @@ public class Configuration {
      * @throws Exception
      */
     public static void initLog4j() throws Exception {
+        Properties props = loadProperties("config/log4j.properties");
+        PropertyConfigurator.configure(props);
+    }
+
+    /**
+     * 根据文件路径读取资源信息
+     * @param filePath
+     * @return 
+     */
+    public static Properties loadProperties(String filePath) {
         FileInputStream istream = null;
+        Properties props = null;
         try {
-            Properties props = new Properties();
-            istream = new FileInputStream("config/log4j.properties");
+            props = new Properties();
+            istream = new FileInputStream(filePath);
             props.load(istream);//从输入流中读取属性列表
-            PropertyConfigurator.configure(props);
         } catch (Exception ex) {
-            log.error("initLog4j.error:", ex);
-            throw new Exception(ex);
+            log.error("loadProperties.error:", ex);
         } finally {
             try {
                 istream.close();
             } catch (Exception ex) {
-                log.error("initLog4j.error:", ex);
-                throw new Exception(ex);
+                log.error("loadProperties.error:", ex);
             }
         }
+        return props;
     }
 }

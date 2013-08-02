@@ -4,6 +4,7 @@ import com.hrxc.auction.util.MD5;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.io.File;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
 import javax.swing.JFrame;
@@ -23,13 +24,23 @@ import org.junit.Test;
  */
 public class MyTest {
     //@Test
-
     public void testMd5() {
         MD5 md5 = new MD5();
         System.out.println(md5.encryptMD5("123456"));
     }
-
+    
     @Test
+    public void testDerbyJdbc(){
+        Connection conn = null;
+        try{
+            conn = JdbcUtil.getConn();
+            conn.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    //@Test
     public void testReport() throws InterruptedException, SQLException {
         String rootPath = System.getProperty("user.dir").concat(File.separator).concat("config").concat(File.separator);
 
