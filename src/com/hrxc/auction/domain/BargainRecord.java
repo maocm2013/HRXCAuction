@@ -46,6 +46,8 @@ public class BargainRecord {
      */
     private Integer nonPayment;
 
+    
+    private int s = 0;
     public String getPkId() {
         return pkId;
     }
