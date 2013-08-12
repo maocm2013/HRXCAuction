@@ -8,6 +8,7 @@ package com.hrxc.auction.domain;
  * @author user
  */
 public class BiddingPaddle {
+
     private String pkId;
     /**
      * 竞买号牌编号
@@ -41,6 +42,10 @@ public class BiddingPaddle {
      * 备注
      */
     private String remarks;
+    /**
+     * 项目编号
+     */
+    private String projectNo;
 
     public String getPkId() {
         return pkId;
@@ -114,9 +119,16 @@ public class BiddingPaddle {
         this.remarks = remarks;
     }
 
+    public String getProjectNo() {
+        return projectNo;
+    }
+
+    public void setProjectNo(String projectNo) {
+        this.projectNo = projectNo;
+    }
+
     @Override
     public String toString() {
-        return "BiddingPaddle{" + "pkId=" + pkId + ", paddleNo=" + paddleNo + ", custName=" + custName + ", certType=" + certType + ", certNo=" + certNo + ", custTel=" + custTel + ", custAddr=" + custAddr + ", cashDeposit=" + cashDeposit + ", remarks=" + remarks + '}';
+        return "BiddingPaddle{" + "pkId=" + pkId + ", paddleNo=" + paddleNo + ", custName=" + custName + ", certType=" + certType + ", certNo=" + certNo + ", custTel=" + custTel + ", custAddr=" + custAddr + ", cashDeposit=" + cashDeposit + ", remarks=" + remarks + ", projectNo=" + projectNo + '}';
     }
-    
 }

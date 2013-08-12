@@ -8,6 +8,7 @@ package com.hrxc.auction.domain;
  * @author user
  */
 public class GoodsList {
+
     private String pkId;
     /**
      * 拍品编号
@@ -41,6 +42,14 @@ public class GoodsList {
      * 起拍价
      */
     private Integer onsetPrice;
+    /**
+     * 项目编号
+     */
+    private String projectNo;
+    /**
+     * 委托方编号
+     */
+    private String clientNo;
 
     public String getPkId() {
         return pkId;
@@ -114,10 +123,24 @@ public class GoodsList {
         this.onsetPrice = onsetPrice;
     }
 
+    public String getProjectNo() {
+        return projectNo;
+    }
+
+    public void setProjectNo(String projectNo) {
+        this.projectNo = projectNo;
+    }
+
+    public String getClientNo() {
+        return clientNo;
+    }
+
+    public void setClientNo(String clientNo) {
+        this.clientNo = clientNo;
+    }
+
     @Override
     public String toString() {
-        return "GoodsList{" + "pkId=" + pkId + ", goodsNo=" + goodsNo + ", goodsName=" + goodsName + ", goodsIntact=" + goodsIntact + ", goodsSize=" + goodsSize + ", certificateNo=" + certificateNo + ", keepPrice=" + keepPrice + ", marketPrice=" + marketPrice + ", onsetPrice=" + onsetPrice + '}';
+        return "GoodsList{" + "pkId=" + pkId + ", goodsNo=" + goodsNo + ", goodsName=" + goodsName + ", goodsIntact=" + goodsIntact + ", goodsSize=" + goodsSize + ", certificateNo=" + certificateNo + ", keepPrice=" + keepPrice + ", marketPrice=" + marketPrice + ", onsetPrice=" + onsetPrice + ", projectNo=" + projectNo + ", clientNo=" + clientNo + '}';
     }
-    
-    
 }

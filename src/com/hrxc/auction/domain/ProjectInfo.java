@@ -2,6 +2,7 @@ package com.hrxc.auction.domain;
 
 /**
  * 拍卖项目基本信息
+ *
  * @author user
  */
 public class ProjectInfo {

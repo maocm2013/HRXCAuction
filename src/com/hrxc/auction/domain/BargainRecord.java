@@ -8,6 +8,7 @@ package com.hrxc.auction.domain;
  * @author user
  */
 public class BargainRecord {
+
     private String pkId;
     /**
      * 号牌编号
@@ -45,9 +46,11 @@ public class BargainRecord {
      * 未付款
      */
     private Integer nonPayment;
+    /**
+     * 项目编号
+     */
+    private String projectNo;
 
-    
-    private int s = 0;
     public String getPkId() {
         return pkId;
     }
@@ -128,9 +131,16 @@ public class BargainRecord {
         this.nonPayment = nonPayment;
     }
 
+    public String getProjectNo() {
+        return projectNo;
+    }
+
+    public void setProjectNo(String projectNo) {
+        this.projectNo = projectNo;
+    }
+
     @Override
     public String toString() {
-        return "BargainRecord{" + "pkId=" + pkId + ", paddleNo=" + paddleNo + ", goodsNo=" + goodsNo + ", bargainConfirmNo=" + bargainConfirmNo + ", hammerPrice=" + hammerPrice + ", commission=" + commission + ", otherFund=" + otherFund + ", bargainPrice=" + bargainPrice + ", accountPaid=" + accountPaid + ", nonPayment=" + nonPayment + '}';
+        return "BargainRecord{" + "pkId=" + pkId + ", paddleNo=" + paddleNo + ", goodsNo=" + goodsNo + ", bargainConfirmNo=" + bargainConfirmNo + ", hammerPrice=" + hammerPrice + ", commission=" + commission + ", otherFund=" + otherFund + ", bargainPrice=" + bargainPrice + ", accountPaid=" + accountPaid + ", nonPayment=" + nonPayment + ", projectNo=" + projectNo + '}';
     }
-    
 }
