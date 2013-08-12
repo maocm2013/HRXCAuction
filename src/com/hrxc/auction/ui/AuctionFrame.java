@@ -2,7 +2,9 @@ package com.hrxc.auction.ui;
 
 import com.hrxc.auction.AuctionMain;
 import com.hrxc.auction.util.TreeMenuConfig;
+import com.hrxc.auction.util.TreeMenuObject;
 import java.awt.Toolkit;
+import javax.swing.tree.DefaultMutableTreeNode;
 import org.jdesktop.swingx.JXLabel;
 
 /**
@@ -109,13 +111,19 @@ public class AuctionFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_menuTreeValueChanged
-        String menuName = evt.getPath().getLastPathComponent().toString();
-        if (menuName.equals(TreeMenuConfig.MenuName.M_09_00_01)) {
-            rightPanel.setViewportView(new GoodsListPanel());
-        } else if (menuName.equals(TreeMenuConfig.MenuName.M_09_00_02)) {
-            rightPanel.setViewportView(new BiddingPaddlePanel());
-        } else if (menuName.equals(TreeMenuConfig.MenuName.M_09_00_03)) {
-            rightPanel.setViewportView(new BargainRecordPanel());
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode)evt.getPath().getLastPathComponent();
+        TreeMenuObject menu = (TreeMenuObject)node.getUserObject();
+        if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_00_01)) {
+            rightPanel.setViewportView(new ProjectInfoPanel());
+        }else if(menu.getTreeName().equals(TreeMenuConfig.MenuName.M_00_02)){
+            rightPanel.setViewportView(new ClientSidePanel());
+        } 
+        else if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_09_00_01)) {
+            rightPanel.setViewportView(new GoodsListPanel(menu.getProjectNo()));
+        } else if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_09_00_02)) {
+            rightPanel.setViewportView(new BiddingPaddlePanel(menu.getProjectNo()));
+        } else if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_09_00_03)) {
+            rightPanel.setViewportView(new BargainRecordPanel(menu.getProjectNo()));
         }
     }//GEN-LAST:event_menuTreeValueChanged
 
@@ -144,5 +152,12 @@ public class AuctionFrame extends javax.swing.JFrame {
 
     public JXLabel getUserInfoLabel() {
         return userInfoLabel;
+    }
+    
+    /**
+     * 重新加载系统菜单
+     */
+    public void reLoadMenuTree(){
+        menuTree.setModel(TreeMenuConfig.generateTreeMenu());
     }
 }

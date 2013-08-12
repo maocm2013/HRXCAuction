@@ -2,10 +2,10 @@ package com.hrxc.auction.ui;
 
 import com.hrxc.auction.action.UserInfoAction;
 import com.hrxc.auction.domain.UserInfo;
-import com.hrxc.auction.util.SystemContext;
-import javax.swing.JOptionPane;
 import com.hrxc.auction.util.MD5;
+import com.hrxc.auction.util.SystemContext;
 import com.hrxc.auction.util.UITools;
+import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
 
 /**
@@ -138,7 +138,7 @@ public class LoginDialog extends javax.swing.JDialog {
         String userNo = fd_userNo.getText();
         String password = UITools.char2String(fd_password.getPassword());
 
-        log.debug("userNo=" + userNo + ",password=" + password);
+        //log.debug("userNo=" + userNo + ",password=" + password);
         UserInfo user = UserInfoAction.getUserInfo(userNo);
         MD5 md5 = new MD5();
         if (user != null
@@ -153,6 +153,9 @@ public class LoginDialog extends javax.swing.JDialog {
 
             //居中显示
             frame.setLocationRelativeTo(null);
+            //重新加载菜单
+            frame.reLoadMenuTree();
+            
             frame.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this.getRootPane(), "用户编号或密码输入错误！");

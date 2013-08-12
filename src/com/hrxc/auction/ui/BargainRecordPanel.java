@@ -26,7 +26,8 @@ public class BargainRecordPanel extends javax.swing.JPanel {
     /**
      * Creates new form BargainRecordPanel
      */
-    public BargainRecordPanel() {
+    public BargainRecordPanel(String projectNo) {
+        this.projectNo = projectNo;
         initComponents();
     }
 
@@ -220,6 +221,7 @@ public class BargainRecordPanel extends javax.swing.JPanel {
         //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
         dataTable.setModel(model);
     }
+    private String projectNo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton addBton;
     private org.jdesktop.swingx.JXTable dataTable;

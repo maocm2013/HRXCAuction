@@ -1,6 +1,6 @@
 package com.hrxc.auction.dao;
 
-import com.hrxc.auction.domain.ProjectInfo;
+import com.hrxc.auction.domain.ClientSide;
 import com.hrxc.auction.util.JdbcUtil;
 import com.hrxc.auction.util.UITools;
 import java.sql.Connection;
@@ -18,47 +18,42 @@ import org.apache.log4j.Logger;
  *
  * @author user
  */
-public class ProjectInfoDao {
+public class ClientSideDao {
 
-    private static final Logger log = Logger.getLogger(ProjectInfoDao.class);
-    private static final String SQL_BASIC_QUERY = "SELECT PK_ID pkId,PROJECT_NO projectNo,PROJECT_NAME projectName,PROJECT_STATE projectState FROM PROJECT_INFO where 1=1 ";
-    private static final String SQL_DELETE_BY_ID = "delete from PROJECT_INFO where pk_id=?";
-    private static final String SQL_INSERT = "insert into PROJECT_INFO(PROJECT_NO,PROJECT_NAME,PROJECT_STATE,PK_ID)values(?,?,?,?)";
-    private static final String SQL_UPDATE_BY_ID = "update PROJECT_INFO set PROJECT_NO=?,PROJECT_NAME=?,PROJECT_STATE=? where pk_id=?";
+    private static final Logger log = Logger.getLogger(ClientSideDao.class);
+    private static final String SQL_BASIC_QUERY = "SELECT PK_ID pkId,CLIENT_NO clientNo,CLIENT_NAME clientName FROM CLIENT_SIDE where 1=1 ";
+    private static final String SQL_DELETE_BY_ID = "delete from CLIENT_SIDE where pk_id=?";
+    private static final String SQL_INSERT = "insert into CLIENT_SIDE(CLIENT_NO,CLIENT_NAME,PK_ID)values(?,?,?)";
+    private static final String SQL_UPDATE_BY_ID = "update CLIENT_SIDE set CLIENT_NO=?,CLIENT_NAME=? where pk_id=?";
 
     /**
      * 根据条件进行查询
-     * @param projectNo
-     * @param projectName
-     * @param projectState
+     * @param clientNo
+     * @param clientName
      * @return
      * @throws SQLException 
      */
-    public List getAllObjectInfo(String projectNo, String projectName,String projectState) throws SQLException {
+    public List getAllObjectInfo(String clientNo, String clientName) throws SQLException {
         Connection conn = null;
         QueryRunner queryRunner = null;
-        List<ProjectInfo> list = null;
+        List<ClientSide> list = null;
         StringBuilder sb = new StringBuilder(SQL_BASIC_QUERY);
         try {
             ArrayList<Object> params = new ArrayList<Object>();
-            if (StringUtils.isNotEmpty(projectNo)) {
-                params.add(projectNo.trim());
-                sb.append(" and PROJECT_NO=? ");
+            if (StringUtils.isNotEmpty(clientNo)) {
+                params.add(clientNo.trim());
+                sb.append(" and CLIENT_NO=? ");
             }
-            if (StringUtils.isNotEmpty(projectName)) {
-                params.add(projectName.trim());
-                sb.append(" and PROJECT_NAME like '%'||?||'%' ");
+            if (StringUtils.isNotEmpty(clientName)) {
+                params.add(clientName.trim());
+                sb.append(" and CLIENT_NAME like '%'||?||'%' ");
             }
-            if(StringUtils.isNotEmpty(projectState)){
-                params.add(projectState.trim());
-                sb.append(" and PROJECT_STATE=? ");
-            }
-            sb.append(" order by PROJECT_NO");
+            sb.append(" order by CLIENT_NO");
             log.debug("getAllObjectInfo.sql=" + sb.toString());
 
             conn = JdbcUtil.getConn();
             queryRunner = new QueryRunner();
-            list = (List<ProjectInfo>) queryRunner.query(conn, sb.toString(), new BeanListHandler(ProjectInfo.class), params.toArray());
+            list = (List<ClientSide>) queryRunner.query(conn, sb.toString(), new BeanListHandler(ClientSide.class), params.toArray());
         } finally {
             DbUtils.close(conn);
         }
@@ -72,15 +67,15 @@ public class ProjectInfoDao {
      * @return
      * @throws SQLException
      */
-    public ProjectInfo getObjectById(String pkId) throws SQLException {
+    public ClientSide getObjectById(String pkId) throws SQLException {
         Connection conn = null;
         QueryRunner queryRunner = null;
-        ProjectInfo dto = null;
+        ClientSide dto = null;
         String sql = SQL_BASIC_QUERY.concat(" and pk_id=?");
         try {
             conn = JdbcUtil.getConn();
             queryRunner = new QueryRunner();
-            dto = (ProjectInfo) queryRunner.query(conn, sql, new BeanHandler(ProjectInfo.class), pkId);
+            dto = (ClientSide) queryRunner.query(conn, sql, new BeanHandler(ClientSide.class), pkId);
         } finally {
             DbUtils.close(conn);
         }
@@ -116,17 +111,16 @@ public class ProjectInfoDao {
      * @param dto
      * @throws SQLException
      */
-    public void saveOrUpdateObject(ProjectInfo dto) throws SQLException {
+    public void saveOrUpdateObject(ClientSide dto) throws SQLException {
         Connection conn = null;
         QueryRunner queryRunner = null;
         try {
             conn = JdbcUtil.getConn();
             queryRunner = new QueryRunner();
-            Object[] params = new Object[4];
+            Object[] params = new Object[3];
             int seq = 0;
-            params[seq++] = dto.getProjectNo();
-            params[seq++] = dto.getProjectName();
-            params[seq++] = dto.getProjectState();
+            params[seq++] = dto.getClientNo();
+            params[seq++] = dto.getClientName();
             if (StringUtils.isNotEmpty(dto.getPkId())) {
                 params[seq++] = dto.getPkId();
                 queryRunner.update(conn, SQL_UPDATE_BY_ID, params);
