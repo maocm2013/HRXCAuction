@@ -3,6 +3,9 @@ package com.hrxc.auction;
 import com.hrxc.auction.ui.AuctionFrame;
 import com.hrxc.auction.ui.LoginDialog;
 import com.hrxc.auction.util.Configuration;
+import com.hrxc.auction.util.JdbcUtil;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
 
 /**
@@ -21,6 +24,11 @@ public class AuctionMain {
             //Log4j初始化
             Configuration.initLog4j();
 
+            //验证数据库连接是否正常
+            if(!validateJdbcConn()){
+                JOptionPane.showMessageDialog(null, "数据库连接异常，请确认URL是否正确！","错误",JOptionPane.ERROR_MESSAGE);
+                System.exit(0);
+            }
         } catch (Exception ex) {
             log.error("log4j init error:", ex);
         }
@@ -71,5 +79,26 @@ public class AuctionMain {
         //居中显示
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
+    }
+
+    private static boolean validateJdbcConn() {
+        //首先验证数据库连接是否正常
+        Connection conn = null;
+        try {
+            conn = JdbcUtil.getConn();
+        } catch (Exception ex) {
+            log.error("error:", ex);
+            return false;
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ex) {
+                    log.error("error:", ex);
+                    return false;
+                }               
+            }
+        }
+        return true;
     }
 }

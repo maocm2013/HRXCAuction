@@ -72,8 +72,8 @@ public class TreeMenuConfig {
 
         DefaultMutableTreeNode m09 = new DefaultMutableTreeNode(new TreeMenuObject(MenuName.M_09));
 
-        //组织项目信息
-        List<ProjectInfo> list = ProjectInfoAction.getAllProjectByState(null);
+        //组织项目信息，仅列示未完结的项目
+        List<ProjectInfo> list = ProjectInfoAction.getAllProjectByState(DictEnum.ProjectState.PROCESSING);
         if (list != null && list.size() > 0) {
             for (int i = 0; i < list.size(); i++) {
                 ProjectInfo project = list.get(i);

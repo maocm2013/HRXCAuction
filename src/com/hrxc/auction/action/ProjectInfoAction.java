@@ -2,6 +2,7 @@ package com.hrxc.auction.action;
 
 import com.hrxc.auction.dao.ProjectInfoDao;
 import com.hrxc.auction.domain.ProjectInfo;
+import com.hrxc.auction.util.DictEnum;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.Logger;
@@ -79,7 +80,7 @@ public class ProjectInfoAction {
             data[i][seq++] = String.valueOf(i + 1);
             data[i][seq++] = dto.getProjectNo();
             data[i][seq++] = dto.getProjectName();
-            data[i][seq++] = dto.getProjectState();
+            data[i][seq++] = dto.getProjectState() + "-" + DictEnum.ProjectState.dataMap.get(dto.getProjectState());
         }
         return data;
     }

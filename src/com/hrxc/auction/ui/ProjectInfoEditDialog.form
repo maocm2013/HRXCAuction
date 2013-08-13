@@ -41,10 +41,10 @@
                               <Component id="jXLabel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="fd_projectNo" min="-2" pref="211" max="-2" attributes="0"/>
-                              <Component id="fd_projectName" min="-2" pref="211" max="-2" attributes="0"/>
-                              <Component id="fd_projectState" min="-2" pref="211" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="fd_projectNo" pref="211" max="32767" attributes="0"/>
+                              <Component id="fd_projectName" pref="211" max="32767" attributes="0"/>
+                              <Component id="fd_projectState" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -80,7 +80,7 @@
               </Group>
               <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
               <Component id="msgLabel" min="-2" pref="33" max="-2" attributes="0"/>
-              <EmptySpace pref="149" max="32767" attributes="0"/>
+              <EmptySpace pref="147" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -119,11 +119,6 @@
         <Property name="text" type="java.lang.String" value="&#x9879;&#x76ee;&#x72b6;&#x6001;&#xff1a;"/>
       </Properties>
     </Component>
-    <Component class="org.jdesktop.swingx.JXTextField" name="fd_projectState">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_projectState.setText(UITools.getBeanPropertyValue(dto, &quot;projectState&quot;));"/>
-      </AuxValues>
-    </Component>
     <Component class="org.jdesktop.swingx.JXButton" name="closeBt">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -147,6 +142,11 @@
       </Events>
     </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="msgLabel">
+    </Component>
+    <Component class="org.jdesktop.swingx.JXComboBox" name="fd_projectState">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_projectState.setModel(UITools.getComboxValue(DictEnum.ProjectState.dataMap,false));&#xa;if(dto != null){&#xa;    fd_projectState.getModel().setSelectedItem(new ComboxValue(String.valueOf(DictEnum.ProjectState.dataMap.get(dto.getProjectState())),dto.getProjectState()));&#xa;}"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -2,6 +2,8 @@ package com.hrxc.auction.ui;
 
 import com.hrxc.auction.action.ProjectInfoAction;
 import com.hrxc.auction.domain.ProjectInfo;
+import com.hrxc.auction.util.ComboxValue;
+import com.hrxc.auction.util.DictEnum;
 import com.hrxc.auction.util.UITools;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -37,10 +39,10 @@ public class ProjectInfoEditDialog extends javax.swing.JDialog {
         jXLabel2 = new org.jdesktop.swingx.JXLabel();
         fd_projectName = new org.jdesktop.swingx.JXTextField();
         jXLabel3 = new org.jdesktop.swingx.JXLabel();
-        fd_projectState = new org.jdesktop.swingx.JXTextField();
         closeBt = new org.jdesktop.swingx.JXButton();
         submitBt = new org.jdesktop.swingx.JXButton();
         msgLabel = new org.jdesktop.swingx.JXLabel();
+        fd_projectState = new org.jdesktop.swingx.JXComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -58,8 +60,6 @@ public class ProjectInfoEditDialog extends javax.swing.JDialog {
 
         jXLabel3.setText("项目状态：");
 
-        fd_projectState.setText(UITools.getBeanPropertyValue(dto, "projectState"));
-
         closeBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dialog-close.png"))); // NOI18N
         closeBt.setText("关闭");
         closeBt.addActionListener(new java.awt.event.ActionListener() {
@@ -75,6 +75,11 @@ public class ProjectInfoEditDialog extends javax.swing.JDialog {
                 submitBtActionPerformed(evt);
             }
         });
+
+        fd_projectState.setModel(UITools.getComboxValue(DictEnum.ProjectState.dataMap,false));
+        if(dto != null){
+            fd_projectState.getModel().setSelectedItem(new ComboxValue(String.valueOf(DictEnum.ProjectState.dataMap.get(dto.getProjectState())),dto.getProjectState()));
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,10 +101,10 @@ public class ProjectInfoEditDialog extends javax.swing.JDialog {
                                 .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jXLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(fd_projectNo, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(fd_projectName, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(fd_projectState, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(fd_projectNo, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                                .addComponent(fd_projectName, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                                .addComponent(fd_projectState, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(183, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -125,7 +130,7 @@ public class ProjectInfoEditDialog extends javax.swing.JDialog {
                     .addComponent(submitBt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(149, 149, 149)
                 .addComponent(msgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         pack();
@@ -148,7 +153,9 @@ public class ProjectInfoEditDialog extends javax.swing.JDialog {
             //拼装数据对象属性
             dto.setProjectNo(fd_projectNo.getText().trim());
             dto.setProjectName(fd_projectName.getText().trim());
-            dto.setProjectState(fd_projectState.getText().trim());
+            
+            ComboxValue value = (ComboxValue)fd_projectState.getSelectedItem();
+            dto.setProjectState(value.getValue());
 
             if (JOptionPane.showConfirmDialog(this.getRootPane(), "请确认您是否要保存数据？") == JOptionPane.YES_OPTION) {
                 ProjectInfoAction.saveOrUpdateObject(dto);
@@ -166,7 +173,7 @@ public class ProjectInfoEditDialog extends javax.swing.JDialog {
     private org.jdesktop.swingx.JXButton closeBt;
     private org.jdesktop.swingx.JXTextField fd_projectName;
     private org.jdesktop.swingx.JXTextField fd_projectNo;
-    private org.jdesktop.swingx.JXTextField fd_projectState;
+    private org.jdesktop.swingx.JXComboBox fd_projectState;
     private org.jdesktop.swingx.JXLabel jXLabel1;
     private org.jdesktop.swingx.JXLabel jXLabel2;
     private org.jdesktop.swingx.JXLabel jXLabel3;
