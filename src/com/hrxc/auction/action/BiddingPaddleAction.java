@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hrxc.auction.action;
 
 import com.hrxc.auction.dao.BiddingPaddleDao;
@@ -22,14 +18,15 @@ public class BiddingPaddleAction {
 
     /**
      * 根据条件查询数据信息
+     * @param projectNo
      * @param paddleNo
      * @param custName
      * @return 
      */
-    public static Object[][] getAllTableData(String paddleNo, String custName) {
+    public static Object[][] getAllTableData(String projectNo,String paddleNo, String custName) {
         Object[][] data = null;
         try {
-            List<BiddingPaddle> list = dao.getAllObjectInfo(paddleNo, custName);
+            List<BiddingPaddle> list = dao.getAllObjectInfo(projectNo,paddleNo, custName);
             if (list != null && list.size() > 0) {
                 data = List2TableData(list);
             }
@@ -55,6 +52,7 @@ public class BiddingPaddleAction {
             data[i][seq++] = dto.getCustAddr();
             data[i][seq++] = dto.getCashDeposit();
             data[i][seq++] = dto.getRemarks();
+            data[i][seq++] = dto.getProjectNo();
         }
         return data;
     }

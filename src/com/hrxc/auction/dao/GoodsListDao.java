@@ -21,26 +21,32 @@ import org.apache.log4j.Logger;
 public class GoodsListDao {
 
     private static final Logger log = Logger.getLogger(GoodsListDao.class);
-    private static final String SQL_BASIC_QUERY = "select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice from goods_list where 1=1 ";
+    private static final String SQL_BASIC_QUERY = "select pk_id pkId,goods_no goodsNo,goods_Name goodsName,goods_Intact goodsIntact,goods_Size goodsSize,certificate_No certificateNo,keep_Price keepPrice,market_Price marketPrice,onset_Price onsetPrice,project_no projectNo,client_no clientNo from goods_list where 1=1 ";
     private static final String SQL_DELETE_BY_ID = "delete from goods_list where pk_id=?";
-    private static final String SQL_INSERT = "insert into goods_list(goods_no,goods_Name,goods_Intact,goods_Size,certificate_No,keep_Price,market_Price,onset_Price,pk_id)values(?,?,?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATE_BY_ID = "update goods_list set goods_no=?,goods_Name=?,goods_Intact=?,goods_Size=?,certificate_No=?,keep_Price=?,market_Price=?,onset_Price=? where pk_id=?";
+    private static final String SQL_INSERT = "insert into goods_list(goods_no,goods_Name,goods_Intact,goods_Size,certificate_No,keep_Price,market_Price,onset_Price,project_no,client_no,pk_id)values(?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATE_BY_ID = "update goods_list set goods_no=?,goods_Name=?,goods_Intact=?,goods_Size=?,certificate_No=?,keep_Price=?,market_Price=?,onset_Price=?,project_no=?,client_no=? where pk_id=?";
 
     /**
      * 根据条件进行查询
      *
+     * @param projectNo
      * @param goodsNo
      * @param goodsName
      * @return
      * @throws SQLException
      */
-    public List getAllObjectInfo(String goodsNo, String goodsName) throws SQLException {
+    public List getAllObjectInfo(String projectNo, String goodsNo, String goodsName) throws SQLException {
         Connection conn = null;
         QueryRunner queryRunner = null;
         List<GoodsList> list = null;
         StringBuilder sb = new StringBuilder(SQL_BASIC_QUERY);
         try {
             ArrayList<Object> params = new ArrayList<Object>();
+            
+            //首先增加项目编号查询条件
+            params.add(projectNo);
+            sb.append("and project_no=? ");
+            
             if (StringUtils.isNotEmpty(goodsNo)) {
                 params.add(goodsNo.trim());
                 sb.append(" and goods_no=? ");
@@ -118,7 +124,7 @@ public class GoodsListDao {
         try {
             conn = JdbcUtil.getConn();
             queryRunner = new QueryRunner();
-            Object[] params = new Object[9];
+            Object[] params = new Object[11];
             int seq = 0;
             params[seq++] = dto.getGoodsNo();
             params[seq++] = dto.getGoodsName();
@@ -128,6 +134,8 @@ public class GoodsListDao {
             params[seq++] = dto.getKeepPrice();
             params[seq++] = dto.getMarketPrice();
             params[seq++] = dto.getOnsetPrice();
+            params[seq++] = dto.getProjectNo();
+            params[seq++] = dto.getClientNo();
             if (StringUtils.isNotEmpty(dto.getPkId())) {
                 params[seq++] = dto.getPkId();
                 queryRunner.update(conn, SQL_UPDATE_BY_ID, params);

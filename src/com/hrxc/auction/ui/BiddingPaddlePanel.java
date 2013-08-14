@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hrxc.auction.ui;
 
 import com.hrxc.auction.action.BaseTableModel;
@@ -52,7 +48,7 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         BiddingPaddleTableConfig.MyTableModel model = new BiddingPaddleTableConfig().new MyTableModel();
 
         //初始化显示数据
-        Object[][] datas = BiddingPaddleAction.getAllTableData(null, null);
+        Object[][] datas = BiddingPaddleAction.getAllTableData(this.getProjectNo(),null, null);
         model.refreshContents(datas);
         dataTable = new org.jdesktop.swingx.JXTable(model);
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
@@ -267,10 +263,15 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
      */
     public void refreshTableDatas(String paddleNo, String custName) {
         BiddingPaddleTableConfig.MyTableModel model = (BiddingPaddleTableConfig.MyTableModel) dataTable.getModel();
-        model.refreshContents(BiddingPaddleAction.getAllTableData(paddleNo, custName));
+        model.refreshContents(BiddingPaddleAction.getAllTableData(this.getProjectNo(),paddleNo, custName));
         //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
         dataTable.setModel(model);
     }
+
+    public String getProjectNo() {
+        return projectNo;
+    }
+    
     private String projectNo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton addBton;

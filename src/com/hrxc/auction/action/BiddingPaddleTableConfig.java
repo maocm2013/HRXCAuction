@@ -7,7 +7,7 @@ package com.hrxc.auction.action;
 public class BiddingPaddleTableConfig {
 
     public static final String[] tableColumnNames = new String[]{
-        "选择", "主键", "序号", "竞买号牌", "竞买人姓名", "证件类型", "证件号码", "联系方式","通讯地址","保证金（元）","备注"
+        "选择", "主键", "序号", "竞买号牌", "竞买人姓名", "证件类型", "证件号码", "联系方式","通讯地址","保证金（元）","备注","项目编号"
     };
 
     public class MyTableModel extends BaseTableModel {
@@ -28,6 +28,7 @@ public class BiddingPaddleTableConfig {
             java.lang.String.class,
             java.lang.Integer.class,
             java.lang.Integer.class,
+            java.lang.String.class,
             java.lang.String.class
         };
 

@@ -21,13 +21,15 @@ public class GoodsListAction {
 
     /**
      * 根据拍品编号获取拍品信息
+     *
+     * @param projectNo
      * @param goodsNo
-     * @return 
+     * @return
      */
-    public static GoodsList getGoodsListByGoodsNo(String goodsNo) {
+    public static GoodsList getGoodsListByGoodsNo(String projectNo, String goodsNo) {
         GoodsList dto = null;
         try {
-            List<GoodsList> list = dao.getAllObjectInfo(goodsNo, null);
+            List<GoodsList> list = dao.getAllObjectInfo(projectNo, goodsNo, null);
             if (list != null && list.size() > 0) {
                 dto = list.get(0);
             }
@@ -40,14 +42,15 @@ public class GoodsListAction {
     /**
      * 根据条件查询数据信息
      *
+     * @param projectNo
      * @param goodsNo
      * @param goodsName
      * @return
      */
-    public static Object[][] getAllTableData(String goodsNo, String goodsName) {
+    public static Object[][] getAllTableData(String projectNo, String goodsNo, String goodsName) {
         Object[][] data = null;
         try {
-            List<GoodsList> list = dao.getAllObjectInfo(goodsNo, goodsName);
+            List<GoodsList> list = dao.getAllObjectInfo(projectNo, goodsNo, goodsName);
             if (list != null && list.size() > 0) {
                 data = List2TableData(list);
             }
@@ -73,6 +76,8 @@ public class GoodsListAction {
             data[i][seq++] = dto.getKeepPrice();
             data[i][seq++] = dto.getMarketPrice();
             data[i][seq++] = dto.getOnsetPrice();
+            data[i][seq++] = dto.getProjectNo();
+            data[i][seq++] = dto.getClientNo();
         }
         return data;
     }

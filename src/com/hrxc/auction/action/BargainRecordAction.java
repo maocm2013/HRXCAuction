@@ -21,13 +21,15 @@ public class BargainRecordAction {
 
     /**
      * 根据竞拍好品获取所有成交记录
+     *
+     * @param projectNo
      * @param paddleNo
-     * @return 
+     * @return
      */
-    public static List<BargainRecord> getBargainRecordListByPaddleNo(String paddleNo) {
+    public static List<BargainRecord> getBargainRecordListByPaddleNo(String projectNo, String paddleNo) {
         List<BargainRecord> list = null;
         try {
-            list = dao.getAllObjectInfo(paddleNo, null);
+            list = dao.getAllObjectInfo(projectNo, paddleNo, null);
         } catch (Exception ex) {
             log.error("error:", ex);
         }
@@ -37,14 +39,15 @@ public class BargainRecordAction {
     /**
      * 根据条件查询数据信息
      *
+     * @param projectNo
      * @param paddleNo
      * @param custName
      * @return
      */
-    public static Object[][] getAllTableData(String paddleNo, String custName) {
+    public static Object[][] getAllTableData(String projectNo,String paddleNo, String custName) {
         Object[][] data = null;
         try {
-            List<BargainRecord> list = dao.getAllObjectInfo(paddleNo, custName);
+            List<BargainRecord> list = dao.getAllObjectInfo(projectNo,paddleNo, custName);
             if (list != null && list.size() > 0) {
                 data = List2TableData(list);
             }
@@ -71,6 +74,7 @@ public class BargainRecordAction {
             data[i][seq++] = dto.getBargainPrice();
             data[i][seq++] = dto.getAccountPaid();
             data[i][seq++] = dto.getNonPayment();
+            data[i][seq++] = dto.getProjectNo();
         }
         return data;
     }

@@ -25,26 +25,30 @@ import org.apache.log4j.Logger;
 public class BiddingPaddleDao {
 
     private static final Logger log = Logger.getLogger(BiddingPaddleDao.class);
-    private static final String SQL_BASIC_QUERY = "select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks from bidding_paddle where 1=1 ";
+    private static final String SQL_BASIC_QUERY = "select pk_id pkId,paddle_No paddleNo,cust_Name custName,cert_Type certType,cert_No certNo,cust_Tel custTel,cust_Addr custAddr,cash_Deposit cashDeposit,remarks remarks,project_no projectNo from bidding_paddle where 1=1 ";
     private static final String SQL_DELETE_BY_ID = "delete from bidding_paddle where pk_id=?";
-    private static final String SQL_INSERT = "insert into bidding_paddle(paddle_No,cust_Name,cert_Type,cert_No,cust_Tel,cust_Addr,cash_Deposit,remarks,pk_id)values(?,?,?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATE_BY_ID = "update bidding_paddle set paddle_No=?,cust_Name=?,cert_Type=?,cert_No=?,cust_Tel=?,cust_Addr=?,cash_Deposit=?,remarks=? where pk_id=?";
+    private static final String SQL_INSERT = "insert into bidding_paddle(paddle_No,cust_Name,cert_Type,cert_No,cust_Tel,cust_Addr,cash_Deposit,remarks,project_no,pk_id)values(?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATE_BY_ID = "update bidding_paddle set paddle_No=?,cust_Name=?,cert_Type=?,cert_No=?,cust_Tel=?,cust_Addr=?,cash_Deposit=?,remarks=?,project_no=? where pk_id=?";
 
     /**
      * 根据条件进行查询
      *
+     * @param projectNo
      * @param paddleNo
      * @param custName
      * @return
      * @throws SQLException
      */
-    public List getAllObjectInfo(String paddleNo, String custName) throws SQLException {
+    public List getAllObjectInfo(String projectNo, String paddleNo, String custName) throws SQLException {
         Connection conn = null;
         QueryRunner queryRunner = null;
         List<BiddingPaddle> list = null;
         StringBuilder sb = new StringBuilder(SQL_BASIC_QUERY);
         try {
             ArrayList<Object> params = new ArrayList<Object>();
+            //首先增加项目编号查询条件
+            params.add(projectNo);
+            sb.append("and project_no=? ");
             if (StringUtils.isNotEmpty(paddleNo)) {
                 params.add(paddleNo.trim());
                 sb.append(" and paddle_No=? ");
@@ -122,7 +126,7 @@ public class BiddingPaddleDao {
         try {
             conn = JdbcUtil.getConn();
             queryRunner = new QueryRunner();
-            Object[] params = new Object[9];
+            Object[] params = new Object[10];
             int seq = 0;
             params[seq++] = dto.getPaddleNo();
             params[seq++] = dto.getCustName();
@@ -132,6 +136,7 @@ public class BiddingPaddleDao {
             params[seq++] = dto.getCustAddr();
             params[seq++] = dto.getCashDeposit();
             params[seq++] = dto.getRemarks();
+            params[seq++] = dto.getProjectNo();
             if (StringUtils.isNotEmpty(dto.getPkId())) {
                 params[seq++] = dto.getPkId();
                 queryRunner.update(conn, SQL_UPDATE_BY_ID, params);
@@ -144,4 +149,3 @@ public class BiddingPaddleDao {
         }
     }
 }
-

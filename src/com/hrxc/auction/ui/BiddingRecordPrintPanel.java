@@ -82,7 +82,7 @@ public class BiddingRecordPrintPanel extends AbstractPrintPanel {
 
         //成交记录信息
         String paddleNo = dto.getPaddleNo();
-        List<BargainRecord> list = BargainRecordAction.getBargainRecordListByPaddleNo(paddleNo);
+        List<BargainRecord> list = BargainRecordAction.getBargainRecordListByPaddleNo(dto.getProjectNo(),paddleNo);
 
         Font titleFont_14 = new Font("黑体", Font.PLAIN, 14);
         Font titleFont_20 = new Font("黑体", Font.PLAIN, 20);
@@ -132,7 +132,7 @@ public class BiddingRecordPrintPanel extends AbstractPrintPanel {
                 BargainRecord rec = list.get(i);
                 y_coord = y_coord + 14;
                 g2.drawString(getFontedAttributedString(titleFont_10,rec.getGoodsNo()), x_coord_paddleNo, y_coord);
-                g2.drawString(getFontedAttributedString(titleFont_10,GoodsListAction.getGoodsListByGoodsNo(rec.getGoodsNo()).getGoodsName()), x_coord_paddleName, y_coord);
+                g2.drawString(getFontedAttributedString(titleFont_10,GoodsListAction.getGoodsListByGoodsNo(rec.getProjectNo(),rec.getGoodsNo()).getGoodsName()), x_coord_paddleName, y_coord);
                 g2.drawString(getFontedAttributedString(titleFont_10,String.valueOf(rec.getHammerPrice())), x_coord_hammerPrice, y_coord);
                 g2.drawString(getFontedAttributedString(titleFont_10,String.valueOf(rec.getCommission())), x_coord_commission, y_coord);
                 g2.drawString(getFontedAttributedString(titleFont_10,String.valueOf(rec.getOtherFund())), x_coord_otherFund, y_coord);

@@ -3,6 +3,7 @@ package com.hrxc.auction.action;
 import com.hrxc.auction.dao.ClientSideDao;
 import com.hrxc.auction.domain.ClientSide;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import org.apache.log4j.Logger;
 
@@ -17,8 +18,9 @@ public class ClientSideAction {
 
     /**
      * 根据项目编号获取项目信息
+     *
      * @param clientNo
-     * @return 
+     * @return
      */
     public static ClientSide getClientSideByClientNo(String clientNo) {
         ClientSide dto = null;
@@ -51,6 +53,26 @@ public class ClientSideAction {
             log.error("error:", ex);
         }
         return data;
+    }
+
+    /**
+     * 获取所有委托方信息
+     * @return 
+     */
+    public static HashMap<String, String> getAllClientInfo() {
+        HashMap<String, String> dataMap = new HashMap<String, String>();
+        try {
+            List<ClientSide> list = dao.getAllObjectInfo(null, null);
+            if (list != null && list.size() > 0) {
+                for(int i = 0; i < list.size(); i++){
+                    ClientSide dto = list.get(i);
+                    dataMap.put(dto.getClientNo(), dto.getClientName());
+                }
+            }
+        } catch (Exception ex) {
+            log.error("error:", ex);
+        }
+        return dataMap;
     }
 
     private static Object[][] List2TableData(List<ClientSide> list) {
