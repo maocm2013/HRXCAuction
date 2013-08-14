@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hrxc.auction.ui;
 
 import com.hrxc.auction.action.BargainRecordAction;
@@ -45,18 +41,14 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
         jXLabel4 = new org.jdesktop.swingx.JXLabel();
         fd_hammerPrice = new org.jdesktop.swingx.JXTextField();
         jXLabel5 = new org.jdesktop.swingx.JXLabel();
-        fd_accountPaid = new org.jdesktop.swingx.JXTextField();
         jXLabel6 = new org.jdesktop.swingx.JXLabel();
         fd_commission = new org.jdesktop.swingx.JXTextField();
         jXLabel7 = new org.jdesktop.swingx.JXLabel();
         fd_otherFund = new org.jdesktop.swingx.JXTextField();
-        jXLabel8 = new org.jdesktop.swingx.JXLabel();
         fd_bargainPrice = new org.jdesktop.swingx.JXTextField();
         closeBt = new org.jdesktop.swingx.JXButton();
         submitBt = new org.jdesktop.swingx.JXButton();
         msgLabel = new org.jdesktop.swingx.JXLabel();
-        jXLabel9 = new org.jdesktop.swingx.JXLabel();
-        fd_nonPayment = new org.jdesktop.swingx.JXTextField();
         fd_projectNo = new org.jdesktop.swingx.JXTextField();
         jXLabel10 = new org.jdesktop.swingx.JXLabel();
 
@@ -84,8 +76,6 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
 
         jXLabel5.setText("佣金：");
 
-        fd_accountPaid.setText(UITools.getBeanPropertyValue(dto, "accountPaid","500"));
-
         jXLabel6.setText("其他款项：");
 
         fd_commission.setText(UITools.getBeanPropertyValue(dto, "commission"));
@@ -94,8 +84,6 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
         jXLabel7.setText("总成交价：");
 
         fd_otherFund.setText(UITools.getBeanPropertyValue(dto, "otherFund","0"));
-
-        jXLabel8.setText("已付款：");
 
         fd_bargainPrice.setText(UITools.getBeanPropertyValue(dto, "bargainPrice"));
         fd_bargainPrice.setEditable(false);
@@ -115,11 +103,6 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
                 submitBtActionPerformed(evt);
             }
         });
-
-        jXLabel9.setText("未付款：");
-
-        fd_nonPayment.setText(UITools.getBeanPropertyValue(dto, "nonPayment"));
-        fd_nonPayment.setEditable(false);
 
         BargainRecordPanel panel = (BargainRecordPanel) this.listDataPanel;
         fd_projectNo.setText(UITools.getBeanPropertyValue(dto, "projectNo",panel.getProjectNo()));
@@ -148,8 +131,6 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
                             .addComponent(submitBt, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jXLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jXLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jXLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jXLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jXLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,11 +144,9 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
                             .addComponent(fd_goodsNo, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fd_bargainConfirmNo, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fd_hammerPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fd_accountPaid, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fd_commission, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fd_otherFund, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fd_bargainPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fd_nonPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(fd_bargainPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(159, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -205,14 +184,6 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
                     .addComponent(fd_bargainPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jXLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fd_accountPaid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fd_nonPayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jXLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fd_projectNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jXLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -221,7 +192,7 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
                     .addComponent(submitBt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(msgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         pack();
@@ -235,18 +206,12 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
         //进行输入项验证
         if (UITools.vilidateText(fd_paddleNo, msgLabel, true, false, false)
                 && UITools.vilidateText(fd_goodsNo, msgLabel, true, false, false)
-                && UITools.vilidateText(fd_bargainConfirmNo, msgLabel, true, false, false)
                 && UITools.vilidateText(fd_hammerPrice, msgLabel, false, true, false)
-                //&& UITools.vilidateText(fd_commission, msgLabel, false, true, false)
-                && UITools.vilidateText(fd_otherFund, msgLabel, false, true, false)
-                //&& UITools.vilidateText(fd_bargainPrice, msgLabel, false, true, true)
-                && UITools.vilidateText(fd_accountPaid, msgLabel, false, true, false) //&& UITools.vilidateText(fd_nonPayment, msgLabel, false, true, false)
-                ) {
-            
+                && UITools.vilidateText(fd_otherFund, msgLabel, false, true, false)) {
+
             //按照公式进行相关运算
             int int_hammerPrice = Integer.parseInt(fd_hammerPrice.getText().trim());
             int int_otherFund = Integer.parseInt(fd_otherFund.getText().trim());
-            int int_accountPaid = Integer.parseInt(fd_accountPaid.getText().trim());
 
             //佣金按照落锤价的10%计算
             int int_commission = new Double(int_hammerPrice * 0.1).intValue();
@@ -256,10 +221,6 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
             int int_bargainPrice = int_hammerPrice + int_commission + int_otherFund;
             fd_bargainPrice.setText(String.valueOf(int_bargainPrice));
 
-            //未付款=总价-已付款
-            int int_nonPayment = int_bargainPrice - int_accountPaid;
-            fd_nonPayment.setText(String.valueOf(int_nonPayment));
-            
             //如果数据对象为空则新建
             if (dto == null) {
                 dto = new BargainRecord();
@@ -273,8 +234,6 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
             dto.setCommission(Integer.valueOf(fd_commission.getText().trim()));
             dto.setOtherFund(Integer.valueOf(fd_otherFund.getText().trim()));
             dto.setBargainPrice(Integer.valueOf(fd_bargainPrice.getText().trim()));
-            dto.setAccountPaid(Integer.valueOf(fd_accountPaid.getText().trim()));
-            dto.setNonPayment(Integer.valueOf(fd_nonPayment.getText().trim()));
             dto.setProjectNo(fd_projectNo.getText());
 
             if (JOptionPane.showConfirmDialog(this.getRootPane(), "请确认您是否要保存数据？") == JOptionPane.YES_OPTION) {
@@ -290,13 +249,11 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
     private JPanel listDataPanel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton closeBt;
-    private org.jdesktop.swingx.JXTextField fd_accountPaid;
     private org.jdesktop.swingx.JXTextField fd_bargainConfirmNo;
     private org.jdesktop.swingx.JXTextField fd_bargainPrice;
     private org.jdesktop.swingx.JXTextField fd_commission;
     private org.jdesktop.swingx.JXTextField fd_goodsNo;
     private org.jdesktop.swingx.JXTextField fd_hammerPrice;
-    private org.jdesktop.swingx.JXTextField fd_nonPayment;
     private org.jdesktop.swingx.JXTextField fd_otherFund;
     private org.jdesktop.swingx.JXTextField fd_paddleNo;
     private org.jdesktop.swingx.JXTextField fd_projectNo;
@@ -308,8 +265,6 @@ public class BargainRecordEditDialog extends javax.swing.JDialog {
     private org.jdesktop.swingx.JXLabel jXLabel5;
     private org.jdesktop.swingx.JXLabel jXLabel6;
     private org.jdesktop.swingx.JXLabel jXLabel7;
-    private org.jdesktop.swingx.JXLabel jXLabel8;
-    private org.jdesktop.swingx.JXLabel jXLabel9;
     private org.jdesktop.swingx.JXTitledSeparator jXTitledSeparator1;
     private org.jdesktop.swingx.JXLabel msgLabel;
     private org.jdesktop.swingx.JXButton submitBt;

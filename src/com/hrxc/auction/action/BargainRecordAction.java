@@ -29,7 +29,7 @@ public class BargainRecordAction {
     public static List<BargainRecord> getBargainRecordListByPaddleNo(String projectNo, String paddleNo) {
         List<BargainRecord> list = null;
         try {
-            list = dao.getAllObjectInfo(projectNo, paddleNo, null);
+            list = dao.getAllObjectInfo(projectNo, null,paddleNo, null);
         } catch (Exception ex) {
             log.error("error:", ex);
         }
@@ -40,14 +40,15 @@ public class BargainRecordAction {
      * 根据条件查询数据信息
      *
      * @param projectNo
+     * @param isSettled
      * @param paddleNo
      * @param custName
      * @return
      */
-    public static Object[][] getAllTableData(String projectNo,String paddleNo, String custName) {
+    public static Object[][] getAllTableData(String projectNo,String isSettled,String paddleNo, String custName) {
         Object[][] data = null;
         try {
-            List<BargainRecord> list = dao.getAllObjectInfo(projectNo,paddleNo, custName);
+            List<BargainRecord> list = dao.getAllObjectInfo(projectNo,isSettled,paddleNo, custName);
             if (list != null && list.size() > 0) {
                 data = List2TableData(list);
             }
@@ -72,9 +73,9 @@ public class BargainRecordAction {
             data[i][seq++] = dto.getCommission();
             data[i][seq++] = dto.getOtherFund();
             data[i][seq++] = dto.getBargainPrice();
-            data[i][seq++] = dto.getAccountPaid();
-            data[i][seq++] = dto.getNonPayment();
             data[i][seq++] = dto.getProjectNo();
+            data[i][seq++] = dto.getIsSettled();
+            data[i][seq++] = dto.getPaymentNo();
         }
         return data;
     }

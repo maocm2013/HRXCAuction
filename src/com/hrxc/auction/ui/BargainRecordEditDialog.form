@@ -41,10 +41,8 @@
                           <Component id="submitBt" min="-2" pref="95" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jXLabel9" min="-2" max="-2" attributes="0"/>
-                          <Component id="jXLabel8" min="-2" max="-2" attributes="0"/>
                           <Component id="jXLabel6" min="-2" max="-2" attributes="0"/>
                           <Component id="jXLabel5" min="-2" max="-2" attributes="0"/>
                           <Component id="jXLabel4" min="-2" max="-2" attributes="0"/>
@@ -59,11 +57,9 @@
                           <Component id="fd_goodsNo" min="-2" pref="211" max="-2" attributes="0"/>
                           <Component id="fd_bargainConfirmNo" min="-2" pref="211" max="-2" attributes="0"/>
                           <Component id="fd_hammerPrice" min="-2" pref="211" max="-2" attributes="0"/>
-                          <Component id="fd_accountPaid" min="-2" pref="211" max="-2" attributes="0"/>
                           <Component id="fd_commission" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
                           <Component id="fd_otherFund" min="-2" pref="211" max="-2" attributes="0"/>
                           <Component id="fd_bargainPrice" min="-2" pref="211" max="-2" attributes="0"/>
-                          <Component id="fd_nonPayment" min="-2" pref="211" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -113,16 +109,6 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jXLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="fd_accountPaid" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="fd_nonPayment" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jXLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="fd_projectNo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jXLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -133,7 +119,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="msgLabel" min="-2" pref="33" max="-2" attributes="0"/>
-              <EmptySpace pref="103" max="32767" attributes="0"/>
+              <EmptySpace pref="157" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -192,11 +178,6 @@
         <Property name="text" type="java.lang.String" value="&#x4f63;&#x91d1;&#xff1a;"/>
       </Properties>
     </Component>
-    <Component class="org.jdesktop.swingx.JXTextField" name="fd_accountPaid">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_accountPaid.setText(UITools.getBeanPropertyValue(dto, &quot;accountPaid&quot;,&quot;500&quot;));"/>
-      </AuxValues>
-    </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x5176;&#x4ed6;&#x6b3e;&#x9879;&#xff1a;"/>
@@ -219,11 +200,6 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_otherFund.setText(UITools.getBeanPropertyValue(dto, &quot;otherFund&quot;,&quot;0&quot;));"/>
       </AuxValues>
-    </Component>
-    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel8">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#x5df2;&#x4ed8;&#x6b3e;&#xff1a;"/>
-      </Properties>
     </Component>
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_bargainPrice">
       <Properties>
@@ -256,19 +232,6 @@
       </Events>
     </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="msgLabel">
-    </Component>
-    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#x672a;&#x4ed8;&#x6b3e;&#xff1a;"/>
-      </Properties>
-    </Component>
-    <Component class="org.jdesktop.swingx.JXTextField" name="fd_nonPayment">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_nonPayment.setText(UITools.getBeanPropertyValue(dto, &quot;nonPayment&quot;));"/>
-      </AuxValues>
     </Component>
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_projectNo">
       <Properties>

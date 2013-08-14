@@ -39,17 +39,17 @@ public class BargainRecord {
      */
     private Integer bargainPrice;
     /**
-     * 已付款
-     */
-    private Integer accountPaid;
-    /**
-     * 未付款
-     */
-    private Integer nonPayment;
-    /**
      * 项目编号
      */
     private String projectNo;
+    /**
+     * 结算状态
+     */
+    private String isSettled;
+    /**
+     * 付款编号
+     */
+    private String paymentNo;
 
     public String getPkId() {
         return pkId;
@@ -114,23 +114,6 @@ public class BargainRecord {
     public void setBargainPrice(Integer bargainPrice) {
         this.bargainPrice = bargainPrice;
     }
-
-    public Integer getAccountPaid() {
-        return accountPaid;
-    }
-
-    public void setAccountPaid(Integer accountPaid) {
-        this.accountPaid = accountPaid;
-    }
-
-    public Integer getNonPayment() {
-        return nonPayment;
-    }
-
-    public void setNonPayment(Integer nonPayment) {
-        this.nonPayment = nonPayment;
-    }
-
     public String getProjectNo() {
         return projectNo;
     }
@@ -139,8 +122,24 @@ public class BargainRecord {
         this.projectNo = projectNo;
     }
 
+    public String getIsSettled() {
+        return isSettled;
+    }
+
+    public void setIsSettled(String isSettled) {
+        this.isSettled = isSettled;
+    }
+
+    public String getPaymentNo() {
+        return paymentNo;
+    }
+
+    public void setPaymentNo(String paymentNo) {
+        this.paymentNo = paymentNo;
+    }
+
     @Override
     public String toString() {
-        return "BargainRecord{" + "pkId=" + pkId + ", paddleNo=" + paddleNo + ", goodsNo=" + goodsNo + ", bargainConfirmNo=" + bargainConfirmNo + ", hammerPrice=" + hammerPrice + ", commission=" + commission + ", otherFund=" + otherFund + ", bargainPrice=" + bargainPrice + ", accountPaid=" + accountPaid + ", nonPayment=" + nonPayment + ", projectNo=" + projectNo + '}';
+        return "BargainRecord{" + "pkId=" + pkId + ", paddleNo=" + paddleNo + ", goodsNo=" + goodsNo + ", bargainConfirmNo=" + bargainConfirmNo + ", hammerPrice=" + hammerPrice + ", commission=" + commission + ", otherFund=" + otherFund + ", bargainPrice=" + bargainPrice + ", projectNo=" + projectNo + ", isSettled=" + isSettled + ", paymentNo=" + paymentNo + '}';
     }
 }

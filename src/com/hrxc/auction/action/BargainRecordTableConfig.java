@@ -7,7 +7,7 @@ package com.hrxc.auction.action;
 public class BargainRecordTableConfig {
 
     public static final String[] tableColumnNames = new String[]{
-        "选择", "主键", "序号", "竞买号牌", "图录号", "成交确认书编号", "落锤价", "佣金","其他款项","总成交价","已付款","未付款","项目编号"
+        "选择", "主键", "序号", "竞买号牌", "图录号", "成交确认书编号", "落锤价", "佣金", "其他款项", "总成交价", "项目编号", "结算状态", "付款编号"
     };
 
     public class MyTableModel extends BaseTableModel {
@@ -28,8 +28,8 @@ public class BargainRecordTableConfig {
             java.lang.Integer.class,
             java.lang.Integer.class,
             java.lang.Integer.class,
-            java.lang.Integer.class,
-            java.lang.Integer.class,
+            java.lang.String.class,
+            java.lang.String.class,
             java.lang.String.class
         };
 

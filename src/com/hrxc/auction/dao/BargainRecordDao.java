@@ -21,21 +21,22 @@ import org.apache.log4j.Logger;
 public class BargainRecordDao {
 
     private static final Logger log = Logger.getLogger(BargainRecordDao.class);
-    private static final String SQL_BASIC_QUERY = "select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,account_Paid accountPaid,non_Payment nonPayment,project_no projectNo from bargain_record where 1=1 ";
+    private static final String SQL_BASIC_QUERY = "select pk_id pkId,paddle_No paddleNo,goods_No goodsNo,bargain_Confirm_No bargainConfirmNo,hammer_Price hammerPrice,commission commission,other_Fund otherFund,bargain_Price bargainPrice,project_no projectNo,is_settled isSettled from bargain_record where 1=1 ";
     private static final String SQL_DELETE_BY_ID = "delete from bargain_record where pk_id=?";
-    private static final String SQL_INSERT = "insert into bargain_record(paddle_No,goods_No,bargain_Confirm_No,hammer_Price,commission,other_Fund,bargain_Price,account_Paid,non_Payment,project_no,pk_id)values(?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATE_BY_ID = "update bargain_record set paddle_No=?,goods_No=?,bargain_Confirm_No=?,hammer_Price=?,commission=?,other_Fund=?,bargain_Price=?,account_Paid=?,non_Payment=?,project_no=? where pk_id=?";
+    private static final String SQL_INSERT = "insert into bargain_record(paddle_No,goods_No,bargain_Confirm_No,hammer_Price,commission,other_Fund,bargain_Price,project_no,pk_id)values(?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATE_BY_ID = "update bargain_record set paddle_No=?,goods_No=?,bargain_Confirm_No=?,hammer_Price=?,commission=?,other_Fund=?,bargain_Price=?,project_no=? where pk_id=?";
 
     /**
      * 根据条件进行查询
      *
      * @param projectNo
+     * @param isSettled
      * @param paddleNo
      * @param custName
      * @return
      * @throws SQLException
      */
-    public List getAllObjectInfo(String projectNo, String paddleNo, String custName) throws SQLException {
+    public List getAllObjectInfo(String projectNo, String isSettled, String paddleNo, String custName) throws SQLException {
         Connection conn = null;
         QueryRunner queryRunner = null;
         List<BargainRecord> list = null;
@@ -45,6 +46,10 @@ public class BargainRecordDao {
             //首先增加项目编号查询条件
             params.add(projectNo);
             sb.append("and project_no=? ");
+            if (StringUtils.isNotEmpty(isSettled)) {
+                params.add(isSettled.trim());
+                sb.append(" and is_settled=? ");
+            }
             if (StringUtils.isNotEmpty(paddleNo)) {
                 params.add(paddleNo.trim());
                 sb.append(" and paddle_No=? ");
@@ -122,7 +127,7 @@ public class BargainRecordDao {
         try {
             conn = JdbcUtil.getConn();
             queryRunner = new QueryRunner();
-            Object[] params = new Object[11];
+            Object[] params = new Object[9];
             int seq = 0;
             params[seq++] = dto.getPaddleNo();
             params[seq++] = dto.getGoodsNo();
@@ -131,8 +136,6 @@ public class BargainRecordDao {
             params[seq++] = dto.getCommission();
             params[seq++] = dto.getOtherFund();
             params[seq++] = dto.getBargainPrice();
-            params[seq++] = dto.getAccountPaid();
-            params[seq++] = dto.getNonPayment();
             params[seq++] = dto.getProjectNo();
             if (StringUtils.isNotEmpty(dto.getPkId())) {
                 params[seq++] = dto.getPkId();

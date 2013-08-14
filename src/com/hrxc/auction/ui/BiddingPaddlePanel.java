@@ -103,7 +103,7 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         toolBar.add(editBton);
 
         exortBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
-        exortBton.setToolTipText("修改");
+        exortBton.setToolTipText("导出");
         exortBton.setFocusable(false);
         exortBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exortBton.setPreferredSize(new java.awt.Dimension(40, 40));

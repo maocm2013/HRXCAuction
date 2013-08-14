@@ -4,6 +4,7 @@ import com.hrxc.auction.action.BargainRecordAction;
 import com.hrxc.auction.action.BargainRecordTableConfig;
 import com.hrxc.auction.action.BaseTableModel;
 import com.hrxc.auction.domain.BargainRecord;
+import com.hrxc.auction.util.DictEnum;
 import com.hrxc.auction.util.ExcelHelper;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class BargainRecordPanel extends javax.swing.JPanel {
         BargainRecordTableConfig.MyTableModel model = new BargainRecordTableConfig().new MyTableModel();
 
         //初始化显示数据
-        Object[][] datas = BargainRecordAction.getAllTableData(this.getProjectNo(),null, null);
+        Object[][] datas = BargainRecordAction.getAllTableData(this.getProjectNo(),null,null, null);
         model.refreshContents(datas);
         dataTable = new org.jdesktop.swingx.JXTable(model);
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
@@ -100,7 +101,7 @@ public class BargainRecordPanel extends javax.swing.JPanel {
         toolBar.add(editBton);
 
         exortBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
-        exortBton.setToolTipText("修改");
+        exortBton.setToolTipText("导出");
         exortBton.setFocusable(false);
         exortBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         exortBton.setPreferredSize(new java.awt.Dimension(40, 40));
@@ -184,6 +185,11 @@ public class BargainRecordPanel extends javax.swing.JPanel {
             ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
             String pkId = list.get(0);
             BargainRecord dto = BargainRecordAction.getObjectById(pkId);
+            //如果已经结算则不能修改
+            if(dto.getIsSettled().equals(DictEnum.IsSettled.HAVE_SETTLED)){
+                JOptionPane.showMessageDialog(this.getRootPane(), "您选择的记录已经结算，无法修改，请确认！");
+                return;
+            }
             BargainRecordEditDialog dialog = new BargainRecordEditDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, dto, this);
             dialog.setLocationRelativeTo(this);
             dialog.setVisible(true);
@@ -213,7 +219,7 @@ public class BargainRecordPanel extends javax.swing.JPanel {
      */
     public void refreshTableDatas(String paddleNo, String goodsNo) {
         BargainRecordTableConfig.MyTableModel model = (BargainRecordTableConfig.MyTableModel) dataTable.getModel();
-        model.refreshContents(BargainRecordAction.getAllTableData(this.getProjectNo(),paddleNo, goodsNo));
+        model.refreshContents(BargainRecordAction.getAllTableData(this.getProjectNo(),null,paddleNo, goodsNo));
         //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
         dataTable.setModel(model);
     }
