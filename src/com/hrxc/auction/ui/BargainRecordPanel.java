@@ -185,8 +185,8 @@ public class BargainRecordPanel extends javax.swing.JPanel {
             ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
             String pkId = list.get(0);
             BargainRecord dto = BargainRecordAction.getObjectById(pkId);
-            //如果已经结算则不能修改
-            if(dto.getIsSettled().equals(DictEnum.IsSettled.HAVE_SETTLED)){
+            //如果非成交状态则不能修改
+            if(!dto.getSettleState().equals(DictEnum.SettleState.BARGAIN)){
                 JOptionPane.showMessageDialog(this.getRootPane(), "您选择的记录已经结算，无法修改，请确认！");
                 return;
             }

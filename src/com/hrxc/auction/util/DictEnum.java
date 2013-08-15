@@ -29,17 +29,21 @@ public class DictEnum {
     /**
      * 结算状态
      */
-    public static class IsSettled {
+    public static class SettleState {
 
         /**
-         * 未结算
+         * 已成交未复核
          */
-        public static final String NO_SETTLED = "N";
+        public static final String BARGAIN = "01";
+        /**
+         * 已复核未结算
+         */
+        public static final String RECHECKED = "02";
         /**
          * 已结算
          */
-        public static final String HAVE_SETTLED = "Y";
-        public static final Map dataMap = JSON.parseObject("{\"N\":\"未结算\",\"Y\":\"已结算\"}");
+        public static final String SETTLED = "03";
+        public static final Map dataMap = JSON.parseObject("{\"01\":\"已成交未复核\",\"02\":\"已复核未结算\",\"03\":\"已结算\"}");
     }
 
     /**
@@ -52,9 +56,30 @@ public class DictEnum {
          */
         public static final String NOT_USE = "01";
         /**
-         * 02-已使用
+         * 02-已抵扣
          */
         public static final String HAVE_USED = "02";
-        public static final Map dataMap = JSON.parseObject("{\"01\":\"未使用\",\"02\":\"已使用\"}");
+        /**
+         * 03-已退还
+         */
+        public static final String GIVE_BACK = "03";
+        public static final Map dataMap = JSON.parseObject("{\"01\":\"未使用\",\"02\":\"已抵扣\",\"03\":\"已退还\"}");
+    }
+
+    /**
+     * 付款状态
+     */
+    public static class PaymentState {
+
+        /**
+         * 01-未结清
+         */
+        public static final String NOT_SETTLED = "01";
+        /**
+         * 02-已结清
+         */
+        public static final String HAVE_SETTLED = "02";
+        
+        public static final Map dataMap = JSON.parseObject("{\"01\":\"未结清\",\"02\":\"已结清\"}");
     }
 }

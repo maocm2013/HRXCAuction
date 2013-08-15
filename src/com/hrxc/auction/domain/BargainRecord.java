@@ -45,7 +45,7 @@ public class BargainRecord {
     /**
      * 结算状态
      */
-    private String isSettled;
+    private String settleState;
     /**
      * 付款编号
      */
@@ -114,20 +114,13 @@ public class BargainRecord {
     public void setBargainPrice(Integer bargainPrice) {
         this.bargainPrice = bargainPrice;
     }
+
     public String getProjectNo() {
         return projectNo;
     }
 
     public void setProjectNo(String projectNo) {
         this.projectNo = projectNo;
-    }
-
-    public String getIsSettled() {
-        return isSettled;
-    }
-
-    public void setIsSettled(String isSettled) {
-        this.isSettled = isSettled;
     }
 
     public String getPaymentNo() {
@@ -138,8 +131,17 @@ public class BargainRecord {
         this.paymentNo = paymentNo;
     }
 
+    public String getSettleState() {
+        return settleState;
+    }
+
+    public void setSettleState(String settleState) {
+        this.settleState = settleState;
+    }
+
     @Override
     public String toString() {
-        return "BargainRecord{" + "pkId=" + pkId + ", paddleNo=" + paddleNo + ", goodsNo=" + goodsNo + ", bargainConfirmNo=" + bargainConfirmNo + ", hammerPrice=" + hammerPrice + ", commission=" + commission + ", otherFund=" + otherFund + ", bargainPrice=" + bargainPrice + ", projectNo=" + projectNo + ", isSettled=" + isSettled + ", paymentNo=" + paymentNo + '}';
+        return "BargainRecord{" + "pkId=" + pkId + ", paddleNo=" + paddleNo + ", goodsNo=" + goodsNo + ", bargainConfirmNo=" + bargainConfirmNo + ", hammerPrice=" + hammerPrice + ", commission=" + commission + ", otherFund=" + otherFund + ", bargainPrice=" + bargainPrice + ", projectNo=" + projectNo + ", settleState=" + settleState + ", paymentNo=" + paymentNo + '}';
     }
+
 }

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.jdesktop.swingx.JXTable;
 
 /**
  *
@@ -36,39 +37,52 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
+        checkLayeredPanel = new javax.swing.JLayeredPane();
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
-        fd_paddleNo_n = new org.jdesktop.swingx.JXTextField();
-        jXLabel2 = new org.jdesktop.swingx.JXLabel();
-        searchBton_n = new org.jdesktop.swingx.JXButton();
-        toSettleBton_n = new org.jdesktop.swingx.JXButton();
-        exortBton_n = new org.jdesktop.swingx.JXButton();
+        fd_paddleNo_c = new org.jdesktop.swingx.JXTextField();
+        searchBton_c = new org.jdesktop.swingx.JXButton();
+        toSettleBton_c = new org.jdesktop.swingx.JXButton();
+        exortBton_c = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
+        BargainRecordTableConfig.MyTableModel model_c = new BargainRecordTableConfig().new MyTableModel();
+
+        //初始化显示数据
+        Object[][] datas_c  = BargainRecordAction.getAllTableData(this.getProjectNo(),DictEnum.SettleState.BARGAIN,null, null);
+        model_c.refreshContents(datas_c);
+        dataTable_c = new org.jdesktop.swingx.JXTable(model_c);
+        settleLayeredPane = new javax.swing.JLayeredPane();
+        jXLabel7 = new org.jdesktop.swingx.JXLabel();
+        fd_paddleNo_s = new org.jdesktop.swingx.JXTextField();
+        jXLabel8 = new org.jdesktop.swingx.JXLabel();
+        searchBton_s = new org.jdesktop.swingx.JXButton();
+        toSettleBton_s = new org.jdesktop.swingx.JXButton();
+        exortBton_s = new org.jdesktop.swingx.JXButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
         BargainRecordTableConfig.MyTableModel model_n = new BargainRecordTableConfig().new MyTableModel();
 
         //初始化显示数据
         Object[][] datas_n = null;
         model_n.refreshContents(datas_n);
-        dataTable_n = new org.jdesktop.swingx.JXTable(model_n);
-        jLayeredPane2 = new javax.swing.JLayeredPane();
+        dataTable_s = new org.jdesktop.swingx.JXTable(model_n);
+        paymentLayeredPane = new javax.swing.JLayeredPane();
         jXLabel3 = new org.jdesktop.swingx.JXLabel();
-        fd_paddleNo_y = new org.jdesktop.swingx.JXTextField();
-        searchBton_y = new org.jdesktop.swingx.JXButton();
-        undoSettleBton_y = new org.jdesktop.swingx.JXButton();
-        exortBton_y = new org.jdesktop.swingx.JXButton();
+        fd_paddleNo_p = new org.jdesktop.swingx.JXTextField();
+        searchBton_p = new org.jdesktop.swingx.JXButton();
+        undoSettleBton_p = new org.jdesktop.swingx.JXButton();
+        exortBton_p = new org.jdesktop.swingx.JXButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        BargainRecordTableConfig.MyTableModel model_y = new BargainRecordTableConfig().new MyTableModel();
+        BargainRecordTableConfig.MyTableModel model_p = new BargainRecordTableConfig().new MyTableModel();
 
         //初始化显示数据
-        Object[][] datas_y = BargainRecordAction.getAllTableData(this.getProjectNo(),DictEnum.IsSettled.HAVE_SETTLED,null, null);
-        model_y.refreshContents(datas_y);
-        dataTable_y = new org.jdesktop.swingx.JXTable(model_y);
+        Object[][] datas_p = BargainRecordAction.getAllTableData(this.getProjectNo(),DictEnum.SettleState.SETTLED,null, null);
+        model_p.refreshContents(datas_p);
+        dataTable_p = new org.jdesktop.swingx.JXTable(model_p);
         settleListPrintBton = new org.jdesktop.swingx.JXButton();
         jXLabel5 = new org.jdesktop.swingx.JXLabel();
-        jLayeredPane3 = new javax.swing.JLayeredPane();
+        depositLayeredPane = new javax.swing.JLayeredPane();
         jXLabel4 = new org.jdesktop.swingx.JXLabel();
-        fd_paddleNo_x = new org.jdesktop.swingx.JXTextField();
-        searchBton_x = new org.jdesktop.swingx.JXButton();
+        fd_paddleNo_d = new org.jdesktop.swingx.JXTextField();
+        searchBton_d = new org.jdesktop.swingx.JXButton();
         jXLabel6 = new org.jdesktop.swingx.JXLabel();
 
         setPreferredSize(new java.awt.Dimension(702, 443));
@@ -77,115 +91,173 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
 
         jXLabel1.setText("竞买号牌：");
         jXLabel1.setBounds(0, 10, 60, 30);
-        jLayeredPane1.add(jXLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        fd_paddleNo_n.setBounds(60, 10, 110, 30);
-        jLayeredPane1.add(fd_paddleNo_n, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        checkLayeredPanel.add(jXLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        fd_paddleNo_c.setBounds(60, 10, 110, 30);
+        checkLayeredPanel.add(fd_paddleNo_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jXLabel2.setForeground(new java.awt.Color(250, 12, 12));
-        jXLabel2.setText("*");
-        jXLabel2.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
-        jXLabel2.setBounds(170, 10, 20, 30);
-        jLayeredPane1.add(jXLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        searchBton_n.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
-        searchBton_n.setText("查询");
-        searchBton_n.setToolTipText("");
-        searchBton_n.setFocusable(false);
-        searchBton_n.addActionListener(new java.awt.event.ActionListener() {
+        searchBton_c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
+        searchBton_c.setText("查询");
+        searchBton_c.setToolTipText("");
+        searchBton_c.setFocusable(false);
+        searchBton_c.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBton_nActionPerformed(evt);
+                searchBton_cActionPerformed(evt);
             }
         });
-        searchBton_n.setBounds(190, 10, 95, 30);
-        jLayeredPane1.add(searchBton_n, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        searchBton_c.setBounds(190, 10, 95, 30);
+        checkLayeredPanel.add(searchBton_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        toSettleBton_n.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finish.png"))); // NOI18N
-        toSettleBton_n.setText("款项结算");
-        toSettleBton_n.setToolTipText("修改");
-        toSettleBton_n.setFocusable(false);
-        toSettleBton_n.setPreferredSize(new java.awt.Dimension(40, 40));
-        toSettleBton_n.addActionListener(new java.awt.event.ActionListener() {
+        toSettleBton_c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finish.png"))); // NOI18N
+        toSettleBton_c.setText("成交复核");
+        toSettleBton_c.setToolTipText("修改");
+        toSettleBton_c.setFocusable(false);
+        toSettleBton_c.setPreferredSize(new java.awt.Dimension(40, 40));
+        toSettleBton_c.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                toSettleBton_nActionPerformed(evt);
+                toSettleBton_cActionPerformed(evt);
             }
         });
-        toSettleBton_n.setBounds(60, 50, 120, 40);
-        jLayeredPane1.add(toSettleBton_n, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        toSettleBton_c.setBounds(60, 50, 120, 40);
+        checkLayeredPanel.add(toSettleBton_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        exortBton_n.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
-        exortBton_n.setToolTipText("导出");
-        exortBton_n.setFocusable(false);
-        exortBton_n.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exortBton_n.setPreferredSize(new java.awt.Dimension(40, 40));
-        exortBton_n.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        exortBton_n.addActionListener(new java.awt.event.ActionListener() {
+        exortBton_c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
+        exortBton_c.setToolTipText("导出");
+        exortBton_c.setFocusable(false);
+        exortBton_c.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exortBton_c.setPreferredSize(new java.awt.Dimension(40, 40));
+        exortBton_c.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exortBton_c.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exortBton_nActionPerformed(evt);
+                exortBton_cActionPerformed(evt);
             }
         });
-        exortBton_n.setBounds(10, 50, 40, 40);
-        jLayeredPane1.add(exortBton_n, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        exortBton_c.setBounds(10, 50, 40, 40);
+        checkLayeredPanel.add(exortBton_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         //隐藏第一列（主键）
-        UITools.hideColumn(dataTable_n, 1);
-        jScrollPane1.setViewportView(dataTable_n);
+        UITools.hideColumn(dataTable_c, 1);
+        //隐藏付款编号列
+        UITools.hideColumn(dataTable_c, 12);
+        jScrollPane1.setViewportView(dataTable_c);
 
         jScrollPane1.setBounds(0, 94, 850, 400);
-        jLayeredPane1.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        checkLayeredPanel.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jTabbedPane1.addTab("未结算", jLayeredPane1);
+        jTabbedPane1.addTab("成交复核", checkLayeredPanel);
+
+        jXLabel7.setText("竞买号牌：");
+        jXLabel7.setBounds(0, 10, 60, 30);
+        settleLayeredPane.add(jXLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        fd_paddleNo_s.setBounds(60, 10, 110, 30);
+        settleLayeredPane.add(fd_paddleNo_s, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jXLabel8.setForeground(new java.awt.Color(250, 12, 12));
+        jXLabel8.setText("*");
+        jXLabel8.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
+        jXLabel8.setBounds(170, 10, 20, 30);
+        settleLayeredPane.add(jXLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        searchBton_s.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
+        searchBton_s.setText("查询");
+        searchBton_s.setToolTipText("");
+        searchBton_s.setFocusable(false);
+        searchBton_s.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBton_sActionPerformed(evt);
+            }
+        });
+        searchBton_s.setBounds(190, 10, 95, 30);
+        settleLayeredPane.add(searchBton_s, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        toSettleBton_s.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finish.png"))); // NOI18N
+        toSettleBton_s.setText("款项结算");
+        toSettleBton_s.setToolTipText("修改");
+        toSettleBton_s.setFocusable(false);
+        toSettleBton_s.setPreferredSize(new java.awt.Dimension(40, 40));
+        toSettleBton_s.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toSettleBton_sActionPerformed(evt);
+            }
+        });
+        toSettleBton_s.setBounds(60, 50, 120, 40);
+        settleLayeredPane.add(toSettleBton_s, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        exortBton_s.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
+        exortBton_s.setToolTipText("导出");
+        exortBton_s.setFocusable(false);
+        exortBton_s.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exortBton_s.setPreferredSize(new java.awt.Dimension(40, 40));
+        exortBton_s.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exortBton_s.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exortBton_sActionPerformed(evt);
+            }
+        });
+        exortBton_s.setBounds(10, 50, 40, 40);
+        settleLayeredPane.add(exortBton_s, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        //隐藏第一列（主键）
+        UITools.hideColumn(dataTable_s, 1);
+        //隐藏付款编号列
+        UITools.hideColumn(dataTable_s, 12);
+        jScrollPane3.setViewportView(dataTable_s);
+
+        jScrollPane3.setBounds(0, 94, 850, 400);
+        settleLayeredPane.add(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jTabbedPane1.addTab("款项结算", settleLayeredPane);
 
         jXLabel3.setText("竞买号牌：");
         jXLabel3.setBounds(0, 10, 60, 30);
-        jLayeredPane2.add(jXLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        fd_paddleNo_y.setBounds(60, 10, 110, 30);
-        jLayeredPane2.add(fd_paddleNo_y, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paymentLayeredPane.add(jXLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        fd_paddleNo_p.setBounds(60, 10, 110, 30);
+        paymentLayeredPane.add(fd_paddleNo_p, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        searchBton_y.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
-        searchBton_y.setText("查询");
-        searchBton_y.setToolTipText("");
-        searchBton_y.setFocusable(false);
-        searchBton_y.addActionListener(new java.awt.event.ActionListener() {
+        searchBton_p.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
+        searchBton_p.setText("查询");
+        searchBton_p.setToolTipText("");
+        searchBton_p.setFocusable(false);
+        searchBton_p.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBton_yActionPerformed(evt);
+                searchBton_pActionPerformed(evt);
             }
         });
-        searchBton_y.setBounds(190, 10, 95, 30);
-        jLayeredPane2.add(searchBton_y, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        searchBton_p.setBounds(190, 10, 95, 30);
+        paymentLayeredPane.add(searchBton_p, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        undoSettleBton_y.setIcon(new javax.swing.ImageIcon(getClass().getResource("/undo.png"))); // NOI18N
-        undoSettleBton_y.setText("撤销结算");
-        undoSettleBton_y.setToolTipText("修改");
-        undoSettleBton_y.setFocusable(false);
-        undoSettleBton_y.setPreferredSize(new java.awt.Dimension(40, 40));
-        undoSettleBton_y.addActionListener(new java.awt.event.ActionListener() {
+        undoSettleBton_p.setIcon(new javax.swing.ImageIcon(getClass().getResource("/undo.png"))); // NOI18N
+        undoSettleBton_p.setText("撤销结算");
+        undoSettleBton_p.setToolTipText("修改");
+        undoSettleBton_p.setFocusable(false);
+        undoSettleBton_p.setPreferredSize(new java.awt.Dimension(40, 40));
+        undoSettleBton_p.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                undoSettleBton_yActionPerformed(evt);
+                undoSettleBton_pActionPerformed(evt);
             }
         });
-        undoSettleBton_y.setBounds(60, 50, 120, 40);
-        jLayeredPane2.add(undoSettleBton_y, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        undoSettleBton_p.setBounds(60, 50, 120, 40);
+        paymentLayeredPane.add(undoSettleBton_p, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        exortBton_y.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
-        exortBton_y.setToolTipText("导出");
-        exortBton_y.setFocusable(false);
-        exortBton_y.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exortBton_y.setPreferredSize(new java.awt.Dimension(40, 40));
-        exortBton_y.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        exortBton_y.addActionListener(new java.awt.event.ActionListener() {
+        exortBton_p.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
+        exortBton_p.setToolTipText("导出");
+        exortBton_p.setFocusable(false);
+        exortBton_p.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exortBton_p.setPreferredSize(new java.awt.Dimension(40, 40));
+        exortBton_p.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exortBton_p.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exortBton_yActionPerformed(evt);
+                exortBton_pActionPerformed(evt);
             }
         });
-        exortBton_y.setBounds(10, 50, 40, 40);
-        jLayeredPane2.add(exortBton_y, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        exortBton_p.setBounds(10, 50, 40, 40);
+        paymentLayeredPane.add(exortBton_p, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         //隐藏第一列（主键）
-        UITools.hideColumn(dataTable_y, 1);
-        jScrollPane2.setViewportView(dataTable_y);
+        UITools.hideColumn(dataTable_p, 1);
+        jScrollPane2.setViewportView(dataTable_p);
 
         jScrollPane2.setBounds(0, 94, 850, 400);
-        jLayeredPane2.add(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paymentLayeredPane.add(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         settleListPrintBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/print.png"))); // NOI18N
         settleListPrintBton.setText("结款单打印");
@@ -196,41 +268,41 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
             }
         });
         settleListPrintBton.setBounds(190, 50, 131, 41);
-        jLayeredPane2.add(settleListPrintBton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paymentLayeredPane.add(settleListPrintBton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jXLabel5.setForeground(new java.awt.Color(250, 12, 12));
         jXLabel5.setText("*");
         jXLabel5.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         jXLabel5.setBounds(170, 10, 20, 30);
-        jLayeredPane2.add(jXLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        paymentLayeredPane.add(jXLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jTabbedPane1.addTab("已结算", jLayeredPane2);
+        jTabbedPane1.addTab("付款清单", paymentLayeredPane);
 
         jXLabel4.setText("竞买号牌：");
         jXLabel4.setBounds(0, 10, 60, 30);
-        jLayeredPane3.add(jXLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        fd_paddleNo_x.setBounds(60, 10, 110, 30);
-        jLayeredPane3.add(fd_paddleNo_x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        depositLayeredPane.add(jXLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        fd_paddleNo_d.setBounds(60, 10, 110, 30);
+        depositLayeredPane.add(fd_paddleNo_d, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        searchBton_x.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
-        searchBton_x.setText("查询");
-        searchBton_x.setToolTipText("");
-        searchBton_x.setFocusable(false);
-        searchBton_x.addActionListener(new java.awt.event.ActionListener() {
+        searchBton_d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
+        searchBton_d.setText("查询");
+        searchBton_d.setToolTipText("");
+        searchBton_d.setFocusable(false);
+        searchBton_d.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBton_xActionPerformed(evt);
+                searchBton_dActionPerformed(evt);
             }
         });
-        searchBton_x.setBounds(190, 10, 95, 30);
-        jLayeredPane3.add(searchBton_x, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        searchBton_d.setBounds(190, 10, 95, 30);
+        depositLayeredPane.add(searchBton_d, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jXLabel6.setForeground(new java.awt.Color(250, 12, 12));
         jXLabel6.setText("*");
         jXLabel6.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         jXLabel6.setBounds(170, 10, 20, 30);
-        jLayeredPane3.add(jXLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        depositLayeredPane.add(jXLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jTabbedPane1.addTab("退还保证金", jLayeredPane3);
+        jTabbedPane1.addTab("退还保证金", depositLayeredPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -244,59 +316,54 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchBton_nActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBton_nActionPerformed
-        String paddleNo = fd_paddleNo_n.getText().trim();
+    private void searchBton_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBton_cActionPerformed
+        String paddleNo = fd_paddleNo_c.getText().trim();
+        refreshTableDatas(dataTable_c,DictEnum.SettleState.BARGAIN, paddleNo, null);
+    }//GEN-LAST:event_searchBton_cActionPerformed
+
+    private void toSettleBton_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toSettleBton_cActionPerformed
+        if (UITools.getCheckedRows(dataTable_c) != 1) {
+            JOptionPane.showMessageDialog(this.getRootPane(), "请确认您选择了一条记录！");
+        } else {
+            ArrayList<String> list = UITools.getCheckedRowsId(dataTable_c);
+            String pkId = list.get(0);
+            BargainRecordAction.updateSettleState(DictEnum.SettleState.RECHECKED, pkId);
+            refreshTableDatas(dataTable_c,DictEnum.SettleState.BARGAIN, null, null);
+            JOptionPane.showMessageDialog(this.getRootPane(), "成交记录复核成功！");
+        }
+    }//GEN-LAST:event_toSettleBton_cActionPerformed
+
+    private void exortBton_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exortBton_cActionPerformed
+        HSSFWorkbook wb = ExcelHelper.createExcel((BaseTableModel) dataTable_c.getModel());
+        UITools.exportExcel(this.getRootPane(), wb);
+    }//GEN-LAST:event_exortBton_cActionPerformed
+
+    private void searchBton_pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBton_pActionPerformed
+        String paddleNo = fd_paddleNo_p.getText().trim();
         if (StringUtils.isEmpty(paddleNo)) {
             JOptionPane.showMessageDialog(this.getRootPane(), "请输入竞买号牌后再进行查询！");
             return;
         }
-        refreshTableDatas(DictEnum.IsSettled.NO_SETTLED, paddleNo, null);
-    }//GEN-LAST:event_searchBton_nActionPerformed
+        refreshTableDatas(dataTable_p,DictEnum.SettleState.SETTLED, paddleNo, null);
+    }//GEN-LAST:event_searchBton_pActionPerformed
 
-    private void toSettleBton_nActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toSettleBton_nActionPerformed
-        if (UITools.getCheckedRows(dataTable_n) != 1) {
+    private void undoSettleBton_pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoSettleBton_pActionPerformed
+        if (UITools.getCheckedRows(dataTable_p) != 1) {
             JOptionPane.showMessageDialog(this.getRootPane(), "请确认您选择了一条记录！");
         } else {
-            ArrayList<String> list = UITools.getCheckedRowsId(dataTable_n);
+            ArrayList<String> list = UITools.getCheckedRowsId(dataTable_p);
             String pkId = list.get(0);
             BargainRecord dto = BargainRecordAction.getObjectById(pkId);
             BargainRecordEditDialog dialog = new BargainRecordEditDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, dto, this);
             dialog.setLocationRelativeTo(this);
             dialog.setVisible(true);
         }
-    }//GEN-LAST:event_toSettleBton_nActionPerformed
+    }//GEN-LAST:event_undoSettleBton_pActionPerformed
 
-    private void exortBton_nActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exortBton_nActionPerformed
-        HSSFWorkbook wb = ExcelHelper.createExcel((BaseTableModel) dataTable_n.getModel());
+    private void exortBton_pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exortBton_pActionPerformed
+        HSSFWorkbook wb = ExcelHelper.createExcel((BaseTableModel) dataTable_p.getModel());
         UITools.exportExcel(this.getRootPane(), wb);
-    }//GEN-LAST:event_exortBton_nActionPerformed
-
-    private void searchBton_yActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBton_yActionPerformed
-        String paddleNo = fd_paddleNo_y.getText().trim();
-        if (StringUtils.isEmpty(paddleNo)) {
-            JOptionPane.showMessageDialog(this.getRootPane(), "请输入竞买号牌后再进行查询！");
-            return;
-        }
-        refreshTableDatas(DictEnum.IsSettled.HAVE_SETTLED, paddleNo, null);
-    }//GEN-LAST:event_searchBton_yActionPerformed
-
-    private void undoSettleBton_yActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoSettleBton_yActionPerformed
-        if (UITools.getCheckedRows(dataTable_y) != 1) {
-            JOptionPane.showMessageDialog(this.getRootPane(), "请确认您选择了一条记录！");
-        } else {
-            ArrayList<String> list = UITools.getCheckedRowsId(dataTable_y);
-            String pkId = list.get(0);
-            BargainRecord dto = BargainRecordAction.getObjectById(pkId);
-            BargainRecordEditDialog dialog = new BargainRecordEditDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, dto, this);
-            dialog.setLocationRelativeTo(this);
-            dialog.setVisible(true);
-        }
-    }//GEN-LAST:event_undoSettleBton_yActionPerformed
-
-    private void exortBton_yActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exortBton_yActionPerformed
-        HSSFWorkbook wb = ExcelHelper.createExcel((BaseTableModel) dataTable_y.getModel());
-        UITools.exportExcel(this.getRootPane(), wb);
-    }//GEN-LAST:event_exortBton_yActionPerformed
+    }//GEN-LAST:event_exortBton_pActionPerformed
 
     private void settleListPrintBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settleListPrintBtonActionPerformed
 //        if (UITools.getCheckedRows(dataTable) != 1) {
@@ -310,23 +377,36 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
 //        }
     }//GEN-LAST:event_settleListPrintBtonActionPerformed
 
-    private void searchBton_xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBton_xActionPerformed
-        String paddleNo = fd_paddleNo_x.getText().trim();
+    private void searchBton_dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBton_dActionPerformed
+        String paddleNo = fd_paddleNo_d.getText().trim();
         if (StringUtils.isEmpty(paddleNo)) {
             JOptionPane.showMessageDialog(this.getRootPane(), "请输入竞买号牌后再进行查询！");
             return;
         }
         //TODO:查询出竞买号牌信息
-    }//GEN-LAST:event_searchBton_xActionPerformed
+    }//GEN-LAST:event_searchBton_dActionPerformed
+
+    private void searchBton_sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBton_sActionPerformed
+        String paddleNo = fd_paddleNo_s.getText().trim();
+        refreshTableDatas(dataTable_s,DictEnum.SettleState.RECHECKED, paddleNo, null);
+    }//GEN-LAST:event_searchBton_sActionPerformed
+
+    private void toSettleBton_sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toSettleBton_sActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toSettleBton_sActionPerformed
+
+    private void exortBton_sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exortBton_sActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exortBton_sActionPerformed
 
     /**
      * 刷新表单数据
      */
-    public void refreshTableDatas(String isSettled, String paddleNo, String goodsNo) {
-        BargainRecordTableConfig.MyTableModel model = (BargainRecordTableConfig.MyTableModel) dataTable_n.getModel();
-        model.refreshContents(BargainRecordAction.getAllTableData(this.getProjectNo(), isSettled, paddleNo, goodsNo));
+    public void refreshTableDatas(JXTable dataTable,String settleState, String paddleNo, String goodsNo) {
+        BargainRecordTableConfig.MyTableModel model = (BargainRecordTableConfig.MyTableModel) dataTable.getModel();
+        model.refreshContents(BargainRecordAction.getAllTableData(this.getProjectNo(), settleState, paddleNo, goodsNo));
         //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
-        dataTable_n.setModel(model);
+        dataTable.setModel(model);
     }
 
     public String getProjectNo() {
@@ -334,30 +414,38 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
     }
     private String projectNo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.jdesktop.swingx.JXTable dataTable_n;
-    private org.jdesktop.swingx.JXTable dataTable_y;
-    private org.jdesktop.swingx.JXButton exortBton_n;
-    private org.jdesktop.swingx.JXButton exortBton_y;
-    private org.jdesktop.swingx.JXTextField fd_paddleNo_n;
-    private org.jdesktop.swingx.JXTextField fd_paddleNo_x;
-    private org.jdesktop.swingx.JXTextField fd_paddleNo_y;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JLayeredPane jLayeredPane2;
-    private javax.swing.JLayeredPane jLayeredPane3;
+    private javax.swing.JLayeredPane checkLayeredPanel;
+    private org.jdesktop.swingx.JXTable dataTable_c;
+    private org.jdesktop.swingx.JXTable dataTable_p;
+    private org.jdesktop.swingx.JXTable dataTable_s;
+    private javax.swing.JLayeredPane depositLayeredPane;
+    private org.jdesktop.swingx.JXButton exortBton_c;
+    private org.jdesktop.swingx.JXButton exortBton_p;
+    private org.jdesktop.swingx.JXButton exortBton_s;
+    private org.jdesktop.swingx.JXTextField fd_paddleNo_c;
+    private org.jdesktop.swingx.JXTextField fd_paddleNo_d;
+    private org.jdesktop.swingx.JXTextField fd_paddleNo_p;
+    private org.jdesktop.swingx.JXTextField fd_paddleNo_s;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private org.jdesktop.swingx.JXLabel jXLabel1;
-    private org.jdesktop.swingx.JXLabel jXLabel2;
     private org.jdesktop.swingx.JXLabel jXLabel3;
     private org.jdesktop.swingx.JXLabel jXLabel4;
     private org.jdesktop.swingx.JXLabel jXLabel5;
     private org.jdesktop.swingx.JXLabel jXLabel6;
-    private org.jdesktop.swingx.JXButton searchBton_n;
-    private org.jdesktop.swingx.JXButton searchBton_x;
-    private org.jdesktop.swingx.JXButton searchBton_y;
+    private org.jdesktop.swingx.JXLabel jXLabel7;
+    private org.jdesktop.swingx.JXLabel jXLabel8;
+    private javax.swing.JLayeredPane paymentLayeredPane;
+    private org.jdesktop.swingx.JXButton searchBton_c;
+    private org.jdesktop.swingx.JXButton searchBton_d;
+    private org.jdesktop.swingx.JXButton searchBton_p;
+    private org.jdesktop.swingx.JXButton searchBton_s;
+    private javax.swing.JLayeredPane settleLayeredPane;
     private org.jdesktop.swingx.JXButton settleListPrintBton;
-    private org.jdesktop.swingx.JXButton toSettleBton_n;
-    private org.jdesktop.swingx.JXButton undoSettleBton_y;
+    private org.jdesktop.swingx.JXButton toSettleBton_c;
+    private org.jdesktop.swingx.JXButton toSettleBton_s;
+    private org.jdesktop.swingx.JXButton undoSettleBton_p;
     // End of variables declaration//GEN-END:variables
 }

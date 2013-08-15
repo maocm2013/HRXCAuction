@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GoodsList">
+    <resultMap type="com.hrxc.auction.domain.GoodsList" id="GoodsListResultMap">
+        <result column="PK_ID" property="pkId"></result>
+        <result column="GOODS_NO" property="goodsNo"></result>
+        <result column="GOODS_NAME" property="goodsName"></result>
+        <result column="GOODS_INTACT" property="goodsIntact"></result>
+        <result column="GOODS_SIZE" property="goodsSize"></result>
+        <result column="CERTIFICATE_NO" property="certificateNo"></result>
+        <result column="KEEP_PRICE" property="keepPrice"></result>
+        <result column="MARKET_PRICE" property="marketPrice"></result>
+        <result column="ONSET_PRICE" property="onsetPrice"></result>
+        <result column="PROJECT_NO" property="projectNo"></result>
+        <result column="CLIENT_NO" property="clientNo"></result>
+    </resultMap>
+    
+    <select id="getAllObjectInfo" resultMap="GoodsListResultMap" parameterType="GoodsList">
+        SELECT
+        PK_ID,
+        GOODS_NO,
+        GOODS_NAME,
+        GOODS_INTACT,
+        GOODS_SIZE,
+        CERTIFICATE_NO,
+        KEEP_PRICE,
+        MARKET_PRICE,
+        ONSET_PRICE,
+        PROJECT_NO,
+        CLIENT_NO 
+        FROM
+        GOODS_LIST 
+        <where>
+            <if test="pkId != null">
+                AND PK_ID=#{pkId}
+            </if>
+            <if test="projectNo != null">
+                AND PROJECT_NO=#{projectNo}
+            </if>
+            <if test="goodsNo != null">
+                AND GOODS_NO = #{goodsNo}
+            </if>
+            <if test="goodsName != null">
+                AND GOODS_NAME like #{goodsName}
+            </if>
+        </where>
+        ORDER BY GOODS_NO
+    </select>
+    
+    <insert id="insertObject" parameterType="GoodsList">
+        INSERT INTO GOODS_LIST(PK_ID, GOODS_NO, GOODS_NAME, GOODS_INTACT, GOODS_SIZE, CERTIFICATE_NO, KEEP_PRICE, MARKET_PRICE, ONSET_PRICE, PROJECT_NO, CLIENT_NO) 
+        VALUES(#{pkId}, #{goodsNo}, #{goodsName}, #{goodsIntact}, #{goodsSize}, #{certificateNo}, #{keepPrice}, #{marketPrice}, #{onsetPrice}, #{projectNo}, #{clientNo});
+    </insert>
+    
+    <delete id="deleteObjectById" parameterType="string">
+        DELETE FROM GOODS_LIST WHERE PK_ID=#{pkId}
+    </delete>
+    
+    <update id="updateObjectById" parameterType="GoodsList">
+        UPDATE GOODS_LIST 
+        <set>
+            <if test="goodsNo != null">
+                GOODS_NO = #{goodsNo},
+            </if>
+            <if test="goodsName != null">
+                GOODS_NAME=#{goodsName},
+            </if>
+            <if test="goodsIntact != null">
+                GOODS_INTACT=#{goodsIntact},
+            </if>
+            <if test="goodsSize != null">
+                GOODS_SIZE=#{goodsSize},
+            </if>
+            <if test="certificateNo != null">
+                CERTIFICATE_NO=#{certificateNo},
+            </if>        
+            <if test="keepPrice != null">
+                KEEP_PRICE=#{keepPrice},
+            </if>        
+            <if test="marketPrice != null">
+                MARKET_PRICE=#{marketPrice},
+            </if>        
+            <if test="onsetPrice != null">
+                ONSET_PRICE=#{onsetPrice},
+            </if>        
+            <if test="projectNo != null">
+                PROJECT_NO=#{projectNo},
+            </if>        
+            <if test="clientNo != null">
+                CLIENT_NO=#{clientNo}
+            </if>  
+        </set>            
+        WHERE PK_ID=#{pkId}
+    </update>
+</mapper>

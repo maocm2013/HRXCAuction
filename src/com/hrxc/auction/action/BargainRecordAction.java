@@ -6,6 +6,7 @@ package com.hrxc.auction.action;
 
 import com.hrxc.auction.dao.BargainRecordDao;
 import com.hrxc.auction.domain.BargainRecord;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.log4j.Logger;
@@ -40,15 +41,15 @@ public class BargainRecordAction {
      * 根据条件查询数据信息
      *
      * @param projectNo
-     * @param isSettled
+     * @param settleState
      * @param paddleNo
      * @param custName
      * @return
      */
-    public static Object[][] getAllTableData(String projectNo,String isSettled,String paddleNo, String custName) {
+    public static Object[][] getAllTableData(String projectNo,String settleState,String paddleNo, String custName) {
         Object[][] data = null;
         try {
-            List<BargainRecord> list = dao.getAllObjectInfo(projectNo,isSettled,paddleNo, custName);
+            List<BargainRecord> list = dao.getAllObjectInfo(projectNo,settleState,paddleNo, custName);
             if (list != null && list.size() > 0) {
                 data = List2TableData(list);
             }
@@ -74,7 +75,7 @@ public class BargainRecordAction {
             data[i][seq++] = dto.getOtherFund();
             data[i][seq++] = dto.getBargainPrice();
             data[i][seq++] = dto.getProjectNo();
-            data[i][seq++] = dto.getIsSettled();
+            data[i][seq++] = dto.getSettleState();
             data[i][seq++] = dto.getPaymentNo();
         }
         return data;
@@ -118,6 +119,14 @@ public class BargainRecordAction {
         try {
             dao.deleteObjectById(list);
         } catch (Exception ex) {
+            log.error("error:", ex);
+        }
+    }
+    
+    public static void updateSettleState(String settleState, String pkId) {
+        try{
+            dao.updateSettleState(settleState, pkId);
+        }catch(Exception ex){
             log.error("error:", ex);
         }
     }
