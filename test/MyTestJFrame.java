@@ -50,8 +50,8 @@ public class MyTestJFrame extends javax.swing.JFrame {
         BargainRecordTableConfig.MyTableModel model = new BargainRecordTableConfig().new MyTableModel();
 
         //初始化显示数据
-        Object[][] datas = BargainRecordAction.getAllTableData(null, null);
-        model.refreshContents(datas);
+        //Object[][] datas = BargainRecordAction.getAllTableData(null, null);
+        //model.refreshContents(datas);
         dataTable = new org.jdesktop.swingx.JXTable(model);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
