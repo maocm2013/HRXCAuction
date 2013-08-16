@@ -54,10 +54,18 @@ public class JdbcUtil {
     }
     
     /**
-     * 获取mybatis数据库连接
+     * 获取mybatis数据库连接，mybatis默认连接不自动提交
      * @return 
      */
     public static SqlSession getSession(){
+        return sqlSessionFactory.openSession(true);
+    }
+    
+    /**
+     * 获取mybatis数据库连接
+     * @return 
+     */
+    public static SqlSession getSession4Transaction(){
         return sqlSessionFactory.openSession();
     }
 

@@ -1,12 +1,17 @@
 
+import com.hrxc.auction.domain.GoodsList;
+import com.hrxc.auction.util.Configuration;
 import com.hrxc.auction.util.JdbcUtil;
 import com.hrxc.auction.util.MD5;
+import com.hrxc.auction.util.MyBatisUtils;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import javax.swing.JFrame;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
@@ -16,27 +21,37 @@ import net.sf.jasperreports.engine.export.JRGraphics2DExporter;
 import net.sf.jasperreports.engine.export.JRGraphics2DExporterParameter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
+import org.apache.log4j.Logger;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
  *
  * @author user
  */
-public class MyTest {
+public class MyTestExample {
+    private static final Logger log = Logger.getLogger(MyTestExample.class);
+
+    @Before
+    public void init() throws Exception {
+        //初始化log4j
+        Configuration.initLog4j();
+    }
+
     //@Test
     public void testMd5() {
         MD5 md5 = new MD5();
-        System.out.println(md5.encryptMD5("123456"));
+        log.debug(md5.encryptMD5("123456"));
     }
-    
-    @Test
-    public void testDerbyJdbc(){
+
+    //@Test
+    public void testDerbyJdbc() {
         Connection conn = null;
-        try{
+        try {
             conn = JdbcUtil.getConn();
             conn.close();
-        }catch(Exception ex){
-            ex.printStackTrace();
+        } catch (Exception ex) {
+            log.debug("error:", ex);
         }
     }
 
@@ -79,9 +94,18 @@ public class MyTest {
             exporter_xls.exportReport();
 
             Thread.sleep(1000 * 10);
-            System.out.println("Created file: " + outFileName);
+            log.debug("Created file: " + outFileName);
         } catch (JRException e) {
-            e.printStackTrace();
+            log.debug("error:", e);
         }
+    }
+
+    @Test
+    public void testMybatis() throws SQLException {
+        GoodsList goods = new GoodsList();
+        goods.setProjectNo("20130728-001");
+        MyBatisUtils.insert("GoodsList.insertObject", new String(""));
+        //List list = MyBatisUtils.selectList("GoodsList.getAllObjectInfo", goods);
+        //log.debug("list.size=" + list.size());
     }
 }
