@@ -1,23 +1,8 @@
-
-import com.hrxc.auction.action.BargainRecordAction;
-import com.hrxc.auction.action.BargainRecordTableConfig;
-import com.hrxc.auction.util.MyTableModel;
 import com.hrxc.auction.util.ExcelHelper;
+import com.hrxc.auction.util.MyTableConfig;
+import com.hrxc.auction.util.MyTableModel;
 import com.hrxc.auction.util.UITools;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.JTableHeader;
-import javax.swing.table.TableModel;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
 
 /*
  * To change this template, choose Tools | Templates
@@ -47,7 +32,7 @@ public class MyTestJFrame extends javax.swing.JFrame {
 
         jXButton1 = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        BargainRecordTableConfig.MyTableModel model = new BargainRecordTableConfig().new MyTableModel();
+        MyTableModel model = MyTableConfig.getBargainRecordTableModel();
 
         //初始化显示数据
         //Object[][] datas = BargainRecordAction.getAllTableData(null, null);
