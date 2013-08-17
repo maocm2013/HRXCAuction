@@ -1,10 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="PaymentList"> 
+    <resultMap type="com.hrxc.auction.domain.vo.PaymentListVo" id="PaymentListResultMap"> 
+        <result column="PK_ID" property="pkId"></result> 
+        <result column="PAYMENT_NO" property="paymentNo"></result> 
+        <result column="PROJECT_NO" property="projectNo"></result> 
+        <result column="PADDLE_NO" property="paddleNo"></result> 
+        <result column="GOODS_NUM" property="goodsNum"></result> 
+        <result column="TOTAL_AMOUNT" property="totalAmount"></result> 
+        <result column="ACCOUNT_PAID" property="accountPaid"></result> 
+        <result column="NON_PAYMENT" property="nonPayment"></result> 
+        <result column="CASH_DEPOSIT_STATE" property="cashDeposit_state"></result> 
+        <result column="PAYMENT_STATE" property="paymentState"></result> 
+    </resultMap> 
 
+    <select id="getAllObjectInfo" resultMap="PaymentListResultMap" parameterType="PaymentListVo"> 
+        SELECT 
+        PK_ID, 
+        PAYMENT_NO, 
+        PROJECT_NO, 
+        PADDLE_NO, 
+        GOODS_NUM, 
+        TOTAL_AMOUNT, 
+        ACCOUNT_PAID, 
+        NON_PAYMENT, 
+        CASH_DEPOSIT_STATE, 
+        PAYMENT_STATE 
+        FROM PAYMENT_LIST 
+        <where> 
+            <if test="pkId!= null and pkId!= ''"> 
+                AND PK_ID=#{pkId} 
+            </if> 
+            <if test="paymentNo!= null and paymentNo!= ''"> 
+                AND PAYMENT_NO=#{paymentNo} 
+            </if> 
+            <if test="projectNo!= null and projectNo!= ''"> 
+                AND PROJECT_NO=#{projectNo} 
+            </if> 
+            <if test="paddleNo!= null and paddleNo!= ''"> 
+                AND PADDLE_NO=#{paddleNo} 
+            </if> 
+            <if test="goodsNum!= null"> 
+                AND GOODS_NUM=#{goodsNum} 
+            </if> 
+            <if test="totalAmount!= null"> 
+                AND TOTAL_AMOUNT=#{totalAmount} 
+            </if> 
+            <if test="accountPaid!= null"> 
+                AND ACCOUNT_PAID=#{accountPaid} 
+            </if> 
+            <if test="nonPayment!= null"> 
+                AND NON_PAYMENT=#{nonPayment} 
+            </if> 
+            <if test="cashDeposit_state!= null and cashDeposit_state!= ''"> 
+                AND CASH_DEPOSIT_STATE=#{cashDeposit_state} 
+            </if> 
+            <if test="paymentState!= null and paymentState!= ''"> 
+                AND PAYMENT_STATE=#{paymentState} 
+            </if> 
+        </where> 
+    </select> 
 
-<root>
-    
-</root>
+    <insert id="insertObject" parameterType="PaymentList"> 
+        INSERT INTO PAYMENT_LIST(PK_ID,PAYMENT_NO,PROJECT_NO,PADDLE_NO,GOODS_NUM,TOTAL_AMOUNT,ACCOUNT_PAID,NON_PAYMENT,CASH_DEPOSIT_STATE,PAYMENT_STATE) 
+        VALUES (#{pkId},#{paymentNo},#{projectNo},#{paddleNo},#{goodsNum},#{totalAmount},#{accountPaid},#{nonPayment},#{cashDeposit_state},#{paymentState}) 
+    </insert> 
+
+    <delete id="deleteObjectById" parameterType="string"> 
+        DELETE FROM PAYMENT_LIST WHERE PK_ID=#{pkId} 
+    </delete> 
+
+    <update id="updateObjectById" parameterType="PaymentList"> 
+        UPDATE PAYMENT_LIST 
+        <set> 
+            <if test="paymentNo != null"> 
+                PAYMENT_NO = #{paymentNo}, 
+            </if> 
+            <if test="projectNo != null"> 
+                PROJECT_NO = #{projectNo}, 
+            </if> 
+            <if test="paddleNo != null"> 
+                PADDLE_NO = #{paddleNo}, 
+            </if> 
+            <if test="goodsNum != null"> 
+                GOODS_NUM = #{goodsNum}, 
+            </if> 
+            <if test="totalAmount != null"> 
+                TOTAL_AMOUNT = #{totalAmount}, 
+            </if> 
+            <if test="accountPaid != null"> 
+                ACCOUNT_PAID = #{accountPaid}, 
+            </if> 
+            <if test="nonPayment != null"> 
+                NON_PAYMENT = #{nonPayment}, 
+            </if> 
+            <if test="cashDeposit_state != null"> 
+                CASH_DEPOSIT_STATE = #{cashDeposit_state}, 
+            </if> 
+            <if test="paymentState != null"> 
+                PAYMENT_STATE = #{paymentState}, 
+            </if> 
+        </set> 
+        WHERE PK_ID=#{pkId} 
+    </update> 
+</mapper> 

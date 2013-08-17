@@ -1,10 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-
-
-<root>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="BiddingPaddle"> 
+    <resultMap type="com.hrxc.auction.domain.vo.BiddingPaddleVo" id="BiddingPaddleResultMap"> 
+        <result column="PK_ID" property="pkId"></result> 
+        <result column="PADDLE_NO" property="paddleNo"></result> 
+        <result column="CUST_NAME" property="custName"></result> 
+        <result column="CERT_TYPE" property="certType"></result> 
+        <result column="CERT_NO" property="certNo"></result> 
+        <result column="CUST_TEL" property="custTel"></result> 
+        <result column="CUST_ADDR" property="custAddr"></result> 
+        <result column="CASH_DEPOSIT" property="cashDeposit"></result> 
+        <result column="REMARKS" property="remarks"></result> 
+        <result column="PROJECT_NO" property="projectNo"></result> 
+        <result column="CASH_DEPOSIT_STATE" property="cashDepositState"></result> 
+    </resultMap> 
+    <select id="getAllObjectInfo" resultMap="BiddingPaddleResultMap" parameterType="BiddingPaddleVo"> 
+        SELECT 
+        PK_ID, 
+        PADDLE_NO, 
+        CUST_NAME,
+        CERT_TYPE,
+        CERT_NO,
+        CUST_TEL,
+        CUST_ADDR, 
+        CASH_DEPOSIT, 
+        REMARKS,
+        PROJECT_NO, 
+        CASH_DEPOSIT_STATE
+        FROM BIDDING_PADDLE 
+        <where> 
+            <if test="pkId!= null and pkId!= ''"> 
+                AND PK_ID=#{pkId} 
+            </if> 
+            <if test="paddleNo!= null and paddleNo!= ''"> 
+                AND PADDLE_NO=#{paddleNo} 
+            </if> 
+            <if test="custName!= null and custName!= ''"> 
+                AND CUST_NAME LIKE '%${custName}%' 
+            </if> 
+            <if test="certType!= null and certType!= ''"> 
+                AND CERT_TYPE=#{certType} 
+            </if> 
+            <if test="certNo!= null and certNo!= ''"> 
+                AND CERT_NO=#{certNo} 
+            </if> 
+            <if test="custTel!= null and custTel!= ''"> 
+                AND CUST_TEL=#{custTel} 
+            </if> 
+            <if test="custAddr!= null and custAddr!= ''"> 
+                AND CUST_ADDR=#{custAddr} 
+            </if> 
+            <if test="cashDeposit!= null"> 
+                AND CASH_DEPOSIT=#{cashDeposit} 
+            </if> 
+            <if test="remarks!= null and remarks!= ''"> 
+                AND REMARKS=#{remarks} 
+            </if> 
+            <if test="projectNo!= null and projectNo!= ''"> 
+                AND PROJECT_NO=#{projectNo} 
+            </if> 
+            <if test="cashDepositState!= null and cashDepositState!= ''"> 
+                AND CASH_DEPOSIT_STATE=#{cashDepositState} 
+            </if> 
+        </where> 
+        ORDER BY PADDLE_NO
+    </select> 
     
-</root>
+    <insert id="insertObject" parameterType="BiddingPaddle"> 
+        INSERT INTO BIDDING_PADDLE(PK_ID,PADDLE_NO,CUST_NAME,CERT_TYPE,CERT_NO,CUST_TEL,CUST_ADDR,CASH_DEPOSIT,REMARKS,PROJECT_NO,CASH_DEPOSIT_STATE) 
+        VALUES (#{pkId},#{paddleNo},#{custName},#{certType},#{certNo},#{custTel},#{custAddr},#{cashDeposit},#{remarks},#{projectNo},#{cashDepositState}) 
+    </insert> 
+    
+    <delete id="deleteObjectById" parameterType="string"> 
+        DELETE FROM BIDDING_PADDLE WHERE PK_ID=#{pkId} 
+    </delete> 
+    
+    <update id="updateObjectById" parameterType="BiddingPaddle"> 
+        UPDATE BIDDING_PADDLE 
+        <set> 
+            <if test="paddleNo != null"> 
+                PADDLE_NO = #{paddleNo}, 
+            </if> 
+            <if test="custName != null"> 
+                CUST_NAME = #{custName}, 
+            </if> 
+            <if test="certType != null"> 
+                CERT_TYPE = #{certType}, 
+            </if> 
+            <if test="certNo != null"> 
+                CERT_NO = #{certNo}, 
+            </if> 
+            <if test="custTel != null"> 
+                CUST_TEL = #{custTel}, 
+            </if> 
+            <if test="custAddr != null"> 
+                CUST_ADDR = #{custAddr}, 
+            </if> 
+            <if test="cashDeposit != null"> 
+                CASH_DEPOSIT = #{cashDeposit}, 
+            </if> 
+            <if test="remarks != null"> 
+                REMARKS = #{remarks}, 
+            </if> 
+            <if test="projectNo != null"> 
+                PROJECT_NO = #{projectNo}, 
+            </if> 
+            <if test="cashDepositState != null"> 
+                CASH_DEPOSIT_STATE = #{cashDepositState}, 
+            </if> 
+        </set> 
+        WHERE PK_ID=#{pkId} 
+    </update> 
+</mapper> 

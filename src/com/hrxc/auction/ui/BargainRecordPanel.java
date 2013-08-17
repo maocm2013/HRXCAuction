@@ -4,6 +4,7 @@ import com.hrxc.auction.action.BargainRecordAction;
 import com.hrxc.auction.action.BargainRecordTableConfig;
 import com.hrxc.auction.action.BaseTableModel;
 import com.hrxc.auction.domain.BargainRecord;
+import com.hrxc.auction.domain.vo.BargainRecordVo;
 import com.hrxc.auction.util.DictEnum;
 import com.hrxc.auction.util.ExcelHelper;
 import com.hrxc.auction.util.UITools;
@@ -46,7 +47,9 @@ public class BargainRecordPanel extends javax.swing.JPanel {
         BargainRecordTableConfig.MyTableModel model = new BargainRecordTableConfig().new MyTableModel();
 
         //初始化显示数据
-        Object[][] datas = BargainRecordAction.getAllTableData(this.getProjectNo(),null,null, null);
+        BargainRecordVo condition = new BargainRecordVo();
+        condition.setProjectNo(this.getProjectNo());
+        Object[][] datas = BargainRecordAction.getAllTableData(condition);
         model.refreshContents(datas);
         dataTable = new org.jdesktop.swingx.JXTable(model);
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
@@ -146,7 +149,7 @@ public class BargainRecordPanel extends javax.swing.JPanel {
                 .addComponent(fd_goodsNo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(searchBton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(toolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -186,7 +189,7 @@ public class BargainRecordPanel extends javax.swing.JPanel {
             String pkId = list.get(0);
             BargainRecord dto = BargainRecordAction.getObjectById(pkId);
             //如果非成交状态则不能修改
-            if(!dto.getSettleState().equals(DictEnum.SettleState.BARGAIN)){
+            if(dto.getSettleState().equals(DictEnum.SettleState.SETTLED)){
                 JOptionPane.showMessageDialog(this.getRootPane(), "您选择的记录已经结算，无法修改，请确认！");
                 return;
             }
@@ -219,7 +222,12 @@ public class BargainRecordPanel extends javax.swing.JPanel {
      */
     public void refreshTableDatas(String paddleNo, String goodsNo) {
         BargainRecordTableConfig.MyTableModel model = (BargainRecordTableConfig.MyTableModel) dataTable.getModel();
-        model.refreshContents(BargainRecordAction.getAllTableData(this.getProjectNo(),null,paddleNo, goodsNo));
+        
+        BargainRecordVo condition = new BargainRecordVo();
+        condition.setProjectNo(this.getProjectNo());
+        condition.setPaddleNo(paddleNo);
+        condition.setGoodsNo(goodsNo);
+        model.refreshContents(BargainRecordAction.getAllTableData(condition));
         //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
         dataTable.setModel(model);
     }

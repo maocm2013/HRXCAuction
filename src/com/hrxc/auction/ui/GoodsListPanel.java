@@ -8,6 +8,7 @@ import com.hrxc.auction.action.BaseTableModel;
 import com.hrxc.auction.action.GoodsListAction;
 import com.hrxc.auction.action.GoodsListTableConfig;
 import com.hrxc.auction.domain.GoodsList;
+import com.hrxc.auction.domain.vo.GoodsListVo;
 import com.hrxc.auction.util.ExcelHelper;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
@@ -49,7 +50,9 @@ public class GoodsListPanel extends javax.swing.JPanel {
         GoodsListTableConfig.MyTableModel model = new GoodsListTableConfig().new MyTableModel();
 
         //初始化显示数据
-        Object[][] datas = GoodsListAction.getAllTableData(this.getProjectNo(),null, null);
+        GoodsListVo condition = new GoodsListVo();
+        condition.setProjectNo(this.getProjectNo());
+        Object[][] datas = GoodsListAction.getAllTableData(condition);
         model.refreshContents(datas);
         dataTable = new org.jdesktop.swingx.JXTable(model);
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
@@ -149,7 +152,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
                 .addComponent(fd_goodsName, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchBton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(toolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -217,7 +220,12 @@ public class GoodsListPanel extends javax.swing.JPanel {
      */
     public void refreshTableDatas(String goodsNo, String goodsName) {
         GoodsListTableConfig.MyTableModel model = (GoodsListTableConfig.MyTableModel) dataTable.getModel();
-        model.refreshContents(GoodsListAction.getAllTableData(this.getProjectNo(),goodsNo, goodsName));
+        
+        GoodsListVo condition = new GoodsListVo();
+        condition.setProjectNo(this.getProjectNo());
+        condition.setGoodsNo(goodsNo);
+        condition.setGoodsName(goodsName);
+        model.refreshContents(GoodsListAction.getAllTableData(condition));
         //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
         dataTable.setModel(model);
     }

@@ -8,6 +8,7 @@ import com.hrxc.auction.action.BaseTableModel;
 import com.hrxc.auction.action.ProjectInfoAction;
 import com.hrxc.auction.action.ProjectInfoTableConfig;
 import com.hrxc.auction.domain.ProjectInfo;
+import com.hrxc.auction.domain.vo.ProjectInfoVo;
 import com.hrxc.auction.util.ExcelHelper;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class ProjectInfoPanel extends javax.swing.JPanel {
         ProjectInfoTableConfig.MyTableModel model = new ProjectInfoTableConfig().new MyTableModel();
 
         //初始化显示数据
-        Object[][] datas = ProjectInfoAction.getAllTableData(null, null,null);
+        Object[][] datas = ProjectInfoAction.getAllTableData(new ProjectInfoVo());
         model.refreshContents(datas);
         dataTable = new org.jdesktop.swingx.JXTable(model);
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
@@ -148,7 +149,7 @@ public class ProjectInfoPanel extends javax.swing.JPanel {
                 .addComponent(fd_projectName, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchBton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(toolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -216,7 +217,11 @@ public class ProjectInfoPanel extends javax.swing.JPanel {
      */
     public void refreshTableDatas(String projectNo, String projectName) {
         ProjectInfoTableConfig.MyTableModel model = (ProjectInfoTableConfig.MyTableModel) dataTable.getModel();
-        model.refreshContents(ProjectInfoAction.getAllTableData(projectNo, projectName,null));
+        
+        ProjectInfoVo condition = new ProjectInfoVo();
+        condition.setProjectNo(projectNo);
+        condition.setProjectName(projectName);
+        model.refreshContents(ProjectInfoAction.getAllTableData(condition));
         //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
         dataTable.setModel(model);
     }

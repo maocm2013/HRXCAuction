@@ -4,6 +4,7 @@ import com.hrxc.auction.action.BargainRecordAction;
 import com.hrxc.auction.action.BargainRecordTableConfig;
 import com.hrxc.auction.action.BaseTableModel;
 import com.hrxc.auction.domain.BargainRecord;
+import com.hrxc.auction.domain.vo.BargainRecordVo;
 import com.hrxc.auction.util.DictEnum;
 import com.hrxc.auction.util.ExcelHelper;
 import com.hrxc.auction.util.UITools;
@@ -47,7 +48,10 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         BargainRecordTableConfig.MyTableModel model_c = new BargainRecordTableConfig().new MyTableModel();
 
         //初始化显示数据
-        Object[][] datas_c  = BargainRecordAction.getAllTableData(this.getProjectNo(),DictEnum.SettleState.BARGAIN,null, null);
+        BargainRecordVo condition_c = new BargainRecordVo();
+        condition_c.setProjectNo(this.getProjectNo());
+        condition_c.setSettleState(DictEnum.SettleState.BARGAIN);
+        Object[][] datas_c  = BargainRecordAction.getAllTableData(condition_c);
         model_c.refreshContents(datas_c);
         dataTable_c = new org.jdesktop.swingx.JXTable(model_c);
         settleLayeredPane = new javax.swing.JLayeredPane();
@@ -74,7 +78,10 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         BargainRecordTableConfig.MyTableModel model_p = new BargainRecordTableConfig().new MyTableModel();
 
         //初始化显示数据
-        Object[][] datas_p = BargainRecordAction.getAllTableData(this.getProjectNo(),DictEnum.SettleState.SETTLED,null, null);
+        BargainRecordVo condition_p = new BargainRecordVo();
+        condition_p.setProjectNo(this.getProjectNo());
+        condition_p.setSettleState(DictEnum.SettleState.SETTLED);
+        Object[][] datas_p = BargainRecordAction.getAllTableData(condition_p);
         model_p.refreshContents(datas_p);
         dataTable_p = new org.jdesktop.swingx.JXTable(model_p);
         settleListPrintBton = new org.jdesktop.swingx.JXButton();
@@ -104,7 +111,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
                 searchBton_cActionPerformed(evt);
             }
         });
-        searchBton_c.setBounds(190, 10, 95, 30);
+        searchBton_c.setBounds(190, 10, 93, 30);
         checkLayeredPanel.add(searchBton_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         toSettleBton_c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finish.png"))); // NOI18N
@@ -166,7 +173,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
                 searchBton_sActionPerformed(evt);
             }
         });
-        searchBton_s.setBounds(190, 10, 95, 30);
+        searchBton_s.setBounds(190, 10, 93, 30);
         settleLayeredPane.add(searchBton_s, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         toSettleBton_s.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finish.png"))); // NOI18N
@@ -222,7 +229,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
                 searchBton_pActionPerformed(evt);
             }
         });
-        searchBton_p.setBounds(190, 10, 95, 30);
+        searchBton_p.setBounds(190, 10, 93, 30);
         paymentLayeredPane.add(searchBton_p, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         undoSettleBton_p.setIcon(new javax.swing.ImageIcon(getClass().getResource("/undo.png"))); // NOI18N
@@ -267,7 +274,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
                 settleListPrintBtonActionPerformed(evt);
             }
         });
-        settleListPrintBton.setBounds(190, 50, 131, 41);
+        settleListPrintBton.setBounds(190, 50, 129, 41);
         paymentLayeredPane.add(settleListPrintBton, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jXLabel5.setForeground(new java.awt.Color(250, 12, 12));
@@ -293,7 +300,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
                 searchBton_dActionPerformed(evt);
             }
         });
-        searchBton_d.setBounds(190, 10, 95, 30);
+        searchBton_d.setBounds(190, 10, 93, 30);
         depositLayeredPane.add(searchBton_d, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jXLabel6.setForeground(new java.awt.Color(250, 12, 12));
@@ -404,7 +411,13 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
      */
     public void refreshTableDatas(JXTable dataTable,String settleState, String paddleNo, String goodsNo) {
         BargainRecordTableConfig.MyTableModel model = (BargainRecordTableConfig.MyTableModel) dataTable.getModel();
-        model.refreshContents(BargainRecordAction.getAllTableData(this.getProjectNo(), settleState, paddleNo, goodsNo));
+        
+        BargainRecordVo condition = new BargainRecordVo();
+        condition.setProjectNo(this.getProjectNo());
+        condition.setSettleState(settleState);
+        condition.setPaddleNo(paddleNo);
+        condition.setGoodsNo(goodsNo);
+        model.refreshContents(BargainRecordAction.getAllTableData(condition));
         //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
         dataTable.setModel(model);
     }

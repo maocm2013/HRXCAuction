@@ -1,10 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="ProjectInfo"> 
+    <resultMap type="com.hrxc.auction.domain.vo.ProjectInfoVo" id="ProjectInfoResultMap"> 
+        <result column="PK_ID" property="pkId"></result> 
+        <result column="PROJECT_NO" property="projectNo"></result> 
+        <result column="PROJECT_NAME" property="projectName"></result> 
+        <result column="PROJECT_STATE" property="projectState"></result> 
+    </resultMap> 
 
+    <select id="getAllObjectInfo" resultMap="ProjectInfoResultMap" parameterType="ProjectInfoVo"> 
+        SELECT 
+        PK_ID, 
+        PROJECT_NO, 
+        PROJECT_NAME, 
+        PROJECT_STATE 
+        FROM PROJECT_INFO 
+        <where> 
+            <if test="pkId!= null and pkId!= ''"> 
+                AND PK_ID=#{pkId} 
+            </if> 
+            <if test="projectNo!= null and projectNo!= ''"> 
+                AND PROJECT_NO=#{projectNo} 
+            </if> 
+            <if test="projectName!= null and projectName!= ''"> 
+                AND PROJECT_NAME LIKE '%${projectName}%' 
+            </if> 
+            <if test="projectState!= null and projectState!= ''"> 
+                AND PROJECT_STATE=#{projectState} 
+            </if> 
+        </where> 
+    </select> 
 
-<root>
-    
-</root>
+    <insert id="insertObject" parameterType="ProjectInfo"> 
+        INSERT INTO PROJECT_INFO(PK_ID,PROJECT_NO,PROJECT_NAME,PROJECT_STATE) 
+        VALUES (#{pkId},#{projectNo},#{projectName},#{projectState}) 
+    </insert> 
+
+    <delete id="deleteObjectById" parameterType="string"> 
+        DELETE FROM PROJECT_INFO WHERE PK_ID=#{pkId} 
+    </delete> 
+
+    <update id="updateObjectById" parameterType="ProjectInfo"> 
+        UPDATE PROJECT_INFO 
+        <set> 
+            <if test="projectNo != null"> 
+                PROJECT_NO = #{projectNo}, 
+            </if> 
+            <if test="projectName != null"> 
+                PROJECT_NAME = #{projectName}, 
+            </if> 
+            <if test="projectState != null"> 
+                PROJECT_STATE = #{projectState}, 
+            </if> 
+        </set> 
+        WHERE PK_ID=#{pkId} 
+    </update> 
+</mapper> 

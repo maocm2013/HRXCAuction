@@ -8,6 +8,7 @@ import com.hrxc.auction.action.BaseTableModel;
 import com.hrxc.auction.action.ClientSideAction;
 import com.hrxc.auction.action.ClientSideTableConfig;
 import com.hrxc.auction.domain.ClientSide;
+import com.hrxc.auction.domain.vo.ClientSideVo;
 import com.hrxc.auction.util.ExcelHelper;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class ClientSidePanel extends javax.swing.JPanel {
         ClientSideTableConfig.MyTableModel model = new ClientSideTableConfig().new MyTableModel();
 
         //初始化显示数据
-        Object[][] datas = ClientSideAction.getAllTableData(null, null);
+        Object[][] datas = ClientSideAction.getAllTableData(new ClientSideVo());
         model.refreshContents(datas);
         dataTable = new org.jdesktop.swingx.JXTable(model);
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
@@ -148,7 +149,7 @@ public class ClientSidePanel extends javax.swing.JPanel {
                 .addComponent(fd_clientName, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchBton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(toolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -216,7 +217,11 @@ public class ClientSidePanel extends javax.swing.JPanel {
      */
     public void refreshTableDatas(String clientNo, String clientName) {
         ClientSideTableConfig.MyTableModel model = (ClientSideTableConfig.MyTableModel) dataTable.getModel();
-        model.refreshContents(ClientSideAction.getAllTableData(clientNo, clientName));
+        
+        ClientSideVo condition = new ClientSideVo();
+        condition.setClientNo(clientNo);
+        condition.setClientName(clientName);
+        model.refreshContents(ClientSideAction.getAllTableData(condition));
         //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
         dataTable.setModel(model);
     }

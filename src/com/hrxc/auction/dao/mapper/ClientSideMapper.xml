@@ -1,10 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="ClientSide"> 
+    <resultMap type="com.hrxc.auction.domain.vo.ClientSideVo" id="ClientSideResultMap"> 
+        <result column="PK_ID" property="pkId"></result> 
+        <result column="CLIENT_NO" property="clientNo"></result> 
+        <result column="CLIENT_NAME" property="clientName"></result> 
+    </resultMap> 
 
+    <select id="getAllObjectInfo" resultMap="ClientSideResultMap" parameterType="ClientSideVo"> 
+        SELECT 
+        PK_ID, 
+        CLIENT_NO, 
+        CLIENT_NAME 
+        FROM CLIENT_SIDE 
+        <where> 
+            <if test="pkId!= null and pkId!= ''"> 
+                AND PK_ID=#{pkId} 
+            </if> 
+            <if test="clientNo!= null and clientNo!= ''"> 
+                AND CLIENT_NO=#{clientNo} 
+            </if> 
+            <if test="clientName!= null and clientName!= ''"> 
+                AND CLIENT_NAME LIKE '%${clientName}%' 
+            </if> 
+        </where> 
+        ORDER BY CLIENT_NO
+    </select> 
 
-<root>
-    
-</root>
+    <insert id="insertObject" parameterType="ClientSide"> 
+        INSERT INTO CLIENT_SIDE(PK_ID,CLIENT_NO,CLIENT_NAME) 
+        VALUES (#{pkId},#{clientNo},#{clientName}) 
+    </insert> 
+
+    <delete id="deleteObjectById" parameterType="string"> 
+        DELETE FROM CLIENT_SIDE WHERE PK_ID=#{pkId} 
+    </delete> 
+
+    <update id="updateObjectById" parameterType="ClientSide"> 
+        UPDATE CLIENT_SIDE 
+        <set> 
+            <if test="clientNo != null"> 
+                CLIENT_NO = #{clientNo}, 
+            </if> 
+            <if test="clientName != null"> 
+                CLIENT_NAME = #{clientName}, 
+            </if> 
+        </set> 
+        WHERE PK_ID=#{pkId} 
+</update> 
+</mapper> 

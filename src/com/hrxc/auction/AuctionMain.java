@@ -4,8 +4,8 @@ import com.hrxc.auction.ui.AuctionFrame;
 import com.hrxc.auction.ui.LoginDialog;
 import com.hrxc.auction.util.Configuration;
 import com.hrxc.auction.util.JdbcUtil;
-import java.sql.Connection;
 import javax.swing.JOptionPane;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 
 /**
@@ -83,16 +83,16 @@ public class AuctionMain {
 
     private static boolean validateJdbcConn() {
         //首先验证数据库连接是否正常
-        Connection conn = null;
+        SqlSession session = null;
         try {
-            conn = JdbcUtil.getConn();
+            session = JdbcUtil.getInstance().getSession();
         } catch (Exception ex) {
             log.error("error:", ex);
             return false;
         } finally {
-            if (conn != null) {
+            if (session != null) {
                 try {
-                    conn.close();
+                    session.close();
                 } catch (Exception ex) {
                     log.error("error:", ex);
                     return false;

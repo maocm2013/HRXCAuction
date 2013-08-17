@@ -1,14 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hrxc.auction.action;
 
 import com.hrxc.auction.dao.BargainRecordDao;
 import com.hrxc.auction.domain.BargainRecord;
-import java.sql.SQLException;
+import com.hrxc.auction.domain.vo.BargainRecordVo;
+import com.hrxc.auction.util.UITools;
+import com.hrxc.auction.util.DictEnum;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -21,7 +20,7 @@ public class BargainRecordAction {
     private static final BargainRecordDao dao = new BargainRecordDao();
 
     /**
-     * 根据竞拍好品获取所有成交记录
+     * 根据竞拍号牌获取所有成交记录
      *
      * @param projectNo
      * @param paddleNo
@@ -30,7 +29,10 @@ public class BargainRecordAction {
     public static List<BargainRecord> getBargainRecordListByPaddleNo(String projectNo, String paddleNo) {
         List<BargainRecord> list = null;
         try {
-            list = dao.getAllObjectInfo(projectNo, null,paddleNo, null);
+            BargainRecordVo condition = new BargainRecordVo();
+            condition.setProjectNo(projectNo);
+            condition.setPaddleNo(paddleNo);
+            list = dao.getAllObjectInfo(condition);
         } catch (Exception ex) {
             log.error("error:", ex);
         }
@@ -38,18 +40,14 @@ public class BargainRecordAction {
     }
 
     /**
-     * 根据条件查询数据信息
      *
-     * @param projectNo
-     * @param settleState
-     * @param paddleNo
-     * @param custName
+     * @param condition
      * @return
      */
-    public static Object[][] getAllTableData(String projectNo,String settleState,String paddleNo, String custName) {
+    public static Object[][] getAllTableData(BargainRecordVo condition) {
         Object[][] data = null;
         try {
-            List<BargainRecord> list = dao.getAllObjectInfo(projectNo,settleState,paddleNo, custName);
+            List<BargainRecord> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
                 data = List2TableData(list);
             }
@@ -88,7 +86,14 @@ public class BargainRecordAction {
      */
     public static void saveOrUpdateObject(BargainRecord dto) {
         try {
-            dao.saveOrUpdateObject(dto);
+            if (StringUtils.isNotEmpty(dto.getPkId())) {
+                dao.updateObjectById(dto);
+            } else {
+                dto.setPkId(UITools.generateUUID());
+                //默认结算状态为“已成交”
+                dto.setSettleState(DictEnum.SettleState.BARGAIN);
+                dao.insertObject(dto);
+            }
         } catch (Exception ex) {
             log.error("error:", ex);
         }
@@ -122,11 +127,11 @@ public class BargainRecordAction {
             log.error("error:", ex);
         }
     }
-    
+
     public static void updateSettleState(String settleState, String pkId) {
-        try{
+        try {
             dao.updateSettleState(settleState, pkId);
-        }catch(Exception ex){
+        } catch (Exception ex) {
             log.error("error:", ex);
         }
     }

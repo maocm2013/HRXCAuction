@@ -1,13 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hrxc.auction.action;
 
 import com.hrxc.auction.dao.GoodsListDao;
 import com.hrxc.auction.domain.GoodsList;
+import com.hrxc.auction.domain.vo.GoodsListVo;
+import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -29,7 +28,10 @@ public class GoodsListAction {
     public static GoodsList getGoodsListByGoodsNo(String projectNo, String goodsNo) {
         GoodsList dto = null;
         try {
-            List<GoodsList> list = dao.getAllObjectInfo(projectNo, goodsNo, null);
+            GoodsListVo condition = new GoodsListVo();
+            condition.setProjectNo(projectNo);
+            condition.setGoodsNo(goodsNo);
+            List<GoodsList> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
                 dto = list.get(0);
             }
@@ -40,17 +42,14 @@ public class GoodsListAction {
     }
 
     /**
-     * 根据条件查询数据信息
      *
-     * @param projectNo
-     * @param goodsNo
-     * @param goodsName
+     * @param condition
      * @return
      */
-    public static Object[][] getAllTableData(String projectNo, String goodsNo, String goodsName) {
+    public static Object[][] getAllTableData(GoodsListVo condition) {
         Object[][] data = null;
         try {
-            List<GoodsList> list = dao.getAllObjectInfo(projectNo, goodsNo, goodsName);
+            List<GoodsList> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
                 data = List2TableData(list);
             }
@@ -89,7 +88,12 @@ public class GoodsListAction {
      */
     public static void saveOrUpdateObject(GoodsList dto) {
         try {
-            dao.saveOrUpdateObject(dto);
+            if (StringUtils.isNotEmpty(dto.getPkId())) {
+                dao.updateObjectById(dto);
+            } else {
+                dto.setPkId(UITools.generateUUID());
+                dao.insertObject(dto);
+            }
         } catch (Exception ex) {
             log.error("error:", ex);
         }

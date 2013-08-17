@@ -4,12 +4,19 @@
 <configuration>
     <typeAliases>
         <typeAlias alias="GoodsList" type="com.hrxc.auction.domain.GoodsList"/>
+        <typeAlias alias="GoodsListVo" type="com.hrxc.auction.domain.vo.GoodsListVo"/>
         <typeAlias alias="BargainRecord" type="com.hrxc.auction.domain.BargainRecord"/>
+        <typeAlias alias="BargainRecordVo" type="com.hrxc.auction.domain.vo.BargainRecordVo"/>
         <typeAlias alias="BiddingPaddle" type="com.hrxc.auction.domain.BiddingPaddle"/>
+        <typeAlias alias="BiddingPaddleVo" type="com.hrxc.auction.domain.vo.BiddingPaddleVo"/>
         <typeAlias alias="ClientSide" type="com.hrxc.auction.domain.ClientSide"/>
+        <typeAlias alias="ClientSideVo" type="com.hrxc.auction.domain.vo.ClientSideVo"/>
         <typeAlias alias="PaymentList" type="com.hrxc.auction.domain.PaymentList"/>
+        <typeAlias alias="PaymentListVo" type="com.hrxc.auction.domain.vo.PaymentListVo"/>
         <typeAlias alias="ProjectInfo" type="com.hrxc.auction.domain.ProjectInfo"/>
+        <typeAlias alias="ProjectInfoVo" type="com.hrxc.auction.domain.vo.ProjectInfoVo"/>
         <typeAlias alias="UserInfo" type="com.hrxc.auction.domain.UserInfo"/>
+        <typeAlias alias="UserInfoVo" type="com.hrxc.auction.domain.vo.UserInfoVo"/>
     </typeAliases>
     
     <environments default="development">
@@ -29,13 +36,11 @@
     
     <mappers>
         <mapper resource="com/hrxc/auction/dao/mapper/GoodsListMapper.xml"/>
-        <!--
         <mapper resource="com/hrxc/auction/dao/mapper/BargainRecordMapper.xml"/>
         <mapper resource="com/hrxc/auction/dao/mapper/BiddingPaddleMapper.xml"/>
         <mapper resource="com/hrxc/auction/dao/mapper/ClientSideMapper.xml"/>
         <mapper resource="com/hrxc/auction/dao/mapper/PaymentListMapper.xml"/>
         <mapper resource="com/hrxc/auction/dao/mapper/ProjectInfoMapper.xml"/>
         <mapper resource="com/hrxc/auction/dao/mapper/UserInfoMapper.xml"/>
-        -->
     </mappers>
 </configuration>

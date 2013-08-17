@@ -150,7 +150,7 @@
         <Component class="org.jdesktop.swingx.JXTable" name="dataTable">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new org.jdesktop.swingx.JXTable(model)"/>
-            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ProjectInfoTableConfig.MyTableModel model = new ProjectInfoTableConfig().new MyTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;Object[][] datas = ProjectInfoAction.getAllTableData(null, null,null);&#xa;model.refreshContents(datas);"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ProjectInfoTableConfig.MyTableModel model = new ProjectInfoTableConfig().new MyTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;Object[][] datas = ProjectInfoAction.getAllTableData(new ProjectInfoVo());&#xa;model.refreshContents(datas);"/>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//&#x9690;&#x85cf;&#x7b2c;&#x4e00;&#x5217;&#xff08;&#x4e3b;&#x952e;&#xff09;&#xa;UITools.hideColumn(dataTable, 1);"/>
           </AuxValues>
         </Component>

@@ -2,9 +2,12 @@ package com.hrxc.auction.action;
 
 import com.hrxc.auction.dao.ClientSideDao;
 import com.hrxc.auction.domain.ClientSide;
+import com.hrxc.auction.domain.vo.ClientSideVo;
+import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -25,7 +28,9 @@ public class ClientSideAction {
     public static ClientSide getClientSideByClientNo(String clientNo) {
         ClientSide dto = null;
         try {
-            List<ClientSide> list = dao.getAllObjectInfo(clientNo, null);
+            ClientSideVo condition = new ClientSideVo();
+            condition.setClientNo(clientNo);
+            List<ClientSide> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
                 dto = list.get(0);
             }
@@ -38,14 +43,12 @@ public class ClientSideAction {
     /**
      * 根据条件查询数据信息
      *
-     * @param clientNo
-     * @param clientName
      * @return
      */
-    public static Object[][] getAllTableData(String clientNo, String clientName) {
+    public static Object[][] getAllTableData(ClientSideVo condition) {
         Object[][] data = null;
         try {
-            List<ClientSide> list = dao.getAllObjectInfo(clientNo, clientName);
+            List<ClientSide> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
                 data = List2TableData(list);
             }
@@ -57,14 +60,15 @@ public class ClientSideAction {
 
     /**
      * 获取所有委托方信息
-     * @return 
+     *
+     * @return
      */
     public static HashMap<String, String> getAllClientInfo() {
         HashMap<String, String> dataMap = new HashMap<String, String>();
         try {
-            List<ClientSide> list = dao.getAllObjectInfo(null, null);
+            List<ClientSide> list = dao.getAllObjectInfo(new ClientSideVo());
             if (list != null && list.size() > 0) {
-                for(int i = 0; i < list.size(); i++){
+                for (int i = 0; i < list.size(); i++) {
                     ClientSide dto = list.get(i);
                     dataMap.put(dto.getClientNo(), dto.getClientName());
                 }
@@ -96,7 +100,12 @@ public class ClientSideAction {
      */
     public static void saveOrUpdateObject(ClientSide dto) {
         try {
-            dao.saveOrUpdateObject(dto);
+            if (StringUtils.isNotEmpty(dto.getPkId())) {
+                dao.updateObjectById(dto);
+            } else {
+                dto.setPkId(UITools.generateUUID());
+                dao.insertObject(dto);
+            }
         } catch (Exception ex) {
             log.error("error:", ex);
         }

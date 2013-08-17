@@ -4,6 +4,7 @@ import com.hrxc.auction.action.BaseTableModel;
 import com.hrxc.auction.action.BiddingPaddleAction;
 import com.hrxc.auction.action.BiddingPaddleTableConfig;
 import com.hrxc.auction.domain.BiddingPaddle;
+import com.hrxc.auction.domain.vo.BiddingPaddleVo;
 import com.hrxc.auction.util.Constant;
 import com.hrxc.auction.util.ExcelHelper;
 import com.hrxc.auction.util.UITools;
@@ -48,7 +49,9 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         BiddingPaddleTableConfig.MyTableModel model = new BiddingPaddleTableConfig().new MyTableModel();
 
         //初始化显示数据
-        Object[][] datas = BiddingPaddleAction.getAllTableData(this.getProjectNo(),null, null);
+        BiddingPaddleVo condition = new BiddingPaddleVo();
+        condition.setProjectNo(this.getProjectNo());
+        Object[][] datas = BiddingPaddleAction.getAllTableData(condition);
         model.refreshContents(datas);
         dataTable = new org.jdesktop.swingx.JXTable(model);
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
@@ -171,7 +174,7 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
                 .addComponent(fd_custName, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchBton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(toolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -263,7 +266,12 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
      */
     public void refreshTableDatas(String paddleNo, String custName) {
         BiddingPaddleTableConfig.MyTableModel model = (BiddingPaddleTableConfig.MyTableModel) dataTable.getModel();
-        model.refreshContents(BiddingPaddleAction.getAllTableData(this.getProjectNo(),paddleNo, custName));
+        
+        BiddingPaddleVo condition = new BiddingPaddleVo();
+        condition.setProjectNo(this.getProjectNo());
+        condition.setPaddleNo(paddleNo);
+        condition.setCustName(custName);
+        model.refreshContents(BiddingPaddleAction.getAllTableData(condition));
         //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
         dataTable.setModel(model);
     }

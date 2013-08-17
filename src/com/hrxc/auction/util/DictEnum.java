@@ -32,15 +32,15 @@ public class DictEnum {
     public static class SettleState {
 
         /**
-         * 已成交未复核
+         * 01-已成交未复核
          */
         public static final String BARGAIN = "01";
         /**
-         * 已复核未结算
+         * 02-已复核未结算
          */
         public static final String RECHECKED = "02";
         /**
-         * 已结算
+         * 03-已结算
          */
         public static final String SETTLED = "03";
         public static final Map dataMap = JSON.parseObject("{\"01\":\"已成交未复核\",\"02\":\"已复核未结算\",\"03\":\"已结算\"}");

@@ -8,10 +8,14 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.io.File;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.JFrame;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
@@ -21,6 +25,7 @@ import net.sf.jasperreports.engine.export.JRGraphics2DExporter;
 import net.sf.jasperreports.engine.export.JRGraphics2DExporterParameter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,6 +35,7 @@ import org.junit.Test;
  * @author user
  */
 public class MyTestExample {
+
     private static final Logger log = Logger.getLogger(MyTestExample.class);
 
     @Before
@@ -48,7 +54,7 @@ public class MyTestExample {
     public void testDerbyJdbc() {
         Connection conn = null;
         try {
-            conn = JdbcUtil.getConn();
+            conn = JdbcUtil.getInstance().getSession().getConnection();
             conn.close();
         } catch (Exception ex) {
             log.debug("error:", ex);
@@ -66,7 +72,7 @@ public class MyTestExample {
             JasperPrint print = JasperFillManager.fillReport(
                     fileName,
                     hm,
-                    JdbcUtil.getConn());
+                    JdbcUtil.getInstance().getSession().getConnection());
 
 
             //将报表数据输出至JFrame
@@ -100,12 +106,130 @@ public class MyTestExample {
         }
     }
 
-    @Test
+    //@Test
     public void testMybatis() throws SQLException {
         GoodsList goods = new GoodsList();
         goods.setProjectNo("20130728-001");
         MyBatisUtils.insert("GoodsList.insertObject", new String(""));
         //List list = MyBatisUtils.selectList("GoodsList.getAllObjectInfo", goods);
         //log.debug("list.size=" + list.size());
+    }
+
+    /**
+     * 生产mybatis配置文件
+     */
+    @Test
+    public void generateMyBatisMapper() throws SQLException {
+        String pkIdProp = "pkId";
+        String tableName = "PROJECT_INFO";
+        String domainName = "ProjectInfo";
+
+        SqlSession session = JdbcUtil.getInstance().getSession();
+        PreparedStatement ps = session.getConnection().prepareStatement("select * from " + tableName);
+        ResultSet rs = ps.executeQuery();
+        ResultSetMetaData rm = rs.getMetaData();
+        String[] cols = new String[rm.getColumnCount()];
+        for (int c = 1; c <= cols.length; c++) {
+            cols[c - 1] = rm.getColumnName(c);
+        }
+        session.close();
+
+
+        StringBuffer sb = new StringBuffer();
+        sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                + "<!DOCTYPE mapper PUBLIC \"-//mybatis.org//DTD Mapper 3.0//EN\" \n"
+                + "\"http://mybatis.org/dtd/mybatis-3-mapper.dtd\"> \n");
+        sb.append("<mapper namespace=\"@DOMAIN@\"> \n");
+
+        sb.append(" <resultMap type=\"com.hrxc.auction.domain.vo.@DOMAIN@Vo\" id=\"@DOMAIN@ResultMap\"> \n");
+        for (int i = 0; i < cols.length; i++) {
+            sb.append("<result column=\"").append(cols[i]).append("\" property=\"").append(column2Property(cols[i])).append("\"></result> \n");
+        }
+        sb.append("</resultMap> \n\n");
+
+        sb.append("<select id=\"getAllObjectInfo\" resultMap=\"@DOMAIN@ResultMap\" parameterType=\"@DOMAIN@Vo\"> \n");
+        sb.append("SELECT \n");
+        for (int i = 0; i < cols.length; i++) {
+            if (i == cols.length - 1) {
+                sb.append(cols[i]).append(" \n");
+            } else {
+                sb.append(cols[i]).append(", \n");
+            }
+        }
+        sb.append("FROM @TABLE@ \n");
+        sb.append("<where> \n");
+        for (int i = 0; i < cols.length; i++) {
+            sb.append("<if test=\"").append(column2Property(cols[i])).append("!= null\"> and ").append(column2Property(cols[i])).append(" != ''\">\n");
+            sb.append("AND ").append(cols[i]).append("=#{").append(column2Property(cols[i])).append("} \n");
+            sb.append("</if> \n");
+        }
+        sb.append("</where> \n");
+        sb.append("</select> \n\n");
+
+        sb.append("<insert id=\"insertObject\" parameterType=\"@DOMAIN@\"> \n");
+        sb.append("INSERT INTO @TABLE@(");
+        for (int i = 0; i < cols.length; i++) {
+            if (i == cols.length - 1) {
+                sb.append(cols[i]);
+            } else {
+                sb.append(cols[i]).append(",");
+            }
+        }
+
+        sb.append(") \n VALUES (");
+        for (int i = 0; i < cols.length; i++) {
+            if (i == cols.length - 1) {
+                sb.append("#{").append(column2Property(cols[i])).append("}");
+            } else {
+                sb.append("#{").append(column2Property(cols[i])).append("}").append(",");
+            }
+        }
+        sb.append(") \n");
+        sb.append("</insert> \n\n");
+
+        sb.append("<delete id=\"deleteObjectById\" parameterType=\"string\"> \n");
+        sb.append("DELETE FROM @TABLE@ WHERE PK_ID=#{pkId} \n");
+        sb.append("</delete> \n\n");
+
+        sb.append("<update id=\"updateObjectById\" parameterType=\"@DOMAIN@\"> \n");
+        sb.append("UPDATE @TABLE@ \n");
+        sb.append("<set> \n");
+        for (int i = 0; i < cols.length; i++) {
+            if (!column2Property(cols[i]).equalsIgnoreCase(pkIdProp)) {
+                sb.append("<if test=\"").append(column2Property(cols[i])).append(" != null\"> \n");
+                sb.append(cols[i]).append(" = #{").append(column2Property(cols[i])).append("}, \n");
+                sb.append("</if> \n");
+            }
+        }
+        sb.append("</set> \n");
+        sb.append("WHERE PK_ID=#{pkId} \n");
+        sb.append("</update> \n");
+        sb.append("</mapper> \n");
+
+        //替换表名及domain名称
+        String str = sb.toString();
+        str = str.replaceAll("@TABLE@", tableName);
+        str = str.replaceAll("@DOMAIN@", domainName);
+        System.out.println("---------mapper output--------------------\n" + str);
+    }
+
+    /**
+     * <p>将数据库字段名替换为属性名</p>
+     * TODO：该函数只支持一个_的情况！！
+     *
+     * @param col
+     * @return
+     */
+    private String column2Property(String col) {
+        String property = "";
+        int i = col.indexOf("_");
+        if (i > 0) {
+            property = col.substring(0, i).toLowerCase();
+            property += col.substring(i + 1, i + 2).toUpperCase();
+            property += col.substring(i + 2).toLowerCase();
+        } else {
+            property = col.toLowerCase();
+        }
+        return property;
     }
 }

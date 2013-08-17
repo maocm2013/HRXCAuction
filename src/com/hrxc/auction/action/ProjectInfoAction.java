@@ -2,9 +2,12 @@ package com.hrxc.auction.action;
 
 import com.hrxc.auction.dao.ProjectInfoDao;
 import com.hrxc.auction.domain.ProjectInfo;
+import com.hrxc.auction.domain.vo.ProjectInfoVo;
 import com.hrxc.auction.util.DictEnum;
+import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -18,13 +21,16 @@ public class ProjectInfoAction {
 
     /**
      * 根据项目编号获取项目信息
+     *
      * @param projectNo
-     * @return 
+     * @return
      */
     public static ProjectInfo getProjectInfoByProjectNo(String projectNo) {
         ProjectInfo dto = null;
         try {
-            List<ProjectInfo> list = dao.getAllObjectInfo(projectNo, null,null);
+            ProjectInfoVo condition = new ProjectInfoVo();
+            condition.setProjectNo(projectNo);
+            List<ProjectInfo> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
                 dto = list.get(0);
             }
@@ -37,15 +43,12 @@ public class ProjectInfoAction {
     /**
      * 根据条件查询数据信息
      *
-     * @param projectNo
-     * @param projectName
-     * @param projectState
      * @return
      */
-    public static Object[][] getAllTableData(String projectNo, String projectName,String projectState) {
+    public static Object[][] getAllTableData(ProjectInfoVo condition) {
         Object[][] data = null;
         try {
-            List<ProjectInfo> list = dao.getAllObjectInfo(projectNo, projectName,projectState);
+            List<ProjectInfo> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
                 data = List2TableData(list);
             }
@@ -54,17 +57,20 @@ public class ProjectInfoAction {
         }
         return data;
     }
-    
+
     /**
      * 根据项目状态获取项目信息
+     *
      * @param projectState
-     * @return 
+     * @return
      */
-    public static List<ProjectInfo> getAllProjectByState(String projectState){
+    public static List<ProjectInfo> getAllProjectByState(String projectState) {
         List<ProjectInfo> list = null;
-        try{
-            list = dao.getAllObjectInfo(null, null,projectState);
-        }catch(Exception ex){
+        try {
+            ProjectInfoVo condition = new ProjectInfoVo();
+            condition.setProjectState(projectState);
+            list = dao.getAllObjectInfo(condition);
+        } catch (Exception ex) {
             log.error("error:", ex);
         }
         return list;
@@ -92,7 +98,12 @@ public class ProjectInfoAction {
      */
     public static void saveOrUpdateObject(ProjectInfo dto) {
         try {
-            dao.saveOrUpdateObject(dto);
+            if (StringUtils.isNotEmpty(dto.getPkId())) {
+                dao.updateObjectById(dto);
+            } else {
+                dto.setPkId(UITools.generateUUID());
+                dao.insertObject(dto);
+            }
         } catch (Exception ex) {
             log.error("error:", ex);
         }

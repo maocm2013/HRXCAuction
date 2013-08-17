@@ -144,7 +144,7 @@
                 <Component class="org.jdesktop.swingx.JXTable" name="dataTable_c">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new org.jdesktop.swingx.JXTable(model_c)"/>
-                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="BargainRecordTableConfig.MyTableModel model_c = new BargainRecordTableConfig().new MyTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;Object[][] datas_c  = BargainRecordAction.getAllTableData(this.getProjectNo(),DictEnum.SettleState.BARGAIN,null, null);&#xa;model_c.refreshContents(datas_c);"/>
+                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="BargainRecordTableConfig.MyTableModel model_c = new BargainRecordTableConfig().new MyTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;BargainRecordVo condition_c = new BargainRecordVo();&#xa;condition_c.setProjectNo(this.getProjectNo());&#xa;condition_c.setSettleState(DictEnum.SettleState.BARGAIN);&#xa;Object[][] datas_c  = BargainRecordAction.getAllTableData(condition_c);&#xa;model_c.refreshContents(datas_c);"/>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//&#x9690;&#x85cf;&#x7b2c;&#x4e00;&#x5217;&#xff08;&#x4e3b;&#x952e;&#xff09;&#xa;UITools.hideColumn(dataTable_c, 1);&#xa;//&#x9690;&#x85cf;&#x4ed8;&#x6b3e;&#x7f16;&#x53f7;&#x5217;&#xa;UITools.hideColumn(dataTable_c, 12);"/>
                   </AuxValues>
                 </Component>
@@ -384,7 +384,7 @@
                 <Component class="org.jdesktop.swingx.JXTable" name="dataTable_p">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new org.jdesktop.swingx.JXTable(model_p)"/>
-                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="BargainRecordTableConfig.MyTableModel model_p = new BargainRecordTableConfig().new MyTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;Object[][] datas_p = BargainRecordAction.getAllTableData(this.getProjectNo(),DictEnum.SettleState.SETTLED,null, null);&#xa;model_p.refreshContents(datas_p);"/>
+                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="BargainRecordTableConfig.MyTableModel model_p = new BargainRecordTableConfig().new MyTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;BargainRecordVo condition_p = new BargainRecordVo();&#xa;condition_p.setProjectNo(this.getProjectNo());&#xa;condition_p.setSettleState(DictEnum.SettleState.SETTLED);&#xa;Object[][] datas_p = BargainRecordAction.getAllTableData(condition_p);&#xa;model_p.refreshContents(datas_p);"/>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//&#x9690;&#x85cf;&#x7b2c;&#x4e00;&#x5217;&#xff08;&#x4e3b;&#x952e;&#xff09;&#xa;UITools.hideColumn(dataTable_p, 1);"/>
                   </AuxValues>
                 </Component>

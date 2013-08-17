@@ -1,10 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-
-
-<root>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserInfo">
+    <resultMap type="com.hrxc.auction.domain.vo.UserInfoVo" id="UserInfoResultMap">
+        <result column="PK_ID" property="pkId"></result>
+        <result column="USER_NO" property="userNo"></result>
+        <result column="USER_NAME" property="userName"></result>
+        <result column="PASSWORD" property="password"></result>
+    </resultMap>
     
-</root>
+    <select id="getAllObjectInfo" resultMap="UserInfoResultMap" parameterType="UserInfoVo">
+        SELECT PK_ID, USER_NO, USER_NAME, PASSWORD  
+        FROM
+        USER_INFO 
+        <where>
+            <if test="pkId != null and pkId != ''">
+                AND PK_ID=#{pkId}
+            </if>
+            <if test="userNo != null and userNo != ''">
+                AND USER_NO = #{userNo}
+            </if>
+            <if test="userName != null and userName != ''">
+                AND USER_NAME like #{userName}
+            </if>
+        </where>
+        ORDER BY USER_NO
+    </select>
+    
+    <insert id="insertObject" parameterType="UserInfo">
+        INSERT INTO USER_INFO(PK_ID, USER_NO, USER_NAME, PASSWORD)
+        VALUES(#{pkId}, #{userNo}, #{userName}, #{password})
+    </insert>
+    
+    <delete id="deleteObjectById" parameterType="string">
+        DELETE FROM USER_INFO WHERE PK_ID=#{pkId}
+    </delete>
+    
+    <update id="updateObjectById" parameterType="UserInfo">
+        UPDATE USER_INFO 
+        <set>
+            <if test="userNo != null">
+                USER_NO = #{userNo},
+            </if>
+            <if test="userName != null">
+                USER_NAME=#{userName},
+            </if>
+            <if test="password != null">
+                PASSWORD=#{password}
+            </if>
+        </set>
+        <where>
+            <if test="pkId != null">
+                AND PK_ID=#{pkId}
+            </if>
+            <if test="userNo != null">
+                AND USER_NO=#{userNo}
+            </if>
+        </where>            
+    </update>
+</mapper>

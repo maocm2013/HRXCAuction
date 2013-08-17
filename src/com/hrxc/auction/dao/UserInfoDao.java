@@ -1,12 +1,9 @@
 package com.hrxc.auction.dao;
 
 import com.hrxc.auction.domain.UserInfo;
-import com.hrxc.auction.util.JdbcUtil;
-import java.sql.Connection;
+import com.hrxc.auction.domain.vo.UserInfoVo;
+import com.hrxc.auction.util.MyBatisUtils;
 import java.sql.SQLException;
-import org.apache.commons.dbutils.DbUtils;
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.log4j.Logger;
 
 /**
@@ -27,38 +24,22 @@ public class UserInfoDao {
      * @throws SQLException
      */
     public UserInfo getUserInfo(String userNo) throws SQLException {
-        Connection conn = null;
-        QueryRunner queryRunner = null;
-        UserInfo dto = null;
-        try {
-            conn = JdbcUtil.getConn();
-            queryRunner = new QueryRunner();
-            dto = (UserInfo) queryRunner.query(conn, SQL_QUERY_SINGLE_USER, new BeanHandler(UserInfo.class), userNo);
-        } finally {
-            DbUtils.close(conn);
-        }
-        return dto;
+        UserInfoVo condition = new UserInfoVo();
+        condition.setUserNo(userNo);
+        return (UserInfo) MyBatisUtils.selectOne("UserInfo.getAllObjectInfo", condition);
     }
 
     /**
      * 修改用户密码
+     *
      * @param userNo
      * @param password
-     * @throws SQLException 
+     * @throws SQLException
      */
     public void modifyPassword(String userNo, String password) throws SQLException {
-        Connection conn = null;
-        QueryRunner queryRunner = null;
-        try {
-            conn = JdbcUtil.getConn();
-            queryRunner = new QueryRunner();
-            Object[] params = new Object[2];
-            int seq = 0;
-            params[seq++] = password;
-            params[seq++] = userNo;
-            queryRunner.update(conn, SQL_UPDATE_PASSWORD, params);
-        } finally {
-            DbUtils.close(conn);
-        }
+        UserInfo dto = new UserInfo();
+        dto.setUserNo(userNo);
+        dto.setPassword(password);
+        MyBatisUtils.selectOne("UserInfo.updateObjectById", dto);
     }
 }
