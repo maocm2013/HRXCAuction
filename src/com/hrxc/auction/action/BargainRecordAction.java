@@ -50,32 +50,10 @@ public class BargainRecordAction {
         try {
             List<BargainRecord> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
-                data = List2TableData(list);
+                data = UITools.List2TableData(list,MyTableConfig.BargainRecord.columns);
             }
         } catch (Exception ex) {
             log.error("error:", ex);
-        }
-        return data;
-    }
-
-    private static Object[][] List2TableData(List<BargainRecord> list) {
-        Object[][] data = new Object[list.size()][MyTableConfig.BargainRecord.columns.size()];
-        for (int i = 0; i < list.size(); i++) {
-            int seq = 0;
-            BargainRecord dto = list.get(i);
-            data[i][seq++] = null;
-            data[i][seq++] = dto.getPkId();
-            data[i][seq++] = String.valueOf(i + 1);
-            data[i][seq++] = dto.getPaddleNo();
-            data[i][seq++] = dto.getGoodsNo();
-            data[i][seq++] = dto.getBargainConfirmNo();
-            data[i][seq++] = dto.getHammerPrice();
-            data[i][seq++] = dto.getCommission();
-            data[i][seq++] = dto.getOtherFund();
-            data[i][seq++] = dto.getBargainPrice();
-            data[i][seq++] = dto.getProjectNo();
-            data[i][seq++] = dto.getSettleState() + "-" + DictEnum.SettleState.dataMap.get(dto.getSettleState());
-            data[i][seq++] = dto.getPaymentNo();
         }
         return data;
     }

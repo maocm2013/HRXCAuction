@@ -9,6 +9,24 @@ import java.util.Map;
  * @author user
  */
 public class DictEnum {
+    private static final DictEnum dictEnum = new DictEnum();
+    
+    private DictEnum(){
+    }
+    
+    public static DictEnum getInstance(){
+        return dictEnum;
+    }
+
+    /**
+     * 获取数据字典描述
+     * @param dataMap
+     * @param value
+     * @return 
+     */
+    public static String getDictDesc(Map dataMap, String value) {
+        return value + "-" + (String) dataMap.get(value);
+    }
 
     /**
      * 项目状态
@@ -79,7 +97,6 @@ public class DictEnum {
          * 02-已结清
          */
         public static final String HAVE_SETTLED = "02";
-        
         public static final Map dataMap = JSON.parseObject("{\"01\":\"未结清\",\"02\":\"已结清\"}");
     }
 }

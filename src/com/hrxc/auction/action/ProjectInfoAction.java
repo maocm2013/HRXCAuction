@@ -3,7 +3,6 @@ package com.hrxc.auction.action;
 import com.hrxc.auction.dao.ProjectInfoDao;
 import com.hrxc.auction.domain.ProjectInfo;
 import com.hrxc.auction.domain.vo.ProjectInfoVo;
-import com.hrxc.auction.util.DictEnum;
 import com.hrxc.auction.util.MyTableConfig;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public class ProjectInfoAction {
         try {
             List<ProjectInfo> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
-                data = List2TableData(list);
+                data = UITools.List2TableData(list,MyTableConfig.ProjectInfo.columns);
             }
         } catch (Exception ex) {
             log.error("error:", ex);
@@ -75,21 +74,6 @@ public class ProjectInfoAction {
             log.error("error:", ex);
         }
         return list;
-    }
-
-    private static Object[][] List2TableData(List<ProjectInfo> list) {
-        Object[][] data = new Object[list.size()][MyTableConfig.ProjectInfo.columns.size()];
-        for (int i = 0; i < list.size(); i++) {
-            int seq = 0;
-            ProjectInfo dto = list.get(i);
-            data[i][seq++] = null;
-            data[i][seq++] = dto.getPkId();
-            data[i][seq++] = String.valueOf(i + 1);
-            data[i][seq++] = dto.getProjectNo();
-            data[i][seq++] = dto.getProjectName();
-            data[i][seq++] = dto.getProjectState() + "-" + DictEnum.ProjectState.dataMap.get(dto.getProjectState());
-        }
-        return data;
     }
 
     /**

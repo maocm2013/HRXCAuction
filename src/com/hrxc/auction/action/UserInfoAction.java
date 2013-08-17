@@ -1,12 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hrxc.auction.action;
 
 import com.hrxc.auction.dao.UserInfoDao;
 import com.hrxc.auction.domain.UserInfo;
-import java.sql.SQLException;
 import org.apache.log4j.Logger;
 
 /**

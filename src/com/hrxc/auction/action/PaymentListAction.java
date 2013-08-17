@@ -30,31 +30,10 @@ public class PaymentListAction {
         try {
             List<PaymentList> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
-                data = List2TableData(list);
+                data = UITools.List2TableData(list,MyTableConfig.PaymentList.columns);
             }
         } catch (Exception ex) {
             log.error("error:", ex);
-        }
-        return data;
-    }
-
-    private static Object[][] List2TableData(List<PaymentList> list) {
-        Object[][] data = new Object[list.size()][MyTableConfig.PaymentList.columns.size()];
-        for (int i = 0; i < list.size(); i++) {
-            int seq = 0;
-            PaymentList dto = list.get(i);
-            data[i][seq++] = null;
-            data[i][seq++] = dto.getPkId();
-            data[i][seq++] = String.valueOf(i + 1);
-            data[i][seq++] = dto.getPaymentNo();
-            data[i][seq++] = dto.getProjectNo();
-            data[i][seq++] = dto.getPaddleNo();
-            data[i][seq++] = dto.getGoodsNum();
-            data[i][seq++] = dto.getTotalAmount();
-            data[i][seq++] = dto.getAccountPaid();
-            data[i][seq++] = dto.getNonPayment();
-            data[i][seq++] = dto.getCashDepositState() + "-" + DictEnum.CashDepositState.dataMap.get(dto.getCashDepositState());
-            data[i][seq++] = dto.getPaymentState() + "-" + DictEnum.PaymentState.dataMap.get(dto.getPaymentState());
         }
         return data;
     }

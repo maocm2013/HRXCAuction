@@ -1,10 +1,13 @@
 package com.hrxc.auction.util;
 
+import com.hrxc.auction.domain.ProjectInfo;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -21,6 +24,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.text.JTextComponent;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.MethodUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.log4j.Logger;
@@ -57,6 +61,40 @@ public class UITools {
         tc.setPreferredWidth(0);
         jtable.getTableHeader().getColumnModel().getColumn(columnIndex).setMaxWidth(0);
         jtable.getTableHeader().getColumnModel().getColumn(columnIndex).setMinWidth(0);
+    }
+
+    /**
+     * 将列表数据转换为JTable可以使用的二维数组
+     * @param list
+     * @param columns
+     * @return
+     * @throws IllegalAccessException
+     * @throws InvocationTargetException
+     * @throws NoSuchMethodException 
+     */
+    public static Object[][] List2TableData(List list,ArrayList<MyTableColumn> columns) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+        Object[][] data = new Object[list.size()][columns.size()];
+        for (int i = 0; i < list.size(); i++) {
+            for (int c = 0; c < columns.size(); c++) {
+                Object dto = list.get(i);
+                MyTableColumn col = columns.get(c);
+                //第一列为选择，故无需赋值
+                if (c == 0) {
+                    data[i][c] = null;
+                } else if (c == 2) {//第三列为序号，需要依次累加
+                    data[i][c] = Integer.valueOf(i + 1);
+                } else {
+                    String propValue = BeanUtils.getProperty(dto, col.getPropertyName());
+                    if (col.isIsDict() == true) {
+                        data[i][c] = MethodUtils.invokeMethod(DictEnum.getInstance(), "getDictDesc", new Object[]{col.getDictMap(), propValue});
+                    } else {
+                        data[i][c] = propValue;
+                    }
+
+                }
+            }
+        }
+        return data;
     }
 
     /**
@@ -275,7 +313,7 @@ public class UITools {
                     int copy = JOptionPane.showConfirmDialog(com.getRootPane(), "是否要覆盖当前文件", "保存", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (copy == JOptionPane.YES_OPTION) {
                         fileChooser.approveSelection();
-                    }else{
+                    } else {
                         return;
                     }
                 } else {

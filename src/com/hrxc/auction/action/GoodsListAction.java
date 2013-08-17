@@ -5,8 +5,10 @@ import com.hrxc.auction.domain.GoodsList;
 import com.hrxc.auction.domain.vo.GoodsListVo;
 import com.hrxc.auction.util.MyTableConfig;
 import com.hrxc.auction.util.UITools;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
@@ -52,32 +54,10 @@ public class GoodsListAction {
         try {
             List<GoodsList> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
-                data = List2TableData(list);
+                data = UITools.List2TableData(list,MyTableConfig.GoodsList.columns);
             }
         } catch (Exception ex) {
             log.error("error:", ex);
-        }
-        return data;
-    }
-
-    private static Object[][] List2TableData(List<GoodsList> list) {
-        Object[][] data = new Object[list.size()][MyTableConfig.GoodsList.columns.size()];
-        for (int i = 0; i < list.size(); i++) {
-            int seq = 0;
-            GoodsList dto = list.get(i);
-            data[i][seq++] = null;
-            data[i][seq++] = dto.getPkId();
-            data[i][seq++] = String.valueOf(i + 1);
-            data[i][seq++] = dto.getGoodsNo();
-            data[i][seq++] = dto.getGoodsName();
-            data[i][seq++] = dto.getGoodsIntact();
-            data[i][seq++] = dto.getGoodsSize();
-            data[i][seq++] = dto.getCertificateNo();
-            data[i][seq++] = dto.getKeepPrice();
-            data[i][seq++] = dto.getMarketPrice();
-            data[i][seq++] = dto.getOnsetPrice();
-            data[i][seq++] = dto.getProjectNo();
-            data[i][seq++] = dto.getClientNo();
         }
         return data;
     }

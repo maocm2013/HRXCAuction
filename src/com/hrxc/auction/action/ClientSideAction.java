@@ -51,7 +51,7 @@ public class ClientSideAction {
         try {
             List<ClientSide> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
-                data = List2TableData(list);
+                data = UITools.List2TableData(list,MyTableConfig.ClientSide.columns);
             }
         } catch (Exception ex) {
             log.error("error:", ex);
@@ -78,20 +78,6 @@ public class ClientSideAction {
             log.error("error:", ex);
         }
         return dataMap;
-    }
-
-    private static Object[][] List2TableData(List<ClientSide> list) {
-        Object[][] data = new Object[list.size()][MyTableConfig.ClientSide.columns.size()];
-        for (int i = 0; i < list.size(); i++) {
-            int seq = 0;
-            ClientSide dto = list.get(i);
-            data[i][seq++] = null;
-            data[i][seq++] = dto.getPkId();
-            data[i][seq++] = String.valueOf(i + 1);
-            data[i][seq++] = dto.getClientNo();
-            data[i][seq++] = dto.getClientName();
-        }
-        return data;
     }
 
     /**
