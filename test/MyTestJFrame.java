@@ -1,7 +1,7 @@
 
 import com.hrxc.auction.action.BargainRecordAction;
 import com.hrxc.auction.action.BargainRecordTableConfig;
-import com.hrxc.auction.action.BaseTableModel;
+import com.hrxc.auction.util.MyTableModel;
 import com.hrxc.auction.util.ExcelHelper;
 import com.hrxc.auction.util.UITools;
 import java.io.File;
@@ -96,7 +96,7 @@ public class MyTestJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jXButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXButton1ActionPerformed
-        HSSFWorkbook wb = ExcelHelper.createExcel((BaseTableModel)dataTable.getModel());
+        HSSFWorkbook wb = ExcelHelper.createExcel((MyTableModel)dataTable.getModel());
         UITools.exportExcel(this.getRootPane(), wb);
     }//GEN-LAST:event_jXButton1ActionPerformed
 

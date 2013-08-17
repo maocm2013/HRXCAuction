@@ -1,12 +1,12 @@
 package com.hrxc.auction.ui;
 
 import com.hrxc.auction.action.BargainRecordAction;
-import com.hrxc.auction.action.BargainRecordTableConfig;
-import com.hrxc.auction.action.BaseTableModel;
 import com.hrxc.auction.domain.BargainRecord;
 import com.hrxc.auction.domain.vo.BargainRecordVo;
 import com.hrxc.auction.util.DictEnum;
 import com.hrxc.auction.util.ExcelHelper;
+import com.hrxc.auction.util.MyTableConfig;
+import com.hrxc.auction.util.MyTableModel;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -44,7 +44,7 @@ public class BargainRecordPanel extends javax.swing.JPanel {
         editBton = new org.jdesktop.swingx.JXButton();
         exortBton = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        BargainRecordTableConfig.MyTableModel model = new BargainRecordTableConfig().new MyTableModel();
+        MyTableModel model = MyTableConfig.getBargainRecordTableModel();
 
         //初始化显示数据
         BargainRecordVo condition = new BargainRecordVo();
@@ -213,7 +213,7 @@ public class BargainRecordPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_deleteBtonActionPerformed
 
     private void exortBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exortBtonActionPerformed
-        HSSFWorkbook wb = ExcelHelper.createExcel((BaseTableModel) dataTable.getModel());
+        HSSFWorkbook wb = ExcelHelper.createExcel((MyTableModel) dataTable.getModel());
         UITools.exportExcel(this.getRootPane(), wb);
     }//GEN-LAST:event_exortBtonActionPerformed
 
@@ -221,7 +221,7 @@ public class BargainRecordPanel extends javax.swing.JPanel {
      * 刷新表单数据
      */
     public void refreshTableDatas(String paddleNo, String goodsNo) {
-        BargainRecordTableConfig.MyTableModel model = (BargainRecordTableConfig.MyTableModel) dataTable.getModel();
+        MyTableModel model = (MyTableModel) dataTable.getModel();
         
         BargainRecordVo condition = new BargainRecordVo();
         condition.setProjectNo(this.getProjectNo());

@@ -1,6 +1,5 @@
 package com.hrxc.auction.util;
 
-import com.hrxc.auction.action.BaseTableModel;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -68,7 +67,7 @@ public class ExcelHelper {
      * @param model
      * @return 
      */
-    public static HSSFWorkbook createExcel(BaseTableModel model){
+    public static HSSFWorkbook createExcel(MyTableModel model){
         HSSFWorkbook wb = new HSSFWorkbook();
         Sheet sheet = wb.createSheet("sheet1");
         //创建标题行

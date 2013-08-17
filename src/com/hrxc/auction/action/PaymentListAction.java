@@ -1,8 +1,8 @@
 package com.hrxc.auction.action;
 
-import com.hrxc.auction.dao.BiddingPaddleDao;
-import com.hrxc.auction.domain.BiddingPaddle;
-import com.hrxc.auction.domain.vo.BiddingPaddleVo;
+import com.hrxc.auction.dao.PaymentListDao;
+import com.hrxc.auction.domain.PaymentList;
+import com.hrxc.auction.domain.vo.PaymentListVo;
 import com.hrxc.auction.util.UITools;
 import com.hrxc.auction.util.DictEnum;
 import com.hrxc.auction.util.MyTableConfig;
@@ -13,35 +13,22 @@ import org.apache.log4j.Logger;
 
 /**
  *
- * @author user
+ * @author maochangming
  */
-public class BiddingPaddleAction {
+public class PaymentListAction {
 
-    private static final Logger log = Logger.getLogger(BiddingPaddleAction.class);
-    private static final BiddingPaddleDao dao = new BiddingPaddleDao();
+    private static final Logger log = Logger.getLogger(PaymentListAction.class);
+    private static final PaymentListDao dao = new PaymentListDao();
 
-    /**
-     * 根据项目编号及号牌编号获取号牌信息
-     * @param projectNo
-     * @param paddleNo
-     * @return 
-     */
-    public static BiddingPaddle getPaddleInfoByNo(String projectNo,String paddleNo){
-        BiddingPaddleVo condition = new BiddingPaddleVo();
-        condition.setProjectNo(projectNo);
-        condition.setPaddleNo(paddleNo);
-        return dao.getSinglePaddleInfo(condition);
-    }
-    
     /**
      * 根据条件查询数据信息
      *
      * @return
      */
-    public static Object[][] getAllTableData(BiddingPaddleVo condition) {
+    public static Object[][] getAllTableData(PaymentListVo condition) {
         Object[][] data = null;
         try {
-            List<BiddingPaddle> list = dao.getAllObjectInfo(condition);
+            List<PaymentList> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
                 data = List2TableData(list);
             }
@@ -51,24 +38,23 @@ public class BiddingPaddleAction {
         return data;
     }
 
-    private static Object[][] List2TableData(List<BiddingPaddle> list) {
-        Object[][] data = new Object[list.size()][MyTableConfig.BiddingPaddle.columns.size()];
+    private static Object[][] List2TableData(List<PaymentList> list) {
+        Object[][] data = new Object[list.size()][MyTableConfig.PaymentList.columns.size()];
         for (int i = 0; i < list.size(); i++) {
             int seq = 0;
-            BiddingPaddle dto = list.get(i);
+            PaymentList dto = list.get(i);
             data[i][seq++] = null;
             data[i][seq++] = dto.getPkId();
-            data[i][seq++] = Integer.valueOf(i + 1);
-            data[i][seq++] = dto.getPaddleNo();
-            data[i][seq++] = dto.getCustName();
-            data[i][seq++] = dto.getCertType();
-            data[i][seq++] = dto.getCertNo();
-            data[i][seq++] = dto.getCustTel();
-            data[i][seq++] = dto.getCustAddr();
-            data[i][seq++] = dto.getCashDeposit();
-            data[i][seq++] = dto.getRemarks();
+            data[i][seq++] = String.valueOf(i + 1);
+            data[i][seq++] = dto.getPaymentNo();
             data[i][seq++] = dto.getProjectNo();
+            data[i][seq++] = dto.getPaddleNo();
+            data[i][seq++] = dto.getGoodsNum();
+            data[i][seq++] = dto.getTotalAmount();
+            data[i][seq++] = dto.getAccountPaid();
+            data[i][seq++] = dto.getNonPayment();
             data[i][seq++] = dto.getCashDepositState() + "-" + DictEnum.CashDepositState.dataMap.get(dto.getCashDepositState());
+            data[i][seq++] = dto.getPaymentState() + "-" + DictEnum.PaymentState.dataMap.get(dto.getPaymentState());
         }
         return data;
     }
@@ -78,14 +64,12 @@ public class BiddingPaddleAction {
      *
      * @param dto
      */
-    public static void saveOrUpdateObject(BiddingPaddle dto) {
+    public static void saveOrUpdateObject(PaymentList dto) {
         try {
             if (StringUtils.isNotEmpty(dto.getPkId())) {
                 dao.updateObjectById(dto);
             } else {
                 dto.setPkId(UITools.generateUUID());
-                //默认保证金使用状态为“未使用”
-                dto.setCashDepositState(DictEnum.CashDepositState.NOT_USE);
                 dao.insertObject(dto);
             }
         } catch (Exception ex) {
@@ -99,8 +83,8 @@ public class BiddingPaddleAction {
      * @param pkId
      * @return
      */
-    public static BiddingPaddle getObjectById(String pkId) {
-        BiddingPaddle dto = null;
+    public static PaymentList getObjectById(String pkId) {
+        PaymentList dto = null;
         try {
             dto = dao.getObjectById(pkId);
         } catch (Exception ex) {

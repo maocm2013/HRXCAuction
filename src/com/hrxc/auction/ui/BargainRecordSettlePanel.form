@@ -107,7 +107,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="org.jdesktop.swingx.JXButton" name="exortBton_c">
+            <Component class="org.jdesktop.swingx.JXButton" name="exportBton_c">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/export.png"/>
@@ -121,7 +121,7 @@
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exortBton_cActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exportBton_cActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
@@ -144,7 +144,7 @@
                 <Component class="org.jdesktop.swingx.JXTable" name="dataTable_c">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new org.jdesktop.swingx.JXTable(model_c)"/>
-                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="BargainRecordTableConfig.MyTableModel model_c = new BargainRecordTableConfig().new MyTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;BargainRecordVo condition_c = new BargainRecordVo();&#xa;condition_c.setProjectNo(this.getProjectNo());&#xa;condition_c.setSettleState(DictEnum.SettleState.BARGAIN);&#xa;Object[][] datas_c  = BargainRecordAction.getAllTableData(condition_c);&#xa;model_c.refreshContents(datas_c);"/>
+                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="MyTableModel model_c = MyTableConfig.getBargainRecordTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;BargainRecordVo condition_c = new BargainRecordVo();&#xa;condition_c.setProjectNo(this.getProjectNo());&#xa;condition_c.setSettleState(DictEnum.SettleState.BARGAIN);&#xa;Object[][] datas_c  = BargainRecordAction.getAllTableData(condition_c);&#xa;model_c.refreshContents(datas_c);"/>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//&#x9690;&#x85cf;&#x7b2c;&#x4e00;&#x5217;&#xff08;&#x4e3b;&#x952e;&#xff09;&#xa;UITools.hideColumn(dataTable_c, 1);&#xa;//&#x9690;&#x85cf;&#x4ed8;&#x6b3e;&#x7f16;&#x53f7;&#x5217;&#xa;UITools.hideColumn(dataTable_c, 12);"/>
                   </AuxValues>
                 </Component>
@@ -235,7 +235,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="org.jdesktop.swingx.JXButton" name="exortBton_s">
+            <Component class="org.jdesktop.swingx.JXButton" name="exportBton_s">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/export.png"/>
@@ -249,7 +249,7 @@
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exortBton_sActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exportBton_sActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
@@ -272,7 +272,7 @@
                 <Component class="org.jdesktop.swingx.JXTable" name="dataTable_s">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new org.jdesktop.swingx.JXTable(model_n)"/>
-                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="BargainRecordTableConfig.MyTableModel model_n = new BargainRecordTableConfig().new MyTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;Object[][] datas_n = null;&#xa;model_n.refreshContents(datas_n);"/>
+                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="MyTableModel model_n = MyTableConfig.getBargainRecordTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;Object[][] datas_n = null;&#xa;model_n.refreshContents(datas_n);"/>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//&#x9690;&#x85cf;&#x7b2c;&#x4e00;&#x5217;&#xff08;&#x4e3b;&#x952e;&#xff09;&#xa;UITools.hideColumn(dataTable_s, 1);&#xa;//&#x9690;&#x85cf;&#x4ed8;&#x6b3e;&#x7f16;&#x53f7;&#x5217;&#xa;UITools.hideColumn(dataTable_s, 12);"/>
                   </AuxValues>
                 </Component>
@@ -347,7 +347,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="org.jdesktop.swingx.JXButton" name="exortBton_p">
+            <Component class="org.jdesktop.swingx.JXButton" name="exportBton_p">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/export.png"/>
@@ -361,7 +361,7 @@
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exortBton_pActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exportBton_pActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
@@ -384,7 +384,7 @@
                 <Component class="org.jdesktop.swingx.JXTable" name="dataTable_p">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new org.jdesktop.swingx.JXTable(model_p)"/>
-                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="BargainRecordTableConfig.MyTableModel model_p = new BargainRecordTableConfig().new MyTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;BargainRecordVo condition_p = new BargainRecordVo();&#xa;condition_p.setProjectNo(this.getProjectNo());&#xa;condition_p.setSettleState(DictEnum.SettleState.SETTLED);&#xa;Object[][] datas_p = BargainRecordAction.getAllTableData(condition_p);&#xa;model_p.refreshContents(datas_p);"/>
+                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="MyTableModel model_p = MyTableConfig.getPaymentListTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;PaymentListVo condition_p = new PaymentListVo();&#xa;condition_p.setProjectNo(this.getProjectNo());&#xa;Object[][] datas_p = PaymentListAction.getAllTableData(condition_p);&#xa;model_p.refreshContents(datas_p);"/>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//&#x9690;&#x85cf;&#x7b2c;&#x4e00;&#x5217;&#xff08;&#x4e3b;&#x952e;&#xff09;&#xa;UITools.hideColumn(dataTable_p, 1);"/>
                   </AuxValues>
                 </Component>
@@ -404,22 +404,6 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
                   <JLayeredPaneConstraints x="190" y="50" width="-1" height="-1" layer="0" position="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel5">
-              <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="c" green="c" red="fa" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="&#x5b8b;&#x4f53;" size="14" style="1"/>
-                </Property>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
-                  <JLayeredPaneConstraints x="170" y="10" width="20" height="30" layer="0" position="-1"/>
                 </Constraint>
               </Constraints>
             </Component>

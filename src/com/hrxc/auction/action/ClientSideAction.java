@@ -3,6 +3,7 @@ package com.hrxc.auction.action;
 import com.hrxc.auction.dao.ClientSideDao;
 import com.hrxc.auction.domain.ClientSide;
 import com.hrxc.auction.domain.vo.ClientSideVo;
+import com.hrxc.auction.util.MyTableConfig;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -80,7 +81,7 @@ public class ClientSideAction {
     }
 
     private static Object[][] List2TableData(List<ClientSide> list) {
-        Object[][] data = new Object[list.size()][ClientSideTableConfig.tableColumnNames.length];
+        Object[][] data = new Object[list.size()][MyTableConfig.ClientSide.columns.size()];
         for (int i = 0; i < list.size(); i++) {
             int seq = 0;
             ClientSide dto = list.get(i);

@@ -4,6 +4,8 @@ import com.hrxc.auction.util.Configuration;
 import com.hrxc.auction.util.JdbcUtil;
 import com.hrxc.auction.util.MD5;
 import com.hrxc.auction.util.MyBatisUtils;
+import com.hrxc.auction.util.MyTableConfig;
+import com.hrxc.auction.util.MyTableModel;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.io.File;
@@ -229,7 +231,7 @@ public class MyTestExample {
             property += col.substring(i + 2).toLowerCase();
         } else {
             property = col.toLowerCase();
-        }
+        }    
         return property;
     }
 }

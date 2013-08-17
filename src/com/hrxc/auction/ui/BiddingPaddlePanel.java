@@ -1,12 +1,12 @@
 package com.hrxc.auction.ui;
 
-import com.hrxc.auction.action.BaseTableModel;
+import com.hrxc.auction.util.MyTableModel;
 import com.hrxc.auction.action.BiddingPaddleAction;
-import com.hrxc.auction.action.BiddingPaddleTableConfig;
 import com.hrxc.auction.domain.BiddingPaddle;
 import com.hrxc.auction.domain.vo.BiddingPaddleVo;
 import com.hrxc.auction.util.Constant;
 import com.hrxc.auction.util.ExcelHelper;
+import com.hrxc.auction.util.MyTableConfig;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -46,7 +46,7 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         paddleInfoPrintBton = new org.jdesktop.swingx.JXButton();
         settleListPrintBton = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        BiddingPaddleTableConfig.MyTableModel model = new BiddingPaddleTableConfig().new MyTableModel();
+        MyTableModel model = MyTableConfig.getBargainRecordTableModel();
 
         //初始化显示数据
         BiddingPaddleVo condition = new BiddingPaddleVo();
@@ -257,7 +257,7 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_settleListPrintBtonActionPerformed
 
     private void exortBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exortBtonActionPerformed
-        HSSFWorkbook wb = ExcelHelper.createExcel((BaseTableModel) dataTable.getModel());
+        HSSFWorkbook wb = ExcelHelper.createExcel((MyTableModel) dataTable.getModel());
         UITools.exportExcel(this.getRootPane(), wb);
     }//GEN-LAST:event_exortBtonActionPerformed
 
@@ -265,7 +265,7 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
      * 刷新表单数据
      */
     public void refreshTableDatas(String paddleNo, String custName) {
-        BiddingPaddleTableConfig.MyTableModel model = (BiddingPaddleTableConfig.MyTableModel) dataTable.getModel();
+        MyTableModel model = (MyTableModel)dataTable.getModel();
         
         BiddingPaddleVo condition = new BiddingPaddleVo();
         condition.setProjectNo(this.getProjectNo());

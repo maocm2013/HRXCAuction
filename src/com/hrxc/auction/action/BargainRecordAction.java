@@ -5,6 +5,7 @@ import com.hrxc.auction.domain.BargainRecord;
 import com.hrxc.auction.domain.vo.BargainRecordVo;
 import com.hrxc.auction.util.UITools;
 import com.hrxc.auction.util.DictEnum;
+import com.hrxc.auction.util.MyTableConfig;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
@@ -58,7 +59,7 @@ public class BargainRecordAction {
     }
 
     private static Object[][] List2TableData(List<BargainRecord> list) {
-        Object[][] data = new Object[list.size()][BargainRecordTableConfig.tableColumnNames.length];
+        Object[][] data = new Object[list.size()][MyTableConfig.BargainRecord.columns.size()];
         for (int i = 0; i < list.size(); i++) {
             int seq = 0;
             BargainRecord dto = list.get(i);
@@ -73,7 +74,7 @@ public class BargainRecordAction {
             data[i][seq++] = dto.getOtherFund();
             data[i][seq++] = dto.getBargainPrice();
             data[i][seq++] = dto.getProjectNo();
-            data[i][seq++] = dto.getSettleState();
+            data[i][seq++] = dto.getSettleState() + "-" + DictEnum.SettleState.dataMap.get(dto.getSettleState());
             data[i][seq++] = dto.getPaymentNo();
         }
         return data;

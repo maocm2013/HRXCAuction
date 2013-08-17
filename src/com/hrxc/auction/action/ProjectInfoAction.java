@@ -4,6 +4,7 @@ import com.hrxc.auction.dao.ProjectInfoDao;
 import com.hrxc.auction.domain.ProjectInfo;
 import com.hrxc.auction.domain.vo.ProjectInfoVo;
 import com.hrxc.auction.util.DictEnum;
+import com.hrxc.auction.util.MyTableConfig;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +78,7 @@ public class ProjectInfoAction {
     }
 
     private static Object[][] List2TableData(List<ProjectInfo> list) {
-        Object[][] data = new Object[list.size()][ProjectInfoTableConfig.tableColumnNames.length];
+        Object[][] data = new Object[list.size()][MyTableConfig.ProjectInfo.columns.size()];
         for (int i = 0; i < list.size(); i++) {
             int seq = 0;
             ProjectInfo dto = list.get(i);

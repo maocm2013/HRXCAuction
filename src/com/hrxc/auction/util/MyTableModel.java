@@ -1,4 +1,4 @@
-package com.hrxc.auction.action;
+package com.hrxc.auction.util;
 
 import java.util.List;
 import java.util.Vector;
@@ -8,24 +8,26 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author user
  */
-public class BaseTableModel extends AbstractTableModel{
+public class MyTableModel extends AbstractTableModel {
+
     /**
      * ID
      */
     private static final long serialVersionUID = -1264704523326656387L;
     /**
-     * 第N列可编辑
+     * 默认第1列可编辑
      */
-    protected int checkColumn = -1;
+    protected int checkColumn = 0;
     protected List<String> columnNames;
     protected List<Object> contents;
+    private Class[] types;
 
-    public BaseTableModel() {
+    public MyTableModel() {
         this.columnNames = new Vector<String>();
         this.contents = new Vector<Object>();
     }
 
-    public BaseTableModel(String[] columnNames) {
+    public MyTableModel(String[] columnNames, Class[] types) {
         this();
         if (null == columnNames) {
             return;
@@ -33,14 +35,15 @@ public class BaseTableModel extends AbstractTableModel{
         for (String columnName : columnNames) {
             this.columnNames.add(columnName);
         }
+        this.types = types;
     }
 
-    public BaseTableModel(Object[][] datas, String[] columnNames) {
-        this(columnNames);
+    public MyTableModel(Object[][] datas, String[] columnNames, Class[] types) {
+        this(columnNames, types);
         refreshContents(datas);
     }
 
-    public void refreshContents(Object[][] datas){
+    public final void refreshContents(Object[][] datas) {
         this.contents.clear();
         if (null == datas) {
             return;
@@ -96,16 +99,20 @@ public class BaseTableModel extends AbstractTableModel{
         this.fireTableCellUpdated(row, col);
     }
 
-    /*
-     * (non-Javadoc)
-     * @see javax.swing.table.AbstractTableModel#getColumnClass(int)
-     */
-    public Class<?> getColumnClass(int column) {
-        Object value = getValueAt(0, column);
-        if (value != null) {
-            return value.getClass();
-        }
-        return super.getClass();
+//    /*
+//     * (non-Javadoc)
+//     * @see javax.swing.table.AbstractTableModel#getColumnClass(int)
+//     */
+//    public Class<?> getColumnClass(int column) {
+//        Object value = getValueAt(0, column);
+//        if (value != null) {
+//            return value.getClass();
+//        }
+//        return super.getClass();
+//    }
+    @Override
+    public Class getColumnClass(int columnIndex) {
+        return types[columnIndex];
     }
 
     /*

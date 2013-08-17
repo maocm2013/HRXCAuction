@@ -11,7 +11,7 @@
         <result column="TOTAL_AMOUNT" property="totalAmount"></result> 
         <result column="ACCOUNT_PAID" property="accountPaid"></result> 
         <result column="NON_PAYMENT" property="nonPayment"></result> 
-        <result column="CASH_DEPOSIT_STATE" property="cashDeposit_state"></result> 
+        <result column="CASH_DEPOSIT_STATE" property="cashDepositState"></result> 
         <result column="PAYMENT_STATE" property="paymentState"></result> 
     </resultMap> 
 
@@ -53,18 +53,19 @@
             <if test="nonPayment!= null"> 
                 AND NON_PAYMENT=#{nonPayment} 
             </if> 
-            <if test="cashDeposit_state!= null and cashDeposit_state!= ''"> 
-                AND CASH_DEPOSIT_STATE=#{cashDeposit_state} 
+            <if test="cashDepositState!= null and cashDepositState!= ''"> 
+                AND CASH_DEPOSIT_STATE=#{cashDepositState} 
             </if> 
             <if test="paymentState!= null and paymentState!= ''"> 
                 AND PAYMENT_STATE=#{paymentState} 
             </if> 
-        </where> 
+        </where>
+        ORDER BY PAYMENT_STATE
     </select> 
 
     <insert id="insertObject" parameterType="PaymentList"> 
         INSERT INTO PAYMENT_LIST(PK_ID,PAYMENT_NO,PROJECT_NO,PADDLE_NO,GOODS_NUM,TOTAL_AMOUNT,ACCOUNT_PAID,NON_PAYMENT,CASH_DEPOSIT_STATE,PAYMENT_STATE) 
-        VALUES (#{pkId},#{paymentNo},#{projectNo},#{paddleNo},#{goodsNum},#{totalAmount},#{accountPaid},#{nonPayment},#{cashDeposit_state},#{paymentState}) 
+        VALUES (#{pkId},#{paymentNo},#{projectNo},#{paddleNo},#{goodsNum},#{totalAmount},#{accountPaid},#{nonPayment},#{cashDepositState},#{paymentState}) 
     </insert> 
 
     <delete id="deleteObjectById" parameterType="string"> 
@@ -95,8 +96,8 @@
             <if test="nonPayment != null"> 
                 NON_PAYMENT = #{nonPayment}, 
             </if> 
-            <if test="cashDeposit_state != null"> 
-                CASH_DEPOSIT_STATE = #{cashDeposit_state}, 
+            <if test="cashDepositState != null"> 
+                CASH_DEPOSIT_STATE = #{cashDepositState}, 
             </if> 
             <if test="paymentState != null"> 
                 PAYMENT_STATE = #{paymentState}, 

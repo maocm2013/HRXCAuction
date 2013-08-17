@@ -1,12 +1,16 @@
 package com.hrxc.auction.ui;
 
 import com.hrxc.auction.action.BargainRecordAction;
-import com.hrxc.auction.action.BargainRecordTableConfig;
-import com.hrxc.auction.action.BaseTableModel;
+import com.hrxc.auction.util.MyTableModel;
+import com.hrxc.auction.action.BiddingPaddleAction;
+import com.hrxc.auction.action.PaymentListAction;
 import com.hrxc.auction.domain.BargainRecord;
+import com.hrxc.auction.domain.BiddingPaddle;
 import com.hrxc.auction.domain.vo.BargainRecordVo;
+import com.hrxc.auction.domain.vo.PaymentListVo;
 import com.hrxc.auction.util.DictEnum;
 import com.hrxc.auction.util.ExcelHelper;
+import com.hrxc.auction.util.MyTableConfig;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -43,9 +47,9 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         fd_paddleNo_c = new org.jdesktop.swingx.JXTextField();
         searchBton_c = new org.jdesktop.swingx.JXButton();
         toSettleBton_c = new org.jdesktop.swingx.JXButton();
-        exortBton_c = new org.jdesktop.swingx.JXButton();
+        exportBton_c = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        BargainRecordTableConfig.MyTableModel model_c = new BargainRecordTableConfig().new MyTableModel();
+        MyTableModel model_c = MyTableConfig.getBargainRecordTableModel();
 
         //初始化显示数据
         BargainRecordVo condition_c = new BargainRecordVo();
@@ -60,9 +64,9 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         jXLabel8 = new org.jdesktop.swingx.JXLabel();
         searchBton_s = new org.jdesktop.swingx.JXButton();
         toSettleBton_s = new org.jdesktop.swingx.JXButton();
-        exortBton_s = new org.jdesktop.swingx.JXButton();
+        exportBton_s = new org.jdesktop.swingx.JXButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        BargainRecordTableConfig.MyTableModel model_n = new BargainRecordTableConfig().new MyTableModel();
+        MyTableModel model_n = MyTableConfig.getBargainRecordTableModel();
 
         //初始化显示数据
         Object[][] datas_n = null;
@@ -73,19 +77,17 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         fd_paddleNo_p = new org.jdesktop.swingx.JXTextField();
         searchBton_p = new org.jdesktop.swingx.JXButton();
         undoSettleBton_p = new org.jdesktop.swingx.JXButton();
-        exortBton_p = new org.jdesktop.swingx.JXButton();
+        exportBton_p = new org.jdesktop.swingx.JXButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        BargainRecordTableConfig.MyTableModel model_p = new BargainRecordTableConfig().new MyTableModel();
+        MyTableModel model_p = MyTableConfig.getPaymentListTableModel();
 
         //初始化显示数据
-        BargainRecordVo condition_p = new BargainRecordVo();
+        PaymentListVo condition_p = new PaymentListVo();
         condition_p.setProjectNo(this.getProjectNo());
-        condition_p.setSettleState(DictEnum.SettleState.SETTLED);
-        Object[][] datas_p = BargainRecordAction.getAllTableData(condition_p);
+        Object[][] datas_p = PaymentListAction.getAllTableData(condition_p);
         model_p.refreshContents(datas_p);
         dataTable_p = new org.jdesktop.swingx.JXTable(model_p);
         settleListPrintBton = new org.jdesktop.swingx.JXButton();
-        jXLabel5 = new org.jdesktop.swingx.JXLabel();
         depositLayeredPane = new javax.swing.JLayeredPane();
         jXLabel4 = new org.jdesktop.swingx.JXLabel();
         fd_paddleNo_d = new org.jdesktop.swingx.JXTextField();
@@ -127,19 +129,19 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         toSettleBton_c.setBounds(60, 50, 120, 40);
         checkLayeredPanel.add(toSettleBton_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        exortBton_c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
-        exortBton_c.setToolTipText("导出");
-        exortBton_c.setFocusable(false);
-        exortBton_c.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exortBton_c.setPreferredSize(new java.awt.Dimension(40, 40));
-        exortBton_c.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        exortBton_c.addActionListener(new java.awt.event.ActionListener() {
+        exportBton_c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
+        exportBton_c.setToolTipText("导出");
+        exportBton_c.setFocusable(false);
+        exportBton_c.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportBton_c.setPreferredSize(new java.awt.Dimension(40, 40));
+        exportBton_c.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportBton_c.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exortBton_cActionPerformed(evt);
+                exportBton_cActionPerformed(evt);
             }
         });
-        exortBton_c.setBounds(10, 50, 40, 40);
-        checkLayeredPanel.add(exortBton_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        exportBton_c.setBounds(10, 50, 40, 40);
+        checkLayeredPanel.add(exportBton_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         //隐藏第一列（主键）
         UITools.hideColumn(dataTable_c, 1);
@@ -189,19 +191,19 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         toSettleBton_s.setBounds(60, 50, 120, 40);
         settleLayeredPane.add(toSettleBton_s, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        exortBton_s.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
-        exortBton_s.setToolTipText("导出");
-        exortBton_s.setFocusable(false);
-        exortBton_s.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exortBton_s.setPreferredSize(new java.awt.Dimension(40, 40));
-        exortBton_s.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        exortBton_s.addActionListener(new java.awt.event.ActionListener() {
+        exportBton_s.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
+        exportBton_s.setToolTipText("导出");
+        exportBton_s.setFocusable(false);
+        exportBton_s.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportBton_s.setPreferredSize(new java.awt.Dimension(40, 40));
+        exportBton_s.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportBton_s.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exortBton_sActionPerformed(evt);
+                exportBton_sActionPerformed(evt);
             }
         });
-        exortBton_s.setBounds(10, 50, 40, 40);
-        settleLayeredPane.add(exortBton_s, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        exportBton_s.setBounds(10, 50, 40, 40);
+        settleLayeredPane.add(exportBton_s, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         //隐藏第一列（主键）
         UITools.hideColumn(dataTable_s, 1);
@@ -245,19 +247,19 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         undoSettleBton_p.setBounds(60, 50, 120, 40);
         paymentLayeredPane.add(undoSettleBton_p, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        exortBton_p.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
-        exortBton_p.setToolTipText("导出");
-        exortBton_p.setFocusable(false);
-        exortBton_p.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        exortBton_p.setPreferredSize(new java.awt.Dimension(40, 40));
-        exortBton_p.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        exortBton_p.addActionListener(new java.awt.event.ActionListener() {
+        exportBton_p.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
+        exportBton_p.setToolTipText("导出");
+        exportBton_p.setFocusable(false);
+        exportBton_p.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exportBton_p.setPreferredSize(new java.awt.Dimension(40, 40));
+        exportBton_p.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        exportBton_p.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exortBton_pActionPerformed(evt);
+                exportBton_pActionPerformed(evt);
             }
         });
-        exortBton_p.setBounds(10, 50, 40, 40);
-        paymentLayeredPane.add(exortBton_p, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        exportBton_p.setBounds(10, 50, 40, 40);
+        paymentLayeredPane.add(exportBton_p, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         //隐藏第一列（主键）
         UITools.hideColumn(dataTable_p, 1);
@@ -276,12 +278,6 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         });
         settleListPrintBton.setBounds(190, 50, 129, 41);
         paymentLayeredPane.add(settleListPrintBton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jXLabel5.setForeground(new java.awt.Color(250, 12, 12));
-        jXLabel5.setText("*");
-        jXLabel5.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
-        jXLabel5.setBounds(170, 10, 20, 30);
-        paymentLayeredPane.add(jXLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTabbedPane1.addTab("付款清单", paymentLayeredPane);
 
@@ -325,7 +321,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
 
     private void searchBton_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBton_cActionPerformed
         String paddleNo = fd_paddleNo_c.getText().trim();
-        refreshTableDatas(dataTable_c,DictEnum.SettleState.BARGAIN, paddleNo, null);
+        refreshTableDatas(dataTable_c, DictEnum.SettleState.BARGAIN, paddleNo, null);
     }//GEN-LAST:event_searchBton_cActionPerformed
 
     private void toSettleBton_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toSettleBton_cActionPerformed
@@ -335,23 +331,19 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
             ArrayList<String> list = UITools.getCheckedRowsId(dataTable_c);
             String pkId = list.get(0);
             BargainRecordAction.updateSettleState(DictEnum.SettleState.RECHECKED, pkId);
-            refreshTableDatas(dataTable_c,DictEnum.SettleState.BARGAIN, null, null);
+            refreshTableDatas(dataTable_c, DictEnum.SettleState.BARGAIN, null, null);
             JOptionPane.showMessageDialog(this.getRootPane(), "成交记录复核成功！");
         }
     }//GEN-LAST:event_toSettleBton_cActionPerformed
 
-    private void exortBton_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exortBton_cActionPerformed
-        HSSFWorkbook wb = ExcelHelper.createExcel((BaseTableModel) dataTable_c.getModel());
+    private void exportBton_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportBton_cActionPerformed
+        HSSFWorkbook wb = ExcelHelper.createExcel((MyTableModel) dataTable_c.getModel());
         UITools.exportExcel(this.getRootPane(), wb);
-    }//GEN-LAST:event_exortBton_cActionPerformed
+    }//GEN-LAST:event_exportBton_cActionPerformed
 
     private void searchBton_pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBton_pActionPerformed
         String paddleNo = fd_paddleNo_p.getText().trim();
-        if (StringUtils.isEmpty(paddleNo)) {
-            JOptionPane.showMessageDialog(this.getRootPane(), "请输入竞买号牌后再进行查询！");
-            return;
-        }
-        refreshTableDatas(dataTable_p,DictEnum.SettleState.SETTLED, paddleNo, null);
+        refreshPaymentTableDatas(dataTable_p, paddleNo);
     }//GEN-LAST:event_searchBton_pActionPerformed
 
     private void undoSettleBton_pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoSettleBton_pActionPerformed
@@ -367,10 +359,10 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_undoSettleBton_pActionPerformed
 
-    private void exortBton_pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exortBton_pActionPerformed
-        HSSFWorkbook wb = ExcelHelper.createExcel((BaseTableModel) dataTable_p.getModel());
+    private void exportBton_pActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportBton_pActionPerformed
+        HSSFWorkbook wb = ExcelHelper.createExcel((MyTableModel) dataTable_p.getModel());
         UITools.exportExcel(this.getRootPane(), wb);
-    }//GEN-LAST:event_exortBton_pActionPerformed
+    }//GEN-LAST:event_exportBton_pActionPerformed
 
     private void settleListPrintBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settleListPrintBtonActionPerformed
 //        if (UITools.getCheckedRows(dataTable) != 1) {
@@ -395,29 +387,56 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
 
     private void searchBton_sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBton_sActionPerformed
         String paddleNo = fd_paddleNo_s.getText().trim();
-        refreshTableDatas(dataTable_s,DictEnum.SettleState.RECHECKED, paddleNo, null);
+        refreshTableDatas(dataTable_s, DictEnum.SettleState.RECHECKED, paddleNo, null);
     }//GEN-LAST:event_searchBton_sActionPerformed
 
     private void toSettleBton_sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toSettleBton_sActionPerformed
-        // TODO add your handling code here:
+        if (UITools.getCheckedRows(dataTable_s) == 0) {
+            JOptionPane.showMessageDialog(this.getRootPane(), "您至少需要选择一条记录！");
+        }else{
+            //判断是否有保证金未使用
+            String paddleNo = fd_paddleNo_s.getText().trim();
+            BiddingPaddle paddleInfo = BiddingPaddleAction.getPaddleInfoByNo(this.getProjectNo(),paddleNo);
+            ArrayList<String> list = UITools.getCheckedRowsId(dataTable_s);
+            int totalAmount = 0;
+            for(int i = 0; i < list.size(); i++){
+                BargainRecord record = BargainRecordAction.getObjectById(list.get(i));
+                totalAmount += record.getBargainPrice();
+            }
+        }
     }//GEN-LAST:event_toSettleBton_sActionPerformed
 
-    private void exortBton_sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exortBton_sActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_exortBton_sActionPerformed
+    private void exportBton_sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportBton_sActionPerformed
+        HSSFWorkbook wb = ExcelHelper.createExcel((MyTableModel) dataTable_s.getModel());
+        UITools.exportExcel(this.getRootPane(), wb);
+    }//GEN-LAST:event_exportBton_sActionPerformed
 
     /**
      * 刷新表单数据
      */
-    public void refreshTableDatas(JXTable dataTable,String settleState, String paddleNo, String goodsNo) {
-        BargainRecordTableConfig.MyTableModel model = (BargainRecordTableConfig.MyTableModel) dataTable.getModel();
-        
+    public void refreshTableDatas(JXTable dataTable, String settleState, String paddleNo, String goodsNo) {
+        MyTableModel model = (MyTableModel) dataTable.getModel();
+
         BargainRecordVo condition = new BargainRecordVo();
         condition.setProjectNo(this.getProjectNo());
         condition.setSettleState(settleState);
         condition.setPaddleNo(paddleNo);
         condition.setGoodsNo(goodsNo);
         model.refreshContents(BargainRecordAction.getAllTableData(condition));
+        //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
+        dataTable.setModel(model);
+    }
+
+    /**
+     * 刷新表单数据
+     */
+    public void refreshPaymentTableDatas(JXTable dataTable, String paddleNo) {
+        MyTableModel model = (MyTableModel) dataTable.getModel();
+
+        PaymentListVo condition = new PaymentListVo();
+        condition.setProjectNo(this.getProjectNo());
+        condition.setPaddleNo(paddleNo);
+        model.refreshContents(PaymentListAction.getAllTableData(condition));
         //TODO:必须要重新设置一下model，否则刷新内容后界面无变化
         dataTable.setModel(model);
     }
@@ -432,9 +451,9 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXTable dataTable_p;
     private org.jdesktop.swingx.JXTable dataTable_s;
     private javax.swing.JLayeredPane depositLayeredPane;
-    private org.jdesktop.swingx.JXButton exortBton_c;
-    private org.jdesktop.swingx.JXButton exortBton_p;
-    private org.jdesktop.swingx.JXButton exortBton_s;
+    private org.jdesktop.swingx.JXButton exportBton_c;
+    private org.jdesktop.swingx.JXButton exportBton_p;
+    private org.jdesktop.swingx.JXButton exportBton_s;
     private org.jdesktop.swingx.JXTextField fd_paddleNo_c;
     private org.jdesktop.swingx.JXTextField fd_paddleNo_d;
     private org.jdesktop.swingx.JXTextField fd_paddleNo_p;
@@ -446,7 +465,6 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXLabel jXLabel1;
     private org.jdesktop.swingx.JXLabel jXLabel3;
     private org.jdesktop.swingx.JXLabel jXLabel4;
-    private org.jdesktop.swingx.JXLabel jXLabel5;
     private org.jdesktop.swingx.JXLabel jXLabel6;
     private org.jdesktop.swingx.JXLabel jXLabel7;
     private org.jdesktop.swingx.JXLabel jXLabel8;

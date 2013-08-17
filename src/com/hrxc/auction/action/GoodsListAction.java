@@ -3,6 +3,7 @@ package com.hrxc.auction.action;
 import com.hrxc.auction.dao.GoodsListDao;
 import com.hrxc.auction.domain.GoodsList;
 import com.hrxc.auction.domain.vo.GoodsListVo;
+import com.hrxc.auction.util.MyTableConfig;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +61,7 @@ public class GoodsListAction {
     }
 
     private static Object[][] List2TableData(List<GoodsList> list) {
-        Object[][] data = new Object[list.size()][GoodsListTableConfig.tableColumnNames.length];
+        Object[][] data = new Object[list.size()][MyTableConfig.GoodsList.columns.size()];
         for (int i = 0; i < list.size(); i++) {
             int seq = 0;
             GoodsList dto = list.get(i);

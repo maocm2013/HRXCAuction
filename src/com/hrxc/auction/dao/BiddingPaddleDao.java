@@ -14,9 +14,13 @@ import org.apache.log4j.Logger;
 public class BiddingPaddleDao {
 
     private static final Logger log = Logger.getLogger(BiddingPaddleDao.class);
-    
+
     public List getAllObjectInfo(BiddingPaddleVo condition) {
         return (List<BiddingPaddle>) MyBatisUtils.selectList("BiddingPaddle.getAllObjectInfo", condition);
+    }
+
+    public BiddingPaddle getSinglePaddleInfo(BiddingPaddleVo condition) {
+        return (BiddingPaddle) MyBatisUtils.selectOne("BiddingPaddle.getAllObjectInfo", condition);
     }
 
     /**

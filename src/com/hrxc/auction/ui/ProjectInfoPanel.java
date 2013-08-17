@@ -4,12 +4,12 @@
  */
 package com.hrxc.auction.ui;
 
-import com.hrxc.auction.action.BaseTableModel;
+import com.hrxc.auction.util.MyTableModel;
 import com.hrxc.auction.action.ProjectInfoAction;
-import com.hrxc.auction.action.ProjectInfoTableConfig;
 import com.hrxc.auction.domain.ProjectInfo;
 import com.hrxc.auction.domain.vo.ProjectInfoVo;
 import com.hrxc.auction.util.ExcelHelper;
+import com.hrxc.auction.util.MyTableConfig;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -46,7 +46,7 @@ public class ProjectInfoPanel extends javax.swing.JPanel {
         editBton = new org.jdesktop.swingx.JXButton();
         exortBton = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ProjectInfoTableConfig.MyTableModel model = new ProjectInfoTableConfig().new MyTableModel();
+        MyTableModel model = MyTableConfig.getProjectInfoTableModel();
 
         //初始化显示数据
         Object[][] datas = ProjectInfoAction.getAllTableData(new ProjectInfoVo());
@@ -208,7 +208,7 @@ public class ProjectInfoPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_deleteBtonActionPerformed
 
     private void exortBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exortBtonActionPerformed
-        HSSFWorkbook wb = ExcelHelper.createExcel((BaseTableModel) dataTable.getModel());
+        HSSFWorkbook wb = ExcelHelper.createExcel((MyTableModel) dataTable.getModel());
         UITools.exportExcel(this.getRootPane(), wb);
     }//GEN-LAST:event_exortBtonActionPerformed
 
@@ -216,7 +216,7 @@ public class ProjectInfoPanel extends javax.swing.JPanel {
      * 刷新表单数据
      */
     public void refreshTableDatas(String projectNo, String projectName) {
-        ProjectInfoTableConfig.MyTableModel model = (ProjectInfoTableConfig.MyTableModel) dataTable.getModel();
+        MyTableModel model = (MyTableModel) dataTable.getModel();
         
         ProjectInfoVo condition = new ProjectInfoVo();
         condition.setProjectNo(projectNo);
