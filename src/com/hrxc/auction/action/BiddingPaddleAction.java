@@ -22,17 +22,25 @@ public class BiddingPaddleAction {
 
     /**
      * 根据项目编号及号牌编号获取号牌信息
+     *
      * @param projectNo
      * @param paddleNo
-     * @return 
+     * @return
      */
-    public static BiddingPaddle getPaddleInfoByNo(String projectNo,String paddleNo){
+    public static BiddingPaddle getPaddleInfoByNo(String projectNo, String paddleNo) {
         BiddingPaddleVo condition = new BiddingPaddleVo();
         condition.setProjectNo(projectNo);
         condition.setPaddleNo(paddleNo);
         return dao.getSinglePaddleInfo(condition);
     }
-    
+
+    public static BiddingPaddle getPaddleInfoByPaymentNo(String projectNo, String pamentNo) {
+        BiddingPaddleVo condition = new BiddingPaddleVo();
+        condition.setProjectNo(projectNo);
+        condition.setCashDepositPaymentNo(pamentNo);
+        return dao.getSinglePaddleInfo(condition);
+    }
+
     /**
      * 根据条件查询数据信息
      *
@@ -43,7 +51,7 @@ public class BiddingPaddleAction {
         try {
             List<BiddingPaddle> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
-                data = UITools.List2TableData(list,MyTableConfig.BiddingPaddle.columns);
+                data = UITools.List2TableData(list, MyTableConfig.BiddingPaddle.columns);
             }
         } catch (Exception ex) {
             log.error("error:", ex);
@@ -98,5 +106,21 @@ public class BiddingPaddleAction {
         } catch (Exception ex) {
             log.error("error:", ex);
         }
+    }
+
+    /**
+     * 更新保证金使用状态
+     *
+     * @param pkId
+     * @param cashDepositState
+     * @param paymentNo
+     * @return
+     */
+    public static int updateCashDepositStateById(String pkId, String cashDepositState, String paymentNo) {
+        BiddingPaddle condition = new BiddingPaddle();
+        condition.setPkId(pkId);
+        condition.setCashDepositState(cashDepositState);
+        condition.setCashDepositPaymentNo(paymentNo);
+        return dao.updateObjectById(condition);
     }
 }

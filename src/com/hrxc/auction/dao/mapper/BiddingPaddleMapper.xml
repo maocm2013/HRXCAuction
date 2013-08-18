@@ -14,6 +14,7 @@
         <result column="REMARKS" property="remarks"></result> 
         <result column="PROJECT_NO" property="projectNo"></result> 
         <result column="CASH_DEPOSIT_STATE" property="cashDepositState"></result> 
+        <result column="CASH_DEPOSIT_PAYMENT_NO" property="cashDepositPaymentNo"></result> 
     </resultMap> 
     <select id="getAllObjectInfo" resultMap="BiddingPaddleResultMap" parameterType="BiddingPaddleVo"> 
         SELECT 
@@ -27,7 +28,8 @@
         CASH_DEPOSIT, 
         REMARKS,
         PROJECT_NO, 
-        CASH_DEPOSIT_STATE
+        CASH_DEPOSIT_STATE,
+        CASH_DEPOSIT_PAYMENT_NO
         FROM BIDDING_PADDLE 
         <where> 
             <if test="pkId!= null and pkId!= ''"> 
@@ -62,6 +64,9 @@
             </if> 
             <if test="cashDepositState!= null and cashDepositState!= ''"> 
                 AND CASH_DEPOSIT_STATE=#{cashDepositState} 
+            </if> 
+            <if test="cashDepositPaymentNo!= null and cashDepositPaymentNo!= ''"> 
+                AND CASH_DEPOSIT_PAYMENT_NO=#{cashDepositPaymentNo} 
             </if> 
         </where> 
         ORDER BY PADDLE_NO
@@ -108,6 +113,9 @@
             </if> 
             <if test="cashDepositState != null"> 
                 CASH_DEPOSIT_STATE = #{cashDepositState}, 
+            </if> 
+            <if test="cashDepositPaymentNo != null"> 
+                CASH_DEPOSIT_PAYMENT_NO = #{cashDepositPaymentNo}, 
             </if> 
         </set> 
         WHERE PK_ID=#{pkId} 

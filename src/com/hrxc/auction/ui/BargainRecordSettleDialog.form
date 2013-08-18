@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jXTitledSeparator1" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="msgLabel" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                                  <Component id="closeBt" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="submitBt" min="-2" pref="95" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jXLabel6" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jXLabel5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jXLabel4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jXLabel3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jXLabel2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jXLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fd_paddleNo" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="fd_paymentNo" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="fd_goodsNum" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="fd_totalAmount" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="fd_accountPaid" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="fd_nonPayment" min="-2" pref="211" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="cashDepositLabel" min="-2" pref="184" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="cb_cashDeposit" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="201" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <Component id="jXTitledSeparator1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jXLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fd_paddleNo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jXLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fd_paymentNo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jXLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fd_goodsNum" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jXLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fd_totalAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jXLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fd_accountPaid" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jXLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fd_nonPayment" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cashDepositLabel" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="cb_cashDeposit" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="closeBt" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="submitBt" min="-2" pref="30" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="msgLabel" min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace pref="142" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x7ade;&#x4e70;&#x53f7;&#x724c;&#xff1a;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXTitledSeparator" name="jXTitledSeparator1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="&#x9ed1;&#x4f53;" size="12" style="0"/>
+        </Property>
+        <Property name="title" type="java.lang.String" value="&#x6b3e;&#x9879;&#x7ed3;&#x7b97;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXTextField" name="fd_paddleNo">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_paddleNo.setText(UITools.getBeanPropertyValue(paddleInfo, &quot;paddleNo&quot;));"/>
+      </AuxValues>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x4ed8;&#x6b3e;&#x7f16;&#x53f7;&#xff1a;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXTextField" name="fd_paymentNo">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_paymentNo.setText(UITools.getBeanPropertyValue(paymentInfo, &quot;paymentNo&quot;));"/>
+      </AuxValues>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x62cd;&#x54c1;&#x6570;&#x91cf;&#xff1a;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXTextField" name="fd_goodsNum">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_goodsNum.setText(UITools.getBeanPropertyValue(paymentInfo, &quot;goodsNum&quot;));"/>
+      </AuxValues>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x603b;&#x91d1;&#x989d;&#xff1a;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXTextField" name="fd_totalAmount">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_totalAmount.setText(UITools.getBeanPropertyValue(paymentInfo, &quot;totalAmount&quot;));"/>
+      </AuxValues>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x5df2;&#x4ed8;&#x6b3e;&#xff1a;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x672a;&#x4ed8;&#x6b3e;&#xff1a;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXTextField" name="fd_accountPaid">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_accountPaid.setText(UITools.getBeanPropertyValue(paymentInfo, &quot;accountPaid&quot;));"/>
+      </AuxValues>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXTextField" name="fd_nonPayment">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_nonPayment.setText(UITools.getBeanPropertyValue(paymentInfo, &quot;nonPayment&quot;,&quot;0&quot;));"/>
+      </AuxValues>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXButton" name="closeBt">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/dialog-close.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#x5173;&#x95ed;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeBtActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXButton" name="submitBt">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/dialog-ok.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#x63d0;&#x4ea4;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitBtActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="msgLabel">
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="cashDepositLabel">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Integer cashDeposit = 0;&#xa;if(paddleInfo.getCashDepositState().equals(DictEnum.CashDepositState.NOT_USE)){&#xa;    cashDeposit = paddleInfo.getCashDeposit();&#xa;}&#xa;String cashText = &quot;&#x60a8;&#x6709;&#x3010;&quot; + cashDeposit + &quot;&#x3011;&#x5143;&#x4fdd;&#x8bc1;&#x91d1;&#x53ef;&#x62b5;&#x6263;&#x3002;&quot;;&#xa;cashDepositLabel.setText(cashText);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="cb_cashDeposit">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cb_cashDepositActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//&#x5982;&#x679c;&#x4fdd;&#x8bc1;&#x91d1;&#x975e;&#x201c;&#x672a;&#x4f7f;&#x7528;&#x201d;&#x72b6;&#x6001;&#xa;if(!paddleInfo.getCashDepositState().equals(DictEnum.CashDepositState.NOT_USE)){&#xa;    cb_cashDeposit.setEnabled(false);&#xa;    cb_cashDeposit.setSelected(false);&#xa;    cb_cashDeposit.setText(&quot;&#x4fdd;&#x8bc1;&#x91d1;&#x5df2;&#x62b5;&#x6263;&#xff0c;&#x65e0;&#x6cd5;&#x518d;&#x6b21;&#x4f7f;&#x7528;&#xff01;&quot;);&#xa;}else{&#xa;    //&#x9ed8;&#x8ba4;&#x4f7f;&#x7528;&#x72b6;&#x6001;&#xa;    cb_cashDeposit.setEnabled(true);&#xa;    cb_cashDeposit.setSelected(true);&#xa;    cb_cashDeposit.setText(&quot;&#x4fdd;&#x8bc1;&#x91d1;&#x672a;&#x62b5;&#x6263;&#xff0c;&#x662f;&#x5426;&#x4f7f;&#x7528;&#xff1f;&quot;);&#xa;&#xa;    //&#x91cd;&#x65b0;&#x8ba1;&#x7b97;&#x5df2;&#x4ed8;&#x6b3e;&#x4e0e;&#x672a;&#x4ed8;&#x6b3e;&#xa;    Integer accountPaid = paymentInfo.getTotalAmount() - paddleInfo.getCashDeposit();&#xa;    fd_accountPaid.setText(String.valueOf(accountPaid));&#xa;}"/>
+      </AuxValues>
+    </Component>
+  </SubComponents>
+</Form>

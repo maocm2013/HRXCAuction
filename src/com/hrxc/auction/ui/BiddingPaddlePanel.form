@@ -159,18 +159,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paddleInfoPrintBtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="org.jdesktop.swingx.JXButton" name="settleListPrintBton">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/print.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&#x7ed3;&#x6b3e;&#x5355;&#x6253;&#x5370;"/>
-            <Property name="focusable" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="settleListPrintBtonActionPerformed"/>
-          </Events>
-        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -183,7 +171,7 @@
         <Component class="org.jdesktop.swingx.JXTable" name="dataTable">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new org.jdesktop.swingx.JXTable(model)"/>
-            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="MyTableModel model = MyTableConfig.getBargainRecordTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;BiddingPaddleVo condition = new BiddingPaddleVo();&#xa;condition.setProjectNo(this.getProjectNo());&#xa;Object[][] datas = BiddingPaddleAction.getAllTableData(condition);&#xa;model.refreshContents(datas);"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="MyTableModel model = MyTableConfig.getBiddingPaddleTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;BiddingPaddleVo condition = new BiddingPaddleVo();&#xa;condition.setProjectNo(this.getProjectNo());&#xa;Object[][] datas = BiddingPaddleAction.getAllTableData(condition);&#xa;model.refreshContents(datas);"/>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//&#x9690;&#x85cf;&#x7b2c;&#x4e00;&#x5217;&#xff08;&#x4e3b;&#x952e;&#xff09;&#xa;UITools.hideColumn(dataTable, 1);"/>
           </AuxValues>
         </Component>

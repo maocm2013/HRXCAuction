@@ -50,6 +50,11 @@ public class BiddingPaddle {
      * 保证金使用状态
      */
     private String cashDepositState;
+    
+    /**
+     * 保证金付款编号
+     */
+    private String cashDepositPaymentNo;
 
     public String getPkId() {
         return pkId;
@@ -139,8 +144,17 @@ public class BiddingPaddle {
         this.cashDepositState = cashDepositState;
     }
 
+    public String getCashDepositPaymentNo() {
+        return cashDepositPaymentNo;
+    }
+
+    public void setCashDepositPaymentNo(String cashDepositPaymentNo) {
+        this.cashDepositPaymentNo = cashDepositPaymentNo;
+    }
+
     @Override
     public String toString() {
-        return "BiddingPaddle{" + "pkId=" + pkId + ", paddleNo=" + paddleNo + ", custName=" + custName + ", certType=" + certType + ", certNo=" + certNo + ", custTel=" + custTel + ", custAddr=" + custAddr + ", cashDeposit=" + cashDeposit + ", remarks=" + remarks + ", projectNo=" + projectNo + ", cashDepositState=" + cashDepositState + '}';
+        return "BiddingPaddle{" + "pkId=" + pkId + ", paddleNo=" + paddleNo + ", custName=" + custName + ", certType=" + certType + ", certNo=" + certNo + ", custTel=" + custTel + ", custAddr=" + custAddr + ", cashDeposit=" + cashDeposit + ", remarks=" + remarks + ", projectNo=" + projectNo + ", cashDepositState=" + cashDepositState + ", cashDepositPaymentNo=" + cashDepositPaymentNo + '}';
     }
+    
 }

@@ -40,6 +40,13 @@ public class BargainRecordAction {
         return list;
     }
 
+    public static List<BargainRecord> getBargainRecordListByPaymentNo(String projectNo, String paymentNo) {
+        BargainRecordVo condition = new BargainRecordVo();
+        condition.setProjectNo(projectNo);
+        condition.setPaymentNo(paymentNo);
+        return dao.getAllObjectInfo(condition);
+    }
+
     /**
      *
      * @param condition
@@ -50,7 +57,7 @@ public class BargainRecordAction {
         try {
             List<BargainRecord> list = dao.getAllObjectInfo(condition);
             if (list != null && list.size() > 0) {
-                data = UITools.List2TableData(list,MyTableConfig.BargainRecord.columns);
+                data = UITools.List2TableData(list, MyTableConfig.BargainRecord.columns);
             }
         } catch (Exception ex) {
             log.error("error:", ex);
@@ -107,11 +114,11 @@ public class BargainRecordAction {
         }
     }
 
-    public static void updateSettleState(String settleState, String pkId) {
-        try {
-            dao.updateSettleState(settleState, pkId);
-        } catch (Exception ex) {
-            log.error("error:", ex);
-        }
+    public static int updateSettleState(String settleState, String pkId, String paymentNo) {
+        BargainRecord condition = new BargainRecord();
+        condition.setSettleState(settleState);
+        condition.setPkId(pkId);
+        condition.setPaymentNo(paymentNo);
+        return dao.updateObjectById(condition);
     }
 }

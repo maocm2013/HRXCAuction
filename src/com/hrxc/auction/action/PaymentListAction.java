@@ -84,4 +84,17 @@ public class PaymentListAction {
             log.error("error:", ex);
         }
     }
+    
+    /**
+     * 更新付款状态
+     * @param pkId
+     * @param paymentState
+     * @return 
+     */
+    public static int updatePaymentStateById(String pkId,String paymentState){
+        PaymentList condition = new PaymentList();
+        condition.setPkId(pkId);
+        condition.setPaymentState(paymentState);
+        return dao.updateObjectById(condition);
+    }
 }

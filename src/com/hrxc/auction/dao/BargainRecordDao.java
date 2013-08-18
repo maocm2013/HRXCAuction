@@ -43,17 +43,4 @@ public class BargainRecordDao {
     public int updateObjectById(BargainRecord dto) {
         return MyBatisUtils.update("BargainRecord.updateObjectById", dto);
     }
-
-    /**
-     * 更新成交记录结算状态
-     *
-     * @param settleState
-     * @param pkId
-     */
-    public int updateSettleState(String settleState, String pkId) {
-        BargainRecord dto = new BargainRecord();
-        dto.setPkId(pkId);
-        dto.setSettleState(settleState);
-        return MyBatisUtils.update("BargainRecord.updateObjectById", dto);
-    }
 }

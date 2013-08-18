@@ -3,8 +3,10 @@ package com.hrxc.auction.ui;
 import com.hrxc.auction.action.BargainRecordAction;
 import com.hrxc.auction.action.BiddingPaddleAction;
 import com.hrxc.auction.action.GoodsListAction;
+import com.hrxc.auction.action.PaymentListAction;
 import com.hrxc.auction.domain.BargainRecord;
 import com.hrxc.auction.domain.BiddingPaddle;
+import com.hrxc.auction.domain.PaymentList;
 import com.hrxc.auction.util.Constant;
 import java.awt.Font;
 import java.awt.Graphics2D;
@@ -23,13 +25,15 @@ public class BiddingRecordPrintPanel extends AbstractPrintPanel {
 
     private static final Logger log = Logger.getLogger(BiddingRecordPrintPanel.class);
     private String pkId_biddingPaddle;
+    private String pkId_paymentList;
     private String printType;
 
     public BiddingRecordPrintPanel() {
     }
 
-    public BiddingRecordPrintPanel(String pkId_biddingPaddle, String printType) {
+    public BiddingRecordPrintPanel(String pkId_biddingPaddle, String pkId_paymentList,String printType) {
         this.pkId_biddingPaddle = pkId_biddingPaddle;
+        this.pkId_paymentList = pkId_paymentList;
         this.printType = printType;
     }
 
@@ -76,13 +80,11 @@ public class BiddingRecordPrintPanel extends AbstractPrintPanel {
      * @param g2
      */
     private void drawPage_settleList(Graphics2D g2) {
-        //竞买号牌信息
-        BiddingPaddle dto = BiddingPaddleAction.getObjectById(pkId_biddingPaddle);
-        log.debug("print panel dto.pkId=" + dto.getPkId());
+        PaymentList payment =PaymentListAction.getObjectById(pkId_paymentList);
+        BiddingPaddle paddleInfo = BiddingPaddleAction.getPaddleInfoByNo(payment.getProjectNo(), payment.getPaddleNo());
 
         //成交记录信息
-        String paddleNo = dto.getPaddleNo();
-        List<BargainRecord> list = BargainRecordAction.getBargainRecordListByPaddleNo(dto.getProjectNo(),paddleNo);
+        List<BargainRecord> list = BargainRecordAction.getBargainRecordListByPaymentNo(payment.getProjectNo(),payment.getPaymentNo());
 
         Font titleFont_14 = new Font("黑体", Font.PLAIN, 14);
         Font titleFont_20 = new Font("黑体", Font.PLAIN, 20);
@@ -98,9 +100,9 @@ public class BiddingRecordPrintPanel extends AbstractPrintPanel {
         g2.drawString(ats.getIterator(), 200, 40);
 
 
-        g2.drawString("竞买人姓名：".concat(dto.getCustName()), 10, 60);
-        g2.drawString("证件号码：".concat(dto.getCertNo()), 150, 60);
-        g2.drawString("竞买号牌：".concat(dto.getPaddleNo()), 360, 60);
+        g2.drawString("竞买人姓名：".concat(paddleInfo.getCustName()), 10, 60);
+        g2.drawString("证件号码：".concat(paddleInfo.getCertNo()), 150, 60);
+        g2.drawString("竞买号牌：".concat(paddleInfo.getPaddleNo()), 360, 60);
 
         g2.drawRect(5, 65, 520, 270);
 

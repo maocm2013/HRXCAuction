@@ -44,9 +44,8 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         editBton = new org.jdesktop.swingx.JXButton();
         exortBton = new org.jdesktop.swingx.JXButton();
         paddleInfoPrintBton = new org.jdesktop.swingx.JXButton();
-        settleListPrintBton = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        MyTableModel model = MyTableConfig.getBargainRecordTableModel();
+        MyTableModel model = MyTableConfig.getBiddingPaddleTableModel();
 
         //初始化显示数据
         BiddingPaddleVo condition = new BiddingPaddleVo();
@@ -130,16 +129,6 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
             }
         });
         toolBar.add(paddleInfoPrintBton);
-
-        settleListPrintBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/print.png"))); // NOI18N
-        settleListPrintBton.setText("结款单打印");
-        settleListPrintBton.setFocusable(false);
-        settleListPrintBton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settleListPrintBtonActionPerformed(evt);
-            }
-        });
-        toolBar.add(settleListPrintBton);
 
         //隐藏第一列（主键）
         UITools.hideColumn(dataTable, 1);
@@ -238,23 +227,11 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         } else {
             ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
             String pkId = list.get(0);
-            BiddingRecordPrintDialog dialog = new BiddingRecordPrintDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, pkId, Constant.PrintType.TYPE_PADDLE_INFO_PRINT);
+            BiddingRecordPrintDialog dialog = new BiddingRecordPrintDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, pkId,null, Constant.PrintType.TYPE_PADDLE_INFO_PRINT);
             dialog.setLocationRelativeTo(this);
             dialog.setVisible(true);
         }
     }//GEN-LAST:event_paddleInfoPrintBtonActionPerformed
-
-    private void settleListPrintBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settleListPrintBtonActionPerformed
-        if (UITools.getCheckedRows(dataTable) != 1) {
-            JOptionPane.showMessageDialog(this.getRootPane(), "请确认您选择了一条记录！");
-        } else {
-            ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
-            String pkId = list.get(0);
-            BiddingRecordPrintDialog dialog = new BiddingRecordPrintDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, pkId, Constant.PrintType.TYPE_SETTLE_LIST_PRINT);
-            dialog.setLocationRelativeTo(this);
-            dialog.setVisible(true);
-        }
-    }//GEN-LAST:event_settleListPrintBtonActionPerformed
 
     private void exortBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exortBtonActionPerformed
         HSSFWorkbook wb = ExcelHelper.createExcel((MyTableModel) dataTable.getModel());
@@ -294,7 +271,6 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXLabel jXLabel2;
     private org.jdesktop.swingx.JXButton paddleInfoPrintBton;
     private org.jdesktop.swingx.JXButton searchBton;
-    private org.jdesktop.swingx.JXButton settleListPrintBton;
     private javax.swing.JToolBar toolBar;
     // End of variables declaration//GEN-END:variables
 }

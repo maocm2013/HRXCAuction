@@ -18,14 +18,16 @@ import org.apache.log4j.Logger;
 public class BiddingRecordPrintDialog extends javax.swing.JDialog {
     private static final Logger log = Logger.getLogger(BiddingRecordPrintDialog.class);
     private String pkId_biddingPaddle;
+    private String pkId_paymentList;
     private String printType;
 
     /**
      * Creates new form BiddingRecordPrintDialog
      */
-    public BiddingRecordPrintDialog(java.awt.Frame parent, boolean modal, String pkId_biddingPaddle, String printType) {
+    public BiddingRecordPrintDialog(java.awt.Frame parent, boolean modal, String pkId_biddingPaddle,String pkId_paymentList, String printType) {
         super(parent, modal);
         this.pkId_biddingPaddle = pkId_biddingPaddle;
+        this.pkId_paymentList = pkId_paymentList;
         this.printType = printType;
         initComponents();
     }
@@ -40,7 +42,7 @@ public class BiddingRecordPrintDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         bt_print = new org.jdesktop.swingx.JXButton();
-        printPanel = new com.hrxc.auction.ui.BiddingRecordPrintPanel(pkId_biddingPaddle,printType);
+        printPanel = new com.hrxc.auction.ui.BiddingRecordPrintPanel(pkId_biddingPaddle,pkId_paymentList,printType);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("数据打印输出");

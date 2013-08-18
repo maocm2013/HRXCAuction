@@ -6,15 +6,20 @@ import com.hrxc.auction.action.BiddingPaddleAction;
 import com.hrxc.auction.action.PaymentListAction;
 import com.hrxc.auction.domain.BargainRecord;
 import com.hrxc.auction.domain.BiddingPaddle;
+import com.hrxc.auction.domain.PaymentList;
 import com.hrxc.auction.domain.vo.BargainRecordVo;
 import com.hrxc.auction.domain.vo.PaymentListVo;
+import com.hrxc.auction.util.Constant;
 import com.hrxc.auction.util.DictEnum;
 import com.hrxc.auction.util.ExcelHelper;
 import com.hrxc.auction.util.MyTableConfig;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateFormatUtils;
+import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.jdesktop.swingx.JXTable;
 
@@ -23,7 +28,9 @@ import org.jdesktop.swingx.JXTable;
  * @author user
  */
 public class BargainRecordSettlePanel extends javax.swing.JPanel {
-
+    private static final Logger log = Logger.getLogger(BargainRecordSettlePanel.class);
+    private BiddingPaddle paddleInfo;
+    
     /**
      * Creates new form BargainRecordSettlePanel
      */
@@ -65,7 +72,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         searchBton_s = new org.jdesktop.swingx.JXButton();
         toSettleBton_s = new org.jdesktop.swingx.JXButton();
         exportBton_s = new org.jdesktop.swingx.JXButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        settleListDataPane = new javax.swing.JScrollPane();
         MyTableModel model_n = MyTableConfig.getBargainRecordTableModel();
 
         //初始化显示数据
@@ -93,6 +100,8 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         fd_paddleNo_d = new org.jdesktop.swingx.JXTextField();
         searchBton_d = new org.jdesktop.swingx.JXButton();
         jXLabel6 = new org.jdesktop.swingx.JXLabel();
+        lb_paddleInfo = new org.jdesktop.swingx.JXLabel();
+        backCashDepositBt = new org.jdesktop.swingx.JXButton();
 
         setPreferredSize(new java.awt.Dimension(702, 443));
 
@@ -209,10 +218,10 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         UITools.hideColumn(dataTable_s, 1);
         //隐藏付款编号列
         UITools.hideColumn(dataTable_s, 12);
-        jScrollPane3.setViewportView(dataTable_s);
+        settleListDataPane.setViewportView(dataTable_s);
 
-        jScrollPane3.setBounds(0, 94, 850, 400);
-        settleLayeredPane.add(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        settleListDataPane.setBounds(0, 94, 850, 400);
+        settleLayeredPane.add(settleListDataPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTabbedPane1.addTab("款项结算", settleLayeredPane);
 
@@ -305,6 +314,21 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         jXLabel6.setBounds(170, 10, 20, 30);
         depositLayeredPane.add(jXLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        lb_paddleInfo.setText("号牌信息：");
+        lb_paddleInfo.setFont(new java.awt.Font("黑体", 0, 14)); // NOI18N
+        lb_paddleInfo.setBounds(20, 60, 420, 200);
+        depositLayeredPane.add(lb_paddleInfo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        backCashDepositBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/undo.png"))); // NOI18N
+        backCashDepositBt.setText("退还保证金");
+        backCashDepositBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backCashDepositBtActionPerformed(evt);
+            }
+        });
+        backCashDepositBt.setBounds(290, 10, 130, 30);
+        depositLayeredPane.add(backCashDepositBt, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         jTabbedPane1.addTab("退还保证金", depositLayeredPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -330,7 +354,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         } else {
             ArrayList<String> list = UITools.getCheckedRowsId(dataTable_c);
             String pkId = list.get(0);
-            BargainRecordAction.updateSettleState(DictEnum.SettleState.RECHECKED, pkId);
+            BargainRecordAction.updateSettleState(DictEnum.SettleState.RECHECKED, pkId, null);
             refreshTableDatas(dataTable_c, DictEnum.SettleState.BARGAIN, null, null);
             JOptionPane.showMessageDialog(this.getRootPane(), "成交记录复核成功！");
         }
@@ -350,12 +374,33 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         if (UITools.getCheckedRows(dataTable_p) != 1) {
             JOptionPane.showMessageDialog(this.getRootPane(), "请确认您选择了一条记录！");
         } else {
-            ArrayList<String> list = UITools.getCheckedRowsId(dataTable_p);
-            String pkId = list.get(0);
-            BargainRecord dto = BargainRecordAction.getObjectById(pkId);
-            BargainRecordEditDialog dialog = new BargainRecordEditDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, dto, this);
-            dialog.setLocationRelativeTo(this);
-            dialog.setVisible(true);
+            if (JOptionPane.showConfirmDialog(this.getRootPane(), "请确认您是否要撤销结算？") == JOptionPane.YES_OPTION) {
+                ArrayList<String> list = UITools.getCheckedRowsId(dataTable_p);
+                String pkId = list.get(0);
+                PaymentList dto = PaymentListAction.getObjectById(pkId);
+                String paymentNo = dto.getPaymentNo();
+                //1.还原成交记录为已复核未结清状态           
+                List<BargainRecord> recordList = BargainRecordAction.getBargainRecordListByPaymentNo(this.getProjectNo(), paymentNo);
+                if (recordList != null && recordList.size() > 0) {
+                    for (int i = 0; i < recordList.size(); i++) {
+                        BargainRecord record = recordList.get(i);
+                        BargainRecordAction.updateSettleState(DictEnum.SettleState.RECHECKED, record.getPkId(), "");
+                    }
+                }
+
+                //2.还原号牌保证金状态及保证金付款编号
+                BiddingPaddle paddleInfo = BiddingPaddleAction.getPaddleInfoByPaymentNo(projectNo, paymentNo);
+                if (paddleInfo != null) {
+                    log.debug(paddleInfo.getPaddleNo() + "|存在抵扣保证金，需要还原保证金使用状态");
+                    BiddingPaddleAction.updateCashDepositStateById(paddleInfo.getPkId(), DictEnum.CashDepositState.NOT_USE, "");
+                }
+
+                //3.将付款记录标记为无效
+                PaymentListAction.updatePaymentStateById(dto.getPkId(), DictEnum.PaymentState.INVALID);
+
+                JOptionPane.showMessageDialog(this.getRootPane(), "付款编号【" + paymentNo + "】撤销结算操作成功！");
+                refreshPaymentTableDatas(this.dataTable_p, null);
+            }
         }
     }//GEN-LAST:event_undoSettleBton_pActionPerformed
 
@@ -365,15 +410,15 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_exportBton_pActionPerformed
 
     private void settleListPrintBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settleListPrintBtonActionPerformed
-//        if (UITools.getCheckedRows(dataTable) != 1) {
-//            JOptionPane.showMessageDialog(this.getRootPane(), "请确认您选择了一条记录！");
-//        } else {
-//            ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
-//            String pkId = list.get(0);
-//            BiddingRecordPrintDialog dialog = new BiddingRecordPrintDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, pkId, Constant.PrintType.TYPE_SETTLE_LIST_PRINT);
-//            dialog.setLocationRelativeTo(this);
-//            dialog.setVisible(true);
-//        }
+        if (UITools.getCheckedRows(dataTable_p) != 1) {
+            JOptionPane.showMessageDialog(this.getRootPane(), "请确认您选择了一条记录！");
+        } else {
+            ArrayList<String> list = UITools.getCheckedRowsId(dataTable_p);
+            String pkId = list.get(0);
+            BiddingRecordPrintDialog dialog = new BiddingRecordPrintDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, null,pkId, Constant.PrintType.TYPE_SETTLE_LIST_PRINT);
+            dialog.setLocationRelativeTo(this);
+            dialog.setVisible(true);
+        }
     }//GEN-LAST:event_settleListPrintBtonActionPerformed
 
     private void searchBton_dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBton_dActionPerformed
@@ -382,9 +427,33 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this.getRootPane(), "请输入竞买号牌后再进行查询！");
             return;
         }
-        //TODO:查询出竞买号牌信息
+        BiddingPaddle paddleInfo = BiddingPaddleAction.getPaddleInfoByNo(this.getProjectNo(), paddleNo);
+        if(paddleInfo != null){
+            this.paddleInfo = paddleInfo;
+            
+            StringBuilder sb = new StringBuilder();
+            sb.append("<html>");
+            sb.append("号牌信息：<br>");
+            sb.append("姓名：" + paddleInfo.getCustName() + "<br>");
+            sb.append("证件类型：" + paddleInfo.getCertType() + "<br>");
+            sb.append("地址：" + paddleInfo.getCustAddr() + "<br>");
+            sb.append("联系电话：" + paddleInfo.getCustTel() + "<br>");
+            sb.append("保证金：" + paddleInfo.getCashDeposit() + "<br>");
+            sb.append("保证金使用状态：" + DictEnum.getDictDesc(DictEnum.CashDepositState.dataMap, paddleInfo.getCashDepositState()) + "<br>");
+            sb.append("保证金付款编号：" + StringUtils.trimToEmpty(paddleInfo.getCashDepositPaymentNo()));
+            sb.append("</html>");
+            lb_paddleInfo.setText(sb.toString());
+            
+            if(!paddleInfo.getCashDepositState().equals(DictEnum.CashDepositState.NOT_USE)){
+                backCashDepositBt.setEnabled(false);
+            }else{
+                backCashDepositBt.setEnabled(true);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this.getRootPane(), "您输入的竞买号牌无相应数据，请确认！");
+        }
     }//GEN-LAST:event_searchBton_dActionPerformed
-
+  
     private void searchBton_sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBton_sActionPerformed
         String paddleNo = fd_paddleNo_s.getText().trim();
         refreshTableDatas(dataTable_s, DictEnum.SettleState.RECHECKED, paddleNo, null);
@@ -393,16 +462,30 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
     private void toSettleBton_sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toSettleBton_sActionPerformed
         if (UITools.getCheckedRows(dataTable_s) == 0) {
             JOptionPane.showMessageDialog(this.getRootPane(), "您至少需要选择一条记录！");
-        }else{
-            //判断是否有保证金未使用
+        } else {
+            //获取号牌信息并组合付款清单
             String paddleNo = fd_paddleNo_s.getText().trim();
-            BiddingPaddle paddleInfo = BiddingPaddleAction.getPaddleInfoByNo(this.getProjectNo(),paddleNo);
+            BiddingPaddle paddleInfo = BiddingPaddleAction.getPaddleInfoByNo(this.getProjectNo(), paddleNo);
             ArrayList<String> list = UITools.getCheckedRowsId(dataTable_s);
             int totalAmount = 0;
-            for(int i = 0; i < list.size(); i++){
+            for (int i = 0; i < list.size(); i++) {
                 BargainRecord record = BargainRecordAction.getObjectById(list.get(i));
                 totalAmount += record.getBargainPrice();
             }
+
+            //构造付款清单对象
+            PaymentList payment = new PaymentList();
+            payment.setProjectNo(this.getProjectNo());
+            payment.setPaymentNo(paddleInfo.getPaddleNo() + "-" + DateFormatUtils.format(new java.util.Date(), "yyyyMMddHHmmss"));
+            payment.setPaddleNo(paddleInfo.getPaddleNo());
+            payment.setGoodsNum(list.size());
+            payment.setTotalAmount(totalAmount);
+            payment.setAccountPaid(totalAmount);
+            payment.setNonPayment(0);
+
+            BargainRecordSettleDialog dialog = new BargainRecordSettleDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, paddleInfo, payment, list, this);
+            dialog.setLocationRelativeTo(this);
+            dialog.setVisible(true);
         }
     }//GEN-LAST:event_toSettleBton_sActionPerformed
 
@@ -410,6 +493,18 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         HSSFWorkbook wb = ExcelHelper.createExcel((MyTableModel) dataTable_s.getModel());
         UITools.exportExcel(this.getRootPane(), wb);
     }//GEN-LAST:event_exportBton_sActionPerformed
+
+    private void backCashDepositBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backCashDepositBtActionPerformed
+        if(this.paddleInfo != null){
+            if (JOptionPane.showConfirmDialog(this.getRootPane(), "退还保证金操作无法撤销，请确认！") == JOptionPane.YES_OPTION) {
+                BiddingPaddleAction.updateCashDepositStateById(paddleInfo.getPkId(), DictEnum.CashDepositState.GIVE_BACK, null);
+                JOptionPane.showMessageDialog(this.getRootPane(), "号牌【" + paddleInfo.getPaddleNo() + "】保证金已经退还成功！");
+                backCashDepositBt.setEnabled(false);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this.getRootPane(), "无竞买号牌信息，请先进行查询！");
+        }
+    }//GEN-LAST:event_backCashDepositBtActionPerformed
 
     /**
      * 刷新表单数据
@@ -445,7 +540,12 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         return projectNo;
     }
     private String projectNo;
+
+    public JXTable getDataTable_s() {
+        return dataTable_s;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.jdesktop.swingx.JXButton backCashDepositBt;
     private javax.swing.JLayeredPane checkLayeredPanel;
     private org.jdesktop.swingx.JXTable dataTable_c;
     private org.jdesktop.swingx.JXTable dataTable_p;
@@ -460,7 +560,6 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXTextField fd_paddleNo_s;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private org.jdesktop.swingx.JXLabel jXLabel1;
     private org.jdesktop.swingx.JXLabel jXLabel3;
@@ -468,12 +567,14 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXLabel jXLabel6;
     private org.jdesktop.swingx.JXLabel jXLabel7;
     private org.jdesktop.swingx.JXLabel jXLabel8;
+    private org.jdesktop.swingx.JXLabel lb_paddleInfo;
     private javax.swing.JLayeredPane paymentLayeredPane;
     private org.jdesktop.swingx.JXButton searchBton_c;
     private org.jdesktop.swingx.JXButton searchBton_d;
     private org.jdesktop.swingx.JXButton searchBton_p;
     private org.jdesktop.swingx.JXButton searchBton_s;
     private javax.swing.JLayeredPane settleLayeredPane;
+    private javax.swing.JScrollPane settleListDataPane;
     private org.jdesktop.swingx.JXButton settleListPrintBton;
     private org.jdesktop.swingx.JXButton toSettleBton_c;
     private org.jdesktop.swingx.JXButton toSettleBton_s;

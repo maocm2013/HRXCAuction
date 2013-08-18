@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.io.File;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -27,6 +28,7 @@ import net.sf.jasperreports.engine.export.JRGraphics2DExporter;
 import net.sf.jasperreports.engine.export.JRGraphics2DExporterParameter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.junit.Before;
@@ -120,7 +122,7 @@ public class MyTestExample {
     /**
      * 生产mybatis配置文件
      */
-    @Test
+    //@Test
     public void generateMyBatisMapper() throws SQLException {
         String pkIdProp = "pkId";
         String tableName = "PROJECT_INFO";
@@ -233,5 +235,10 @@ public class MyTestExample {
             property = col.toLowerCase();
         }    
         return property;
+    }
+    
+    @Test
+    public void simpleTest(){
+        System.out.println(DateFormatUtils.format(new java.util.Date(), "yyyyMMddHHmmss"));
     }
 }

@@ -257,7 +257,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+            <Container class="javax.swing.JScrollPane" name="settleListDataPane">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -468,6 +468,35 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
                   <JLayeredPaneConstraints x="170" y="10" width="20" height="30" layer="0" position="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="org.jdesktop.swingx.JXLabel" name="lb_paddleInfo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x53f7;&#x724c;&#x4fe1;&#x606f;&#xff1a;"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="&#x9ed1;&#x4f53;" size="14" style="0"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
+                  <JLayeredPaneConstraints x="20" y="60" width="420" height="200" layer="0" position="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="org.jdesktop.swingx.JXButton" name="backCashDepositBt">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/undo.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="&#x9000;&#x8fd8;&#x4fdd;&#x8bc1;&#x91d1;"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backCashDepositBtActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
+                  <JLayeredPaneConstraints x="290" y="10" width="130" height="30" layer="0" position="-1"/>
                 </Constraint>
               </Constraints>
             </Component>

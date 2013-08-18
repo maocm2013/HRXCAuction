@@ -79,6 +79,7 @@ public class MyTableConfig {
             cds.setIsDict(true);
             cds.setDictMap(DictEnum.CashDepositState.dataMap);
             columns.add(cds);
+            columns.add(new MyTableColumn("保证金付款编号", java.lang.String.class, "cashDepositPaymentNo"));
         }
     }
 

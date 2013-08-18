@@ -97,6 +97,12 @@ public class DictEnum {
          * 02-已结清
          */
         public static final String HAVE_SETTLED = "02";
-        public static final Map dataMap = JSON.parseObject("{\"01\":\"未结清\",\"02\":\"已结清\"}");
+        
+        /**
+         * 09-已失效
+         */
+        public static final String INVALID = "09";
+        
+        public static final Map dataMap = JSON.parseObject("{\"01\":\"未结清\",\"02\":\"已结清\",\"09\":\"已失效\"}");
     }
 }
