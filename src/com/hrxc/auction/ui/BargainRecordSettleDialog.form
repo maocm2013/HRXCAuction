@@ -59,6 +59,8 @@
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jXLabel12" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
@@ -67,7 +69,7 @@
                       <Component id="cb_cashDeposit" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="201" max="32767" attributes="0"/>
+              <EmptySpace pref="170" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -100,6 +102,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jXLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="fd_accountPaid" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -243,6 +246,17 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//&#x5982;&#x679c;&#x4fdd;&#x8bc1;&#x91d1;&#x975e;&#x201c;&#x672a;&#x4f7f;&#x7528;&#x201d;&#x72b6;&#x6001;&#xa;if(!paddleInfo.getCashDepositState().equals(DictEnum.CashDepositState.NOT_USE)){&#xa;    cb_cashDeposit.setEnabled(false);&#xa;    cb_cashDeposit.setSelected(false);&#xa;    cb_cashDeposit.setText(&quot;&#x4fdd;&#x8bc1;&#x91d1;&#x5df2;&#x62b5;&#x6263;&#xff0c;&#x65e0;&#x6cd5;&#x518d;&#x6b21;&#x4f7f;&#x7528;&#xff01;&quot;);&#xa;}else{&#xa;    //&#x9ed8;&#x8ba4;&#x4f7f;&#x7528;&#x72b6;&#x6001;&#xa;    cb_cashDeposit.setEnabled(true);&#xa;    cb_cashDeposit.setSelected(true);&#xa;    cb_cashDeposit.setText(&quot;&#x4fdd;&#x8bc1;&#x91d1;&#x672a;&#x62b5;&#x6263;&#xff0c;&#x662f;&#x5426;&#x4f7f;&#x7528;&#xff1f;&quot;);&#xa;&#xa;    //&#x91cd;&#x65b0;&#x8ba1;&#x7b97;&#x5df2;&#x4ed8;&#x6b3e;&#x4e0e;&#x672a;&#x4ed8;&#x6b3e;&#xa;    Integer accountPaid = paymentInfo.getTotalAmount() - paddleInfo.getCashDeposit();&#xa;    fd_accountPaid.setText(String.valueOf(accountPaid));&#xa;}"/>
       </AuxValues>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel12">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="*"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="&#x9ed1;&#x4f53;" size="14" style="0"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

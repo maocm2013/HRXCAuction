@@ -39,11 +39,10 @@ public class AuctionFrame extends javax.swing.JFrame {
         modifyPasswordBton = new org.jdesktop.swingx.JXButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("华软信诚拍卖系统V1.0");
+        setTitle("华软信诚拍卖系统V1.1");
         setIconImage(Toolkit.getDefaultToolkit().createImage(getClass().getResource("/app01.png")));
         setName("auctionFrame"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1024, 600));
-        setResizable(false);
 
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);

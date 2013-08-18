@@ -2,6 +2,8 @@ import com.hrxc.auction.util.ExcelHelper;
 import com.hrxc.auction.util.MyTableConfig;
 import com.hrxc.auction.util.MyTableModel;
 import com.hrxc.auction.util.UITools;
+import java.util.List;
+import javax.swing.table.TableColumn;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 /*
@@ -30,6 +32,8 @@ public class MyTestJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jXTable1 = new org.jdesktop.swingx.JXTable();
         jXButton1 = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         MyTableModel model = MyTableConfig.getBargainRecordTableModel();
@@ -38,6 +42,22 @@ public class MyTestJFrame extends javax.swing.JFrame {
         //Object[][] datas = BargainRecordAction.getAllTableData(null, null);
         //model.refreshContents(datas);
         dataTable = new org.jdesktop.swingx.JXTable(model);
+        jScrollPane3 = new javax.swing.JScrollPane();
+        testTable = new org.jdesktop.swingx.JXTable();
+        jXButton2 = new org.jdesktop.swingx.JXButton();
+
+        jXTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jXTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 400));
@@ -50,31 +70,63 @@ public class MyTestJFrame extends javax.swing.JFrame {
         });
 
         //隐藏第一列（主键）
-        UITools.hideColumn(dataTable, 1);
+        UITools.hideColumn(dataTable, "主键");
         dataTable.setModel(model);
         jScrollPane1.setViewportView(dataTable);
+
+        testTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"1", "a1", "熊猫", "ff"},
+                {"2", "a6", "老鹰", "ss"},
+                {"3", "a7", "小鸡", "tt"},
+                {null, null, null, null}
+            },
+            new String [] {
+                "主键", "商品编号", "名称", "备注"
+            }
+        ));
+        jScrollPane3.setViewportView(testTable);
+
+        jXButton2.setText("Table Test");
+        jXButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jXButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jXButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jXButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jXButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jXButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jXButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         pack();
@@ -84,6 +136,19 @@ public class MyTestJFrame extends javax.swing.JFrame {
         HSSFWorkbook wb = ExcelHelper.createExcel((MyTableModel)dataTable.getModel());
         UITools.exportExcel(this.getRootPane(), wb);
     }//GEN-LAST:event_jXButton1ActionPerformed
+
+    private void jXButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXButton2ActionPerformed
+        List<TableColumn> list = testTable.getColumns();
+        
+        TableColumn tc = testTable.getColumn("主键");
+        tc.setMaxWidth(5);
+        tc.setMinWidth(5);
+        
+        for(int i = 0; i < list.size(); i++){
+            TableColumn col = list.get(i);
+            System.out.println(col.getIdentifier().toString());
+        }
+    }//GEN-LAST:event_jXButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,6 +187,11 @@ public class MyTestJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXTable dataTable;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private org.jdesktop.swingx.JXButton jXButton1;
+    private org.jdesktop.swingx.JXButton jXButton2;
+    private org.jdesktop.swingx.JXTable jXTable1;
+    private org.jdesktop.swingx.JXTable testTable;
     // End of variables declaration//GEN-END:variables
 }

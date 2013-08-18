@@ -116,8 +116,7 @@ public class ProjectInfoPanel extends javax.swing.JPanel {
         });
         toolBar.add(exortBton);
 
-        //隐藏第一列（主键）
-        UITools.hideColumn(dataTable, 1);
+        UITools.setTableProps(dataTable, MyTableConfig.ProjectInfo.columns);
         jScrollPane1.setViewportView(dataTable);
 
         jXLabel1.setText("项目编号：");

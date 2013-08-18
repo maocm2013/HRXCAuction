@@ -4,9 +4,11 @@ import java.util.Map;
 
 /**
  * 表格配置信息
+ *
  * @author maochangming
  */
 public class MyTableColumn {
+
     /**
      * 列标题
      */
@@ -22,7 +24,7 @@ public class MyTableColumn {
     /**
      * 列宽
      */
-    private String columnWidth;
+    private Integer columnWidth;
     /**
      * 是否隐藏
      */
@@ -36,12 +38,26 @@ public class MyTableColumn {
      */
     private Map dictMap;
 
-    public MyTableColumn(String columnName,Class columnType,String propertyName){
+    public MyTableColumn(String columnName, Class columnType, String propertyName, Integer columnWidth) {
+        this.columnName = columnName;
+        this.columnType = columnType;
+        this.propertyName = propertyName;
+        this.columnWidth = columnWidth;
+    }
+
+    public MyTableColumn(String columnName, Class columnType, String propertyName, boolean isHidden) {
+        this.columnName = columnName;
+        this.columnType = columnType;
+        this.propertyName = propertyName;
+        this.isHidden = isHidden;
+    }
+
+    public MyTableColumn(String columnName, Class columnType, String propertyName) {
         this.columnName = columnName;
         this.columnType = columnType;
         this.propertyName = propertyName;
     }
-    
+
     public String getColumnName() {
         return columnName;
     }
@@ -58,7 +74,6 @@ public class MyTableColumn {
         this.columnType = columnType;
     }
 
-
     public String getPropertyName() {
         return propertyName;
     }
@@ -67,11 +82,11 @@ public class MyTableColumn {
         this.propertyName = propertyName;
     }
 
-    public String getColumnWidth() {
+    public Integer getColumnWidth() {
         return columnWidth;
     }
 
-    public void setColumnWidth(String columnWidth) {
+    public void setColumnWidth(Integer columnWidth) {
         this.columnWidth = columnWidth;
     }
 
@@ -98,6 +113,4 @@ public class MyTableColumn {
     public void setDictMap(Map dictMap) {
         this.dictMap = dictMap;
     }
-    
-    
 }

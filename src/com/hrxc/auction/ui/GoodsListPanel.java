@@ -115,8 +115,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
         });
         toolBar.add(exortBton);
 
-        //隐藏第一列（主键）
-        UITools.hideColumn(dataTable, 1);
+        UITools.setTableProps(dataTable, MyTableConfig.GoodsList.columns);
         jScrollPane1.setViewportView(dataTable);
 
         jXLabel1.setText("图录号：");

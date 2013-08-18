@@ -1,6 +1,5 @@
 package com.hrxc.auction.util;
 
-import com.hrxc.auction.domain.ProjectInfo;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -48,31 +47,53 @@ public class UITools {
     }
 
     /**
+     * 设置表格属性
+     *
+     * @param table
+     * @param cols
+     */
+    public static void setTableProps(JTable table, List<MyTableColumn> cols) {
+        for (int i = 0; i < cols.size(); i++) {
+            MyTableColumn col = cols.get(i);
+            TableColumn tc = table.getColumn(col.getColumnName());
+            //设置首选列宽
+            if (col.getColumnWidth() != null) {
+                tc.setMaxWidth(col.getColumnWidth());
+                tc.setPreferredWidth(col.getColumnWidth());
+            }
+            //设置隐藏列
+            if (col.isIsHidden()) {
+                tc.setPreferredWidth(0);
+                tc.setMinWidth(0);
+                tc.setMaxWidth(0);
+            }
+        }
+    }
+
+    /**
      * 隐藏table中的某一列
      *
      * @param jtable
-     * @param columnIndex
+     * @param columnTitle
      */
-    public static void hideColumn(JTable jtable, int columnIndex) {
-        TableColumn tc = jtable.getColumnModel().getColumn(columnIndex);
-        tc.setWidth(0);
+    public static void hideColumn(JTable jtable, String columnTitle) {
+        TableColumn tc = jtable.getColumn(columnTitle);
         tc.setMinWidth(0);
         tc.setMaxWidth(0);
         tc.setPreferredWidth(0);
-        jtable.getTableHeader().getColumnModel().getColumn(columnIndex).setMaxWidth(0);
-        jtable.getTableHeader().getColumnModel().getColumn(columnIndex).setMinWidth(0);
     }
 
     /**
      * 将列表数据转换为JTable可以使用的二维数组
+     *
      * @param list
      * @param columns
      * @return
      * @throws IllegalAccessException
      * @throws InvocationTargetException
-     * @throws NoSuchMethodException 
+     * @throws NoSuchMethodException
      */
-    public static Object[][] List2TableData(List list,ArrayList<MyTableColumn> columns) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+    public static Object[][] List2TableData(List list, ArrayList<MyTableColumn> columns) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
         Object[][] data = new Object[list.size()][columns.size()];
         for (int i = 0; i < list.size(); i++) {
             for (int c = 0; c < columns.size(); c++) {
@@ -89,8 +110,10 @@ public class UITools {
                         data[i][c] = MethodUtils.invokeMethod(DictEnum.getInstance(), "getDictDesc", new Object[]{col.getDictMap(), propValue});
                     } else {
                         data[i][c] = propValue;
+                        if (StringUtils.isNotEmpty(propValue) && col.getColumnType().getName().equals("java.lang.Integer")) {
+                            data[i][c] = Integer.valueOf(propValue);
+                        }
                     }
-
                 }
             }
         }

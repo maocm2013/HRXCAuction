@@ -152,13 +152,14 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         exportBton_c.setBounds(10, 50, 40, 40);
         checkLayeredPanel.add(exportBton_c, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        //隐藏第一列（主键）
-        UITools.hideColumn(dataTable_c, 1);
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(850, 400));
+
+        UITools.setTableProps(dataTable_c, MyTableConfig.BargainRecord.columns);
         //隐藏付款编号列
-        UITools.hideColumn(dataTable_c, 12);
+        UITools.hideColumn(dataTable_c, "付款编号");
         jScrollPane1.setViewportView(dataTable_c);
 
-        jScrollPane1.setBounds(0, 94, 850, 400);
+        jScrollPane1.setBounds(0, 94, 1060, 480);
         checkLayeredPanel.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTabbedPane1.addTab("成交复核", checkLayeredPanel);
@@ -214,13 +215,12 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         exportBton_s.setBounds(10, 50, 40, 40);
         settleLayeredPane.add(exportBton_s, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        //隐藏第一列（主键）
-        UITools.hideColumn(dataTable_s, 1);
+        UITools.setTableProps(dataTable_s, MyTableConfig.BargainRecord.columns);
         //隐藏付款编号列
-        UITools.hideColumn(dataTable_s, 12);
+        UITools.hideColumn(dataTable_s, "付款编号");
         settleListDataPane.setViewportView(dataTable_s);
 
-        settleListDataPane.setBounds(0, 94, 850, 400);
+        settleListDataPane.setBounds(0, 94, 1060, 480);
         settleLayeredPane.add(settleListDataPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTabbedPane1.addTab("款项结算", settleLayeredPane);
@@ -270,11 +270,10 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         exportBton_p.setBounds(10, 50, 40, 40);
         paymentLayeredPane.add(exportBton_p, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        //隐藏第一列（主键）
-        UITools.hideColumn(dataTable_p, 1);
+        UITools.setTableProps(dataTable_p, MyTableConfig.PaymentList.columns);
         jScrollPane2.setViewportView(dataTable_p);
 
-        jScrollPane2.setBounds(0, 94, 850, 400);
+        jScrollPane2.setBounds(0, 94, 1060, 480);
         paymentLayeredPane.add(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         settleListPrintBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/print.png"))); // NOI18N
@@ -315,8 +314,8 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         depositLayeredPane.add(jXLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         lb_paddleInfo.setText("号牌信息：");
-        lb_paddleInfo.setFont(new java.awt.Font("黑体", 0, 14)); // NOI18N
-        lb_paddleInfo.setBounds(20, 60, 420, 200);
+        lb_paddleInfo.setFont(new java.awt.Font("黑体", 0, 16)); // NOI18N
+        lb_paddleInfo.setBounds(20, 60, 440, 210);
         depositLayeredPane.add(lb_paddleInfo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         backCashDepositBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/undo.png"))); // NOI18N
@@ -433,7 +432,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
             
             StringBuilder sb = new StringBuilder();
             sb.append("<html>");
-            sb.append("号牌信息：<br>");
+            sb.append("******号牌信息******<br>");
             sb.append("姓名：" + paddleInfo.getCustName() + "<br>");
             sb.append("证件类型：" + paddleInfo.getCertType() + "<br>");
             sb.append("地址：" + paddleInfo.getCustAddr() + "<br>");

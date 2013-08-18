@@ -62,9 +62,9 @@ public class MyTableConfig {
         public static final ArrayList<MyTableColumn> columns = new ArrayList<MyTableColumn>();
 
         static {
-            columns.add(new MyTableColumn("选择", java.lang.Boolean.class, ""));
-            columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId"));
-            columns.add(new MyTableColumn("序号", java.lang.Integer.class, ""));
+            columns.add(new MyTableColumn("选择", java.lang.Boolean.class, "",50));
+            columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId",true));
+            columns.add(new MyTableColumn("序号", java.lang.Integer.class, "",50));
             columns.add(new MyTableColumn("竞买号牌", java.lang.String.class, "paddleNo"));
             columns.add(new MyTableColumn("竞买人姓名", java.lang.String.class, "custName"));
             columns.add(new MyTableColumn("证件类型", java.lang.String.class, "certType"));
@@ -88,9 +88,9 @@ public class MyTableConfig {
         public static final ArrayList<MyTableColumn> columns = new ArrayList<MyTableColumn>();
 
         static {
-            columns.add(new MyTableColumn("选择", java.lang.Boolean.class, ""));
-            columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId"));
-            columns.add(new MyTableColumn("序号", java.lang.Integer.class, ""));
+            columns.add(new MyTableColumn("选择", java.lang.Boolean.class, "",50));
+            columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId",true));
+            columns.add(new MyTableColumn("序号", java.lang.Integer.class, "",50));
             columns.add(new MyTableColumn("项目编号", java.lang.String.class, "projectNo"));
             columns.add(new MyTableColumn("项目名称", java.lang.String.class, "projectName"));
 
@@ -106,9 +106,9 @@ public class MyTableConfig {
         public static final ArrayList<MyTableColumn> columns = new ArrayList<MyTableColumn>();
 
         static {
-            columns.add(new MyTableColumn("选择", java.lang.Boolean.class, ""));
-            columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId"));
-            columns.add(new MyTableColumn("序号", java.lang.Integer.class, ""));
+            columns.add(new MyTableColumn("选择", java.lang.Boolean.class, "",50));
+            columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId",true));
+            columns.add(new MyTableColumn("序号", java.lang.Integer.class, "",50));
             columns.add(new MyTableColumn("委托方编号", java.lang.String.class, "clientNo"));
             columns.add(new MyTableColumn("委托方名称", java.lang.String.class, "clientName"));
         }
@@ -119,9 +119,9 @@ public class MyTableConfig {
         public static final ArrayList<MyTableColumn> columns = new ArrayList<MyTableColumn>();
 
         static {
-            columns.add(new MyTableColumn("选择", java.lang.Boolean.class, ""));
-            columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId"));
-            columns.add(new MyTableColumn("序号", java.lang.Integer.class, ""));
+            columns.add(new MyTableColumn("选择", java.lang.Boolean.class, "",50));
+            columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId",true));
+            columns.add(new MyTableColumn("序号", java.lang.Integer.class, "",50));
             columns.add(new MyTableColumn("图录号", java.lang.String.class, "goodsNo"));
             columns.add(new MyTableColumn("拍品名称", java.lang.String.class, "goodsName"));
             columns.add(new MyTableColumn("完残度", java.lang.String.class, "goodsIntact"));
@@ -140,9 +140,9 @@ public class MyTableConfig {
         public static final ArrayList<MyTableColumn> columns = new ArrayList<MyTableColumn>();
 
         static {
-            columns.add(new MyTableColumn("选择", java.lang.Boolean.class, ""));
-            columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId"));
-            columns.add(new MyTableColumn("序号", java.lang.Integer.class, ""));
+            columns.add(new MyTableColumn("选择", java.lang.Boolean.class, "",50));
+            columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId",true));
+            columns.add(new MyTableColumn("序号", java.lang.Integer.class, "",50));
             columns.add(new MyTableColumn("竞买号牌", java.lang.String.class, "paddleNo"));
             columns.add(new MyTableColumn("图录号", java.lang.String.class, "goodsNo"));
             columns.add(new MyTableColumn("成交确认书编号", java.lang.String.class, "bargainConfirmNo"));
@@ -166,9 +166,9 @@ public class MyTableConfig {
         public static final ArrayList<MyTableColumn> columns = new ArrayList<MyTableColumn>();
 
         static {
-            columns.add(new MyTableColumn("选择", java.lang.Boolean.class, ""));
-            columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId"));
-            columns.add(new MyTableColumn("序号", java.lang.Integer.class, ""));
+            columns.add(new MyTableColumn("选择", java.lang.Boolean.class, "",50));
+            columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId",true));
+            columns.add(new MyTableColumn("序号", java.lang.Integer.class, "",50));
             columns.add(new MyTableColumn("付款编号", java.lang.String.class, "paymentNo"));
             columns.add(new MyTableColumn("项目编号", java.lang.String.class, "projectNo"));
             columns.add(new MyTableColumn("号牌编号", java.lang.String.class, "paddleNo"));

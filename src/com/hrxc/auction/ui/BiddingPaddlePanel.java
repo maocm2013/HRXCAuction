@@ -130,8 +130,7 @@ public class BiddingPaddlePanel extends javax.swing.JPanel {
         });
         toolBar.add(paddleInfoPrintBton);
 
-        //隐藏第一列（主键）
-        UITools.hideColumn(dataTable, 1);
+        UITools.setTableProps(dataTable, MyTableConfig.BiddingPaddle.columns);
         jScrollPane1.setViewportView(dataTable);
 
         jXLabel1.setText("竞买号牌：");

@@ -116,8 +116,7 @@ public class BargainRecordPanel extends javax.swing.JPanel {
         });
         toolBar.add(exortBton);
 
-        //隐藏第一列（主键）
-        UITools.hideColumn(dataTable, 1);
+        UITools.setTableProps(dataTable, MyTableConfig.BargainRecord.columns);
         jScrollPane1.setViewportView(dataTable);
 
         jXLabel1.setText("竞买号牌：");

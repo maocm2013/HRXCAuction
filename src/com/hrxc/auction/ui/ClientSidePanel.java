@@ -116,8 +116,7 @@ public class ClientSidePanel extends javax.swing.JPanel {
         });
         toolBar.add(exortBton);
 
-        //隐藏第一列（主键）
-        UITools.hideColumn(dataTable, 1);
+        UITools.setTableProps(dataTable, MyTableConfig.ClientSide.columns);
         jScrollPane1.setViewportView(dataTable);
 
         jXLabel1.setText("委托方编号：");
