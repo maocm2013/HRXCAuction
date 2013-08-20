@@ -197,7 +197,9 @@
           <Image iconType="3" name="/search.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&#x67e5;&#x8be2;"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="null" type="code"/>
+        </Property>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <Events>

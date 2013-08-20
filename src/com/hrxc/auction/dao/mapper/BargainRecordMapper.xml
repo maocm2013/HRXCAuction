@@ -14,61 +14,65 @@
         <result column="PROJECT_NO" property="projectNo"></result> 
         <result column="SETTLE_STATE" property="settleState"></result> 
         <result column="PAYMENT_NO" property="paymentNo"></result> 
+        <result column="GOODS_NAME" property="goodsName"></result>
+        <result column="CLIENT_NO" property="clientNo"></result>
     </resultMap> 
     <sql id="findAllWhere">
         <where> 
             <if test="pkId!= null and pkId!= ''"> 
-                AND PK_ID=#{pkId} 
+                AND a.PK_ID=#{pkId} 
             </if> 
             <if test="paddleNo!= null and paddleNo!= ''"> 
-                AND PADDLE_NO=#{paddleNo} 
+                AND a.PADDLE_NO=#{paddleNo} 
             </if> 
             <if test="goodsNo!= null and goodsNo!= ''"> 
-                AND GOODS_NO=#{goodsNo} 
+                AND a.GOODS_NO=#{goodsNo} 
             </if> 
             <if test="bargainConfirmNo!= null and bargainConfirmNo!= ''"> 
-                AND BARGAIN_CONFIRM_NO=#{bargainConfirmNo} 
+                AND a.BARGAIN_CONFIRM_NO=#{bargainConfirmNo} 
             </if> 
             <if test="hammerPrice!= null"> 
-                AND HAMMER_PRICE=#{hammerPrice} 
+                AND a.HAMMER_PRICE=#{hammerPrice} 
             </if> 
             <if test="commission!= null"> 
-                AND COMMISSION=#{commission} 
+                AND a.COMMISSION=#{commission} 
             </if> 
             <if test="otherFund!= null"> 
-                AND OTHER_FUND=#{otherFund} 
+                AND a.OTHER_FUND=#{otherFund} 
             </if> 
             <if test="bargainPrice!= null"> 
-                AND BARGAIN_PRICE=#{bargainPrice} 
+                AND a.BARGAIN_PRICE=#{bargainPrice} 
             </if> 
             <if test="projectNo!= null and projectNo!= ''"> 
-                AND PROJECT_NO=#{projectNo} 
+                AND a.PROJECT_NO=#{projectNo} 
             </if> 
             <if test="settleState!= null and settleState!= ''"> 
-                AND SETTLE_STATE=#{settleState} 
+                AND a.SETTLE_STATE=#{settleState} 
             </if> 
             <if test="paymentNo!= null and paymentNo!= ''"> 
-                AND PAYMENT_NO=#{paymentNo} 
+                AND a.PAYMENT_NO=#{paymentNo} 
             </if> 
         </where>
     </sql>
     
     <select id="getAllObjectInfo" resultMap="BargainRecordResultMap" parameterType="BargainRecordVo"> 
         SELECT 
-        PK_ID,
-        PADDLE_NO, 
-        GOODS_NO,
-        BARGAIN_CONFIRM_NO,
-        HAMMER_PRICE,
-        COMMISSION,
-        OTHER_FUND,
-        BARGAIN_PRICE, 
-        PROJECT_NO,
-        SETTLE_STATE, 
-        PAYMENT_NO
-        FROM BARGAIN_RECORD 
+        a.PK_ID,
+        a.PADDLE_NO, 
+        a.GOODS_NO,
+        a.BARGAIN_CONFIRM_NO,
+        a.HAMMER_PRICE,
+        a.COMMISSION,
+        a.OTHER_FUND,
+        a.BARGAIN_PRICE, 
+        a.PROJECT_NO,
+        a.SETTLE_STATE, 
+        a.PAYMENT_NO,
+        b.GOODS_NAME,
+        b.CLIENT_NO
+        FROM BARGAIN_RECORD a LEFT JOIN GOODS_LIST b on a.PROJECT_NO=b.PROJECT_NO and a.GOODS_NO=b.GOODS_NO
         <include refid="findAllWhere"/>  
-        ORDER BY PADDLE_NO,GOODS_NO
+        ORDER BY a.GOODS_NO
     </select> 
     
     <insert id="insertObject" parameterType="BargainRecord"> 

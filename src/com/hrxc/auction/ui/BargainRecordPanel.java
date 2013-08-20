@@ -125,7 +125,7 @@ public class BargainRecordPanel extends javax.swing.JPanel {
 
         searchBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
         searchBton.setText("查询");
-        searchBton.setToolTipText("");
+        searchBton.setToolTipText(null);
         searchBton.setFocusable(false);
         searchBton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

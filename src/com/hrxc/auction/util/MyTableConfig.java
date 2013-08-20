@@ -143,10 +143,12 @@ public class MyTableConfig {
             columns.add(new MyTableColumn("选择", java.lang.Boolean.class, "",50));
             columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId",true));
             columns.add(new MyTableColumn("序号", java.lang.Integer.class, "",50));
-            columns.add(new MyTableColumn("竞买号牌", java.lang.String.class, "paddleNo"));
+            columns.add(new MyTableColumn("委托方编号", java.lang.String.class, "clientNo"));
             columns.add(new MyTableColumn("图录号", java.lang.String.class, "goodsNo"));
+            columns.add(new MyTableColumn("拍品名称", java.lang.String.class, "goodsName"));
             columns.add(new MyTableColumn("成交确认书编号", java.lang.String.class, "bargainConfirmNo"));
-            columns.add(new MyTableColumn("落锤价", java.lang.Integer.class, "hammerPrice"));
+            columns.add(new MyTableColumn("竞买号牌", java.lang.String.class, "paddleNo"));
+            columns.add(new MyTableColumn("落槌价", java.lang.Integer.class, "hammerPrice"));
             columns.add(new MyTableColumn("佣金", java.lang.Integer.class, "commission"));
             columns.add(new MyTableColumn("其他款项", java.lang.Integer.class, "otherFund"));
             columns.add(new MyTableColumn("总成交价", java.lang.Integer.class, "bargainPrice"));

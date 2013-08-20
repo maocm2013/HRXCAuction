@@ -115,7 +115,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
 
         searchBton_c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
         searchBton_c.setText("查询");
-        searchBton_c.setToolTipText("");
+        searchBton_c.setToolTipText(null);
         searchBton_c.setFocusable(false);
         searchBton_c.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +127,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
 
         toSettleBton_c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finish.png"))); // NOI18N
         toSettleBton_c.setText("成交复核");
-        toSettleBton_c.setToolTipText("修改");
+        toSettleBton_c.setToolTipText(null);
         toSettleBton_c.setFocusable(false);
         toSettleBton_c.setPreferredSize(new java.awt.Dimension(40, 40));
         toSettleBton_c.addActionListener(new java.awt.event.ActionListener() {
@@ -178,7 +178,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
 
         searchBton_s.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
         searchBton_s.setText("查询");
-        searchBton_s.setToolTipText("");
+        searchBton_s.setToolTipText(null);
         searchBton_s.setFocusable(false);
         searchBton_s.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,7 +190,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
 
         toSettleBton_s.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finish.png"))); // NOI18N
         toSettleBton_s.setText("款项结算");
-        toSettleBton_s.setToolTipText("修改");
+        toSettleBton_s.setToolTipText(null);
         toSettleBton_s.setFocusable(false);
         toSettleBton_s.setPreferredSize(new java.awt.Dimension(40, 40));
         toSettleBton_s.addActionListener(new java.awt.event.ActionListener() {
@@ -233,7 +233,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
 
         searchBton_p.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
         searchBton_p.setText("查询");
-        searchBton_p.setToolTipText("");
+        searchBton_p.setToolTipText(null);
         searchBton_p.setFocusable(false);
         searchBton_p.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,7 +245,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
 
         undoSettleBton_p.setIcon(new javax.swing.ImageIcon(getClass().getResource("/undo.png"))); // NOI18N
         undoSettleBton_p.setText("撤销结算");
-        undoSettleBton_p.setToolTipText("修改");
+        undoSettleBton_p.setToolTipText(null);
         undoSettleBton_p.setFocusable(false);
         undoSettleBton_p.setPreferredSize(new java.awt.Dimension(40, 40));
         undoSettleBton_p.addActionListener(new java.awt.event.ActionListener() {
@@ -297,7 +297,7 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
 
         searchBton_d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
         searchBton_d.setText("查询");
-        searchBton_d.setToolTipText("");
+        searchBton_d.setToolTipText("null");
         searchBton_d.setFocusable(false);
         searchBton_d.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

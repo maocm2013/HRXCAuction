@@ -119,7 +119,7 @@ public class BiddingRecordPrintPanel extends AbstractPrintPanel {
         int x_coord_bargainPrice = 460;
         g2.drawString(getFontedAttributedString(titleFont_10,"图录号"), x_coord_paddleNo, y_coord);
         g2.drawString(getFontedAttributedString(titleFont_10,"名称"), x_coord_paddleName, y_coord);
-        g2.drawString(getFontedAttributedString(titleFont_10,"落锤价（元）"), x_coord_hammerPrice, y_coord);
+        g2.drawString(getFontedAttributedString(titleFont_10,"落槌价（元）"), x_coord_hammerPrice, y_coord);
         g2.drawString(getFontedAttributedString(titleFont_10,"佣金（元）"), x_coord_commission, y_coord);
         g2.drawString(getFontedAttributedString(titleFont_10,"其他费用（元）"), x_coord_otherFund, y_coord);
         g2.drawString(getFontedAttributedString(titleFont_10,"合计（元）"), x_coord_bargainPrice, y_coord);
