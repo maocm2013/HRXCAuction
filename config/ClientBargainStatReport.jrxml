@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bargainRecordCollectReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="abec4ad2-0b73-480e-99eb-928a580ab053">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="tableDataSet01" uuid="59fd5907-f9e1-4581-ac97-181220eb1ca8">
+		<parameter name="projectNo" class="java.lang.String">
+			<defaultValueExpression><![CDATA[$P{projectNo}]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[select a.CLIENT_NO as clientNo,count(a.PK_ID) as goodsNum,count(b.PK_ID) as bargainGoodsNUm,
+    sum(a.KEEP_PRICE) as keepPriceSum,sum(b.BARGAIN_PRICE) as bargainPriceSum
+from GOODS_LIST a left join BARGAIN_RECORD b
+on a.PROJECT_NO=b.PROJECT_NO and a.GOODS_NO=b.GOODS_NO
+where a.project_no=$P{projectNo}
+group by a.CLIENT_NO]]>
+		</queryString>
+		<field name="CLIENTNO" class="java.lang.String"/>
+		<field name="GOODSNUM" class="java.lang.Integer"/>
+		<field name="BARGAINGOODSNUM" class="java.lang.Integer"/>
+		<field name="KEEPPRICESUM" class="java.lang.Integer"/>
+		<field name="BARGAINPRICESUM" class="java.lang.Integer"/>
+		<variable name="v_goodsNum_total" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{GOODSNUM}]]></variableExpression>
+		</variable>
+		<variable name="v_bargainGoodsNum_total" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{BARGAINGOODSNUM}]]></variableExpression>
+		</variable>
+		<variable name="v_keepPriceSum_total" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{KEEPPRICESUM}]]></variableExpression>
+		</variable>
+		<variable name="v_bargainPriceSum_total" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{BARGAINPRICESUM}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="projectNo" class="java.lang.String">
+		<parameterDescription><![CDATA[项目编号]]></parameterDescription>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from bargain_record]]>
+	</queryString>
+	<field name="PK_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PADDLE_NO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="GOODS_NO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="BARGAIN_CONFIRM_NO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="HAMMER_PRICE" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="COMMISSION" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="OTHER_FUND" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="BARGAIN_PRICE" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PROJECT_NO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SETTLE_STATE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PAYMENT_NO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="d07c03f1-9cea-473a-8a2b-98c3ad462790" x="95" y="12" width="352" height="28"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="黑体" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[委托方成交统计表]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="214" splitType="Stretch">
+			<componentElement>
+				<reportElement uuid="dce74753-6c45-4eab-bf88-7488c29170bf" key="table" style="table" mode="Opaque" x="44" y="30" width="468" height="145"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="tableDataSet01" uuid="337ca741-3d18-44b5-897e-7c5e490eac70">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="350f241c-a9d7-4b36-95ba-16afc6721504">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="a9759656-65a0-4dc9-bd89-99b2089a165d" mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#000000" backcolor="#CCCCCC"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="黑体" isBold="true"/>
+								</textElement>
+								<text><![CDATA[委托方编号]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="f65d5e2a-b411-4d8e-a8f7-5ef1efade6dd" mode="Opaque" x="0" y="0" width="90" height="30" backcolor="#FFFFFF"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="黑体" isBold="true"/>
+								</textElement>
+								<text><![CDATA[合计]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement uuid="1def76a8-48e6-4265-9cf4-a6227044cca9" mode="Opaque" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{CLIENTNO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="c1a5a6df-3239-42eb-bb63-b2f8ea438117">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="46d2cdde-7a16-4b1c-92b1-0e50df78bd44" mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#000000" backcolor="#CCCCCC"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="黑体" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<text><![CDATA[拍品数量]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_CH" height="30" rowSpan="1">
+							<textField pattern="#,##0" isBlankWhenNull="false">
+								<reportElement uuid="771a5362-265a-435e-9dff-ea9a6ec9f628" mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{v_goodsNum_total}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField pattern="#,##0">
+								<reportElement uuid="c9596630-20ec-43e3-8f84-5f28e754099e" mode="Opaque" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{GOODSNUM}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="b0a7b573-5a12-47b5-a785-b2dd3d910c0a">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="fa98eb6f-b2e5-467b-b48a-646a8a37939f" mode="Opaque" x="0" y="0" width="90" height="30" backcolor="#CCCCCC"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle">
+									<font fontName="黑体" isBold="true" isItalic="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<text><![CDATA[成交数量]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_CH" height="30" rowSpan="1">
+							<textField pattern="#,##0" isBlankWhenNull="false">
+								<reportElement uuid="0157066f-9d05-4cea-87e2-24ac527e080c" mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{v_bargainGoodsNum_total}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField pattern="#,##0" isBlankWhenNull="false">
+								<reportElement uuid="419aec7f-b33a-460c-bc5a-0f75528a4e8b" mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{BARGAINGOODSNUM}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="2f78badc-e141-475a-a618-05683d953acf">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="032a5ff7-b7ee-43d1-89db-8dc7ce8a5ae1" mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#000000" backcolor="#CCCCCC"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="黑体" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<text><![CDATA[总保底价]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<textField pattern="#,##0" isBlankWhenNull="false">
+								<reportElement uuid="ea18b981-30ca-438d-8e0b-39122db46008" style="table_TH" mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{v_keepPriceSum_total}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField pattern="#,##0" isBlankWhenNull="false">
+								<reportElement uuid="9e4b8a9b-9318-424e-a377-46f61861412f" style="table_TH" mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{KEEPPRICESUM}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="50d1129e-5e5f-45d5-afc9-5525def85c0f">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="f7b0fb9c-13c8-4076-989c-3cfbccb628ee" mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#000000" backcolor="#CCCCCC"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="黑体" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<text><![CDATA[总成交额]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter height="30" rowSpan="1">
+							<textField pattern="#,##0" isBlankWhenNull="false">
+								<reportElement uuid="a939534b-8f9a-49e8-98d3-23e99e6f8f1a" style="table_TH" mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{v_bargainPriceSum_total}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField pattern="#,##0" isBlankWhenNull="false">
+								<reportElement uuid="a81fdb62-5562-415d-9a04-ea7c37651398" style="table_TH" mode="Opaque" x="0" y="0" width="90" height="30" forecolor="#000000" backcolor="#FFFFFF"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" markup="none">
+									<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+									<paragraph lineSpacing="Single"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{BARGAINPRICESUM}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

@@ -53,6 +53,10 @@ public class TreeMenuConfig {
          * M_09_00_04-款项结算
          */
         public static final String M_09_00_04 = "款项结算";
+        /**
+         * M_09_00_05-款项结算
+         */
+        public static final String M_09_00_05 = "报表统计";
     }
 
     /**
@@ -100,10 +104,14 @@ public class TreeMenuConfig {
                 TreeMenuObject menu_09_00_04 = new TreeMenuObject(projectNo, MenuName.M_09_00_04);
                 DefaultMutableTreeNode m090004 = new DefaultMutableTreeNode(menu_09_00_04);
 
+                TreeMenuObject menu_09_00_05 = new TreeMenuObject(projectNo, MenuName.M_09_00_05);
+                DefaultMutableTreeNode m090005 = new DefaultMutableTreeNode(menu_09_00_05);
+
                 m0900.add(m090001);
                 m0900.add(m090002);
                 m0900.add(m090003);
                 m0900.add(m090004);
+                m0900.add(m090005);
             }
         }
         root.add(m09);
