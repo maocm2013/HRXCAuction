@@ -27,15 +27,16 @@
 		</box>
 	</style>
 	<subDataset name="tableDataSet01" uuid="59fd5907-f9e1-4581-ac97-181220eb1ca8">
-		<parameter name="projectNo" class="java.lang.String">
-			<defaultValueExpression><![CDATA[$P{projectNo}]]></defaultValueExpression>
+		<parameter name="projectNo" class="java.lang.String" isForPrompting="false">
+			<defaultValueExpression><![CDATA[$P{REPORT_CONTEXT}.getParameterValue( "p_projectNo" )]]></defaultValueExpression>
 		</parameter>
 		<queryString>
 			<![CDATA[select a.CLIENT_NO as clientNo,count(a.PK_ID) as goodsNum,count(b.PK_ID) as bargainGoodsNUm,
     sum(a.KEEP_PRICE) as keepPriceSum,sum(b.BARGAIN_PRICE) as bargainPriceSum
 from GOODS_LIST a left join BARGAIN_RECORD b
 on a.PROJECT_NO=b.PROJECT_NO and a.GOODS_NO=b.GOODS_NO
-where a.project_no=$P{projectNo}
+where 1=1
+and a.project_no=$P{projectNo}
 group by a.CLIENT_NO]]>
 		</queryString>
 		<field name="CLIENTNO" class="java.lang.String"/>
@@ -56,9 +57,6 @@ group by a.CLIENT_NO]]>
 			<variableExpression><![CDATA[$F{BARGAINPRICESUM}]]></variableExpression>
 		</variable>
 	</subDataset>
-	<parameter name="projectNo" class="java.lang.String">
-		<parameterDescription><![CDATA[项目编号]]></parameterDescription>
-	</parameter>
 	<queryString>
 		<![CDATA[select * from bargain_record]]>
 	</queryString>

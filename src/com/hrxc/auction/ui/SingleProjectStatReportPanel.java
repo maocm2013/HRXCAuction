@@ -4,9 +4,13 @@ import com.hrxc.auction.util.JdbcUtil;
 import java.awt.Graphics2D;
 import java.io.File;
 import java.util.HashMap;
+import java.util.Map;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReportsContext;
+import net.sf.jasperreports.engine.ReportContext;
+import net.sf.jasperreports.engine.SimpleJasperReportsContext;
 import net.sf.jasperreports.engine.export.JRGraphics2DExporter;
 import net.sf.jasperreports.engine.export.JRGraphics2DExporterParameter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
@@ -162,6 +166,11 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
                     (Graphics2D) reportPanel.getGraphics());
             exporter_gui.setParameter(
                     JRExporterParameter.JASPER_PRINT, print);
+            
+            JasperReportsContext context = new SimpleJasperReportsContext();
+            context.setProperty("p_projectNo", "20130901-001");
+            exporter_gui.setJasperReportsContext(context);
+            
             exporter_gui.exportReport();
         } catch (Exception ex) {
             log.error("error:", ex);
