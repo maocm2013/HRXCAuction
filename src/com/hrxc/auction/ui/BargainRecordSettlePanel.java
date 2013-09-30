@@ -11,6 +11,7 @@ import com.hrxc.auction.domain.vo.BargainRecordVo;
 import com.hrxc.auction.domain.vo.PaymentListVo;
 import com.hrxc.auction.util.Constant;
 import com.hrxc.auction.util.DictEnum;
+import com.hrxc.auction.util.DictEnum.SettleState;
 import com.hrxc.auction.util.ExcelHelper;
 import com.hrxc.auction.util.MyTableConfig;
 import com.hrxc.auction.util.UITools;
@@ -440,7 +441,23 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
             sb.append("联系电话：" + paddleInfo.getCustTel() + "<br>");
             sb.append("保证金：" + paddleInfo.getCashDeposit() + "<br>");
             sb.append("保证金使用状态：" + DictEnum.getDictDesc(DictEnum.CashDepositState.dataMap, paddleInfo.getCashDepositState()) + "<br>");
-            sb.append("保证金付款编号：" + StringUtils.trimToEmpty(paddleInfo.getCashDepositPaymentNo()));
+            sb.append("保证金付款编号：" + StringUtils.trimToEmpty(paddleInfo.getCashDepositPaymentNo()) + "<br>");
+            
+            //计算成交记录数与未结算成交记录数
+            List<BargainRecord> list = BargainRecordAction.getBargainRecordListByPaddleNo(this.getProjectNo(),paddleNo);
+            int bargainRecordNum = 0;
+            int noSettleBargainRecordNum = 0;
+            if(list != null && list.size() >0){
+                bargainRecordNum = list.size();
+                for(int i = 0; i < list.size(); i++){
+                    BargainRecord record = list.get(i);
+                    if(!record.getSettleState().equals(SettleState.SETTLED)){
+                        noSettleBargainRecordNum++;
+                    }
+                }
+            }
+            sb.append("成交记录总数：" + bargainRecordNum + "<br>");
+            sb.append("未结算成交记录数：" + noSettleBargainRecordNum);
             sb.append("</html>");
             lb_paddleInfo.setText(sb.toString());
             
