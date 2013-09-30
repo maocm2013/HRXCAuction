@@ -65,13 +65,15 @@ public class MyTestExample {
         }
     }
 
-    //@Test
+    @Test
     public void testReport() throws InterruptedException, SQLException {
         String rootPath = System.getProperty("user.dir").concat(File.separator).concat("config").concat(File.separator);
 
         String fileName = rootPath + "bargainRecordCollectReport.jasper";
         String outFileName = "E:\\nb_project\\HRXCAuction\\dist\\bargainRecordCollectReport.xls";
+        //设置参数
         HashMap hm = new HashMap();
+        hm.put("t_projectNo", "20130901-001");
         try {
             JasperPrint print = JasperFillManager.fillReport(
                     fileName,
@@ -237,7 +239,7 @@ public class MyTestExample {
         return property;
     }
     
-    @Test
+    //@Test
     public void simpleTest(){
         System.out.println(DateFormatUtils.format(new java.util.Date(), "yyyyMMddHHmmss"));
     }
