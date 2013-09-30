@@ -69,9 +69,10 @@ public class MyTestExample {
     public void testReport() throws InterruptedException, SQLException {
         String rootPath = System.getProperty("user.dir").concat(File.separator).concat("config").concat(File.separator);
 
-        String fileName = rootPath + "ClientBargainStatReport.jasper";
+        String fileName = rootPath + "bargainRecordCollectReport.jasper";
         String outFileName = "E:\\my_workspace\\nb_project\\HRXCAuction\\dist\\bargainRecordCollectReport.xls";
         HashMap hm = new HashMap();
+        hm.put("t_projectNo", "20130901-001");
         try {
             JasperPrint print = JasperFillManager.fillReport(
                     fileName,

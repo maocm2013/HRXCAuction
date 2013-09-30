@@ -4,13 +4,10 @@ import com.hrxc.auction.util.JdbcUtil;
 import java.awt.Graphics2D;
 import java.io.File;
 import java.util.HashMap;
-import java.util.Map;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReportsContext;
-import net.sf.jasperreports.engine.ReportContext;
-import net.sf.jasperreports.engine.SimpleJasperReportsContext;
 import net.sf.jasperreports.engine.export.JRGraphics2DExporter;
 import net.sf.jasperreports.engine.export.JRGraphics2DExporterParameter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
@@ -45,10 +42,10 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         checkLayeredPanel = new javax.swing.JLayeredPane();
         exportBton = new org.jdesktop.swingx.JXButton();
-        reportPanel = new javax.swing.JPanel();
         showBton = new org.jdesktop.swingx.JXButton();
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
         fd_filePath = new org.jdesktop.swingx.JXTextField();
+        reportPanel = new javax.swing.JScrollPane();
 
         setPreferredSize(new java.awt.Dimension(702, 443));
 
@@ -65,20 +62,6 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
         });
         exportBton.setBounds(140, 0, 130, 41);
         checkLayeredPanel.add(exportBton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout reportPanelLayout = new javax.swing.GroupLayout(reportPanel);
-        reportPanel.setLayout(reportPanelLayout);
-        reportPanelLayout.setHorizontalGroup(
-            reportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        reportPanelLayout.setVerticalGroup(
-            reportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
-        );
-
-        reportPanel.setBounds(0, 50, 700, 360);
-        checkLayeredPanel.add(reportPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         showBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
         showBton.setText("显示报表");
@@ -97,9 +80,14 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
         checkLayeredPanel.add(jXLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         fd_filePath.setEditable(false);
-        fd_filePath.setText("C:\\\\ClientBargainStatReport.xls");
+        fd_filePath.setText("C:\\\\bargainRecordCollectReport.xls");
         fd_filePath.setBounds(340, 10, 300, 30);
         checkLayeredPanel.add(fd_filePath, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        reportPanel.setMinimumSize(new java.awt.Dimension(700, 360));
+        reportPanel.setPreferredSize(new java.awt.Dimension(700, 360));
+        reportPanel.setBounds(0, 50, 700, 360);
+        checkLayeredPanel.add(reportPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTabbedPane1.addTab("委托方成交统计", checkLayeredPanel);
 
@@ -123,16 +111,21 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
         showReport();
     }//GEN-LAST:event_showBtonActionPerformed
 
-    private void exportReport() {
+    private JasperPrint initReportContext() throws JRException {
         String rootPath = System.getProperty("user.dir").concat(File.separator).concat("config").concat(File.separator);
-        String fileName = rootPath + "ClientBargainStatReport.jasper";
+        String fileName = rootPath + "bargainRecordCollectReport.jasper";
         HashMap hm = new HashMap();
-        try {
-            JasperPrint print = JasperFillManager.fillReport(
+        hm.put("t_projectNo", this.projectNo);
+        JasperPrint print  = JasperFillManager.fillReport(
                     fileName,
                     hm,
                     JdbcUtil.getInstance().getSession().getConnection());
+        return print;
+    }
 
+    private void exportReport() {
+        try {
+            JasperPrint print = initReportContext();
 
             //将报表数据输出至Excel中
             JRXlsExporter exporter_xls = new JRXlsExporter();
@@ -148,15 +141,8 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
     }
 
     private void showReport() {
-        String rootPath = System.getProperty("user.dir").concat(File.separator).concat("config").concat(File.separator);
-        String fileName = rootPath + "ClientBargainStatReport.jasper";
-        HashMap hm = new HashMap();
         try {
-            JasperPrint print = JasperFillManager.fillReport(
-                    fileName,
-                    hm,
-                    JdbcUtil.getInstance().getSession().getConnection());
-
+            JasperPrint print = initReportContext();
 
             //将报表数据输出至JFrame
             JRGraphics2DExporter exporter_gui = new JRGraphics2DExporter();
@@ -166,11 +152,7 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
                     (Graphics2D) reportPanel.getGraphics());
             exporter_gui.setParameter(
                     JRExporterParameter.JASPER_PRINT, print);
-            
-            JasperReportsContext context = new SimpleJasperReportsContext();
-            context.setProperty("p_projectNo", "20130901-001");
-            exporter_gui.setJasperReportsContext(context);
-            
+
             exporter_gui.exportReport();
         } catch (Exception ex) {
             log.error("error:", ex);
@@ -187,7 +169,7 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXTextField fd_filePath;
     private javax.swing.JTabbedPane jTabbedPane1;
     private org.jdesktop.swingx.JXLabel jXLabel1;
-    private javax.swing.JPanel reportPanel;
+    private javax.swing.JScrollPane reportPanel;
     private org.jdesktop.swingx.JXButton showBton;
     // End of variables declaration//GEN-END:variables
 }
