@@ -70,7 +70,8 @@ public class MyTestExample {
         String rootPath = System.getProperty("user.dir").concat(File.separator).concat("config").concat(File.separator);
 
         String fileName = rootPath + "bargainRecordCollectReport.jasper";
-        String outFileName = "E:\\my_workspace\\nb_project\\HRXCAuction\\dist\\bargainRecordCollectReport.xls";
+        String outFileName = "E:\\nb_project\\HRXCAuction\\dist\\bargainRecordCollectReport.xls";
+        //设置参数
         HashMap hm = new HashMap();
         hm.put("t_projectNo", "20130901-001");
         try {
