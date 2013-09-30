@@ -1,6 +1,7 @@
 package com.hrxc.auction.ui;
 
 import com.hrxc.auction.util.JdbcUtil;
+import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.io.File;
 import java.util.HashMap;
@@ -89,7 +90,7 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
         reportPanel.setBounds(0, 50, 700, 360);
         checkLayeredPanel.add(reportPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jTabbedPane1.addTab("委托方成交统计", checkLayeredPanel);
+        jTabbedPane1.addTab("成交信息统计", checkLayeredPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -146,7 +147,6 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
 
             //将报表数据输出至JFrame
             JRGraphics2DExporter exporter_gui = new JRGraphics2DExporter();
-
             exporter_gui.setParameter(
                     JRGraphics2DExporterParameter.GRAPHICS_2D,
                     (Graphics2D) reportPanel.getGraphics());

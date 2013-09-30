@@ -138,6 +138,8 @@ public class GoodsListEditDialog extends javax.swing.JDialog {
             GoodsListPanel panel = (GoodsListPanel) this.listDataPanel;
             fd_projectNo.setText(UITools.getBeanPropertyValue(dto, "projectNo",panel.getProjectNo()));
             fd_projectNo.setEditable(false);
+            fd_projectNo.setBackground(new java.awt.Color(204, 204, 204));
+            fd_projectNo.setFocusable(false);
 
             HashMap<String,String> dataMap = ClientSideAction.getAllClientInfo();
             fd_clientNo.setModel(UITools.getComboxValue(dataMap,false));

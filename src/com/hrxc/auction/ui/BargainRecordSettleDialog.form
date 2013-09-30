@@ -143,6 +143,10 @@
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_paddleNo">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_paddleNo.setText(UITools.getBeanPropertyValue(paddleInfo, &quot;paddleNo&quot;));"/>
@@ -156,6 +160,10 @@
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_paymentNo">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_paymentNo.setText(UITools.getBeanPropertyValue(paymentInfo, &quot;paymentNo&quot;));"/>
@@ -169,6 +177,10 @@
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_goodsNum">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_goodsNum.setText(UITools.getBeanPropertyValue(paymentInfo, &quot;goodsNum&quot;));"/>
@@ -182,6 +194,10 @@
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_totalAmount">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_totalAmount.setText(UITools.getBeanPropertyValue(paymentInfo, &quot;totalAmount&quot;));"/>
@@ -205,6 +221,10 @@
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_nonPayment">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_nonPayment.setText(UITools.getBeanPropertyValue(paymentInfo, &quot;nonPayment&quot;,&quot;0&quot;));"/>

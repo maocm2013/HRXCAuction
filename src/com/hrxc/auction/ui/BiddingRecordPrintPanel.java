@@ -13,7 +13,9 @@ import java.awt.Graphics2D;
 import java.awt.font.TextAttribute;
 import java.text.AttributedCharacterIterator;
 import java.text.AttributedString;
+import java.util.Date;
 import java.util.List;
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -71,7 +73,7 @@ public class BiddingRecordPrintPanel extends AbstractPrintPanel {
         g2.drawString("保证金（元）：￥".concat(dto.getCashDeposit().toString()), 10, 230);
 
         g2.drawString("竞买人签字：", 300, 270);
-        g2.drawString("日期：", 300, 310);
+        g2.drawString("日期：".concat(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss")), 300, 310);
     }
 
     /**

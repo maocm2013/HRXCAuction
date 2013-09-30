@@ -157,6 +157,8 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
         UITools.setTableProps(dataTable_c, MyTableConfig.BargainRecord.columns);
         //隐藏付款编号列
         UITools.hideColumn(dataTable_c, "付款编号");
+        UITools.hideColumn(dataTable_c, "委托方编号");
+        UITools.hideColumn(dataTable_c, "项目编号");
         jScrollPane1.setViewportView(dataTable_c);
 
         jScrollPane1.setBounds(0, 94, 1060, 480);
@@ -297,7 +299,6 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
 
         searchBton_d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
         searchBton_d.setText("查询");
-        searchBton_d.setToolTipText("null");
         searchBton_d.setFocusable(false);
         searchBton_d.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

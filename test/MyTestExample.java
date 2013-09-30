@@ -65,7 +65,7 @@ public class MyTestExample {
         }
     }
 
-    @Test
+    //@Test
     public void testReport() throws InterruptedException, SQLException {
         String rootPath = System.getProperty("user.dir").concat(File.separator).concat("config").concat(File.separator);
 
@@ -239,8 +239,9 @@ public class MyTestExample {
         return property;
     }
     
-    //@Test
+    @Test
     public void simpleTest(){
-        System.out.println(DateFormatUtils.format(new java.util.Date(), "yyyyMMddHHmmss"));
+        //System.out.println(DateFormatUtils.format(new java.util.Date(), "yyyyMMddHHmmss"));
+        System.out.println("date=" + DateFormatUtils.format(new java.util.Date(), "yyyy-MM-dd HH:mm:ss"));
     }
 }

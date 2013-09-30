@@ -73,21 +73,29 @@ public class BargainRecordSettleDialog extends javax.swing.JDialog {
 
         fd_paddleNo.setText(UITools.getBeanPropertyValue(paddleInfo, "paddleNo"));
         fd_paddleNo.setEditable(false);
+        fd_paddleNo.setBackground(new java.awt.Color(204, 204, 204));
+        fd_paddleNo.setFocusable(false);
 
         jXLabel2.setText("付款编号：");
 
         fd_paymentNo.setText(UITools.getBeanPropertyValue(paymentInfo, "paymentNo"));
         fd_paymentNo.setEditable(false);
+        fd_paymentNo.setBackground(new java.awt.Color(204, 204, 204));
+        fd_paymentNo.setFocusable(false);
 
         jXLabel3.setText("拍品数量：");
 
         fd_goodsNum.setText(UITools.getBeanPropertyValue(paymentInfo, "goodsNum"));
         fd_goodsNum.setEditable(false);
+        fd_goodsNum.setBackground(new java.awt.Color(204, 204, 204));
+        fd_goodsNum.setFocusable(false);
 
         jXLabel4.setText("总金额：");
 
         fd_totalAmount.setText(UITools.getBeanPropertyValue(paymentInfo, "totalAmount"));
         fd_totalAmount.setEditable(false);
+        fd_totalAmount.setBackground(new java.awt.Color(204, 204, 204));
+        fd_totalAmount.setFocusable(false);
 
         jXLabel5.setText("已付款：");
 
@@ -97,6 +105,8 @@ public class BargainRecordSettleDialog extends javax.swing.JDialog {
 
         fd_nonPayment.setText(UITools.getBeanPropertyValue(paymentInfo, "nonPayment","0"));
         fd_nonPayment.setEditable(false);
+        fd_nonPayment.setBackground(new java.awt.Color(204, 204, 204));
+        fd_nonPayment.setFocusable(false);
 
         closeBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dialog-close.png"))); // NOI18N
         closeBt.setText("关闭");

@@ -26,66 +26,64 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jXTitledSeparator1" alignment="1" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace pref="186" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="171" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jXLabel6" min="-2" max="-2" attributes="0"/>
+                          <Component id="jXLabel5" min="-2" max="-2" attributes="0"/>
+                          <Component id="jXLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jXLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jXLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jXLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="fd_goodsNo" min="-2" pref="211" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jXLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="fd_bargainConfirmNo" min="-2" pref="211" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="fd_paddleNo" min="-2" pref="211" max="-2" attributes="0"/>
+                          <Component id="fd_commission" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
+                          <Component id="fd_otherFund" min="-2" pref="211" max="-2" attributes="0"/>
+                          <Component id="fd_bargainPrice" min="-2" pref="211" max="-2" attributes="0"/>
+                          <Component id="fd_hammerPrice" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jXLabel10" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="fd_projectNo" min="-2" pref="211" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jXLabel6" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jXLabel5" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jXLabel4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jXLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jXLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="fd_paddleNo" min="-2" pref="211" max="-2" attributes="0"/>
-                                  <Component id="fd_hammerPrice" min="-2" pref="211" max="-2" attributes="0"/>
-                                  <Component id="fd_commission" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
-                                  <Component id="fd_otherFund" min="-2" pref="211" max="-2" attributes="0"/>
-                                  <Component id="fd_bargainPrice" min="-2" pref="211" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="msgLabel" alignment="1" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                                  <Component id="closeBt" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="submitBt" min="-2" pref="95" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                      <Component id="jXLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="fd_goodsNo" min="-2" pref="211" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jXLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="fd_bargainConfirmNo" min="-2" pref="211" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jXLabel10" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="fd_projectNo" min="-2" pref="211" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="msgLabel" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                          <Component id="closeBt" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="submitBt" min="-2" pref="95" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jXLabel8" min="-2" max="-2" attributes="0"/>
-                  <Component id="jXLabel11" alignment="0" min="-2" pref="15" max="-2" attributes="0"/>
-                  <Component id="jXLabel9" alignment="0" min="-2" pref="15" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jXLabel8" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jXLabel11" min="-2" pref="15" max="-2" attributes="0"/>
+                          <Component id="jXLabel9" min="-2" pref="15" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace pref="137" max="32767" attributes="0"/>
+              <EmptySpace pref="124" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -107,15 +105,15 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jXLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="fd_paddleNo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jXLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jXLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="fd_hammerPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jXLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jXLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fd_paddleNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -144,7 +142,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="msgLabel" min="-2" pref="33" max="-2" attributes="0"/>
-              <EmptySpace pref="157" max="32767" attributes="0"/>
+              <EmptySpace pref="156" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -211,6 +209,10 @@
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_commission">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_commission.setText(UITools.getBeanPropertyValue(dto, &quot;commission&quot;));"/>
@@ -229,6 +231,10 @@
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_bargainPrice">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_bargainPrice.setText(UITools.getBeanPropertyValue(dto, &quot;bargainPrice&quot;));"/>
@@ -264,6 +270,10 @@
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_projectNo">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="BargainRecordPanel panel = (BargainRecordPanel) this.listDataPanel;&#xa;fd_projectNo.setText(UITools.getBeanPropertyValue(dto, &quot;projectNo&quot;,panel.getProjectNo()));"/>

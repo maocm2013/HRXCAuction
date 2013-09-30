@@ -1,8 +1,8 @@
-
 package com.hrxc.auction.ui;
 
 import com.hrxc.auction.action.BiddingPaddleAction;
 import com.hrxc.auction.domain.BiddingPaddle;
+import com.hrxc.auction.util.Constant;
 import com.hrxc.auction.util.UITools;
 import java.awt.event.KeyEvent;
 import javax.swing.JComponent;
@@ -126,6 +126,8 @@ public class BiddingPaddleEditDialog extends javax.swing.JDialog {
             BiddingPaddlePanel panel = (BiddingPaddlePanel) this.listDataPanel;
             fd_projectNo.setText(UITools.getBeanPropertyValue(dto, "projectNo",panel.getProjectNo()));
             fd_projectNo.setEditable(false);
+            fd_projectNo.setBackground(new java.awt.Color(204, 204, 204));
+            fd_projectNo.setFocusable(false);
 
             jXLabel9.setText("项目编号：");
 
@@ -293,10 +295,19 @@ public class BiddingPaddleEditDialog extends javax.swing.JDialog {
 
             if (JOptionPane.showConfirmDialog(this.getRootPane(), "请确认您是否要保存数据？") == JOptionPane.YES_OPTION) {
                 BiddingPaddleAction.saveOrUpdateObject(dto);
-                JOptionPane.showMessageDialog(this, "保存成功！");
-                this.dispose();
-                BiddingPaddlePanel panel = (BiddingPaddlePanel) this.listDataPanel;
-                panel.refreshTableDatas(null, null);
+
+                if (JOptionPane.showConfirmDialog(this.getRootPane(), "保存成功，是否立即打印？") == JOptionPane.YES_OPTION) {
+                    //关闭窗口并刷新列表界面
+                    this.dispose();
+                    BiddingPaddlePanel panel = (BiddingPaddlePanel) this.listDataPanel;
+                    panel.refreshTableDatas(null, null);
+                    
+                    //直接弹出号牌打印界面
+                    BiddingPaddle paddle = BiddingPaddleAction.getPaddleInfoByNo(fd_projectNo.getText(), fd_paddleNo.getText().trim());
+                    BiddingRecordPrintDialog dialog = new BiddingRecordPrintDialog((javax.swing.JFrame) panel.getRootPane().getParent(), true, paddle.getPkId(), null, Constant.PrintType.TYPE_PADDLE_INFO_PRINT);
+                    dialog.setLocationRelativeTo(this);
+                    dialog.setVisible(true);
+                }
             }
         }
     }//GEN-LAST:event_submitBtActionPerformed

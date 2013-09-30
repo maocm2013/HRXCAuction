@@ -154,7 +154,7 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new org.jdesktop.swingx.JXTable(model_c)"/>
                     <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="MyTableModel model_c = MyTableConfig.getBargainRecordTableModel();&#xa;&#xa;//&#x521d;&#x59cb;&#x5316;&#x663e;&#x793a;&#x6570;&#x636e;&#xa;BargainRecordVo condition_c = new BargainRecordVo();&#xa;condition_c.setProjectNo(this.getProjectNo());&#xa;condition_c.setSettleState(DictEnum.SettleState.BARGAIN);&#xa;Object[][] datas_c  = BargainRecordAction.getAllTableData(condition_c);&#xa;model_c.refreshContents(datas_c);"/>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="UITools.setTableProps(dataTable_c, MyTableConfig.BargainRecord.columns);&#xa;//&#x9690;&#x85cf;&#x4ed8;&#x6b3e;&#x7f16;&#x53f7;&#x5217;&#xa;UITools.hideColumn(dataTable_c, &quot;&#x4ed8;&#x6b3e;&#x7f16;&#x53f7;&quot;);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="UITools.setTableProps(dataTable_c, MyTableConfig.BargainRecord.columns);&#xa;//&#x9690;&#x85cf;&#x4ed8;&#x6b3e;&#x7f16;&#x53f7;&#x5217;&#xa;UITools.hideColumn(dataTable_c, &quot;&#x4ed8;&#x6b3e;&#x7f16;&#x53f7;&quot;);&#xa;UITools.hideColumn(dataTable_c, &quot;&#x59d4;&#x6258;&#x65b9;&#x7f16;&#x53f7;&quot;);&#xa;UITools.hideColumn(dataTable_c, &quot;&#x9879;&#x76ee;&#x7f16;&#x53f7;&quot;);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -460,7 +460,6 @@
                   <Image iconType="3" name="/search.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#x67e5;&#x8be2;"/>
-                <Property name="toolTipText" type="java.lang.String" value="null"/>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
               <Events>
