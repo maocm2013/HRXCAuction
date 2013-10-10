@@ -64,19 +64,21 @@ public class BiddingPaddleAction {
      *
      * @param dto
      */
-    public static void saveOrUpdateObject(BiddingPaddle dto) {
+    public static int saveOrUpdateObject(BiddingPaddle dto) {
+        int ret = 0;
         try {
             if (StringUtils.isNotEmpty(dto.getPkId())) {
-                dao.updateObjectById(dto);
+                ret = dao.updateObjectById(dto);
             } else {
                 dto.setPkId(UITools.generateUUID());
                 //默认保证金使用状态为“未使用”
                 dto.setCashDepositState(DictEnum.CashDepositState.NOT_USE);
-                dao.insertObject(dto);
+                ret = dao.insertObject(dto);
             }
         } catch (Exception ex) {
             log.error("error:", ex);
         }
+        return ret;
     }
 
     /**

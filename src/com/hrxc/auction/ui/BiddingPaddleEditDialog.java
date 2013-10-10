@@ -294,14 +294,19 @@ public class BiddingPaddleEditDialog extends javax.swing.JDialog {
             dto.setProjectNo(fd_projectNo.getText());
 
             if (JOptionPane.showConfirmDialog(this.getRootPane(), "请确认您是否要保存数据？") == JOptionPane.YES_OPTION) {
-                BiddingPaddleAction.saveOrUpdateObject(dto);
+                if(BiddingPaddleAction.saveOrUpdateObject(dto) == 0){
+                    JOptionPane.showMessageDialog(this.getRootPane(), "保存失败，请确认是否存在重复数据！", "错误", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                //保存成功刷新列表界面
+                BiddingPaddlePanel panel = (BiddingPaddlePanel) this.listDataPanel;
+                panel.refreshTableDatas(null, null);
 
                 if (JOptionPane.showConfirmDialog(this.getRootPane(), "保存成功，是否立即打印？") == JOptionPane.YES_OPTION) {
                     //关闭窗口并刷新列表界面
                     this.dispose();
-                    BiddingPaddlePanel panel = (BiddingPaddlePanel) this.listDataPanel;
-                    panel.refreshTableDatas(null, null);
-                    
+
                     //直接弹出号牌打印界面
                     BiddingPaddle paddle = BiddingPaddleAction.getPaddleInfoByNo(fd_projectNo.getText(), fd_paddleNo.getText().trim());
                     BiddingRecordPrintDialog dialog = new BiddingRecordPrintDialog((javax.swing.JFrame) panel.getRootPane().getParent(), true, paddle.getPkId(), null, Constant.PrintType.TYPE_PADDLE_INFO_PRINT);

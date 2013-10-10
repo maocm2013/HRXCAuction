@@ -472,6 +472,11 @@ public class BargainRecordSettlePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_searchBton_dActionPerformed
   
     private void searchBton_sActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBton_sActionPerformed
+        if(StringUtils.isEmpty(fd_paddleNo_s.getText())){
+            JOptionPane.showMessageDialog(this.getRootPane(), "请输入竞买号牌后再进行查询！");
+            fd_paddleNo_s.requestFocus();
+            return;
+        }
         String paddleNo = fd_paddleNo_s.getText().trim();
         refreshTableDatas(dataTable_s, DictEnum.SettleState.RECHECKED, paddleNo, null);
     }//GEN-LAST:event_searchBton_sActionPerformed

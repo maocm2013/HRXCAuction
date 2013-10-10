@@ -2,17 +2,15 @@ package com.hrxc.auction.ui;
 
 import com.hrxc.auction.util.JdbcUtil;
 import java.awt.Dimension;
-import java.awt.Graphics2D;
 import java.io.File;
 import java.util.HashMap;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.export.JRGraphics2DExporter;
-import net.sf.jasperreports.engine.export.JRGraphics2DExporterParameter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
+import net.sf.jasperreports.view.JasperViewer;
 import org.apache.log4j.Logger;
 
 /**
@@ -117,10 +115,10 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
         String fileName = rootPath + "bargainRecordCollectReport.jasper";
         HashMap hm = new HashMap();
         hm.put("t_projectNo", this.projectNo);
-        JasperPrint print  = JasperFillManager.fillReport(
-                    fileName,
-                    hm,
-                    JdbcUtil.getInstance().getSession().getConnection());
+        JasperPrint print = JasperFillManager.fillReport(
+                fileName,
+                hm,
+                JdbcUtil.getInstance().getSession().getConnection());
         return print;
     }
 
@@ -145,15 +143,11 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
         try {
             JasperPrint print = initReportContext();
 
-            //将报表数据输出至JFrame
-            JRGraphics2DExporter exporter_gui = new JRGraphics2DExporter();
-            exporter_gui.setParameter(
-                    JRGraphics2DExporterParameter.GRAPHICS_2D,
-                    (Graphics2D) reportPanel.getGraphics());
-            exporter_gui.setParameter(
-                    JRExporterParameter.JASPER_PRINT, print);
-
-            exporter_gui.exportReport();
+            //使用JasperViewer预览报表
+            JasperViewer view = new JasperViewer(print, false);
+            view.setPreferredSize(new Dimension(1024, 600));
+            view.pack();
+            view.setVisible(true);
         } catch (Exception ex) {
             log.error("error:", ex);
         }
