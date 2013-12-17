@@ -1,6 +1,5 @@
 package com.hrxc.auction.util;
 
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.session.ResultHandler;

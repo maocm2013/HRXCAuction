@@ -50,6 +50,14 @@ public class GoodsList {
      * 委托方编号
      */
     private String clientNo;
+    /**
+     * 入库号
+     */
+    private String depotNo;
+    /**
+     * 作者
+     */
+    private String author;
 
     public String getPkId() {
         return pkId;
@@ -139,8 +147,26 @@ public class GoodsList {
         this.clientNo = clientNo;
     }
 
+    public String getDepotNo() {
+        return depotNo;
+    }
+
+    public void setDepotNo(String depotNo) {
+        this.depotNo = depotNo;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     @Override
     public String toString() {
-        return "GoodsList{" + "pkId=" + pkId + ", goodsNo=" + goodsNo + ", goodsName=" + goodsName + ", goodsIntact=" + goodsIntact + ", goodsSize=" + goodsSize + ", certificateNo=" + certificateNo + ", keepPrice=" + keepPrice + ", marketPrice=" + marketPrice + ", onsetPrice=" + onsetPrice + ", projectNo=" + projectNo + ", clientNo=" + clientNo + '}';
+        return "GoodsList{" + "pkId=" + pkId + ", goodsNo=" + goodsNo + ", goodsName=" + goodsName + ", goodsIntact=" + goodsIntact + ", goodsSize=" + goodsSize + ", certificateNo=" + certificateNo + ", keepPrice=" + keepPrice + ", marketPrice=" + marketPrice + ", onsetPrice=" + onsetPrice + ", projectNo=" + projectNo + ", clientNo=" + clientNo + ", depotNo=" + depotNo + ", author=" + author + '}';
     }
+    
+
 }

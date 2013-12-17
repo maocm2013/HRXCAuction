@@ -7,6 +7,7 @@
         <result column="PROJECT_NO" property="projectNo"></result> 
         <result column="PROJECT_NAME" property="projectName"></result> 
         <result column="PROJECT_STATE" property="projectState"></result> 
+        <result column="CASH_DEPOSIT" property="cashDeposit"></result> 
     </resultMap> 
 
     <select id="getAllObjectInfo" resultMap="ProjectInfoResultMap" parameterType="ProjectInfoVo"> 
@@ -14,7 +15,8 @@
         PK_ID, 
         PROJECT_NO, 
         PROJECT_NAME, 
-        PROJECT_STATE 
+        PROJECT_STATE,
+        CASH_DEPOSIT
         FROM PROJECT_INFO 
         <where> 
             <if test="pkId!= null and pkId!= ''"> 
@@ -29,12 +31,15 @@
             <if test="projectState!= null and projectState!= ''"> 
                 AND PROJECT_STATE=#{projectState} 
             </if> 
+            <if test="cashDeposit!= null and cashDeposit!= ''"> 
+                AND CASH_DEPOSIT=#{cashDeposit} 
+            </if> 
         </where> 
     </select> 
 
     <insert id="insertObject" parameterType="ProjectInfo"> 
-        INSERT INTO PROJECT_INFO(PK_ID,PROJECT_NO,PROJECT_NAME,PROJECT_STATE) 
-        VALUES (#{pkId},#{projectNo},#{projectName},#{projectState}) 
+        INSERT INTO PROJECT_INFO(PK_ID,PROJECT_NO,PROJECT_NAME,PROJECT_STATE,CASH_DEPOSIT) 
+        VALUES (#{pkId},#{projectNo},#{projectName},#{projectState},#{cashDeposit}) 
     </insert> 
 
     <delete id="deleteObjectById" parameterType="string"> 
@@ -52,6 +57,9 @@
             </if> 
             <if test="projectState != null"> 
                 PROJECT_STATE = #{projectState}, 
+            </if> 
+            <if test="cashDeposit != null"> 
+                CASH_DEPOSIT = #{cashDeposit}, 
             </if> 
         </set> 
         WHERE PK_ID=#{pkId} 

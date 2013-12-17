@@ -23,6 +23,10 @@ public class ProjectInfo {
      * 项目状态
      */
     private String projectState;
+    /**
+     * 保证金
+     */
+    private Integer cashDeposit;
 
     public String getPkId() {
         return pkId;
@@ -56,8 +60,18 @@ public class ProjectInfo {
         this.projectState = projectState;
     }
 
+    public Integer getCashDeposit() {
+        return cashDeposit;
+    }
+
+    public void setCashDeposit(Integer cashDeposit) {
+        this.cashDeposit = cashDeposit;
+    }
+
     @Override
     public String toString() {
-        return "ProjectInfo{" + "pkId=" + pkId + ", projectNo=" + projectNo + ", projectName=" + projectName + ", projectState=" + projectState + '}';
+        return "ProjectInfo{" + "pkId=" + pkId + ", projectNo=" + projectNo + ", projectName=" + projectName + ", projectState=" + projectState + ", cashDeposit=" + cashDeposit + '}';
     }
+
+
 }

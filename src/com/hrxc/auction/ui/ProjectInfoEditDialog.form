@@ -7,7 +7,6 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -25,39 +24,38 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jXTitledSeparator1" alignment="1" max="32767" attributes="0"/>
-          <Group type="102" attributes="0">
-              <EmptySpace min="182" pref="182" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="msgLabel" min="-2" pref="274" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Component id="jXLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jXLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jXLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jXLabel3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="fd_projectNo" pref="211" max="32767" attributes="0"/>
+                          <Component id="fd_projectName" pref="211" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="closeBt" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="submitBt" min="-2" pref="95" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jXLabel3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jXLabel2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jXLabel1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="fd_projectNo" pref="211" max="32767" attributes="0"/>
-                                  <Component id="fd_projectName" pref="211" max="32767" attributes="0"/>
-                                  <Component id="fd_projectState" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jXLabel12" min="-2" pref="17" max="-2" attributes="0"/>
-                          <Component id="jXLabel13" min="-2" pref="17" max="-2" attributes="0"/>
+                          <Component id="fd_cashDeposit" max="32767" attributes="0"/>
+                          <Component id="fd_projectState" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="162" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jXLabel12" min="-2" pref="17" max="-2" attributes="0"/>
+                  <Component id="jXLabel13" min="-2" pref="17" max="-2" attributes="0"/>
+                  <Component id="jXLabel14" min="-2" pref="17" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="148" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -78,19 +76,25 @@
                   <Component id="fd_projectName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jXLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jXLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fd_cashDeposit" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jXLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="fd_projectState" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="closeBt" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="submitBt" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="msgLabel" min="-2" pref="33" max="-2" attributes="0"/>
-              <EmptySpace pref="147" max="32767" attributes="0"/>
+              <EmptySpace pref="223" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -173,6 +177,27 @@
       </Properties>
     </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel13">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="*"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="&#x9ed1;&#x4f53;" size="14" style="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x9ed8;&#x8ba4;&#x4fdd;&#x8bc1;&#x91d1;&#xff1a;"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXTextField" name="fd_cashDeposit">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_cashDeposit.setText(UITools.getBeanPropertyValue(dto, &quot;cashDeposit&quot;,&quot;500&quot;));"/>
+      </AuxValues>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel14">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="ff" type="rgb"/>

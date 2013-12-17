@@ -40,6 +40,23 @@ public class BiddingPaddleAction {
         condition.setCashDepositPaymentNo(pamentNo);
         return dao.getSinglePaddleInfo(condition);
     }
+    
+    /**
+     * 根据联系方式获取号牌信息
+     * @param custTel
+     * @return 
+     */
+    public static BiddingPaddle getPaddleInfoByCustTel(String custTel){
+        BiddingPaddleVo condition = new BiddingPaddleVo();
+        condition.setCustTel(custTel);
+        List<BiddingPaddle> list =  dao.getAllObjectInfo(condition);
+        
+        BiddingPaddle paddle = null;
+        if(list != null && list.size() > 0){
+            paddle = list.get(0);
+        }
+        return paddle;
+    }
 
     /**
      * 根据条件查询数据信息

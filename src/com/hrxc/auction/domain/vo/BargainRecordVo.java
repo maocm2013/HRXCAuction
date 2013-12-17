@@ -8,8 +8,22 @@ import com.hrxc.auction.domain.BargainRecord;
  */
 public class BargainRecordVo extends BargainRecord {
 
+    /**
+     * 拍品名称
+     */
     private String goodsName;
+    /**
+     * 委托方编号
+     */
     private String clientNo;
+    /**
+     * 联系方式
+     */
+    private String custTel;
+    /**
+     * 保留价
+     */
+    private Integer keepPrice;
     /**
      * 竞买人姓名
      */
@@ -18,11 +32,10 @@ public class BargainRecordVo extends BargainRecord {
      * 证件号码
      */
     private String certNo;
+
     /**
      * 联系电话
      */
-    private String custTel;
-
     public String getGoodsName() {
         return goodsName;
     }
@@ -62,5 +75,12 @@ public class BargainRecordVo extends BargainRecord {
     public void setCustTel(String custTel) {
         this.custTel = custTel;
     }
-    
+
+    public Integer getKeepPrice() {
+        return keepPrice;
+    }
+
+    public void setKeepPrice(Integer keepPrice) {
+        this.keepPrice = keepPrice;
+    }
 }

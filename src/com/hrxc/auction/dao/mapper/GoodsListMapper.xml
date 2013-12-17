@@ -14,6 +14,8 @@
         <result column="ONSET_PRICE" property="onsetPrice"></result>
         <result column="PROJECT_NO" property="projectNo"></result>
         <result column="CLIENT_NO" property="clientNo"></result>
+        <result column="DEPOT_NO" property="depotNo"></result>
+        <result column="AUTHOR" property="author"></result>
     </resultMap>
     
     <select id="getAllObjectInfo" resultMap="GoodsListResultMap" parameterType="GoodsListVo">
@@ -28,7 +30,9 @@
         MARKET_PRICE,
         ONSET_PRICE,
         PROJECT_NO,
-        CLIENT_NO 
+        CLIENT_NO,
+        DEPOT_NO,
+        AUTHOR
         FROM
         GOODS_LIST 
         <where>
@@ -49,8 +53,8 @@
     </select>
     
     <insert id="insertObject" parameterType="GoodsList">
-        INSERT INTO GOODS_LIST(PK_ID, GOODS_NO, GOODS_NAME, GOODS_INTACT, GOODS_SIZE, CERTIFICATE_NO, KEEP_PRICE, MARKET_PRICE, ONSET_PRICE, PROJECT_NO, CLIENT_NO) 
-        VALUES(#{pkId}, #{goodsNo}, #{goodsName}, #{goodsIntact}, #{goodsSize}, #{certificateNo}, #{keepPrice}, #{marketPrice}, #{onsetPrice}, #{projectNo}, #{clientNo})
+        INSERT INTO GOODS_LIST(PK_ID, GOODS_NO, GOODS_NAME, GOODS_INTACT, GOODS_SIZE, CERTIFICATE_NO, KEEP_PRICE, MARKET_PRICE, ONSET_PRICE, PROJECT_NO, CLIENT_NO,DEPOT_NO,AUTHOR) 
+        VALUES(#{pkId}, #{goodsNo}, #{goodsName}, #{goodsIntact,jdbcType=VARCHAR}, #{goodsSize,jdbcType=VARCHAR}, #{certificateNo,jdbcType=VARCHAR}, #{keepPrice}, #{marketPrice}, #{onsetPrice}, #{projectNo}, #{clientNo}, #{depotNo,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR})
     </insert>
     
     <delete id="deleteObjectById" parameterType="string">
@@ -88,7 +92,13 @@
                 PROJECT_NO=#{projectNo},
             </if>        
             <if test="clientNo != null">
-                CLIENT_NO=#{clientNo}
+                CLIENT_NO=#{clientNo},
+            </if>  
+            <if test="depotNo != null">
+                DEPOT_NO=#{depotNo},
+            </if>  
+            <if test="author != null">
+                AUTHOR=#{author}
             </if>  
         </set>            
         WHERE PK_ID=#{pkId}

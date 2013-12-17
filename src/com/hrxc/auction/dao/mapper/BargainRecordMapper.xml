@@ -19,6 +19,7 @@
         <result column="PAYMENT_NO" property="paymentNo"></result> 
         <result column="GOODS_NAME" property="goodsName"></result>
         <result column="CLIENT_NO" property="clientNo"></result>
+        <result column="KEEP_PRICE" property="keepPrice"></result>
     </resultMap> 
     <sql id="findAllWhere">
         <where> 
@@ -75,7 +76,8 @@
         a.SETTLE_STATE, 
         a.PAYMENT_NO,
         b.GOODS_NAME,
-        b.CLIENT_NO
+        b.CLIENT_NO,
+        b.KEEP_PRICE
         FROM BARGAIN_RECORD a LEFT JOIN GOODS_LIST b on a.PROJECT_NO=b.PROJECT_NO and a.GOODS_NO=b.GOODS_NO
         LEFT JOIN BIDDING_PADDLE c on a.PROJECT_NO=c.PROJECT_NO and a.PADDLE_NO=c.PADDLE_NO
         <include refid="findAllWhere"/>  

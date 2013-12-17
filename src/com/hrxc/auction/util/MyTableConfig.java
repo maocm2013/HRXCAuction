@@ -93,6 +93,7 @@ public class MyTableConfig {
             columns.add(new MyTableColumn("序号", java.lang.Integer.class, "",50));
             columns.add(new MyTableColumn("项目编号", java.lang.String.class, "projectNo"));
             columns.add(new MyTableColumn("项目名称", java.lang.String.class, "projectName"));
+            columns.add(new MyTableColumn("默认保证金", java.lang.Integer.class, "cashDeposit"));
 
             MyTableColumn psCol = new MyTableColumn("项目状态", java.lang.String.class, "projectState");
             psCol.setIsDict(true);
@@ -124,14 +125,16 @@ public class MyTableConfig {
             columns.add(new MyTableColumn("序号", java.lang.Integer.class, "",50));
             columns.add(new MyTableColumn("图录号", java.lang.String.class, "goodsNo"));
             columns.add(new MyTableColumn("拍品名称", java.lang.String.class, "goodsName"));
-            columns.add(new MyTableColumn("完残度", java.lang.String.class, "goodsIntact"));
-            columns.add(new MyTableColumn("尺寸", java.lang.String.class, "goodsSize"));
-            columns.add(new MyTableColumn("证书后七位", java.lang.String.class, "certificateNo"));
+            //columns.add(new MyTableColumn("证书后七位", java.lang.String.class, "certificateNo"));
             columns.add(new MyTableColumn("保留价", java.lang.Integer.class, "keepPrice"));
             columns.add(new MyTableColumn("市场估价", java.lang.Integer.class, "marketPrice"));
             columns.add(new MyTableColumn("起拍价", java.lang.Integer.class, "onsetPrice"));
-            columns.add(new MyTableColumn("项目编号", java.lang.String.class, "projectNo"));
+            columns.add(new MyTableColumn("尺寸", java.lang.String.class, "goodsSize"));
+            columns.add(new MyTableColumn("完残度", java.lang.String.class, "goodsIntact"));
+            columns.add(new MyTableColumn("入库号", java.lang.String.class, "depotNo"));
+            columns.add(new MyTableColumn("作者", java.lang.String.class, "author"));
             columns.add(new MyTableColumn("委托方编号", java.lang.String.class, "clientNo"));
+            columns.add(new MyTableColumn("项目编号", java.lang.String.class, "projectNo"));
         }
     }
 
@@ -146,16 +149,16 @@ public class MyTableConfig {
             columns.add(new MyTableColumn("委托方编号", java.lang.String.class, "clientNo"));
             columns.add(new MyTableColumn("图录号", java.lang.String.class, "goodsNo"));
             columns.add(new MyTableColumn("拍品名称", java.lang.String.class, "goodsName"));
-            columns.add(new MyTableColumn("成交确认书编号", java.lang.String.class, "bargainConfirmNo"));
+            //columns.add(new MyTableColumn("成交确认书编号", java.lang.String.class, "bargainConfirmNo"));
             columns.add(new MyTableColumn("竞买号牌", java.lang.String.class, "paddleNo"));
             columns.add(new MyTableColumn("竞买人姓名", java.lang.String.class, "custName"));
             columns.add(new MyTableColumn("证件号码", java.lang.String.class, "certNo"));
             columns.add(new MyTableColumn("联系方式", java.lang.String.class, "custTel"));
+            columns.add(new MyTableColumn("保留价", java.lang.Integer.class, "keepPrice"));
             columns.add(new MyTableColumn("落槌价", java.lang.Integer.class, "hammerPrice"));
             columns.add(new MyTableColumn("佣金", java.lang.Integer.class, "commission"));
             columns.add(new MyTableColumn("其他款项", java.lang.Integer.class, "otherFund"));
             columns.add(new MyTableColumn("总成交价", java.lang.Integer.class, "bargainPrice"));
-            columns.add(new MyTableColumn("项目编号", java.lang.String.class, "projectNo"));
 
             MyTableColumn ss = new MyTableColumn("结算状态", java.lang.String.class, "settleState");
             ss.setIsDict(true);
@@ -163,6 +166,7 @@ public class MyTableConfig {
             columns.add(ss);
 
             columns.add(new MyTableColumn("付款编号", java.lang.String.class, "paymentNo"));
+            columns.add(new MyTableColumn("项目编号", java.lang.String.class, "projectNo"));
         }
     }
 

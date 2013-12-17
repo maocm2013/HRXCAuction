@@ -71,10 +71,14 @@
                   <Component id="jXLabel13" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="jXLabel14" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="jXLabel15" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="jXLabel16" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jXLabel16" min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="regularVisitorSearchBt" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Component id="jXLabel18" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="146" max="32767" attributes="0"/>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -112,6 +116,7 @@
                   <Component id="jXLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="fd_custTel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jXLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="regularVisitorSearchBt" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -141,7 +146,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="msgLabel" min="-2" pref="33" max="-2" attributes="0"/>
-              <EmptySpace pref="130" max="32767" attributes="0"/>
+              <EmptySpace pref="121" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -232,7 +237,7 @@
     </Component>
     <Component class="org.jdesktop.swingx.JXTextField" name="fd_cashDeposit">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fd_cashDeposit.setText(UITools.getBeanPropertyValue(dto, &quot;cashDeposit&quot;,&quot;500&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="//&#x4f7f;&#x7528;&#x9879;&#x76ee;&#x7684;&#x9ed8;&#x8ba4;&#x4fdd;&#x8bc1;&#x91d1;&#x8bbe;&#x7f6e;&#xa;BiddingPaddlePanel panel = (BiddingPaddlePanel) this.listDataPanel;&#xa;String projectNo = panel.getProjectNo();&#xa;ProjectInfo projectInfo = ProjectInfoAction.getProjectInfoByProjectNo(projectNo);&#xa;String defaultCashDeposit = &quot;500&quot;;&#xa;if(projectInfo.getCashDeposit() != null){&#xa;    defaultCashDeposit = String.valueOf(projectInfo.getCashDeposit());&#xa;}&#xa;fd_cashDeposit.setText(UITools.getBeanPropertyValue(dto, &quot;cashDeposit&quot;,defaultCashDeposit));"/>
       </AuxValues>
     </Component>
     <Component class="org.jdesktop.swingx.JXButton" name="closeBt">
@@ -271,7 +276,7 @@
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="BiddingPaddlePanel panel = (BiddingPaddlePanel) this.listDataPanel;&#xa;fd_projectNo.setText(UITools.getBeanPropertyValue(dto, &quot;projectNo&quot;,panel.getProjectNo()));"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="//BiddingPaddlePanel panel = (BiddingPaddlePanel) this.listDataPanel;&#xa;fd_projectNo.setText(UITools.getBeanPropertyValue(dto, &quot;projectNo&quot;,panel.getProjectNo()));"/>
       </AuxValues>
     </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel9">
@@ -344,6 +349,20 @@
           <Font name="&#x9ed1;&#x4f53;" size="14" style="0"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXButton" name="regularVisitorSearchBt">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/search.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#x5e38;&#x5ba2;&#x68c0;&#x7d22;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regularVisitorSearchBtActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="//&#x7ed9;&#x6309;&#x94ae;&#x8bbe;&#x7f6e;&#x56de;&#x8f66;&#x5feb;&#x6377;&#x952e;&#xa;submitBt.registerKeyboardAction(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        submitBtActionPerformed(evt);&#xa;    }}, KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
