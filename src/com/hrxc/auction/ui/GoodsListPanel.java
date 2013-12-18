@@ -42,6 +42,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
         deleteBton = new org.jdesktop.swingx.JXButton();
         editBton = new org.jdesktop.swingx.JXButton();
         exortBton = new org.jdesktop.swingx.JXButton();
+        displayBton = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         MyTableModel model = MyTableConfig.getGoodsListTableModel();
 
@@ -115,6 +116,19 @@ public class GoodsListPanel extends javax.swing.JPanel {
         });
         toolBar.add(exortBton);
 
+        displayBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/video-display.png"))); // NOI18N
+        displayBton.setToolTipText("导出");
+        displayBton.setFocusable(false);
+        displayBton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        displayBton.setPreferredSize(new java.awt.Dimension(40, 40));
+        displayBton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        displayBton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayBtonActionPerformed(evt);
+            }
+        });
+        toolBar.add(displayBton);
+
         UITools.setTableProps(dataTable, MyTableConfig.GoodsList.columns);
         jScrollPane1.setViewportView(dataTable);
 
@@ -147,7 +161,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
                 .addComponent(fd_goodsName, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchBton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addComponent(toolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -210,12 +224,32 @@ public class GoodsListPanel extends javax.swing.JPanel {
         UITools.exportExcel(this.getRootPane(), wb);
     }//GEN-LAST:event_exortBtonActionPerformed
 
+    private void displayBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBtonActionPerformed
+        if (UITools.getCheckedRows(dataTable) > 1) {
+            JOptionPane.showMessageDialog(this.getRootPane(), "您无需选择记录或仅能选择一条记录，请确认！");
+        } else {
+            ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
+            if (list.size() == 0) {
+                //从第一条开始播放
+            } else if (list.size() == 1) {
+                //从选中的那条记录开始播放
+                String pkId = list.get(0);
+                GoodsList dto = GoodsListAction.getObjectById(pkId);
+                GoodsListPreviewDialog dialog = new GoodsListPreviewDialog((javax.swing.JFrame) this.getRootPane().getParent(), true);
+                //隐藏标题栏
+                //dialog.setUndecorated(true);
+                dialog.setLocationRelativeTo(this);
+                dialog.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_displayBtonActionPerformed
+
     /**
      * 刷新表单数据
      */
     public void refreshTableDatas(String goodsNo, String goodsName) {
         MyTableModel model = (MyTableModel) dataTable.getModel();
-        
+
         GoodsListVo condition = new GoodsListVo();
         condition.setProjectNo(this.getProjectNo());
         condition.setGoodsNo(goodsNo);
@@ -228,12 +262,12 @@ public class GoodsListPanel extends javax.swing.JPanel {
     public String getProjectNo() {
         return projectNo;
     }
-    
     private String projectNo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton addBton;
     private org.jdesktop.swingx.JXTable dataTable;
     private org.jdesktop.swingx.JXButton deleteBton;
+    private org.jdesktop.swingx.JXButton displayBton;
     private org.jdesktop.swingx.JXButton editBton;
     private org.jdesktop.swingx.JXButton exortBton;
     private org.jdesktop.swingx.JXTextField fd_goodsName;

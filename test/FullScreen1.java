@@ -59,6 +59,7 @@ public class FullScreen1 {
         jframe.add(windowButton);
         jframe.setLayout(new FlowLayout());
         jframe.setSize(400, 300);
+        jframe.setUndecorated(true);
         jframe.setVisible(true);
     }
 
