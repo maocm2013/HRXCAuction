@@ -107,7 +107,10 @@ public class UITools {
                 } else {
                     String propValue = BeanUtils.getProperty(dto, col.getPropertyName());
                     if (col.isIsDict() == true) {
-                        data[i][c] = MethodUtils.invokeMethod(DictEnum.getInstance(), "getDictDesc", new Object[]{col.getDictMap(), propValue});
+                        data[i][c] = "";
+                        if(propValue != null){
+                            data[i][c] = MethodUtils.invokeMethod(DictEnum.getInstance(), "getDictDesc", new Object[]{col.getDictMap(), propValue});
+                        }
                     } else {
                         data[i][c] = propValue;
                         if (StringUtils.isNotEmpty(propValue) && col.getColumnType().getName().equals("java.lang.Integer")) {

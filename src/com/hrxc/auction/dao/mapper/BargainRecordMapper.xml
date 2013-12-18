@@ -20,6 +20,7 @@
         <result column="GOODS_NAME" property="goodsName"></result>
         <result column="CLIENT_NO" property="clientNo"></result>
         <result column="KEEP_PRICE" property="keepPrice"></result>
+        <result column="IS_KEEP_NO" property="isKeepNo"></result>
     </resultMap> 
     <sql id="findAllWhere">
         <where> 
@@ -66,6 +67,7 @@
         c.CUST_NAME,
         c.CERT_NO,
         c.CUST_TEL, 
+        c.IS_KEEP_NO,
         a.GOODS_NO,
         a.BARGAIN_CONFIRM_NO,
         a.HAMMER_PRICE,

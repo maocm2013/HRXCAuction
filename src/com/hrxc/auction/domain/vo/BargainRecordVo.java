@@ -32,6 +32,10 @@ public class BargainRecordVo extends BargainRecord {
      * 证件号码
      */
     private String certNo;
+    /**
+     * 是否保号
+     */
+    private String isKeepNo;
 
     /**
      * 联系电话
@@ -82,5 +86,18 @@ public class BargainRecordVo extends BargainRecord {
 
     public void setKeepPrice(Integer keepPrice) {
         this.keepPrice = keepPrice;
+    }
+
+    public String getIsKeepNo() {
+        return isKeepNo;
+    }
+
+    public void setIsKeepNo(String isKeepNo) {
+        this.isKeepNo = isKeepNo;
+    }
+
+    @Override
+    public String toString() {
+        return "BargainRecordVo{" + "goodsName=" + goodsName + ", clientNo=" + clientNo + ", custTel=" + custTel + ", keepPrice=" + keepPrice + ", custName=" + custName + ", certNo=" + certNo + ", isKeepNo=" + isKeepNo + '}';
     }
 }

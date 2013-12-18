@@ -32,8 +32,6 @@ public class MyTestJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jXTable1 = new org.jdesktop.swingx.JXTable();
         jXButton1 = new org.jdesktop.swingx.JXButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         MyTableModel model = MyTableConfig.getBargainRecordTableModel();
@@ -45,19 +43,6 @@ public class MyTestJFrame extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         testTable = new org.jdesktop.swingx.JXTable();
         jXButton2 = new org.jdesktop.swingx.JXButton();
-
-        jXTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jXTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 400));
@@ -187,11 +172,9 @@ public class MyTestJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXTable dataTable;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private org.jdesktop.swingx.JXButton jXButton1;
     private org.jdesktop.swingx.JXButton jXButton2;
-    private org.jdesktop.swingx.JXTable jXTable1;
     private org.jdesktop.swingx.JXTable testTable;
     // End of variables declaration//GEN-END:variables
 }

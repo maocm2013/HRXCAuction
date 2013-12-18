@@ -105,4 +105,20 @@ public class DictEnum {
         
         public static final Map dataMap = JSON.parseObject("{\"01\":\"未结清\",\"02\":\"已结清\",\"09\":\"已失效\"}");
     }
+    
+    /**
+     * 是否保号号牌
+     */
+    public static class IsKeepNo{
+        /**
+         * Y-是
+         */
+        public static final String IS_KEEP_NO_Y = "Y";
+        /**
+         * N-否
+         */
+        public static final String IS_KEEP_NO_N = "N";
+        
+        public static final Map dataMap = JSON.parseObject("{\"N\":\"否\",\"Y\":\"是\"}");
+    }
 }

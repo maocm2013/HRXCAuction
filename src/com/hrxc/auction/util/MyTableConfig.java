@@ -73,13 +73,20 @@ public class MyTableConfig {
             columns.add(new MyTableColumn("通讯地址", java.lang.String.class, "custAddr"));
             columns.add(new MyTableColumn("保证金（元）", java.lang.Integer.class, "cashDeposit"));
             columns.add(new MyTableColumn("备注", java.lang.String.class, "remarks"));
-            columns.add(new MyTableColumn("项目编号", java.lang.String.class, "projectNo"));
-
+            
             MyTableColumn cds = new MyTableColumn("保证金使用状态", java.lang.String.class, "cashDepositState");
             cds.setIsDict(true);
             cds.setDictMap(DictEnum.CashDepositState.dataMap);
             columns.add(cds);
+            
             columns.add(new MyTableColumn("保证金付款编号", java.lang.String.class, "cashDepositPaymentNo"));
+            
+            MyTableColumn cds_isKeepNo = new MyTableColumn("是否保号", java.lang.String.class, "isKeepNo");
+            cds_isKeepNo.setIsDict(true);
+            cds_isKeepNo.setDictMap(DictEnum.IsKeepNo.dataMap);
+            columns.add(cds_isKeepNo);
+            
+            columns.add(new MyTableColumn("项目编号", java.lang.String.class, "projectNo"));
         }
     }
 
@@ -154,6 +161,12 @@ public class MyTableConfig {
             columns.add(new MyTableColumn("竞买人姓名", java.lang.String.class, "custName"));
             columns.add(new MyTableColumn("证件号码", java.lang.String.class, "certNo"));
             columns.add(new MyTableColumn("联系方式", java.lang.String.class, "custTel"));
+            
+            MyTableColumn cds_isKeepNo = new MyTableColumn("是否保号", java.lang.String.class, "isKeepNo");
+            cds_isKeepNo.setIsDict(true);
+            cds_isKeepNo.setDictMap(DictEnum.IsKeepNo.dataMap);
+            columns.add(cds_isKeepNo);
+            
             columns.add(new MyTableColumn("保留价", java.lang.Integer.class, "keepPrice"));
             columns.add(new MyTableColumn("落槌价", java.lang.Integer.class, "hammerPrice"));
             columns.add(new MyTableColumn("佣金", java.lang.Integer.class, "commission"));
@@ -179,7 +192,6 @@ public class MyTableConfig {
             columns.add(new MyTableColumn("主键", java.lang.String.class, "pkId",true));
             columns.add(new MyTableColumn("序号", java.lang.Integer.class, "",50));
             columns.add(new MyTableColumn("付款编号", java.lang.String.class, "paymentNo"));
-            columns.add(new MyTableColumn("项目编号", java.lang.String.class, "projectNo"));
             columns.add(new MyTableColumn("号牌编号", java.lang.String.class, "paddleNo"));
             columns.add(new MyTableColumn("拍品数量", java.lang.String.class, "goodsNum"));
             columns.add(new MyTableColumn("总金额", java.lang.Integer.class, "totalAmount"));
@@ -195,6 +207,8 @@ public class MyTableConfig {
             ps.setIsDict(true);
             ps.setDictMap(DictEnum.PaymentState.dataMap);
             columns.add(ps);
+            
+            columns.add(new MyTableColumn("项目编号", java.lang.String.class, "projectNo"));
         }
     }
 }

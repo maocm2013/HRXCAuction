@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="buttonGroup.add(isKeepNoBt_Y);&#xa;buttonGroup.add(isKeepNoBt_N);"/>
+      </AuxValues>
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="resizable" type="boolean" value="false"/>
@@ -25,58 +32,88 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jXTitledSeparator1" alignment="1" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jXLabel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="fd_projectNo" min="-2" pref="211" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="msgLabel" alignment="1" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                          <Component id="closeBt" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="submitBt" min="-2" pref="95" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jXLabel8" min="-2" max="-2" attributes="0"/>
-                          <Component id="jXLabel6" min="-2" max="-2" attributes="0"/>
-                          <Component id="jXLabel5" min="-2" max="-2" attributes="0"/>
-                          <Component id="jXLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="jXLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jXLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jXLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jXLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jXLabel5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jXLabel4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jXLabel3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jXLabel2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jXLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fd_paddleNo" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="fd_custName" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="fd_certType" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="fd_certNo" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="fd_custTel" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jXLabel8" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jXLabel6" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="fd_remarks" min="-2" pref="211" max="-2" attributes="0"/>
+                                          <Component id="fd_custAddr" min="-2" pref="211" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jXLabel9" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="fd_projectNo" min="-2" pref="211" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="msgLabel" alignment="1" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                                              <Component id="closeBt" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="submitBt" min="-2" pref="95" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jXLabel10" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="isKeepNoBt_Y" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="isKeepNoBt_N" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="fd_paddleNo" min="-2" pref="211" max="-2" attributes="0"/>
-                          <Component id="fd_custName" min="-2" pref="211" max="-2" attributes="0"/>
-                          <Component id="fd_certType" min="-2" pref="211" max="-2" attributes="0"/>
-                          <Component id="fd_certNo" min="-2" pref="211" max="-2" attributes="0"/>
-                          <Component id="fd_remarks" min="-2" pref="211" max="-2" attributes="0"/>
-                          <Component id="fd_custTel" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
-                          <Component id="fd_custAddr" min="-2" pref="211" max="-2" attributes="0"/>
-                          <Component id="fd_cashDeposit" min="-2" pref="211" max="-2" attributes="0"/>
+                          <Component id="jXLabel12" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jXLabel13" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jXLabel14" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jXLabel15" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jXLabel16" min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="regularVisitorSearchBt" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jXLabel12" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="jXLabel13" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="jXLabel14" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="jXLabel15" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jXLabel16" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jXLabel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="regularVisitorSearchBt" min="-2" max="-2" attributes="0"/>
+                      <Component id="fd_cashDeposit" min="-2" pref="211" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jXLabel18" min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jXLabel18" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
@@ -120,14 +157,15 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jXLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="fd_custAddr" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jXLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="fd_cashDeposit" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jXLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jXLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="isKeepNoBt_Y" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="isKeepNoBt_N" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -135,6 +173,11 @@
                   <Component id="fd_remarks" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jXLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fd_custAddr" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jXLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="fd_projectNo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -146,7 +189,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="msgLabel" min="-2" pref="33" max="-2" attributes="0"/>
-              <EmptySpace pref="121" max="32767" attributes="0"/>
+              <EmptySpace pref="92" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -362,6 +405,27 @@
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="//&#x7ed9;&#x6309;&#x94ae;&#x8bbe;&#x7f6e;&#x56de;&#x8f66;&#x5feb;&#x6377;&#x952e;&#xa;submitBt.registerKeyboardAction(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        submitBtActionPerformed(evt);&#xa;    }}, KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);"/>
+      </AuxValues>
+    </Component>
+    <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x662f;&#x5426;&#x4fdd;&#x53f7;&#xff1a;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="isKeepNoBt_Y">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x662f;"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if(dto != null &amp;&amp; dto.getIsKeepNo().equals(DictEnum.IsKeepNo.IS_KEEP_NO_Y)){&#xa;    isKeepNoBt_Y.setSelected(true);&#xa;}"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="isKeepNoBt_N">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x5426;"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="if(dto == null ||(dto != null &amp;&amp; dto.getIsKeepNo().equals(DictEnum.IsKeepNo.IS_KEEP_NO_N))){&#xa;    isKeepNoBt_N.setSelected(true);&#xa;}"/>
       </AuxValues>
     </Component>
   </SubComponents>

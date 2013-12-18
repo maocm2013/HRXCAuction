@@ -15,6 +15,7 @@
         <result column="PROJECT_NO" property="projectNo"></result> 
         <result column="CASH_DEPOSIT_STATE" property="cashDepositState"></result> 
         <result column="CASH_DEPOSIT_PAYMENT_NO" property="cashDepositPaymentNo"></result> 
+        <result column="IS_KEEP_NO" property="isKeepNo"></result> 
     </resultMap> 
     <select id="getAllObjectInfo" resultMap="BiddingPaddleResultMap" parameterType="BiddingPaddleVo"> 
         SELECT 
@@ -29,7 +30,8 @@
         REMARKS,
         PROJECT_NO, 
         CASH_DEPOSIT_STATE,
-        CASH_DEPOSIT_PAYMENT_NO
+        CASH_DEPOSIT_PAYMENT_NO,
+        IS_KEEP_NO
         FROM BIDDING_PADDLE 
         <where> 
             <if test="pkId!= null and pkId!= ''"> 
@@ -68,13 +70,16 @@
             <if test="cashDepositPaymentNo!= null and cashDepositPaymentNo!= ''"> 
                 AND CASH_DEPOSIT_PAYMENT_NO=#{cashDepositPaymentNo} 
             </if> 
+            <if test="isKeepNo!= null and isKeepNo!= ''"> 
+                AND IS_KEEP_NO=#{isKeepNo} 
+            </if> 
         </where> 
         ORDER BY PADDLE_NO
     </select> 
     
     <insert id="insertObject" parameterType="BiddingPaddle"> 
-        INSERT INTO BIDDING_PADDLE(PK_ID,PADDLE_NO,CUST_NAME,CERT_TYPE,CERT_NO,CUST_TEL,CUST_ADDR,CASH_DEPOSIT,REMARKS,PROJECT_NO,CASH_DEPOSIT_STATE) 
-        VALUES (#{pkId},#{paddleNo},#{custName},#{certType},#{certNo},#{custTel},#{custAddr},#{cashDeposit},#{remarks},#{projectNo},#{cashDepositState}) 
+        INSERT INTO BIDDING_PADDLE(PK_ID,PADDLE_NO,CUST_NAME,CERT_TYPE,CERT_NO,CUST_TEL,CUST_ADDR,CASH_DEPOSIT,REMARKS,PROJECT_NO,CASH_DEPOSIT_STATE,IS_KEEP_NO) 
+        VALUES (#{pkId},#{paddleNo},#{custName},#{certType},#{certNo},#{custTel},#{custAddr},#{cashDeposit},#{remarks},#{projectNo},#{cashDepositState},#{isKeepNo}) 
     </insert> 
     
     <delete id="deleteObjectById" parameterType="string"> 
@@ -116,6 +121,9 @@
             </if> 
             <if test="cashDepositPaymentNo != null"> 
                 CASH_DEPOSIT_PAYMENT_NO = #{cashDepositPaymentNo}, 
+            </if> 
+            <if test="isKeepNo != null"> 
+                IS_KEEP_NO=#{isKeepNo}
             </if> 
         </set> 
         WHERE PK_ID=#{pkId} 
