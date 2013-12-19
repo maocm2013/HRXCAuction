@@ -5,10 +5,8 @@ import com.hrxc.auction.domain.GoodsList;
 import com.hrxc.auction.domain.vo.GoodsListVo;
 import com.hrxc.auction.util.MyTableConfig;
 import com.hrxc.auction.util.UITools;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 

@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.ComponentChooserEditor">
+      <ComponentRef name="default"/>
+    </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[656, 480]"/>
+      <Dimension value="[640, 480]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -39,8 +43,8 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="140" max="32767" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="120" max="32767" attributes="0"/>
+                      <Component id="buttonPanel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -50,16 +54,16 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="titleLabel" pref="39" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Component id="titleLabel" pref="53" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="imageLabel" max="32767" attributes="0"/>
-                  <Component id="descLabel" pref="415" max="32767" attributes="0"/>
+                  <Component id="descLabel" pref="335" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="buttonPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,9 +72,8 @@
     <Component class="org.jdesktop.swingx.JXLabel" name="titleLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="&#x8349;&#x4e66;&#xff08;&#x6bdb;&#x6cfd;&#x4e1c;&#x6c81;&#x56ed;&#x6625;&#x96ea;&#xff09;"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="&#x96b6;&#x4e66;" size="24" style="1"/>
+          <Font name="&#x96b6;&#x4e66;" size="48" style="1"/>
         </Property>
       </Properties>
     </Component>
@@ -81,13 +84,14 @@
     </Component>
     <Component class="org.jdesktop.swingx.JXLabel" name="descLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&#x4f5c;&#x8005;&#xff1a;&#x738b;&#x67d0;&#x67d0;&lt;br&gt;&#x6750;&#x8d28;&#xff1a;&#x91d1;&#x5c5e;&#x7389;&#x5668;&lt;br&gt;&#x6b3e;&#x8bc6;&#xff1a;&#x4e2d;&#x534e;&#x4eba;&#x6c11;&#x5171;&#x548c;&#x56fd;&lt;br&gt;&#x94c3;&#x5370;&#xff1a;&#x4e2d;&#x534e;&#x4eba;&#x6c11;&#x5171;&#x548c;&#x56fd;&lt;br&gt;&#x5c3a;&#x5bf8;&#xff1a;&#x4e2d;&#x534e;&#x4eba;&#x6c11;&#x5171;&#x548c;&#x56fd;&lt;/html&gt;"/>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="&#x96b6;&#x4e66;" size="18" style="0"/>
-        </Property>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="buttonPanel">
+      <Properties>
+        <Property name="alignmentX" type="float" value="0.1"/>
+        <Property name="alignmentY" type="float" value="0.1"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -108,7 +112,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lastBt" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jXTextField1" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="gotoFd" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="gotoBt" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -118,11 +122,11 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="gotoBt" min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jXTextField1" max="32767" attributes="0"/>
+                          <Component id="gotoFd" max="32767" attributes="0"/>
                           <Component id="lastBt" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="nextBt" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="previousBt" min="-2" pref="32" max="-2" attributes="0"/>
@@ -213,6 +217,9 @@
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstBtActionPerformed"/>
+          </Events>
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="previousBt">
           <Properties>
@@ -230,6 +237,12 @@
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="previousBtActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="//&#x6dfb;&#x52a0;&#x5feb;&#x6377;&#x952e;&#xa;previousBt.registerKeyboardAction(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        previousBtActionPerformed(evt);&#xa;    }}, KeyStroke.getKeyStroke(KeyEvent.VK_PAGE_UP, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);"/>
+          </AuxValues>
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="nextBt">
           <Properties>
@@ -247,6 +260,12 @@
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextBtActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="//&#x6dfb;&#x52a0;&#x5feb;&#x6377;&#x952e;&#xa;nextBt.registerKeyboardAction(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        nextBtActionPerformed(evt);&#xa;    }}, KeyStroke.getKeyStroke(KeyEvent.VK_PAGE_DOWN, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);"/>
+          </AuxValues>
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="lastBt">
           <Properties>
@@ -264,11 +283,11 @@
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
-        </Component>
-        <Component class="org.jdesktop.swingx.JXTextField" name="jXTextField1">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jXTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lastBtActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="org.jdesktop.swingx.JXTextField" name="gotoFd">
         </Component>
         <Component class="org.jdesktop.swingx.JXButton" name="gotoBt">
           <Properties>
@@ -286,6 +305,9 @@
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gotoBtActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

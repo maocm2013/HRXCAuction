@@ -191,6 +191,24 @@ public class UITools {
         }
         return c;
     }
+    
+    /**
+     * 获取被选中首行的记录序号
+     * @param table
+     * @return 
+     */
+    public static int getFirstCheckedRowNo(JTable table) {
+        int c = 0;
+        TableModel model = table.getModel();
+        int rows = model.getRowCount();
+        for (int i = 0; i < rows; i++) {
+            if (model.getValueAt(i, 0) != null && (Boolean) model.getValueAt(i, 0).equals(Boolean.TRUE)) {
+                c = i;
+                break;
+            }
+        }
+        return c;
+    }
 
     /**
      * 获取选中记录的主键集合

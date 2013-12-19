@@ -1,16 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hrxc.auction.ui;
 
+import com.hrxc.auction.action.ProjectInfoAction;
+import com.hrxc.auction.domain.ProjectInfo;
 import com.hrxc.auction.util.ImageUtil;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.net.URI;
 import javax.imageio.ImageReader;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
+import javax.swing.table.TableModel;
 import org.apache.log4j.Logger;
 
 /**
@@ -20,33 +22,73 @@ import org.apache.log4j.Logger;
 public class GoodsListPreviewDialog extends javax.swing.JDialog {
 
     private static final Logger log = Logger.getLogger(GoodsListPreviewDialog.class);
+    private String s_title = "<html>\n"
+            + "	<p style=\"font-family:隶书;font-size:18px;color:blue\">\n"
+            + "		北京华软信诚拍卖行  ProjectName\n"
+            + "	</p>\n"
+            + "</html>";
+    private String s_desc = "<html>\n"
+            + "	<p style=\"font-family:隶书;font-size:18px;color:red\">GoodsNo</p>\n"
+            + "	<br>\n"
+            + "	<p style=\"font-family:隶书;font-size:18px;color:black\">Author</p>\n"
+            + "	<br>\n"
+            + "	<p style=\"font-family:隶书;font-size:18px;color:blue\">GoodsName</p>\n"
+            + "	<br>\n"
+            + "	<p style=\"font-family:隶书;font-size:18px;color:red\">起拍价：OnsetPrice</p>\n"
+            + "</html>";
 
     /**
      * Creates new form GoodsListPreviewDialog
      */
-    public GoodsListPreviewDialog(java.awt.Frame parent, boolean modal) {
+    public GoodsListPreviewDialog(java.awt.Frame parent, boolean modal, String projectNo, TableModel tableModel, int indexNo) {
         super(parent, modal);
+
+        this.projectNo = projectNo;
+        this.tableModel = tableModel;
+        this.indexNo = indexNo;
+        current_index_no = indexNo;
 
         //不显示标题栏
         this.setUndecorated(true);
 
         initComponents();
 
-        showImage();
+        //获取项目信息并动态显示项目名称
+        ProjectInfo projectInfo = ProjectInfoAction.getProjectInfoByProjectNo(projectNo);
+        titleLabel.setText(s_title.replaceAll("ProjectName", projectInfo.getProjectName()));
+
+        showGoodsInfo(current_index_no);
     }
 
     //显示图片
-    private void showImage() {
+    private void showGoodsInfo(int current_index_no) {
         //显示图片
+        String rootPath = "file:///C:/".concat(projectNo).concat("/");
+
         try {
-            if (initialBufferedImage == null) {
-                URI uri = new URI("file:///E:/nb_project/HRXCAuction/doc/test.jpg");
-                ImageReader reader = ImageUtil.findImageReader(uri);
-                initialBufferedImage = ImageUtil.loadImage(reader);
+            //显示拍品信息
+            String goodsNo = tableModel.getValueAt(current_index_no, 3).toString();
+            String desc = s_desc.replaceAll("GoodsNo", goodsNo);
+
+            String author = "";
+            if (tableModel.getValueAt(current_index_no, 11) != null) {
+                author = tableModel.getValueAt(current_index_no, 11).toString();
             }
-            
-            //以屏幕区域的80%计算图片显示比例
-            float percentOfOriginal = (float)this.getHeight()/initialBufferedImage.getHeight()*0.8f*100;
+            desc = desc.replaceAll("Author", author);
+
+            String goodsName = String.valueOf(tableModel.getValueAt(current_index_no, 4));
+            desc = desc.replaceAll("GoodsName", goodsName);
+
+            String onsetPrice = String.valueOf(tableModel.getValueAt(current_index_no, 7));
+            desc = desc.replaceAll("OnsetPrice", onsetPrice);
+            descLabel.setText(desc);
+
+            URI uri = new URI(rootPath.concat(goodsNo).concat(".jpg"));
+            ImageReader reader = ImageUtil.findImageReader(uri);
+            initialBufferedImage = ImageUtil.loadImage(reader);
+
+            //以屏幕区域的80%计算图片显示比例并显示图片信息
+            float percentOfOriginal = (float) this.getHeight() / initialBufferedImage.getHeight() * 0.8f * 100;
             int i_percentOfOriginal = new Float(percentOfOriginal).intValue();
             log.debug("initialBufferedImage.getHeight()=" + initialBufferedImage.getHeight());
             log.debug("this.getHeight()=" + this.getHeight());
@@ -55,10 +97,10 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
 
             BufferedImage resizeImage = ImageUtil.resize(i_percentOfOriginal, initialBufferedImage);
             imageLabel.setIcon(new ImageIcon(resizeImage));
+
         } catch (Exception ex) {
             log.error("error:", ex);
         }
-
     }
 
     /**
@@ -73,7 +115,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         titleLabel = new org.jdesktop.swingx.JXLabel();
         imageLabel = new org.jdesktop.swingx.JXLabel();
         descLabel = new org.jdesktop.swingx.JXLabel();
-        jPanel1 = new javax.swing.JPanel();
+        buttonPanel = new javax.swing.JPanel();
         closeBt = new org.jdesktop.swingx.JXButton();
         backBt = new org.jdesktop.swingx.JXButton();
         fullScreenBt = new org.jdesktop.swingx.JXButton();
@@ -81,20 +123,21 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         previousBt = new org.jdesktop.swingx.JXButton();
         nextBt = new org.jdesktop.swingx.JXButton();
         lastBt = new org.jdesktop.swingx.JXButton();
-        jXTextField1 = new org.jdesktop.swingx.JXTextField();
+        gotoFd = new org.jdesktop.swingx.JXTextField();
         gotoBt = new org.jdesktop.swingx.JXButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(656, 480));
+        setPreferredSize(new java.awt.Dimension(640, 480));
 
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleLabel.setText("草书（毛泽东沁园春雪）");
-        titleLabel.setFont(new java.awt.Font("隶书", 1, 24)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("隶书", 1, 48)); // NOI18N
 
         imageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        descLabel.setText("<html>作者：王某某<br>材质：金属玉器<br>款识：中华人民共和国<br>铃印：中华人民共和国<br>尺寸：中华人民共和国</html>");
-        descLabel.setFont(new java.awt.Font("隶书", 0, 18)); // NOI18N
+        descLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        buttonPanel.setAlignmentX(0.1F);
+        buttonPanel.setAlignmentY(0.1F);
 
         closeBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system-shutdown.png"))); // NOI18N
         closeBt.setToolTipText("关闭");
@@ -142,6 +185,11 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         firstBt.setMinimumSize(new java.awt.Dimension(45, 63));
         firstBt.setPreferredSize(new java.awt.Dimension(40, 40));
         firstBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        firstBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstBtActionPerformed(evt);
+            }
+        });
 
         previousBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/go-previous-4.png"))); // NOI18N
         previousBt.setToolTipText("后退");
@@ -150,114 +198,138 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         previousBt.setMinimumSize(new java.awt.Dimension(45, 63));
         previousBt.setPreferredSize(new java.awt.Dimension(40, 40));
         previousBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        nextBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/go-next-4.png"))); // NOI18N
-        nextBt.setToolTipText("前进");
-        nextBt.setFocusable(false);
-        nextBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        nextBt.setMinimumSize(new java.awt.Dimension(45, 63));
-        nextBt.setPreferredSize(new java.awt.Dimension(40, 40));
-        nextBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        lastBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/go-last-2.png"))); // NOI18N
-        lastBt.setToolTipText("结束");
-        lastBt.setFocusable(false);
-        lastBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lastBt.setMinimumSize(new java.awt.Dimension(45, 63));
-        lastBt.setPreferredSize(new java.awt.Dimension(40, 40));
-        lastBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        jXTextField1.addActionListener(new java.awt.event.ActionListener() {
+        previousBt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jXTextField1ActionPerformed(evt);
+                previousBtActionPerformed(evt);
             }
         });
+        //添加快捷键
+        previousBt.registerKeyboardAction(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                previousBtActionPerformed(evt);
+            }}, KeyStroke.getKeyStroke(KeyEvent.VK_PAGE_UP, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
 
-        gotoBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/goto.png"))); // NOI18N
-        gotoBt.setToolTipText("跳转");
-        gotoBt.setFocusable(false);
-        gotoBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        gotoBt.setMinimumSize(new java.awt.Dimension(45, 63));
-        gotoBt.setPreferredSize(new java.awt.Dimension(40, 40));
-        gotoBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+            nextBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/go-next-4.png"))); // NOI18N
+            nextBt.setToolTipText("前进");
+            nextBt.setFocusable(false);
+            nextBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            nextBt.setMinimumSize(new java.awt.Dimension(45, 63));
+            nextBt.setPreferredSize(new java.awt.Dimension(40, 40));
+            nextBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+            nextBt.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    nextBtActionPerformed(evt);
+                }
+            });
+            //添加快捷键
+            nextBt.registerKeyboardAction(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    nextBtActionPerformed(evt);
+                }}, KeyStroke.getKeyStroke(KeyEvent.VK_PAGE_DOWN, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(backBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(fullScreenBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(firstBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(previousBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nextBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lastBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jXTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(gotoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(gotoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jXTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lastBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(nextBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(previousBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(firstBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(fullScreenBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(backBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
+                lastBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/go-last-2.png"))); // NOI18N
+                lastBt.setToolTipText("结束");
+                lastBt.setFocusable(false);
+                lastBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                lastBt.setMinimumSize(new java.awt.Dimension(45, 63));
+                lastBt.setPreferredSize(new java.awt.Dimension(40, 40));
+                lastBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+                lastBt.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        lastBtActionPerformed(evt);
+                    }
+                });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                gotoBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/goto.png"))); // NOI18N
+                gotoBt.setToolTipText("跳转");
+                gotoBt.setFocusable(false);
+                gotoBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                gotoBt.setMinimumSize(new java.awt.Dimension(45, 63));
+                gotoBt.setPreferredSize(new java.awt.Dimension(40, 40));
+                gotoBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+                gotoBt.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        gotoBtActionPerformed(evt);
+                    }
+                });
+
+                javax.swing.GroupLayout buttonPanelLayout = new javax.swing.GroupLayout(buttonPanel);
+                buttonPanel.setLayout(buttonPanelLayout);
+                buttonPanelLayout.setHorizontalGroup(
+                    buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(buttonPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(backBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fullScreenBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(firstBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(previousBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nextBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lastBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(gotoFd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(gotoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                );
+                buttonPanelLayout.setVerticalGroup(
+                    buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(buttonPanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(gotoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(gotoFd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lastBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nextBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(previousBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(firstBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fullScreenBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(backBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                );
+
+                javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+                getContentPane().setLayout(layout);
+                layout.setHorizontalGroup(
+                    layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(descLabel))
-                            .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(120, Short.MAX_VALUE)
+                                .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
+                );
+                layout.setVerticalGroup(
+                    layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(140, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+                        .addGap(19, 19, 19)
+                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                );
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+                pack();
+            }// </editor-fold>//GEN-END:initComponents
 
     private void fullScreenBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullScreenBtActionPerformed
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -265,34 +337,72 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         GraphicsDevice gd = ge.getDefaultScreenDevice();
         // 全屏设置
         gd.setFullScreenWindow(this);
-        showImage();
+        showGoodsInfo(current_index_no);
     }//GEN-LAST:event_fullScreenBtActionPerformed
 
     private void backBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtActionPerformed
         GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().setFullScreenWindow(null);
-        showImage();
+        showGoodsInfo(current_index_no);
     }//GEN-LAST:event_backBtActionPerformed
 
     private void closeBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtActionPerformed
         initialBufferedImage = null;
         this.dispose();
-        
+
     }//GEN-LAST:event_closeBtActionPerformed
 
-    private void jXTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jXTextField1ActionPerformed
+    private void firstBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstBtActionPerformed
+        current_index_no = 0;
+        showGoodsInfo(current_index_no);
+    }//GEN-LAST:event_firstBtActionPerformed
+
+    private void previousBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousBtActionPerformed
+        current_index_no = current_index_no - 1;
+        if (current_index_no <= 0) {
+            current_index_no = 0;
+        }
+        showGoodsInfo(current_index_no);
+    }//GEN-LAST:event_previousBtActionPerformed
+
+    private void nextBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtActionPerformed
+        current_index_no = current_index_no + 1;
+        if (current_index_no >= tableModel.getRowCount()) {
+            current_index_no = tableModel.getRowCount() - 1;
+        }
+        showGoodsInfo(current_index_no);
+    }//GEN-LAST:event_nextBtActionPerformed
+
+    private void lastBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastBtActionPerformed
+        current_index_no = tableModel.getRowCount() - 1;
+        showGoodsInfo(current_index_no);
+    }//GEN-LAST:event_lastBtActionPerformed
+
+    private void gotoBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gotoBtActionPerformed
+        //输入拍品序号，即图录号前面的0去掉，例如005号拍品则输入5即可
+        int gotoNo = Integer.parseInt(gotoFd.getText());
+        current_index_no = gotoNo - 1;
+        showGoodsInfo(current_index_no);
+    }//GEN-LAST:event_gotoBtActionPerformed
+    //图片缓冲区
     private BufferedImage initialBufferedImage;
+    //项目编号
+    private String projectNo;
+    //列表数据
+    private TableModel tableModel;
+    //传入序号
+    private int indexNo;
+    //当前序号
+    private int current_index_no;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton backBt;
+    private javax.swing.JPanel buttonPanel;
     private org.jdesktop.swingx.JXButton closeBt;
     private org.jdesktop.swingx.JXLabel descLabel;
     private org.jdesktop.swingx.JXButton firstBt;
     private org.jdesktop.swingx.JXButton fullScreenBt;
     private org.jdesktop.swingx.JXButton gotoBt;
+    private org.jdesktop.swingx.JXTextField gotoFd;
     private org.jdesktop.swingx.JXLabel imageLabel;
-    private javax.swing.JPanel jPanel1;
-    private org.jdesktop.swingx.JXTextField jXTextField1;
     private org.jdesktop.swingx.JXButton lastBt;
     private org.jdesktop.swingx.JXButton nextBt;
     private org.jdesktop.swingx.JXButton previousBt;

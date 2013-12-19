@@ -225,22 +225,14 @@ public class GoodsListPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_exortBtonActionPerformed
 
     private void displayBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBtonActionPerformed
-        if (UITools.getCheckedRows(dataTable) > 1) {
-            JOptionPane.showMessageDialog(this.getRootPane(), "您无需选择记录或仅能选择一条记录，请确认！");
+        if (UITools.getCheckedRows(dataTable) != 1) {
+            JOptionPane.showMessageDialog(this.getRootPane(), "您必须选择一条记录进行放映，请确认！");
         } else {
-            ArrayList<String> list = UITools.getCheckedRowsId(dataTable);
-            if (list.size() == 0) {
-                //从第一条开始播放
-            } else if (list.size() == 1) {
-                //从选中的那条记录开始播放
-                String pkId = list.get(0);
-                GoodsList dto = GoodsListAction.getObjectById(pkId);
-                GoodsListPreviewDialog dialog = new GoodsListPreviewDialog((javax.swing.JFrame) this.getRootPane().getParent(), true);
-                //隐藏标题栏
-                //dialog.setUndecorated(true);
-                dialog.setLocationRelativeTo(this);
-                dialog.setVisible(true);
-            }
+            int indexNo = UITools.getFirstCheckedRowNo(dataTable);
+            GoodsListPreviewDialog dialog = new GoodsListPreviewDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, projectNo, dataTable.getModel(), indexNo);
+
+            dialog.setLocationRelativeTo(this);
+            dialog.setVisible(true);
         }
     }//GEN-LAST:event_displayBtonActionPerformed
 
