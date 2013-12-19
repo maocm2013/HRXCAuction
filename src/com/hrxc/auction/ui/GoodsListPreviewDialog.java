@@ -32,20 +32,28 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
 
         initComponents();
 
-        showImage(0.5,0.5);
+        showImage();
     }
 
     //显示图片
-    private void showImage(double rate_w, double rate_h) {
+    private void showImage() {
         //显示图片
         try {
-            URI uri = new URI("file:///E:/nb_project/HRXCAuction/doc/test.jpg");
-            ImageReader reader = ImageUtil.findImageReader(uri);
-            BufferedImage image = ImageUtil.loadImage(reader);
-            int width = new Double(this.getWidth() * rate_w).intValue();
-            int height = new Double(this.getHeight() * rate_h).intValue();
+            if (initialBufferedImage == null) {
+                URI uri = new URI("file:///E:/nb_project/HRXCAuction/doc/test.jpg");
+                ImageReader reader = ImageUtil.findImageReader(uri);
+                initialBufferedImage = ImageUtil.loadImage(reader);
+            }
+            
+            //以屏幕区域的80%计算图片显示比例
+            float percentOfOriginal = (float)this.getHeight()/initialBufferedImage.getHeight()*0.8f*100;
+            int i_percentOfOriginal = new Float(percentOfOriginal).intValue();
+            log.debug("initialBufferedImage.getHeight()=" + initialBufferedImage.getHeight());
+            log.debug("this.getHeight()=" + this.getHeight());
+            log.debug("percentOfOriginal=" + percentOfOriginal);
+            log.debug("i_percentOfOriginal=" + i_percentOfOriginal);
 
-            BufferedImage resizeImage = ImageUtil.resize(width, height, image);
+            BufferedImage resizeImage = ImageUtil.resize(i_percentOfOriginal, initialBufferedImage);
             imageLabel.setIcon(new ImageIcon(resizeImage));
         } catch (Exception ex) {
             log.error("error:", ex);
@@ -62,26 +70,70 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        titleLabel = new org.jdesktop.swingx.JXLabel();
+        imageLabel = new org.jdesktop.swingx.JXLabel();
+        descLabel = new org.jdesktop.swingx.JXLabel();
+        jPanel1 = new javax.swing.JPanel();
+        closeBt = new org.jdesktop.swingx.JXButton();
+        backBt = new org.jdesktop.swingx.JXButton();
+        fullScreenBt = new org.jdesktop.swingx.JXButton();
         firstBt = new org.jdesktop.swingx.JXButton();
-        lastBt = new org.jdesktop.swingx.JXButton();
         previousBt = new org.jdesktop.swingx.JXButton();
         nextBt = new org.jdesktop.swingx.JXButton();
-        gotoBt = new org.jdesktop.swingx.JXButton();
+        lastBt = new org.jdesktop.swingx.JXButton();
         jXTextField1 = new org.jdesktop.swingx.JXTextField();
-        fullScreenBt = new org.jdesktop.swingx.JXButton();
-        backBt = new org.jdesktop.swingx.JXButton();
-        closeBt = new org.jdesktop.swingx.JXButton();
-        jXLabel1 = new org.jdesktop.swingx.JXLabel();
-        jXLabel2 = new org.jdesktop.swingx.JXLabel();
-        jXLabel3 = new org.jdesktop.swingx.JXLabel();
-        jXLabel5 = new org.jdesktop.swingx.JXLabel();
-        jXLabel6 = new org.jdesktop.swingx.JXLabel();
-        jXLabel7 = new org.jdesktop.swingx.JXLabel();
-        jXLabel4 = new org.jdesktop.swingx.JXLabel();
-        imageLabel = new org.jdesktop.swingx.JXLabel();
+        gotoBt = new org.jdesktop.swingx.JXButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(656, 480));
+
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel.setText("草书（毛泽东沁园春雪）");
+        titleLabel.setFont(new java.awt.Font("隶书", 1, 24)); // NOI18N
+
+        imageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        descLabel.setText("<html>作者：王某某<br>材质：金属玉器<br>款识：中华人民共和国<br>铃印：中华人民共和国<br>尺寸：中华人民共和国</html>");
+        descLabel.setFont(new java.awt.Font("隶书", 0, 18)); // NOI18N
+
+        closeBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system-shutdown.png"))); // NOI18N
+        closeBt.setToolTipText("关闭");
+        closeBt.setFocusable(false);
+        closeBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        closeBt.setMinimumSize(new java.awt.Dimension(45, 63));
+        closeBt.setPreferredSize(new java.awt.Dimension(40, 40));
+        closeBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        closeBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeBtActionPerformed(evt);
+            }
+        });
+
+        backBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view-nofullscreen.png"))); // NOI18N
+        backBt.setToolTipText("还原");
+        backBt.setFocusable(false);
+        backBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        backBt.setMinimumSize(new java.awt.Dimension(45, 63));
+        backBt.setPreferredSize(new java.awt.Dimension(40, 40));
+        backBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        backBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtActionPerformed(evt);
+            }
+        });
+
+        fullScreenBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view-fullscreen-4.png"))); // NOI18N
+        fullScreenBt.setToolTipText("全屏");
+        fullScreenBt.setFocusable(false);
+        fullScreenBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        fullScreenBt.setMinimumSize(new java.awt.Dimension(45, 63));
+        fullScreenBt.setPreferredSize(new java.awt.Dimension(40, 40));
+        fullScreenBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        fullScreenBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fullScreenBtActionPerformed(evt);
+            }
+        });
 
         firstBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/go-first-2.png"))); // NOI18N
         firstBt.setToolTipText("开始");
@@ -90,14 +142,6 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         firstBt.setMinimumSize(new java.awt.Dimension(45, 63));
         firstBt.setPreferredSize(new java.awt.Dimension(40, 40));
         firstBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        lastBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/go-last-2.png"))); // NOI18N
-        lastBt.setToolTipText("结束");
-        lastBt.setFocusable(false);
-        lastBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lastBt.setMinimumSize(new java.awt.Dimension(45, 63));
-        lastBt.setPreferredSize(new java.awt.Dimension(40, 40));
-        lastBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         previousBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/go-previous-4.png"))); // NOI18N
         previousBt.setToolTipText("后退");
@@ -115,6 +159,20 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         nextBt.setPreferredSize(new java.awt.Dimension(40, 40));
         nextBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
+        lastBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/go-last-2.png"))); // NOI18N
+        lastBt.setToolTipText("结束");
+        lastBt.setFocusable(false);
+        lastBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lastBt.setMinimumSize(new java.awt.Dimension(45, 63));
+        lastBt.setPreferredSize(new java.awt.Dimension(40, 40));
+        lastBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        jXTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jXTextField1ActionPerformed(evt);
+            }
+        });
+
         gotoBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/goto.png"))); // NOI18N
         gotoBt.setToolTipText("跳转");
         gotoBt.setFocusable(false);
@@ -123,60 +181,47 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         gotoBt.setPreferredSize(new java.awt.Dimension(40, 40));
         gotoBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        fullScreenBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view-fullscreen-4.png"))); // NOI18N
-        fullScreenBt.setToolTipText("全屏");
-        fullScreenBt.setFocusable(false);
-        fullScreenBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        fullScreenBt.setMinimumSize(new java.awt.Dimension(45, 63));
-        fullScreenBt.setPreferredSize(new java.awt.Dimension(40, 40));
-        fullScreenBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        fullScreenBt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fullScreenBtActionPerformed(evt);
-            }
-        });
-
-        backBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view-nofullscreen.png"))); // NOI18N
-        backBt.setToolTipText("还原");
-        backBt.setFocusable(false);
-        backBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        backBt.setMinimumSize(new java.awt.Dimension(45, 63));
-        backBt.setPreferredSize(new java.awt.Dimension(40, 40));
-        backBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        backBt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBtActionPerformed(evt);
-            }
-        });
-
-        closeBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system-shutdown.png"))); // NOI18N
-        closeBt.setToolTipText("关闭");
-        closeBt.setFocusable(false);
-        closeBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        closeBt.setMinimumSize(new java.awt.Dimension(45, 63));
-        closeBt.setPreferredSize(new java.awt.Dimension(40, 40));
-        closeBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        closeBt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeBtActionPerformed(evt);
-            }
-        });
-
-        jXLabel1.setText("作品名称");
-
-        jXLabel2.setText("尺寸：中华人民共和国");
-
-        jXLabel3.setText("作者：王某某");
-
-        jXLabel5.setText("正文：中华人民共和国");
-
-        jXLabel6.setText("款识：中华人民共和国");
-
-        jXLabel7.setText("铃印：中华人民共和国");
-
-        jXLabel4.setText("材质：金属玉器");
-
-        imageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(backBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(fullScreenBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(firstBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(previousBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nextBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lastBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jXTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(gotoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(gotoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jXTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lastBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nextBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(previousBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(firstBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fullScreenBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(backBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,90 +230,30 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(backBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fullScreenBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(firstBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addComponent(jXLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 79, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(17, 17, 17)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(previousBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(nextBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lastBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jXTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(gotoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jXLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jXLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jXLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jXLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jXLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(descLabel))
+                            .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(140, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(423, Short.MAX_VALUE)
-                    .addComponent(jXLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(13, 13, 13)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jXLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jXLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jXLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jXLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17)
-                        .addComponent(jXLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(backBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fullScreenBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(gotoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lastBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(nextBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(previousBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(firstBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jXTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(56, 56, 56)
-                    .addComponent(jXLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(389, Short.MAX_VALUE)))
         );
 
         pack();
@@ -280,34 +265,37 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         GraphicsDevice gd = ge.getDefaultScreenDevice();
         // 全屏设置
         gd.setFullScreenWindow(this);
-        showImage(0.5,0.5);
+        showImage();
     }//GEN-LAST:event_fullScreenBtActionPerformed
 
     private void backBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtActionPerformed
         GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().setFullScreenWindow(null);
-        showImage(0.5,0.5);
+        showImage();
     }//GEN-LAST:event_backBtActionPerformed
 
     private void closeBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtActionPerformed
+        initialBufferedImage = null;
         this.dispose();
+        
     }//GEN-LAST:event_closeBtActionPerformed
+
+    private void jXTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jXTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jXTextField1ActionPerformed
+    private BufferedImage initialBufferedImage;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton backBt;
     private org.jdesktop.swingx.JXButton closeBt;
+    private org.jdesktop.swingx.JXLabel descLabel;
     private org.jdesktop.swingx.JXButton firstBt;
     private org.jdesktop.swingx.JXButton fullScreenBt;
     private org.jdesktop.swingx.JXButton gotoBt;
     private org.jdesktop.swingx.JXLabel imageLabel;
-    private org.jdesktop.swingx.JXLabel jXLabel1;
-    private org.jdesktop.swingx.JXLabel jXLabel2;
-    private org.jdesktop.swingx.JXLabel jXLabel3;
-    private org.jdesktop.swingx.JXLabel jXLabel4;
-    private org.jdesktop.swingx.JXLabel jXLabel5;
-    private org.jdesktop.swingx.JXLabel jXLabel6;
-    private org.jdesktop.swingx.JXLabel jXLabel7;
+    private javax.swing.JPanel jPanel1;
     private org.jdesktop.swingx.JXTextField jXTextField1;
     private org.jdesktop.swingx.JXButton lastBt;
     private org.jdesktop.swingx.JXButton nextBt;
     private org.jdesktop.swingx.JXButton previousBt;
+    private org.jdesktop.swingx.JXLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

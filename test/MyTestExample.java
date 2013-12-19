@@ -242,6 +242,8 @@ public class MyTestExample {
     @Test
     public void simpleTest(){
         //System.out.println(DateFormatUtils.format(new java.util.Date(), "yyyyMMddHHmmss"));
-        System.out.println("date=" + DateFormatUtils.format(new java.util.Date(), "yyyy-MM-dd HH:mm:ss"));
+        //System.out.println("date=" + DateFormatUtils.format(new java.util.Date(), "yyyy-MM-dd HH:mm:ss"));
+        float f = (float)480/1362/2*100;
+        System.out.println("f========" + f);
     }
 }
