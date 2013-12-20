@@ -2,12 +2,14 @@ package com.hrxc.auction.ui;
 
 import com.hrxc.auction.action.ProjectInfoAction;
 import com.hrxc.auction.domain.ProjectInfo;
+import com.hrxc.auction.util.Configuration;
 import com.hrxc.auction.util.ImageUtil;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.net.URI;
+import java.util.Properties;
 import javax.imageio.ImageReader;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
@@ -48,6 +50,10 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         this.indexNo = indexNo;
         current_index_no = indexNo;
 
+        //获取图像存储根路径
+        Properties props = Configuration.loadProperties("config/system.properties");
+        this.imageRootPath = props.getProperty("goods.images.rootPath");
+
         //不显示标题栏
         this.setUndecorated(true);
 
@@ -60,10 +66,14 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         showGoodsInfo(current_index_no);
     }
 
-    //显示图片
+    /**
+     * 显示图片
+     *
+     * @param current_index_no
+     */
     private void showGoodsInfo(int current_index_no) {
-        //显示图片
-        String rootPath = "file:///C:/".concat(projectNo).concat("/");
+        //图片存储路径=根路径+项目编号+图录号.jpg
+        String rootPath = imageRootPath.concat(projectNo).concat("/");
 
         try {
             //显示拍品信息
@@ -87,15 +97,20 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
             ImageReader reader = ImageUtil.findImageReader(uri);
             initialBufferedImage = ImageUtil.loadImage(reader);
 
-            //以屏幕区域的80%计算图片显示比例并显示图片信息
-            float percentOfOriginal = (float) this.getHeight() / initialBufferedImage.getHeight() * 0.8f * 100;
-            int i_percentOfOriginal = new Float(percentOfOriginal).intValue();
-            log.debug("initialBufferedImage.getHeight()=" + initialBufferedImage.getHeight());
-            log.debug("this.getHeight()=" + this.getHeight());
-            log.debug("percentOfOriginal=" + percentOfOriginal);
-            log.debug("i_percentOfOriginal=" + i_percentOfOriginal);
+            //以屏幕纵轴75%、横轴60%计算图片显示比例并显示图片信息
+            float percentOfOriginal_y = (float) this.getHeight() / initialBufferedImage.getHeight() * 0.75f * 100;
+            int i_percentOfOriginal_y = new Float(percentOfOriginal_y).intValue();
 
-            BufferedImage resizeImage = ImageUtil.resize(i_percentOfOriginal, initialBufferedImage);
+            float percentOfOriginal_x = (float) this.getWidth() / initialBufferedImage.getWidth() * 0.6f * 100;
+            int i_percentOfOriginal_x = new Float(percentOfOriginal_x).intValue();
+            
+            int percentOfOriginal = i_percentOfOriginal_y;
+            if(i_percentOfOriginal_y > i_percentOfOriginal_x){
+                percentOfOriginal = i_percentOfOriginal_x;
+            }
+
+            log.debug("percentOfOriginal=" + percentOfOriginal);
+            BufferedImage resizeImage = ImageUtil.resize(percentOfOriginal, initialBufferedImage);
             imageLabel.setIcon(new ImageIcon(resizeImage));
 
         } catch (Exception ex) {
@@ -125,9 +140,10 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         lastBt = new org.jdesktop.swingx.JXButton();
         gotoFd = new org.jdesktop.swingx.JXTextField();
         gotoBt = new org.jdesktop.swingx.JXButton();
+        autoStartBt = new org.jdesktop.swingx.JXButton();
+        pauseBt = new org.jdesktop.swingx.JXButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(640, 480));
 
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setFont(new java.awt.Font("隶书", 1, 48)); // NOI18N
@@ -253,17 +269,47 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                     }
                 });
 
+                autoStartBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media-playback-start-3.png"))); // NOI18N
+                autoStartBt.setToolTipText("全屏");
+                autoStartBt.setFocusable(false);
+                autoStartBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                autoStartBt.setMinimumSize(new java.awt.Dimension(45, 63));
+                autoStartBt.setPreferredSize(new java.awt.Dimension(40, 40));
+                autoStartBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+                autoStartBt.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        autoStartBtActionPerformed(evt);
+                    }
+                });
+
+                pauseBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media-playback-pause-3.png"))); // NOI18N
+                pauseBt.setToolTipText("全屏");
+                pauseBt.setFocusable(false);
+                pauseBt.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                pauseBt.setMinimumSize(new java.awt.Dimension(45, 63));
+                pauseBt.setPreferredSize(new java.awt.Dimension(40, 40));
+                pauseBt.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+                pauseBt.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        pauseBtActionPerformed(evt);
+                    }
+                });
+
                 javax.swing.GroupLayout buttonPanelLayout = new javax.swing.GroupLayout(buttonPanel);
                 buttonPanel.setLayout(buttonPanelLayout);
                 buttonPanelLayout.setHorizontalGroup(
                     buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(buttonPanelLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(backBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(fullScreenBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(autoStartBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pauseBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(firstBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -276,23 +322,26 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                         .addComponent(gotoFd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(gotoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                 );
                 buttonPanelLayout.setVerticalGroup(
                     buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(buttonPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(gotoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(gotoFd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lastBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(nextBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(previousBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(firstBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(fullScreenBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(backBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanelLayout.createSequentialGroup()
+                        .addContainerGap(30, Short.MAX_VALUE)
+                        .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(autoStartBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pauseBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(gotoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(gotoFd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lastBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nextBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(previousBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(firstBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fullScreenBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(backBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 );
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -300,29 +349,25 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                 layout.setHorizontalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(120, Short.MAX_VALUE)
-                                .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                 );
                 layout.setVerticalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                         .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE))
+                            .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
@@ -383,6 +428,63 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         current_index_no = gotoNo - 1;
         showGoodsInfo(current_index_no);
     }//GEN-LAST:event_gotoBtActionPerformed
+
+    private void autoStartBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autoStartBtActionPerformed
+        try {
+            if (autoPlayThread == null) {
+                log.debug("开始自动播放！");
+                autoPlayThread = new AutoPlayThread();
+                autoPlayThread.start();
+            } else {
+                //如果已经退出循环播放，则再重新开始
+                if (!autoPlayState && autoPlayThread.getState() == Thread.State.TERMINATED) {
+                    log.debug("继续自动播放！");
+                    autoPlayThread = new AutoPlayThread();
+                    autoPlayThread.start();
+                }
+            }
+        } catch (Exception ex) {
+            log.error("error:", ex);
+        }
+    }//GEN-LAST:event_autoStartBtActionPerformed
+
+    private void pauseBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseBtActionPerformed
+        if (autoPlayThread != null && autoPlayThread.isAlive()) {
+            autoPlayState = false;
+        }
+    }//GEN-LAST:event_pauseBtActionPerformed
+
+    class AutoPlayThread extends Thread {
+
+        @Override
+        public void run() {
+            autoPlay();
+        }
+
+        private void autoPlay() {
+            autoPlayState = true;
+            try {
+                while (true) {
+                    showGoodsInfo(current_index_no);
+                    current_index_no = current_index_no + 1;
+                    //如果循环至最后一页则重头开始
+                    if (current_index_no == tableModel.getRowCount()) {
+                        current_index_no = 0;
+                    }
+
+                    //如果停止播放，则退出循环
+                    if (!autoPlayState) {
+                        log.debug("停止播放，退出循环！");
+                        break;
+                    }
+                    //休息6秒钟
+                    sleep(1000 * 6);
+                }
+            } catch (Exception ex) {
+                log.error("error:", ex);
+            }
+        }
+    }
     //图片缓冲区
     private BufferedImage initialBufferedImage;
     //项目编号
@@ -393,7 +495,14 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
     private int indexNo;
     //当前序号
     private int current_index_no;
+    //拍品图像存储跟路径
+    private String imageRootPath;
+    //循环播放状态
+    private boolean autoPlayState = false;
+    //循环播放线程
+    private AutoPlayThread autoPlayThread;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.jdesktop.swingx.JXButton autoStartBt;
     private org.jdesktop.swingx.JXButton backBt;
     private javax.swing.JPanel buttonPanel;
     private org.jdesktop.swingx.JXButton closeBt;
@@ -405,6 +514,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
     private org.jdesktop.swingx.JXLabel imageLabel;
     private org.jdesktop.swingx.JXButton lastBt;
     private org.jdesktop.swingx.JXButton nextBt;
+    private org.jdesktop.swingx.JXButton pauseBt;
     private org.jdesktop.swingx.JXButton previousBt;
     private org.jdesktop.swingx.JXLabel titleLabel;
     // End of variables declaration//GEN-END:variables
