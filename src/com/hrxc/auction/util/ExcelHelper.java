@@ -3,6 +3,7 @@ package com.hrxc.auction.util;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -14,6 +15,7 @@ import org.apache.poi.ss.usermodel.Sheet;
  * @author user
  */
 public class ExcelHelper {
+    private static Logger log = Logger.getLogger(ExcelHelper.class);
 
     /**
      * 根据已经有的excel表构造POI对象
@@ -57,8 +59,9 @@ public class ExcelHelper {
                     cellValue = cell.getStringCellValue().trim();
                     break;
             }
-
+            log.debug("cellValue=" + cellValue);
         }
+        
         return cellValue;
     }
     

@@ -12,17 +12,18 @@ import java.util.List;
  * @author user
  */
 public class GoodsListDao {
+
     /**
-     * 
+     *
      * @param vo
-     * @return 
+     * @return
      */
     public List getAllObjectInfo(GoodsListVo vo) {
         return (List<GoodsList>) MyBatisUtils.selectList("GoodsList.getAllObjectInfo", vo);
     }
 
     /**
-     * 
+     *
      * @param pkId
      * @return
      */
@@ -41,11 +42,15 @@ public class GoodsListDao {
         MyBatisUtils.deleteOnTransaction("GoodsList.deleteObjectById", list);
     }
 
-    public int insertObject(GoodsList dto){
-         return MyBatisUtils.insert("GoodsList.insertObject", dto);
+    public int insertObject(GoodsList dto) {
+        return MyBatisUtils.insert("GoodsList.insertObject", dto);
     }
-    
-    public int updateObjectById(GoodsList dto){
+
+    public void insertObject(ArrayList<GoodsList> list) {
+        MyBatisUtils.insertOnTransaction("GoodsList.insertObject", list);
+    }
+
+    public int updateObjectById(GoodsList dto) {
         return MyBatisUtils.update("GoodsList.updateObjectById", dto);
     }
 }

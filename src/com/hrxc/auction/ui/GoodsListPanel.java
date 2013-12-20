@@ -57,6 +57,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
         jXLabel2 = new org.jdesktop.swingx.JXLabel();
         fd_goodsName = new org.jdesktop.swingx.JXTextField();
         searchBton = new org.jdesktop.swingx.JXButton();
+        batchImportBton = new org.jdesktop.swingx.JXButton();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -146,6 +147,16 @@ public class GoodsListPanel extends javax.swing.JPanel {
             }
         });
 
+        batchImportBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/document-save-3.png"))); // NOI18N
+        batchImportBton.setText("数据批量导入");
+        batchImportBton.setToolTipText(null);
+        batchImportBton.setFocusable(false);
+        batchImportBton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batchImportBtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,6 +172,8 @@ public class GoodsListPanel extends javax.swing.JPanel {
                 .addComponent(fd_goodsName, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchBton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(batchImportBton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(toolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -173,7 +186,8 @@ public class GoodsListPanel extends javax.swing.JPanel {
                     .addComponent(fd_goodsNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jXLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fd_goodsName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchBton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchBton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(batchImportBton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -236,6 +250,12 @@ public class GoodsListPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_displayBtonActionPerformed
 
+    private void batchImportBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batchImportBtonActionPerformed
+        GoodsListBatchImportDialog dialog = new GoodsListBatchImportDialog((javax.swing.JFrame) this.getRootPane().getParent(), true, projectNo);
+        dialog.setLocationRelativeTo(this);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_batchImportBtonActionPerformed
+
     /**
      * 刷新表单数据
      */
@@ -257,6 +277,7 @@ public class GoodsListPanel extends javax.swing.JPanel {
     private String projectNo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton addBton;
+    private org.jdesktop.swingx.JXButton batchImportBton;
     private org.jdesktop.swingx.JXTable dataTable;
     private org.jdesktop.swingx.JXButton deleteBton;
     private org.jdesktop.swingx.JXButton displayBton;

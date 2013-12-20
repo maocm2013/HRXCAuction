@@ -1,6 +1,7 @@
 package com.hrxc.auction.util;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -108,7 +109,7 @@ public class UITools {
                     String propValue = BeanUtils.getProperty(dto, col.getPropertyName());
                     if (col.isIsDict() == true) {
                         data[i][c] = "";
-                        if(propValue != null){
+                        if (propValue != null) {
                             data[i][c] = MethodUtils.invokeMethod(DictEnum.getInstance(), "getDictDesc", new Object[]{col.getDictMap(), propValue});
                         }
                     } else {
@@ -191,11 +192,12 @@ public class UITools {
         }
         return c;
     }
-    
+
     /**
      * 获取被选中首行的记录序号
+     *
      * @param table
-     * @return 
+     * @return
      */
     public static int getFirstCheckedRowNo(JTable table) {
         int c = 0;
@@ -374,6 +376,103 @@ public class UITools {
                 out.close();
             } catch (IOException e) {
                 log.error("error:", e);
+            }
+        }
+    }
+
+    /**
+     * 选择文件并返回文件路径
+     * @param com
+     * @return 
+     */
+    public static String ChooseExcelFile(JComponent com) {
+        String filePath = "";
+        try {
+
+            JFileChooser fileChooser = new JFileChooser();
+            //限制文件过滤
+            FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                    "Excel 97-2003(*.xls)", "xls");
+            fileChooser.setFileFilter(filter);
+
+            int ret = fileChooser.showSaveDialog(com.getRootPane());
+            if (ret == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                filePath = selectedFile.getAbsolutePath();
+            }
+        } catch (Exception e) {
+            log.error("error:", e);
+        }
+        return filePath;
+    }
+    
+    /**
+     * 保存指定文件
+     * @param com
+     * @param srcFilePath 
+     */
+    public static void saveExcelTemplate(JComponent com, String srcFilePath) {
+        try {
+
+            JFileChooser fileChooser = new JFileChooser();
+            //限制文件过滤
+            FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                    "Excel 97-2003(*.xls)", "xls");
+            fileChooser.setFileFilter(filter);
+
+            File defaultFile = new File("myTemplate.xls");
+            fileChooser.setSelectedFile(defaultFile);
+
+            int ret = fileChooser.showSaveDialog(com.getRootPane());
+            if (ret == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                if (selectedFile.exists()) {
+                    int copy = JOptionPane.showConfirmDialog(com.getRootPane(), "是否要覆盖当前文件", "保存", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (copy == JOptionPane.YES_OPTION) {
+                        fileChooser.approveSelection();
+                    } else {
+                        return;
+                    }
+                } else {
+                    selectedFile.createNewFile();
+                }
+                
+                //进行文件拷贝
+                copyFile(srcFilePath,selectedFile.getAbsolutePath());
+            }
+        } catch (IOException e) {
+            log.error("error:", e);
+        }
+    }
+    
+    /**
+     * 复制文件
+     * @param srcFilePath 源文件
+     * @param destFilePath 目标文件
+     */
+    public static void copyFile(String srcFilePath,String destFilePath){
+        FileInputStream in = null;
+        FileOutputStream out = null;
+        try{
+            in = new FileInputStream(srcFilePath);
+            out = new FileOutputStream(destFilePath);
+            byte[] buffer = new byte[1024];
+            int read = 0;
+            while((read = in.read(buffer)) != -1){
+                out.write(buffer, 0, read);
+            }
+        }catch(Exception ex){
+            log.error("error:", ex);
+        }finally{
+            try{
+                if(in != null){
+                    in.close();
+                }
+                if(out != null){
+                    out.close();
+                }
+            }catch(Exception ex){
+                log.error("error:", ex);
             }
         }
     }

@@ -77,6 +77,14 @@ public class GoodsListAction {
             log.error("error:", ex);
         }
     }
+    
+    /**
+     * 批量添加数据
+     * @param list 
+     */
+    public static void batchSaveObject(ArrayList<GoodsList> list){
+        dao.insertObject(list);
+    }
 
     /**
      * 根据主键查询数据信息
