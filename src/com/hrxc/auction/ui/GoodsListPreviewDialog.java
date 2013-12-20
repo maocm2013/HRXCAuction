@@ -9,12 +9,16 @@ import java.awt.GraphicsEnvironment;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.net.URI;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Properties;
 import javax.imageio.ImageReader;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 import javax.swing.table.TableModel;
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -38,6 +42,9 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
             + "	<br>\n"
             + "	<p style=\"font-family:隶书;font-size:18px;color:red\">起拍价：OnsetPrice</p>\n"
             + "</html>";
+    private String s_datetime = "<html>\n"
+            + "	<p style=\"font-family:宋体;font-size:18px;color:black\">datetime</p>\n"
+            + "</html>";
 
     /**
      * Creates new form GoodsListPreviewDialog
@@ -58,6 +65,10 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         this.setUndecorated(true);
 
         initComponents();
+
+        //动态时间显示
+        AutoShowTimeThread timeThread = new AutoShowTimeThread();
+        timeThread.start();
 
         //获取项目信息并动态显示项目名称
         ProjectInfo projectInfo = ProjectInfoAction.getProjectInfoByProjectNo(projectNo);
@@ -103,9 +114,9 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
 
             float percentOfOriginal_x = (float) this.getWidth() / initialBufferedImage.getWidth() * 0.6f * 100;
             int i_percentOfOriginal_x = new Float(percentOfOriginal_x).intValue();
-            
+
             int percentOfOriginal = i_percentOfOriginal_y;
-            if(i_percentOfOriginal_y > i_percentOfOriginal_x){
+            if (i_percentOfOriginal_y > i_percentOfOriginal_x) {
                 percentOfOriginal = i_percentOfOriginal_x;
             }
 
@@ -142,6 +153,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         gotoBt = new org.jdesktop.swingx.JXButton();
         autoStartBt = new org.jdesktop.swingx.JXButton();
         pauseBt = new org.jdesktop.swingx.JXButton();
+        datetimeLabel = new org.jdesktop.swingx.JXLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -327,7 +339,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                 buttonPanelLayout.setVerticalGroup(
                     buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanelLayout.createSequentialGroup()
-                        .addContainerGap(30, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(autoStartBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pauseBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -344,6 +356,11 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                                     .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 );
 
+                datetimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                datetimeLabel.setLabelFor(this);
+                datetimeLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                datetimeLabel.setTextAlignment(org.jdesktop.swingx.JXLabel.TextAlignment.CENTER);
+
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
                 layout.setHorizontalGroup(
@@ -351,25 +368,32 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap())
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(datetimeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 );
                 layout.setVerticalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                        .addGap(11, 11, 11)
+                        .addContainerGap()
+                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(datetimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE))
+                            .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                 );
 
@@ -454,6 +478,32 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_pauseBtActionPerformed
 
+    class AutoShowTimeThread extends Thread {
+
+        @Override
+        public void run() {
+            showTime();
+        }
+
+        private void showTime() {
+            try {
+                while (true) {
+                    //拼装时间
+                    String pattern = "yyyy年MM月dd日 HH时mm分ss秒 \n\tE";
+                    String dstr = DateFormatUtils.format(new java.util.Date(), pattern);
+                    String s = s_datetime.replaceAll("datetime", dstr);
+                    datetimeLabel.setText(s);
+                    sleep(900);
+                }
+            } catch (Exception ex) {
+                log.debug("error:", ex);
+            }
+        }
+    }
+
+    /**
+     * 自动播放线程
+     */
     class AutoPlayThread extends Thread {
 
         @Override
@@ -506,6 +556,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
     private org.jdesktop.swingx.JXButton backBt;
     private javax.swing.JPanel buttonPanel;
     private org.jdesktop.swingx.JXButton closeBt;
+    private org.jdesktop.swingx.JXLabel datetimeLabel;
     private org.jdesktop.swingx.JXLabel descLabel;
     private org.jdesktop.swingx.JXButton firstBt;
     private org.jdesktop.swingx.JXButton fullScreenBt;

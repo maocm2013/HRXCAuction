@@ -15,7 +15,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -220,8 +223,7 @@ public class MyTestExample {
     }
 
     /**
-     * <p>将数据库字段名替换为属性名</p>
-     * TODO：该函数只支持一个_的情况！！
+     * <p>将数据库字段名替换为属性名</p> TODO：该函数只支持一个_的情况！！
      *
      * @param col
      * @return
@@ -235,15 +237,41 @@ public class MyTestExample {
             property += col.substring(i + 2).toLowerCase();
         } else {
             property = col.toLowerCase();
-        }    
+        }
         return property;
     }
-    
+
     @Test
-    public void simpleTest(){
+    public void simpleTest() {
         //System.out.println(DateFormatUtils.format(new java.util.Date(), "yyyyMMddHHmmss"));
         //System.out.println("date=" + DateFormatUtils.format(new java.util.Date(), "yyyy-MM-dd HH:mm:ss"));
-        float f = (float)480/1362/2*100;
-        System.out.println("f========" + f);
+//        float f = (float)480/1362/2*100;
+//        System.out.println("f========" + f);
+
+        GregorianCalendar calendar = new GregorianCalendar();
+        StringBuffer dsb = new StringBuffer();
+        StringBuffer wsb = new StringBuffer();
+
+        //拼装时间
+        calendar.setTime(new java.util.Date());
+        dsb.delete(0, dsb.length());
+        dsb.append(calendar.get(Calendar.YEAR)).append("年");
+        dsb.append(calendar.get(Calendar.MONTH) + 1).append("月");
+        dsb.append(calendar.get(Calendar.DAY_OF_MONTH)).append("日");
+        dsb.append("  ");
+        dsb.append(calendar.get(Calendar.HOUR)).append("时");
+        dsb.append(calendar.get(Calendar.MINUTE)).append("分");
+        dsb.append(calendar.get(Calendar.SECOND)).append("秒");
+
+        //拼装星期
+        wsb.delete(0, wsb.length());
+        wsb.append("星期").append(calendar.get(Calendar.DAY_OF_WEEK));
+        
+        System.out.println("datetime=" + dsb.toString());
+        System.out.println("weektime=" + wsb.toString());
+        
+        String pattern = "yyyy年MM月dd日 HH时mm分ss秒 \n\t星期E";
+        String s = DateFormatUtils.format(new java.util.Date(), pattern);
+        System.out.println("s=" + s);
     }
 }
