@@ -1,18 +1,15 @@
 package com.hrxc.auction.ui;
 
-import com.hrxc.auction.action.ProjectInfoAction;
-import com.hrxc.auction.domain.ProjectInfo;
 import com.hrxc.auction.util.Configuration;
 import com.hrxc.auction.util.ImageUtil;
+import com.hrxc.auction.util.UITools;
+import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.net.URI;
+import java.math.BigDecimal;
 import java.util.Properties;
-import javax.imageio.ImageIO;
-import javax.imageio.ImageReader;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
@@ -27,22 +24,18 @@ import org.apache.log4j.Logger;
 public class GoodsListPreviewDialog extends javax.swing.JDialog {
 
     private static final Logger log = Logger.getLogger(GoodsListPreviewDialog.class);
-//    private String s_title = "<html>\n"
-//            + "	<p style=\"font-family:隶书;font-size:18px;color:blue\">\n"
-//            + "		北京华软信诚拍卖行  ProjectName\n"
-//            + "	</p>\n"
-//            + "</html>";
     private String s_desc = "<html>\n"
-            + "	<p style=\"font-family:隶书;font-size:18px;color:red\">GoodsNo</p>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:56px;color:blue\">GoodsNo</p></div>\n"
             + "	<br>\n"
-            + "	<p style=\"font-family:隶书;font-size:18px;color:black\">Author</p>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">Author</p></div>\n"
             + "	<br>\n"
-            + "	<p style=\"font-family:隶书;font-size:18px;color:blue\">GoodsName</p>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">GoodsName</p></div>\n"
             + "	<br>\n"
-            + "	<p style=\"font-family:隶书;font-size:18px;color:red\">起拍价：OnsetPrice</p>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">起拍价：OnsetPrice</p></div>\n"
             + "</html>";
     private String s_datetime = "<html>\n"
-            + "	<p style=\"font-family:宋体;font-size:18px;color:black\">datetime</p>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">weektime</p></div>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">datetime</p></div>\n"
             + "</html>";
 
     /**
@@ -56,9 +49,14 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         this.indexNo = indexNo;
         current_index_no = indexNo;
 
-        //获取图像存储根路径
+
         Properties props = Configuration.loadProperties("config/system.properties");
+        //获取图像存储根路径
         this.imageRootPath = props.getProperty("goods.images.rootPath");
+        //获取图像存储临时路径
+        this.temp_imageRootPath = props.getProperty("goods.images.tempPath");
+        log.debug("this.temp_imageRootPath=" + this.temp_imageRootPath);
+        UITools.checkOrSaveDir(this.temp_imageRootPath);
 
         //不显示标题栏
         this.setUndecorated(true);
@@ -68,26 +66,44 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         //动态时间显示
         AutoShowTimeThread timeThread = new AutoShowTimeThread();
         timeThread.start();
-        
-        
+
+        initLayout();
         showTitleImage();
-
-
-//        //获取项目信息并动态显示项目名称
-//        ProjectInfo projectInfo = ProjectInfoAction.getProjectInfoByProjectNo(projectNo);
-//        titleLabel.setText(s_title.replaceAll("ProjectName", projectInfo.getProjectName()));
-
         showGoodsInfo(current_index_no);
     }
 
+    /**
+     * 初始化布局
+     */
+    private void initLayout() {
+        //设置标题部分的大小
+        Dimension dimension = new Dimension(this.getWidth(), new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        titleLabel.setPreferredSize(dimension);
+
+        //设置图片显示部分大小
+        dimension = new Dimension(new BigDecimal(this.getWidth() * 0.7).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.6).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        imageLabel.setPreferredSize(dimension);
+        imageLabel.setMinimumSize(dimension);
+        imageLabel.setMaximumSize(dimension);
+
+
+        //设置图录信息部分大小
+        dimension = new Dimension(new BigDecimal(this.getWidth() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.6).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        descLabel.setPreferredSize(dimension);
+        descLabel.setMinimumSize(dimension);
+        descLabel.setMaximumSize(dimension);
+    }
+
+    /**
+     * 显示标题LOGO
+     */
     private void showTitleImage() {
         try {
-            File titleImage = new File("config/view_title.jpg");
-            BufferedImage bufimage = ImageIO.read(titleImage);
-            int width = titleLabel.getWidth();
-            int height = titleLabel.getHeight();
-            BufferedImage _bufimage = ImageUtil.resize(width, height, bufimage);
-            ImageIcon icon = new ImageIcon(_bufimage);
+
+            String tmpfilePath = this.temp_imageRootPath.concat(UITools.generateUUID()).concat(".jpg");
+            File tmpFile = new File(tmpfilePath);
+            ImageUtil.resize(new File("config/view_title.jpg"), tmpFile, titleLabel.getWidth(), 1f);
+            ImageIcon icon = new ImageIcon(tmpfilePath);
             titleLabel.setIcon(icon);
         } catch (Exception ex) {
             log.error("error:", ex);
@@ -121,26 +137,12 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
             desc = desc.replaceAll("OnsetPrice", onsetPrice);
             descLabel.setText(desc);
 
-            URI uri = new URI(rootPath.concat(goodsNo).concat(".jpg"));
-            ImageReader reader = ImageUtil.findImageReader(uri);
-            initialBufferedImage = ImageUtil.loadImage(reader);
-
-            //以屏幕纵轴75%、横轴60%计算图片显示比例并显示图片信息
-            float percentOfOriginal_y = (float) this.getHeight() / initialBufferedImage.getHeight() * 0.75f * 100;
-            int i_percentOfOriginal_y = new Float(percentOfOriginal_y).intValue();
-
-            float percentOfOriginal_x = (float) this.getWidth() / initialBufferedImage.getWidth() * 0.6f * 100;
-            int i_percentOfOriginal_x = new Float(percentOfOriginal_x).intValue();
-
-            int percentOfOriginal = i_percentOfOriginal_y;
-            if (i_percentOfOriginal_y > i_percentOfOriginal_x) {
-                percentOfOriginal = i_percentOfOriginal_x;
-            }
-
-            log.debug("percentOfOriginal=" + percentOfOriginal);
-            BufferedImage resizeImage = ImageUtil.resize(percentOfOriginal, initialBufferedImage);
-            imageLabel.setIcon(new ImageIcon(resizeImage));
-
+            String goodsImagePath = rootPath.concat(goodsNo).concat(".jpg");
+            String tmpfilePath = this.temp_imageRootPath.concat(UITools.generateUUID()).concat(".jpg");
+            File tmpFile = new File(tmpfilePath);
+            ImageUtil.resize(new File(goodsImagePath), tmpFile, imageLabel.getWidth(), 1f);
+            ImageIcon icon = new ImageIcon(tmpfilePath);
+            imageLabel.setIcon(icon);
         } catch (Exception ex) {
             log.error("error:", ex);
         }
@@ -177,9 +179,12 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setFont(new java.awt.Font("隶书", 1, 48)); // NOI18N
 
+        imageLabel.setBackground(new java.awt.Color(0, 0, 0));
         imageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        descLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        descLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        descLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        descLabel.setTextAlignment(org.jdesktop.swingx.JXLabel.TextAlignment.CENTER);
 
         buttonPanel.setAlignmentX(0.1F);
         buttonPanel.setAlignmentY(0.1F);
@@ -383,36 +388,29 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                 layout.setHorizontalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(datetimeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(datetimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
+                            .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(titleLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addGap(0, 41, Short.MAX_VALUE)
+                        .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 );
                 layout.setVerticalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(datetimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE))
+                                .addComponent(datetimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
                             .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
                 pack();
@@ -424,19 +422,21 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         GraphicsDevice gd = ge.getDefaultScreenDevice();
         // 全屏设置
         gd.setFullScreenWindow(this);
-        
+
+        initLayout();
         showTitleImage();
-        
         showGoodsInfo(current_index_no);
     }//GEN-LAST:event_fullScreenBtActionPerformed
 
     private void backBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtActionPerformed
         GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().setFullScreenWindow(null);
+
+        initLayout();
+        showTitleImage();
         showGoodsInfo(current_index_no);
     }//GEN-LAST:event_backBtActionPerformed
 
     private void closeBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtActionPerformed
-        initialBufferedImage = null;
         this.dispose();
 
     }//GEN-LAST:event_closeBtActionPerformed
@@ -510,9 +510,11 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
             try {
                 while (true) {
                     //拼装时间
-                    String pattern = "yyyy年MM月dd日 HH时mm分ss秒 \n\tE";
-                    String dstr = DateFormatUtils.format(new java.util.Date(), pattern);
-                    String s = s_datetime.replaceAll("datetime", dstr);
+                    java.util.Date date = new java.util.Date();
+                    String weektime = DateFormatUtils.format(date, "E");
+                    String datetime = DateFormatUtils.format(date, "yyyy年MM月dd日 HH:mm:ss");
+                    String s = s_datetime.replaceAll("weektime", weektime);
+                    s = s.replaceAll("datetime", datetime);
                     datetimeLabel.setText(s);
                     sleep(900);
                 }
@@ -556,8 +558,6 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
             }
         }
     }
-    //图片缓冲区
-    private BufferedImage initialBufferedImage;
     //项目编号
     private String projectNo;
     //列表数据
@@ -566,8 +566,10 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
     private int indexNo;
     //当前序号
     private int current_index_no;
-    //拍品图像存储跟路径
+    //拍品图像存储根路径
     private String imageRootPath;
+    //拍品图像存储临时根路径
+    private String temp_imageRootPath;
     //循环播放状态
     private boolean autoPlayState = false;
     //循环播放线程

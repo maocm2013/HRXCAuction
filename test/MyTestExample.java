@@ -1,14 +1,27 @@
 
 import com.hrxc.auction.domain.GoodsList;
 import com.hrxc.auction.util.Configuration;
+import com.hrxc.auction.util.ImageUtil;
 import com.hrxc.auction.util.JdbcUtil;
 import com.hrxc.auction.util.MD5;
 import com.hrxc.auction.util.MyBatisUtils;
 import com.hrxc.auction.util.MyTableConfig;
 import com.hrxc.auction.util.MyTableModel;
+import com.hrxc.auction.util.UITools;
+import com.sun.image.codec.jpeg.JPEGCodec;
+import com.sun.image.codec.jpeg.JPEGEncodeParam;
+import com.sun.image.codec.jpeg.JPEGImageEncoder;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.awt.image.ConvolveOp;
+import java.awt.image.Kernel;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -22,6 +35,8 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
@@ -241,37 +256,52 @@ public class MyTestExample {
         return property;
     }
 
-    @Test
+    //@Test
     public void simpleTest() {
         //System.out.println(DateFormatUtils.format(new java.util.Date(), "yyyyMMddHHmmss"));
         //System.out.println("date=" + DateFormatUtils.format(new java.util.Date(), "yyyy-MM-dd HH:mm:ss"));
 //        float f = (float)480/1362/2*100;
 //        System.out.println("f========" + f);
-
-        GregorianCalendar calendar = new GregorianCalendar();
-        StringBuffer dsb = new StringBuffer();
-        StringBuffer wsb = new StringBuffer();
-
-        //拼装时间
-        calendar.setTime(new java.util.Date());
-        dsb.delete(0, dsb.length());
-        dsb.append(calendar.get(Calendar.YEAR)).append("年");
-        dsb.append(calendar.get(Calendar.MONTH) + 1).append("月");
-        dsb.append(calendar.get(Calendar.DAY_OF_MONTH)).append("日");
-        dsb.append("  ");
-        dsb.append(calendar.get(Calendar.HOUR)).append("时");
-        dsb.append(calendar.get(Calendar.MINUTE)).append("分");
-        dsb.append(calendar.get(Calendar.SECOND)).append("秒");
-
-        //拼装星期
-        wsb.delete(0, wsb.length());
-        wsb.append("星期").append(calendar.get(Calendar.DAY_OF_WEEK));
-        
-        System.out.println("datetime=" + dsb.toString());
-        System.out.println("weektime=" + wsb.toString());
-        
-        String pattern = "yyyy年MM月dd日 HH时mm分ss秒 \n\t星期E";
-        String s = DateFormatUtils.format(new java.util.Date(), pattern);
-        System.out.println("s=" + s);
     }
+
+    @Test
+    public void imageTransfer() {
+        BufferedImage sourceImage = null;
+        BufferedImage tempImage = null;
+        try {
+            File file = new File("E:/temp/030.jpg");
+            sourceImage = ImageIO.read(file);
+//            for (int i = 1; i <= 13; i++) {
+//                tempImage = ImageUtil.resize(498, 516, sourceImage, i);
+//                ImageIO.write(tempImage, "jpg", new File("E:/temp/030_t_" + i + ".jpg"));
+//            }
+
+//            System.out.println("imageType=" + sourceImage.getType());
+//            tempImage = new BufferedImage(498, 516, sourceImage.getType());
+//            Graphics g = tempImage.getGraphics();
+//            g.drawImage(sourceImage, 0, 0, 498, 516, null);
+//            g.dispose();
+//            ImageIO.write(tempImage, "jpg", new File("E:/temp/030_temp.jpg"));
+
+//            int[] types = {1, 4, 5, 8, 9, 13};
+//            for (int i = 0; i < types.length; i++) {
+//                tempImage = new BufferedImage(498, 516, types[i]);
+//                Graphics g = tempImage.getGraphics();
+//                g.drawImage(sourceImage, 0, 0, 498, 516, null);
+//                g.dispose();
+//                ImageIO.write(tempImage, "jpg", new File("E:/temp/030_t_" + i + ".jpg"));
+//            }
+
+            File originalImage = new File("E:/temp/030.jpg");
+            String rootPath = "e:/ssss/";
+            UITools.checkOrSaveDir(rootPath);
+            ImageUtil.resize(originalImage, new File(rootPath.concat("030_n1.jpg")), 600, 0.7f);
+            ImageUtil.resize(originalImage, new File(rootPath.concat("030_n2.jpg")), 600, 1f);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    
 }

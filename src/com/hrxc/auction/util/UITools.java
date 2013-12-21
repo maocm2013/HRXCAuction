@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.StringTokenizer;
 import java.util.UUID;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
@@ -382,8 +383,9 @@ public class UITools {
 
     /**
      * 选择文件并返回文件路径
+     *
      * @param com
-     * @return 
+     * @return
      */
     public static String ChooseExcelFile(JComponent com) {
         String filePath = "";
@@ -405,11 +407,12 @@ public class UITools {
         }
         return filePath;
     }
-    
+
     /**
      * 保存指定文件
+     *
      * @param com
-     * @param srcFilePath 
+     * @param srcFilePath
      */
     public static void saveExcelTemplate(JComponent com, String srcFilePath) {
         try {
@@ -436,44 +439,65 @@ public class UITools {
                 } else {
                     selectedFile.createNewFile();
                 }
-                
+
                 //进行文件拷贝
-                copyFile(srcFilePath,selectedFile.getAbsolutePath());
+                copyFile(srcFilePath, selectedFile.getAbsolutePath());
             }
         } catch (IOException e) {
             log.error("error:", e);
         }
     }
-    
+
     /**
      * 复制文件
+     *
      * @param srcFilePath 源文件
      * @param destFilePath 目标文件
      */
-    public static void copyFile(String srcFilePath,String destFilePath){
+    public static void copyFile(String srcFilePath, String destFilePath) {
         FileInputStream in = null;
         FileOutputStream out = null;
-        try{
+        try {
             in = new FileInputStream(srcFilePath);
             out = new FileOutputStream(destFilePath);
             byte[] buffer = new byte[1024];
             int read = 0;
-            while((read = in.read(buffer)) != -1){
+            while ((read = in.read(buffer)) != -1) {
                 out.write(buffer, 0, read);
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             log.error("error:", ex);
-        }finally{
-            try{
-                if(in != null){
+        } finally {
+            try {
+                if (in != null) {
                     in.close();
                 }
-                if(out != null){
+                if (out != null) {
                     out.close();
                 }
-            }catch(Exception ex){
+            } catch (Exception ex) {
                 log.error("error:", ex);
             }
         }
+    }
+
+    /**
+     * 新建多级目录
+     *
+     * @param path
+     */
+    public static void checkOrSaveDir(String path) {
+        StringTokenizer st = new StringTokenizer(path, "/");
+        String path1 = st.nextToken() + "/";
+        String path2 = path1;
+        while (st.hasMoreTokens()) {
+            path1 = st.nextToken() + "/";
+            path2 += path1;
+            File inbox = new File(path2);
+            if (!inbox.exists()) {
+                inbox.mkdir();
+            }
+        }
+
     }
 }

@@ -1,13 +1,21 @@
 package com.hrxc.auction.util;
 
+import com.sun.image.codec.jpeg.JPEGCodec;
+import com.sun.image.codec.jpeg.JPEGEncodeParam;
+import com.sun.image.codec.jpeg.JPEGImageEncoder;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.color.ColorSpace;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorConvertOp;
+import java.awt.image.ConvolveOp;
+import java.awt.image.Kernel;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Iterator;
@@ -15,35 +23,41 @@ import java.util.logging.Level;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
+import javax.swing.ImageIcon;
 import org.apache.log4j.Logger;
 
 /**
  * java 图像操作工具类
+ *
  * @author maochangming
  */
 public class ImageUtil {
+
     private static final Logger logger = Logger.getLogger(ImageUtil.class);
 
     /**
      * 指定比例进行图片缩放
+     *
      * @param percentOfOriginal 缩放比例
      * @param bufferedImage 图片缓冲区
      * @return
      */
-    public static BufferedImage resize(int percentOfOriginal,BufferedImage bufferedImage){
+    public static BufferedImage resize(int percentOfOriginal, BufferedImage bufferedImage) {
         int newWidth = bufferedImage.getWidth() * percentOfOriginal / 100;
         int newHeight = bufferedImage.getHeight() * percentOfOriginal / 100;
-        return resize(newWidth, newHeight,bufferedImage);
+        //TODO:
+        return resize(newWidth, newHeight, bufferedImage);
     }
 
     /**
      * 指定宽高进行图片缩放
+     *
      * @param newWidth 宽
      * @param newHeight 高
      * @param bufferedImage 图片缓冲区
      * @return
      */
-    public static BufferedImage resize(int newWidth, int newHeight,BufferedImage bufferedImage) {
+    public static BufferedImage resize(int newWidth, int newHeight, BufferedImage bufferedImage) {
 
         int oldWidth = bufferedImage.getWidth();
         int oldHeight = bufferedImage.getHeight();
@@ -122,6 +136,7 @@ public class ImageUtil {
 
     /**
      * 图片向左旋转90度
+     *
      * @param bufferedImage
      * @return
      */
@@ -144,6 +159,7 @@ public class ImageUtil {
 
     /**
      * 图片向右旋转90度
+     *
      * @param bufferedImage
      * @return
      */
@@ -165,6 +181,7 @@ public class ImageUtil {
 
     /**
      * 图片旋转180度
+     *
      * @param bufferedImage
      * @return
      */
@@ -183,7 +200,7 @@ public class ImageUtil {
         }
         return result;
     }
-    
+
     public static ImageReader findImageReader(URI uri) {
         ImageInputStream input = null;
         try {
@@ -230,13 +247,87 @@ public class ImageUtil {
         return originBufferedImage;
     }
 
+    
+    /**
+     * 高质量图片缩放，使用sun自带算法
+     * @param originalFile
+     * @param resizedFile
+     * @param newWidth
+     * @param quality
+     * @throws IOException 
+     */
+    public static void resize(File originalFile, File resizedFile,
+            int newWidth, float quality) throws IOException {
+
+        if (quality > 1) {
+            throw new IllegalArgumentException(
+                    "Quality has to be between 0 and 1");
+        }
+
+        ImageIcon ii = new ImageIcon(originalFile.getCanonicalPath());
+        Image i = ii.getImage();
+        Image resizedImage = null;
+
+        int iWidth = i.getWidth(null);
+        int iHeight = i.getHeight(null);
+
+        if (iWidth > iHeight) {
+            resizedImage = i.getScaledInstance(newWidth, (newWidth * iHeight)
+                    / iWidth, Image.SCALE_SMOOTH);
+        } else {
+            resizedImage = i.getScaledInstance((newWidth * iWidth) / iHeight,
+                    newWidth, Image.SCALE_SMOOTH);
+        }
+
+        // This code ensures that all the pixels in the image are loaded.  
+        Image temp = new ImageIcon(resizedImage).getImage();
+
+        // Create the buffered image.  
+        BufferedImage bufferedImage = new BufferedImage(temp.getWidth(null),
+                temp.getHeight(null), BufferedImage.TYPE_INT_RGB);
+
+        // Copy image to buffered image.  
+        Graphics g = bufferedImage.createGraphics();
+
+        // Clear background and paint the image.  
+        g.setColor(Color.white);
+        g.fillRect(0, 0, temp.getWidth(null), temp.getHeight(null));
+        g.drawImage(temp, 0, 0, null);
+        g.dispose();
+
+        // Soften.  
+        float softenFactor = 0.05f;
+        float[] softenArray = {0, softenFactor, 0, softenFactor,
+            1 - (softenFactor * 4), softenFactor, 0, softenFactor, 0};
+        Kernel kernel = new Kernel(3, 3, softenArray);
+        ConvolveOp cOp = new ConvolveOp(kernel, ConvolveOp.EDGE_NO_OP, null);
+        bufferedImage = cOp.filter(bufferedImage, null);
+
+        // Write the jpeg to a file.  
+        FileOutputStream out = new FileOutputStream(resizedFile);
+
+        // Encodes image as a JPEG data stream  
+        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
+
+        JPEGEncodeParam param = encoder
+                .getDefaultJPEGEncodeParam(bufferedImage);
+
+        param.setQuality(quality, true);
+
+        encoder.setJPEGEncodeParam(param);
+        encoder.encode(bufferedImage);
+        
+        out.close();
+    }
+
     //-----------------------------------以下方法为转载方法，待研究实验------------------------------------------//
     /**
      * Add color to the RGB of the pixel
+     *
      * @param numToAdd
      * @param bufferedImage
      */
-    public static void addPixelColor(int numToAdd,BufferedImage bufferedImage) {
+    public static void addPixelColor(int numToAdd, BufferedImage bufferedImage) {
         int width = bufferedImage.getWidth();
         int height = bufferedImage.getHeight();
 
@@ -250,6 +341,7 @@ public class ImageUtil {
 
     /**
      * Covert image to black and white.
+     *
      * @param bufferedImage
      */
     public static void convertToBlackAndWhite(BufferedImage bufferedImage) {
@@ -260,6 +352,7 @@ public class ImageUtil {
 
     /**
      * Flips the image horizontally
+     *
      * @param bufferedImage
      * @return
      */
@@ -281,6 +374,7 @@ public class ImageUtil {
 
     /**
      * Flips the image vertically.
+     *
      * @param bufferedImage
      * @return
      */
@@ -302,6 +396,7 @@ public class ImageUtil {
 
     /**
      * Multiply the image and also add color each of the multiplied images.
+     *
      * @param timesToMultiplyVertically
      * @param timesToMultiplyHorizantelly
      * @param colorToHenhancePerPixel can be 0
@@ -309,7 +404,7 @@ public class ImageUtil {
      * @return
      */
     public static BufferedImage multiply(int timesToMultiplyVertically,
-            int timesToMultiplyHorizantelly, int colorToHenhancePerPixel,BufferedImage bufferedImage) {
+            int timesToMultiplyHorizantelly, int colorToHenhancePerPixel, BufferedImage bufferedImage) {
         int width = bufferedImage.getWidth();
         int height = bufferedImage.getHeight();
 
@@ -331,7 +426,7 @@ public class ImageUtil {
     }
 
     /**
-     * 
+     *
      * @param startX
      * @param startY
      * @param endX
@@ -339,7 +434,7 @@ public class ImageUtil {
      * @param bufferedImage
      * @return
      */
-    public static BufferedImage crop(int startX, int startY, int endX, int endY,BufferedImage bufferedImage) {
+    public static BufferedImage crop(int startX, int startY, int endX, int endY, BufferedImage bufferedImage) {
         int width = bufferedImage.getWidth();
         int height = bufferedImage.getHeight();
 
@@ -381,7 +476,7 @@ public class ImageUtil {
      * @param jump (can be 3)
      * @param bufferedImage
      */
-    public static void emphasize(int startX, int startY, int endX, int endY, Color backgroundColor, int jump,BufferedImage bufferedImage) {
+    public static void emphasize(int startX, int startY, int endX, int endY, Color backgroundColor, int jump, BufferedImage bufferedImage) {
 
         checkJump(jump);
 
@@ -420,14 +515,14 @@ public class ImageUtil {
             throw new RuntimeException("Error: jump can not be less than 1");
         }
     }
-    
+
     /**
-     * 
+     *
      * @param color
      * @param jump
      * @param bufferedImage
      */
-    public static void addColorToImage(Color color, int jump,BufferedImage bufferedImage) {
+    public static void addColorToImage(Color color, int jump, BufferedImage bufferedImage) {
         checkJump(jump);
 
         int width = bufferedImage.getWidth();
@@ -441,13 +536,13 @@ public class ImageUtil {
     }
 
     /**
-     * 
+     *
      * @param fShxFactor
      * @param fShyFactor
      * @param bufferedImage
      * @return
      */
-    public static BufferedImage affineTransform(double fShxFactor, double fShyFactor,BufferedImage bufferedImage) {
+    public static BufferedImage affineTransform(double fShxFactor, double fShyFactor, BufferedImage bufferedImage) {
         try {
             AffineTransform shearer =
                     AffineTransform.getShearInstance(fShxFactor, fShyFactor);
@@ -459,5 +554,4 @@ public class ImageUtil {
         }
         return bufferedImage;
     }
-
 }
