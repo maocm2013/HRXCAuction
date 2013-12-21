@@ -8,8 +8,10 @@ import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.net.URI;
 import java.util.Properties;
+import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
@@ -25,11 +27,11 @@ import org.apache.log4j.Logger;
 public class GoodsListPreviewDialog extends javax.swing.JDialog {
 
     private static final Logger log = Logger.getLogger(GoodsListPreviewDialog.class);
-    private String s_title = "<html>\n"
-            + "	<p style=\"font-family:隶书;font-size:18px;color:blue\">\n"
-            + "		北京华软信诚拍卖行  ProjectName\n"
-            + "	</p>\n"
-            + "</html>";
+//    private String s_title = "<html>\n"
+//            + "	<p style=\"font-family:隶书;font-size:18px;color:blue\">\n"
+//            + "		北京华软信诚拍卖行  ProjectName\n"
+//            + "	</p>\n"
+//            + "</html>";
     private String s_desc = "<html>\n"
             + "	<p style=\"font-family:隶书;font-size:18px;color:red\">GoodsNo</p>\n"
             + "	<br>\n"
@@ -66,12 +68,30 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         //动态时间显示
         AutoShowTimeThread timeThread = new AutoShowTimeThread();
         timeThread.start();
+        
+        
+        showTitleImage();
 
-        //获取项目信息并动态显示项目名称
-        ProjectInfo projectInfo = ProjectInfoAction.getProjectInfoByProjectNo(projectNo);
-        titleLabel.setText(s_title.replaceAll("ProjectName", projectInfo.getProjectName()));
+
+//        //获取项目信息并动态显示项目名称
+//        ProjectInfo projectInfo = ProjectInfoAction.getProjectInfoByProjectNo(projectNo);
+//        titleLabel.setText(s_title.replaceAll("ProjectName", projectInfo.getProjectName()));
 
         showGoodsInfo(current_index_no);
+    }
+
+    private void showTitleImage() {
+        try {
+            File titleImage = new File("config/view_title.jpg");
+            BufferedImage bufimage = ImageIO.read(titleImage);
+            int width = titleLabel.getWidth();
+            int height = titleLabel.getHeight();
+            BufferedImage _bufimage = ImageUtil.resize(width, height, bufimage);
+            ImageIcon icon = new ImageIcon(_bufimage);
+            titleLabel.setIcon(icon);
+        } catch (Exception ex) {
+            log.error("error:", ex);
+        }
     }
 
     /**
@@ -363,10 +383,6 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                 layout.setHorizontalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -376,6 +392,10 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                 );
                 layout.setVerticalGroup(
@@ -404,6 +424,9 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         GraphicsDevice gd = ge.getDefaultScreenDevice();
         // 全屏设置
         gd.setFullScreenWindow(this);
+        
+        showTitleImage();
+        
         showGoodsInfo(current_index_no);
     }//GEN-LAST:event_fullScreenBtActionPerformed
 
