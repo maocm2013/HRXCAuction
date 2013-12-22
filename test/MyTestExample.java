@@ -256,15 +256,13 @@ public class MyTestExample {
         return property;
     }
 
-    //@Test
+    @Test
     public void simpleTest() {
-        //System.out.println(DateFormatUtils.format(new java.util.Date(), "yyyyMMddHHmmss"));
-        //System.out.println("date=" + DateFormatUtils.format(new java.util.Date(), "yyyy-MM-dd HH:mm:ss"));
-//        float f = (float)480/1362/2*100;
-//        System.out.println("f========" + f);
+        float d = (float)49/396;
+        System.out.println(d);
     }
 
-    @Test
+    //@Test
     public void imageTransfer() {
         BufferedImage sourceImage = null;
         BufferedImage tempImage = null;
@@ -295,8 +293,8 @@ public class MyTestExample {
             File originalImage = new File("E:/temp/030.jpg");
             String rootPath = "e:/ssss/";
             UITools.checkOrSaveDir(rootPath);
-            ImageUtil.resize(originalImage, new File(rootPath.concat("030_n1.jpg")), 600, 0.7f);
-            ImageUtil.resize(originalImage, new File(rootPath.concat("030_n2.jpg")), 600, 1f);
+            ImageUtil.resize(originalImage, new File(rootPath.concat("030_n1.jpg")), 0.2f, 0.7f);
+            ImageUtil.resize(originalImage, new File(rootPath.concat("030_n2.jpg")), 0.2f, 1f);
 
         } catch (Exception ex) {
             ex.printStackTrace();

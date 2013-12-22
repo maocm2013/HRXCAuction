@@ -4,6 +4,7 @@ import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGEncodeParam;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.color.ColorSpace;
@@ -17,6 +18,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URI;
 import java.util.Iterator;
 import java.util.logging.Level;
@@ -247,37 +249,90 @@ public class ImageUtil {
         return originBufferedImage;
     }
 
-    
     /**
-     * 高质量图片缩放，使用sun自带算法
+     * 根据显示区域大小进行图像缩放
+     *
+     * @param originalFile
+     * @param resizedFile
+     * @param areaWidth
+     * @param areaHeight
+     * @param quality
+     * @throws IOException
+     */
+    public static void resize4DisplayArea(File originalFile, File resizedFile,
+            int areaWidth, int areaHeight, float quality) throws IOException {
+        ImageIcon ii = new ImageIcon(originalFile.getCanonicalPath());
+        Image i = ii.getImage();
+        int iWidth = i.getWidth(null);
+        int iHeight = i.getHeight(null);
+
+        float percentOfOriginal_x = (float) areaWidth / iWidth;
+        float percentOfOriginal_y = (float) areaHeight / iHeight;
+
+        int newWidth = areaWidth;
+        int newHeight = new BigDecimal(iHeight * percentOfOriginal_x).intValue();
+        if (percentOfOriginal_x > percentOfOriginal_y) {
+            newWidth = new BigDecimal(iWidth * percentOfOriginal_y).intValue();
+            newHeight = new BigDecimal(iHeight * percentOfOriginal_y).intValue();
+        }
+        resize(i, resizedFile, newWidth, newHeight, quality);
+    }
+
+    /**
+     * 根据指定大小缩放图片
      * @param originalFile
      * @param resizedFile
      * @param newWidth
+     * @param newHeight
      * @param quality
      * @throws IOException 
      */
     public static void resize(File originalFile, File resizedFile,
-            int newWidth, float quality) throws IOException {
+            int newWidth, int newHeight, float quality) throws IOException {
+        ImageIcon ii = new ImageIcon(originalFile.getCanonicalPath());
+        Image i = ii.getImage();
+        resize(i, resizedFile, newWidth, newHeight, quality);
+    }
+
+    /**
+     * 根据比例进行图像缩放
+     *
+     * @param originalFile
+     * @param resizedFile
+     * @param percent
+     * @param quality
+     * @throws IOException
+     */
+    public static void resize(File originalFile, File resizedFile,
+            float percent, float quality) throws IOException {
+        ImageIcon ii = new ImageIcon(originalFile.getCanonicalPath());
+        Image i = ii.getImage();
+        int iWidth = i.getWidth(null);
+        int iHeight = i.getHeight(null);
+        int newWidth = new BigDecimal(iWidth * percent).intValue();
+        int newHeight = new BigDecimal(iHeight * percent).intValue();
+        resize(i, resizedFile, newWidth, newHeight, quality);
+    }
+
+    /**
+     * 高质量图片缩放，使用sun自带API算法
+     *
+     * @param originalImage
+     * @param resizedFile
+     * @param newWidth
+     * @param newHeight
+     * @param quality
+     * @throws IOException
+     */
+    public static void resize(Image originalImage, File resizedFile,
+            int newWidth, int newHeight, float quality) throws IOException {
 
         if (quality > 1) {
             throw new IllegalArgumentException(
                     "Quality has to be between 0 and 1");
         }
 
-        ImageIcon ii = new ImageIcon(originalFile.getCanonicalPath());
-        Image i = ii.getImage();
-        Image resizedImage = null;
-
-        int iWidth = i.getWidth(null);
-        int iHeight = i.getHeight(null);
-
-        if (iWidth > iHeight) {
-            resizedImage = i.getScaledInstance(newWidth, (newWidth * iHeight)
-                    / iWidth, Image.SCALE_SMOOTH);
-        } else {
-            resizedImage = i.getScaledInstance((newWidth * iWidth) / iHeight,
-                    newWidth, Image.SCALE_SMOOTH);
-        }
+        Image resizedImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
 
         // This code ensures that all the pixels in the image are loaded.  
         Image temp = new ImageIcon(resizedImage).getImage();
@@ -316,7 +371,7 @@ public class ImageUtil {
 
         encoder.setJPEGEncodeParam(param);
         encoder.encode(bufferedImage);
-        
+
         out.close();
     }
 
