@@ -17,9 +17,28 @@ public class Configuration {
 
     private static Logger log = Logger.getLogger(Configuration.class);
     private static final Configuration configuration = new Configuration();
-
+    private String goodsImageRootPath;
+    private String goodsImageTempPath;
+    
     public static Configuration getInstance() {
         return configuration;
+    }
+
+    /**
+     * 初始化系统参数环境
+     */
+    public void initSystemContext() {
+        Properties props = Configuration.loadProperties("config/system.properties");
+
+        //获取拍品图像存储根路径
+        this.goodsImageRootPath = props.getProperty("goods.images.rootPath");
+        UITools.checkOrSaveDir(this.goodsImageRootPath);
+        log.debug("拍品图像存储根路径：" + this.goodsImageRootPath);
+
+        //获取拍品图像存储临时路径
+        this.goodsImageTempPath = props.getProperty("goods.images.tempPath");
+        UITools.checkOrSaveDir(this.getGoodsImageTempPath());
+        log.debug("拍品图像存储临时路径：" + this.goodsImageTempPath);
     }
 
     /**
@@ -34,8 +53,9 @@ public class Configuration {
 
     /**
      * 根据文件路径读取资源信息
+     *
      * @param filePath
-     * @return 
+     * @return
      */
     public static Properties loadProperties(String filePath) {
         FileInputStream istream = null;
@@ -54,5 +74,13 @@ public class Configuration {
             }
         }
         return props;
+    }
+
+    public String getGoodsImageRootPath() {
+        return goodsImageRootPath;
+    }
+
+    public String getGoodsImageTempPath() {
+        return goodsImageTempPath;
     }
 }

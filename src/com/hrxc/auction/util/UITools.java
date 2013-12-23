@@ -498,6 +498,47 @@ public class UITools {
                 inbox.mkdir();
             }
         }
-
+    }
+    
+    /**
+     * 清空某个目录，如果该目录有子目录则一并清空、删除
+     * @param path
+     * @return 
+     */
+    public static boolean clearFolder(String path){
+        boolean flag = false;
+        File file = new File(path);
+        if(!file.exists()){
+            log.error(path + "文件不存在！");
+            return flag;
+        }
+        
+        if(!file.isDirectory()){
+            log.error(path + "非文件夹，不能清空！");
+            return flag;
+        }
+        
+        String[] fileList = file.list();
+        File tmpFile = null;
+        for(int i = 0; i < fileList.length; i++){
+            if(path.endsWith(File.separator)){
+                tmpFile = new File(path + fileList[i]);
+            }else{
+                tmpFile = new File(path + File.separator + fileList[i]);
+            }
+            
+            if(tmpFile.isFile()){
+                tmpFile.delete();
+            }
+            
+            if(tmpFile.isDirectory()){
+                //先清空目录中的文件
+                clearFolder(tmpFile.getAbsolutePath());
+                //再删除目录
+                tmpFile.delete();
+                flag = true;
+            }
+        }
+        return flag;
     }
 }

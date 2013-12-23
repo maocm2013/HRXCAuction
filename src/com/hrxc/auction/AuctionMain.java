@@ -4,6 +4,7 @@ import com.hrxc.auction.ui.AuctionFrame;
 import com.hrxc.auction.ui.LoginDialog;
 import com.hrxc.auction.util.Configuration;
 import com.hrxc.auction.util.JdbcUtil;
+import com.hrxc.auction.util.UITools;
 import javax.swing.JOptionPane;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
@@ -23,6 +24,12 @@ public class AuctionMain {
         try {
             //Log4j初始化
             Configuration.initLog4j();
+            
+            //初始化系统环境参数
+            Configuration.getInstance().initSystemContext();
+            
+            //清空临时缓存目录
+            UITools.clearFolder(Configuration.getInstance().getGoodsImageTempPath());
 
             //验证数据库连接是否正常
             if(!validateJdbcConn()){

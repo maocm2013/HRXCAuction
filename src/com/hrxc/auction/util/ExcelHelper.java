@@ -3,6 +3,7 @@ package com.hrxc.auction.util;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -15,6 +16,7 @@ import org.apache.poi.ss.usermodel.Sheet;
  * @author user
  */
 public class ExcelHelper {
+
     private static Logger log = Logger.getLogger(ExcelHelper.class);
 
     /**
@@ -35,18 +37,22 @@ public class ExcelHelper {
 
     /**
      * 获取单元格的字符串值
-     *
      * @param cell
-     * @return
+     * @param numberFormat 数值型的格式化器，如果为null则默认不保留小数位
+     * @return 
      */
-    public static String getCellString(HSSFCell cell) {
+    public static String getCellString(HSSFCell cell, DecimalFormat numberFormat) {
         String cellValue = "";
         if (cell != null) {
             int cellType = cell.getCellType();
             //只处理了数字和字符串
             switch (cellType) {
                 case Cell.CELL_TYPE_NUMERIC:
-                    cellValue = String.valueOf(cell.getNumericCellValue());
+                    if(numberFormat == null){
+                        //不保留小数
+                        numberFormat = new DecimalFormat("0");
+                    }
+                    cellValue = String.valueOf(numberFormat.format(cell.getNumericCellValue()));
                     break;
                 case Cell.CELL_TYPE_STRING:
                     cellValue = cell.getStringCellValue().trim();
@@ -61,30 +67,41 @@ public class ExcelHelper {
             }
             log.debug("cellValue=" + cellValue);
         }
-        
+
         return cellValue;
     }
-    
+
+    /**
+     * 获取单元格的字符串值
+     *
+     * @param cell
+     * @return
+     */
+    public static String getCellString(HSSFCell cell) {
+        return getCellString(cell,null);
+    }
+
     /**
      * 根据tableModel生成excel文件
+     *
      * @param model
-     * @return 
+     * @return
      */
-    public static HSSFWorkbook createExcel(MyTableModel model){
+    public static HSSFWorkbook createExcel(MyTableModel model) {
         HSSFWorkbook wb = new HSSFWorkbook();
         Sheet sheet = wb.createSheet("sheet1");
         //创建标题行
         Row title = sheet.createRow(0);
-        
-        for(int t = 3; t < model.getColumnCount(); t++){
-            Cell cell = title.createCell(t-3);
+
+        for (int t = 3; t < model.getColumnCount(); t++) {
+            Cell cell = title.createCell(t - 3);
             cell.setCellValue(model.getColumnName(t));
         }
-        
+
         int row_count = model.getRowCount();
         int col_count = model.getColumnCount();
         for (int i = 0; i < row_count; i++) {
-            Row row = sheet.createRow(i+1);
+            Row row = sheet.createRow(i + 1);
             //从第三个字段开始创建单元格
             for (int k = 3; k < col_count; k++) {
                 //避免前3列无数据

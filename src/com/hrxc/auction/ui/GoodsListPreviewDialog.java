@@ -9,7 +9,6 @@ import java.awt.GraphicsEnvironment;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.math.BigDecimal;
-import java.util.Properties;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
@@ -49,15 +48,6 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         this.indexNo = indexNo;
         current_index_no = indexNo;
 
-
-        Properties props = Configuration.loadProperties("config/system.properties");
-        //获取图像存储根路径
-        this.imageRootPath = props.getProperty("goods.images.rootPath");
-        //获取图像存储临时路径
-        this.temp_imageRootPath = props.getProperty("goods.images.tempPath");
-        log.debug("this.temp_imageRootPath=" + this.temp_imageRootPath);
-        UITools.checkOrSaveDir(this.temp_imageRootPath);
-
         //不显示标题栏
         this.setUndecorated(true);
 
@@ -77,21 +67,26 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
      */
     private void initLayout() {
         //设置标题部分的大小
-        Dimension dimension = new Dimension(this.getWidth(), new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
-        titleLabel.setPreferredSize(dimension);
+        Dimension d_title = new Dimension(this.getWidth(), new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        titleLabel.setPreferredSize(d_title);
 
         //设置图片显示部分大小
-        dimension = new Dimension(new BigDecimal(this.getWidth() * 0.7).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.6).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
-        imageLabel.setPreferredSize(dimension);
-        imageLabel.setMinimumSize(dimension);
-        imageLabel.setMaximumSize(dimension);
-
+        Dimension d_image = new Dimension(new BigDecimal(this.getWidth() * 0.7).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.5).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        imageLabel.setPreferredSize(d_image);
+        imageLabel.setMinimumSize(d_image);
+        imageLabel.setMaximumSize(d_image);
 
         //设置图录信息部分大小
-        dimension = new Dimension(new BigDecimal(this.getWidth() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.6).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
-        descLabel.setPreferredSize(dimension);
-        descLabel.setMinimumSize(dimension);
-        descLabel.setMaximumSize(dimension);
+        Dimension d_desc = new Dimension(new BigDecimal(this.getWidth() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.5).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        descLabel.setPreferredSize(d_desc);
+        descLabel.setMinimumSize(d_desc);
+        descLabel.setMaximumSize(d_desc);
+        
+        //设置按钮区域大小
+        Dimension d_toolbar = new Dimension(this.getWidth(), new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        buttonPanel.setPreferredSize(d_toolbar);
+        buttonPanel.setMinimumSize(d_toolbar);
+        buttonPanel.setMaximumSize(d_toolbar);
     }
 
     /**
@@ -100,7 +95,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
     private void showTitleImage() {
         try {
 
-            String tmpfilePath = this.temp_imageRootPath.concat(UITools.generateUUID()).concat(".jpg");
+            String tmpfilePath = Configuration.getInstance().getGoodsImageTempPath().concat(UITools.generateUUID()).concat(".jpg");
             File tmpFile = new File(tmpfilePath);
             ImageUtil.resize(new File("config/view_title.jpg"), tmpFile, titleLabel.getWidth(),titleLabel.getHeight(), 1f);
             ImageIcon icon = new ImageIcon(tmpfilePath);
@@ -117,7 +112,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
      */
     private void showGoodsInfo(int current_index_no) {
         //图片存储路径=根路径+项目编号+图录号.jpg
-        String rootPath = imageRootPath.concat(projectNo).concat("/");
+        String rootPath = Configuration.getInstance().getGoodsImageRootPath().concat(projectNo).concat("/");
 
         try {
             //显示拍品信息
@@ -138,7 +133,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
             descLabel.setText(desc);
 
             String goodsImagePath = rootPath.concat(goodsNo).concat(".jpg");
-            String tmpfilePath = this.temp_imageRootPath.concat(UITools.generateUUID()).concat(".jpg");
+            String tmpfilePath = Configuration.getInstance().getGoodsImageTempPath().concat(UITools.generateUUID()).concat(".jpg");
             File tmpFile = new File(tmpfilePath);
             ImageUtil.resize4DisplayArea(new File(goodsImagePath), tmpFile, imageLabel.getWidth(),imageLabel.getHeight(), 1f);
             ImageIcon icon = new ImageIcon(tmpfilePath);
@@ -566,10 +561,10 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
     private int indexNo;
     //当前序号
     private int current_index_no;
-    //拍品图像存储根路径
-    private String imageRootPath;
-    //拍品图像存储临时根路径
-    private String temp_imageRootPath;
+//    //拍品图像存储根路径
+//    private String imageRootPath;
+//    //拍品图像存储临时根路径
+//    private String temp_imageRootPath;
     //循环播放状态
     private boolean autoPlayState = false;
     //循环播放线程
