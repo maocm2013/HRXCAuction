@@ -24,17 +24,17 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
 
     private static final Logger log = Logger.getLogger(GoodsListPreviewDialog.class);
     private String s_desc = "<html>\n"
-            + "	<div align=center><p style=\"font-family:黑体;font-size:32px;color:blue\">GoodsNo</p></div>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:56px;color:#990000\">GoodsNo</p></div>\n"
             + "	<br>\n"
-            + "	<div align=center><p style=\"font-family:黑体;font-size:18px;color:black\">Author</p></div>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">Author</p></div>\n"
             + "	<br>\n"
-            + "	<div align=center><p style=\"font-family:黑体;font-size:18px;color:black\">GoodsName</p></div>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">GoodsName</p></div>\n"
             + "	<br>\n"
-            + "	<div align=center><p style=\"font-family:黑体;font-size:18px;color:black\">起拍价：OnsetPrice</p></div>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">起拍价：OnsetPrice</p></div>\n"
             + "</html>";
     private String s_datetime = "<html>\n"
-            + "	<div align=center><p style=\"font-family:黑体;font-size:18px;color:black\">weektime</p></div>\n"
-            + "	<div align=center><p style=\"font-family:黑体;font-size:18px;color:black\">datetime</p></div>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">weektime</p></div>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">datetime</p></div>\n"
             + "</html>";
 
     /**
@@ -64,55 +64,61 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
 
     /**
      * 初始化布局
+     * TODO：使用setLocation近定义其坐标起始位置时存在定位不准的问题，使用setBounds则准确得多
      */
     private void initLayout() {
         log.debug("this.width=" + this.getWidth() + ";this.height=" + this.getHeight());
         log.debug("this.panel.width=" + this.jPanel1.getWidth() + ";this.panel.height=" + this.jPanel1.getHeight());
+        
         //设置标题部分的大小
-        Dimension d_title = new Dimension(this.getWidth(), new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        int d_title_w = this.getWidth();
+        int d_title_h = new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
+        Dimension d_title = new Dimension(d_title_w, d_title_h);
         log.debug("d_title" + d_title.toString());
         titleLabel.setPreferredSize(d_title);
         titleLabel.setMaximumSize(d_title);
         titleLabel.setMaximumSize(d_title);
-        //titleLabel.setLocation(0, 0);
-        titleLabel.setBounds(0, 0, this.getWidth(), new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        titleLabel.setBounds(0, 0, d_title_w, d_title_h);
         log.debug("titleLable.xy=" + titleLabel.getLocation().toString());
-        log.debug("titleLabel.height=" + titleLabel.getHeight());
 
         //设置图片显示部分大小
-        Dimension d_image = new Dimension(new BigDecimal(this.getWidth() * 0.7).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.8).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        int d_image_w = new BigDecimal(this.getWidth() * 0.7).setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
+        int d_image_h = new BigDecimal(this.getHeight() * 0.8).setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
+        Dimension d_image = new Dimension(d_image_w, d_image_h);
         imageLabel.setPreferredSize(d_image);
         imageLabel.setMinimumSize(d_image);
         imageLabel.setMaximumSize(d_image);
-        //imageLabel.setLocation(0, titleLabel.getHeight());
-        imageLabel.setBounds(0, titleLabel.getHeight(), new BigDecimal(this.getWidth() * 0.7).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.8).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        imageLabel.setBounds(0, titleLabel.getHeight(), d_image_w,d_image_h);
         log.debug("imageLabel.xy=" + imageLabel.getLocation().toString());
 
         //设置时钟显示区域
-        Dimension d_datetime = new Dimension(new BigDecimal(this.getWidth() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        int d_datetime_w = new BigDecimal(this.getWidth() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
+        int d_datetime_h = new BigDecimal(this.getHeight() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
+        Dimension d_datetime = new Dimension(d_datetime_w, d_datetime_h);
         datetimeLabel.setPreferredSize(d_datetime);
         datetimeLabel.setMinimumSize(d_datetime);
         datetimeLabel.setMaximumSize(d_datetime);
-        //datetimeLabel.setLocation(imageLabel.getWidth(), titleLabel.getHeight());
-        datetimeLabel.setBounds(imageLabel.getWidth(), titleLabel.getHeight(), new BigDecimal(this.getWidth() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        datetimeLabel.setBounds(imageLabel.getWidth(), titleLabel.getHeight(), d_datetime_w,d_datetime_h);
         log.debug("datetimeLabel.xy=" + datetimeLabel.getLocation().toString());
 
         //设置图录信息部分大小
-        Dimension d_desc = new Dimension(new BigDecimal(this.getWidth() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.5).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        int d_desc_w = new BigDecimal(this.getWidth() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
+        int d_desc_h = new BigDecimal(this.getHeight() * 0.5).setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
+        Dimension d_desc = new Dimension(d_desc_w, d_desc_h);
         descLabel.setPreferredSize(d_desc);
         descLabel.setMinimumSize(d_desc);
         descLabel.setMaximumSize(d_desc);
-        //descLabel.setLocation(imageLabel.getWidth(), titleLabel.getHeight() + datetimeLabel.getHeight());
-        descLabel.setBounds(imageLabel.getWidth(), titleLabel.getHeight() + datetimeLabel.getHeight(),new BigDecimal(this.getWidth() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.5).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        descLabel.setBounds(imageLabel.getWidth(), titleLabel.getHeight() + datetimeLabel.getHeight(),d_desc_w,d_desc_h);
         log.debug("descLabel.xy=" + descLabel.getLocation().toString());
 
         //设置按钮区域大小
-        Dimension d_toolbar = new Dimension(this.getWidth(), new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        int d_toolbar_w = this.getWidth();
+        int d_toolbar_h = new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
+        Dimension d_toolbar = new Dimension(d_toolbar_w, d_toolbar_h);
         myToolBar.setPreferredSize(d_toolbar);
         myToolBar.setMinimumSize(d_toolbar);
         myToolBar.setMaximumSize(d_toolbar);
-        //myToolBar.setLocation(0, titleLabel.getHeight() + imageLabel.getHeight());
-        myToolBar.setBounds(0, titleLabel.getHeight() + imageLabel.getHeight(),this.getWidth(), new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        myToolBar.setBounds(0, titleLabel.getHeight() + imageLabel.getHeight(),d_toolbar_w, d_toolbar_h);
         log.debug("myToolBar.xy=" + myToolBar.getLocation().toString());
     }
 
@@ -202,20 +208,26 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
 
         datetimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         datetimeLabel.setLabelFor(this);
+        datetimeLabel.setAlignmentY(0.0F);
         datetimeLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         datetimeLabel.setTextAlignment(org.jdesktop.swingx.JXLabel.TextAlignment.CENTER);
 
         descLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        descLabel.setAlignmentY(0.0F);
         descLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         descLabel.setTextAlignment(org.jdesktop.swingx.JXLabel.TextAlignment.CENTER);
 
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel.setAlignmentY(0.0F);
 
         imageLabel.setBackground(new java.awt.Color(0, 0, 0));
         imageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imageLabel.setAlignmentY(0.0F);
 
         myToolBar.setFloatable(false);
         myToolBar.setRollover(true);
+        myToolBar.setAlignmentX(0.2F);
+        myToolBar.setAlignmentY(0.2F);
 
         closeBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system-shutdown.png"))); // NOI18N
         closeBt.setToolTipText("关闭（ALT+F4）");

@@ -79,6 +79,7 @@
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="Form"/>
             </Property>
+            <Property name="alignmentY" type="float" value="0.0"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="textAlignment" type="org.jdesktop.swingx.JXLabel$TextAlignment" editor="org.netbeans.modules.form.editors.EnumEditor">
               <Value id="CENTER"/>
@@ -88,6 +89,7 @@
         <Component class="org.jdesktop.swingx.JXLabel" name="descLabel">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="alignmentY" type="float" value="0.0"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="textAlignment" type="org.jdesktop.swingx.JXLabel$TextAlignment" editor="org.netbeans.modules.form.editors.EnumEditor">
               <Value id="CENTER"/>
@@ -97,6 +99,7 @@
         <Component class="org.jdesktop.swingx.JXLabel" name="titleLabel">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="alignmentY" type="float" value="0.0"/>
           </Properties>
         </Component>
         <Component class="org.jdesktop.swingx.JXLabel" name="imageLabel">
@@ -105,12 +108,15 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="alignmentY" type="float" value="0.0"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JToolBar" name="myToolBar">
           <Properties>
             <Property name="floatable" type="boolean" value="false"/>
             <Property name="rollover" type="boolean" value="true"/>
+            <Property name="alignmentX" type="float" value="0.2"/>
+            <Property name="alignmentY" type="float" value="0.2"/>
           </Properties>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
