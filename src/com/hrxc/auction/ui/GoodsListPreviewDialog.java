@@ -24,17 +24,17 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
 
     private static final Logger log = Logger.getLogger(GoodsListPreviewDialog.class);
     private String s_desc = "<html>\n"
-            + "	<div align=center><p style=\"font-family:黑体;font-size:56px;color:blue\">GoodsNo</p></div>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:32px;color:blue\">GoodsNo</p></div>\n"
             + "	<br>\n"
-            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">Author</p></div>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:18px;color:black\">Author</p></div>\n"
             + "	<br>\n"
-            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">GoodsName</p></div>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:18px;color:black\">GoodsName</p></div>\n"
             + "	<br>\n"
-            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">起拍价：OnsetPrice</p></div>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:18px;color:black\">起拍价：OnsetPrice</p></div>\n"
             + "</html>";
     private String s_datetime = "<html>\n"
-            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">weektime</p></div>\n"
-            + "	<div align=center><p style=\"font-family:黑体;font-size:24px;color:black\">datetime</p></div>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:18px;color:black\">weektime</p></div>\n"
+            + "	<div align=center><p style=\"font-family:黑体;font-size:18px;color:black\">datetime</p></div>\n"
             + "</html>";
 
     /**
@@ -66,27 +66,54 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
      * 初始化布局
      */
     private void initLayout() {
+        log.debug("this.width=" + this.getWidth() + ";this.height=" + this.getHeight());
+        log.debug("this.panel.width=" + this.jPanel1.getWidth() + ";this.panel.height=" + this.jPanel1.getHeight());
         //设置标题部分的大小
         Dimension d_title = new Dimension(this.getWidth(), new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        log.debug("d_title" + d_title.toString());
         titleLabel.setPreferredSize(d_title);
+        titleLabel.setMaximumSize(d_title);
+        titleLabel.setMaximumSize(d_title);
+        //titleLabel.setLocation(0, 0);
+        titleLabel.setBounds(0, 0, this.getWidth(), new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        log.debug("titleLable.xy=" + titleLabel.getLocation().toString());
+        log.debug("titleLabel.height=" + titleLabel.getHeight());
 
         //设置图片显示部分大小
-        Dimension d_image = new Dimension(new BigDecimal(this.getWidth() * 0.7).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.5).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        Dimension d_image = new Dimension(new BigDecimal(this.getWidth() * 0.7).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.8).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
         imageLabel.setPreferredSize(d_image);
         imageLabel.setMinimumSize(d_image);
         imageLabel.setMaximumSize(d_image);
+        //imageLabel.setLocation(0, titleLabel.getHeight());
+        imageLabel.setBounds(0, titleLabel.getHeight(), new BigDecimal(this.getWidth() * 0.7).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.8).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        log.debug("imageLabel.xy=" + imageLabel.getLocation().toString());
+
+        //设置时钟显示区域
+        Dimension d_datetime = new Dimension(new BigDecimal(this.getWidth() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        datetimeLabel.setPreferredSize(d_datetime);
+        datetimeLabel.setMinimumSize(d_datetime);
+        datetimeLabel.setMaximumSize(d_datetime);
+        //datetimeLabel.setLocation(imageLabel.getWidth(), titleLabel.getHeight());
+        datetimeLabel.setBounds(imageLabel.getWidth(), titleLabel.getHeight(), new BigDecimal(this.getWidth() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        log.debug("datetimeLabel.xy=" + datetimeLabel.getLocation().toString());
 
         //设置图录信息部分大小
         Dimension d_desc = new Dimension(new BigDecimal(this.getWidth() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.5).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
         descLabel.setPreferredSize(d_desc);
         descLabel.setMinimumSize(d_desc);
         descLabel.setMaximumSize(d_desc);
-        
+        //descLabel.setLocation(imageLabel.getWidth(), titleLabel.getHeight() + datetimeLabel.getHeight());
+        descLabel.setBounds(imageLabel.getWidth(), titleLabel.getHeight() + datetimeLabel.getHeight(),new BigDecimal(this.getWidth() * 0.3).setScale(0, BigDecimal.ROUND_HALF_UP).intValue(), new BigDecimal(this.getHeight() * 0.5).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        log.debug("descLabel.xy=" + descLabel.getLocation().toString());
+
         //设置按钮区域大小
         Dimension d_toolbar = new Dimension(this.getWidth(), new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
-        buttonPanel.setPreferredSize(d_toolbar);
-        buttonPanel.setMinimumSize(d_toolbar);
-        buttonPanel.setMaximumSize(d_toolbar);
+        myToolBar.setPreferredSize(d_toolbar);
+        myToolBar.setMinimumSize(d_toolbar);
+        myToolBar.setMaximumSize(d_toolbar);
+        //myToolBar.setLocation(0, titleLabel.getHeight() + imageLabel.getHeight());
+        myToolBar.setBounds(0, titleLabel.getHeight() + imageLabel.getHeight(),this.getWidth(), new BigDecimal(this.getHeight() * 0.1).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+        log.debug("myToolBar.xy=" + myToolBar.getLocation().toString());
     }
 
     /**
@@ -97,7 +124,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
 
             String tmpfilePath = Configuration.getInstance().getGoodsImageTempPath().concat(UITools.generateUUID()).concat(".jpg");
             File tmpFile = new File(tmpfilePath);
-            ImageUtil.resize(new File("config/view_title.jpg"), tmpFile, titleLabel.getWidth(),titleLabel.getHeight(), 1f);
+            ImageUtil.resize(new File("config/view_title.jpg"), tmpFile, titleLabel.getWidth(), titleLabel.getHeight(), 1f);
             ImageIcon icon = new ImageIcon(tmpfilePath);
             titleLabel.setIcon(icon);
         } catch (Exception ex) {
@@ -135,7 +162,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
             String goodsImagePath = rootPath.concat(goodsNo).concat(".jpg");
             String tmpfilePath = Configuration.getInstance().getGoodsImageTempPath().concat(UITools.generateUUID()).concat(".jpg");
             File tmpFile = new File(tmpfilePath);
-            ImageUtil.resize4DisplayArea(new File(goodsImagePath), tmpFile, imageLabel.getWidth(),imageLabel.getHeight(), 1f);
+            ImageUtil.resize4DisplayArea(new File(goodsImagePath), tmpFile, imageLabel.getWidth(), imageLabel.getHeight(), 1f);
             ImageIcon icon = new ImageIcon(tmpfilePath);
             imageLabel.setIcon(icon);
         } catch (Exception ex) {
@@ -152,10 +179,12 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        datetimeLabel = new org.jdesktop.swingx.JXLabel();
+        descLabel = new org.jdesktop.swingx.JXLabel();
         titleLabel = new org.jdesktop.swingx.JXLabel();
         imageLabel = new org.jdesktop.swingx.JXLabel();
-        descLabel = new org.jdesktop.swingx.JXLabel();
-        buttonPanel = new javax.swing.JPanel();
+        myToolBar = new javax.swing.JToolBar();
         closeBt = new org.jdesktop.swingx.JXButton();
         backBt = new org.jdesktop.swingx.JXButton();
         fullScreenBt = new org.jdesktop.swingx.JXButton();
@@ -167,23 +196,26 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
         gotoBt = new org.jdesktop.swingx.JXButton();
         autoStartBt = new org.jdesktop.swingx.JXButton();
         pauseBt = new org.jdesktop.swingx.JXButton();
-        datetimeLabel = new org.jdesktop.swingx.JXLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(700, 540));
 
-        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleLabel.setFont(new java.awt.Font("隶书", 1, 48)); // NOI18N
-
-        imageLabel.setBackground(new java.awt.Color(0, 0, 0));
-        imageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        datetimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        datetimeLabel.setLabelFor(this);
+        datetimeLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        datetimeLabel.setTextAlignment(org.jdesktop.swingx.JXLabel.TextAlignment.CENTER);
 
         descLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         descLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         descLabel.setTextAlignment(org.jdesktop.swingx.JXLabel.TextAlignment.CENTER);
 
-        buttonPanel.setAlignmentX(0.1F);
-        buttonPanel.setAlignmentY(0.1F);
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        imageLabel.setBackground(new java.awt.Color(0, 0, 0));
+        imageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        myToolBar.setFloatable(false);
+        myToolBar.setRollover(true);
 
         closeBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/system-shutdown.png"))); // NOI18N
         closeBt.setToolTipText("关闭（ALT+F4）");
@@ -197,6 +229,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                 closeBtActionPerformed(evt);
             }
         });
+        myToolBar.add(closeBt);
 
         backBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view-nofullscreen.png"))); // NOI18N
         backBt.setToolTipText("还原");
@@ -210,6 +243,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                 backBtActionPerformed(evt);
             }
         });
+        myToolBar.add(backBt);
 
         fullScreenBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view-fullscreen-4.png"))); // NOI18N
         fullScreenBt.setToolTipText("全屏");
@@ -223,6 +257,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                 fullScreenBtActionPerformed(evt);
             }
         });
+        myToolBar.add(fullScreenBt);
 
         firstBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/go-first-2.png"))); // NOI18N
         firstBt.setToolTipText("开始");
@@ -236,6 +271,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                 firstBtActionPerformed(evt);
             }
         });
+        myToolBar.add(firstBt);
 
         previousBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/go-previous-4.png"))); // NOI18N
         previousBt.setToolTipText("后退（PAGE UP）");
@@ -254,6 +290,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 previousBtActionPerformed(evt);
             }}, KeyStroke.getKeyStroke(KeyEvent.VK_PAGE_UP, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
+            myToolBar.add(previousBt);
 
             nextBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/go-next-4.png"))); // NOI18N
             nextBt.setToolTipText("前进（PAGE DOWN）");
@@ -272,6 +309,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     nextBtActionPerformed(evt);
                 }}, KeyStroke.getKeyStroke(KeyEvent.VK_PAGE_DOWN, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
+                myToolBar.add(nextBt);
 
                 lastBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/go-last-2.png"))); // NOI18N
                 lastBt.setToolTipText("结束");
@@ -285,6 +323,12 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                         lastBtActionPerformed(evt);
                     }
                 });
+                myToolBar.add(lastBt);
+
+                gotoFd.setMaximumSize(new java.awt.Dimension(35, 30));
+                gotoFd.setMinimumSize(new java.awt.Dimension(35, 30));
+                gotoFd.setPreferredSize(new java.awt.Dimension(35, 30));
+                myToolBar.add(gotoFd);
 
                 gotoBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/goto.png"))); // NOI18N
                 gotoBt.setToolTipText("跳转");
@@ -298,6 +342,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                         gotoBtActionPerformed(evt);
                     }
                 });
+                myToolBar.add(gotoBt);
 
                 autoStartBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media-playback-start-3.png"))); // NOI18N
                 autoStartBt.setToolTipText("开启自动播放");
@@ -311,6 +356,7 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                         autoStartBtActionPerformed(evt);
                     }
                 });
+                myToolBar.add(autoStartBt);
 
                 pauseBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media-playback-pause-3.png"))); // NOI18N
                 pauseBt.setToolTipText("停止自动播放");
@@ -324,89 +370,45 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
                         pauseBtActionPerformed(evt);
                     }
                 });
+                myToolBar.add(pauseBt);
 
-                javax.swing.GroupLayout buttonPanelLayout = new javax.swing.GroupLayout(buttonPanel);
-                buttonPanel.setLayout(buttonPanelLayout);
-                buttonPanelLayout.setHorizontalGroup(
-                    buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+                jPanel1.setLayout(jPanel1Layout);
+                jPanel1Layout.setHorizontalGroup(
+                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(backBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(fullScreenBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(autoStartBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pauseBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(firstBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(previousBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nextBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lastBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(gotoFd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(gotoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(datetimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(myToolBar, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
                 );
-                buttonPanelLayout.setVerticalGroup(
-                    buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonPanelLayout.createSequentialGroup()
-                        .addContainerGap(14, Short.MAX_VALUE)
-                        .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(autoStartBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pauseBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(gotoBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(buttonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(gotoFd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lastBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nextBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(previousBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(firstBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fullScreenBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(backBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(closeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                jPanel1Layout.setVerticalGroup(
+                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(datetimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))
+                            .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(myToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 );
-
-                datetimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                datetimeLabel.setLabelFor(this);
-                datetimeLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                datetimeLabel.setTextAlignment(org.jdesktop.swingx.JXLabel.TextAlignment.CENTER);
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
                 layout.setHorizontalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(datetimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
-                            .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(titleLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 41, Short.MAX_VALUE)
-                        .addComponent(buttonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 );
                 layout.setVerticalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(datetimeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(descLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
-                            .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 );
 
                 pack();
@@ -572,7 +574,6 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.jdesktop.swingx.JXButton autoStartBt;
     private org.jdesktop.swingx.JXButton backBt;
-    private javax.swing.JPanel buttonPanel;
     private org.jdesktop.swingx.JXButton closeBt;
     private org.jdesktop.swingx.JXLabel datetimeLabel;
     private org.jdesktop.swingx.JXLabel descLabel;
@@ -581,7 +582,9 @@ public class GoodsListPreviewDialog extends javax.swing.JDialog {
     private org.jdesktop.swingx.JXButton gotoBt;
     private org.jdesktop.swingx.JXTextField gotoFd;
     private org.jdesktop.swingx.JXLabel imageLabel;
+    private javax.swing.JPanel jPanel1;
     private org.jdesktop.swingx.JXButton lastBt;
+    private javax.swing.JToolBar myToolBar;
     private org.jdesktop.swingx.JXButton nextBt;
     private org.jdesktop.swingx.JXButton pauseBt;
     private org.jdesktop.swingx.JXButton previousBt;
