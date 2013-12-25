@@ -5,6 +5,8 @@ import com.hrxc.auction.util.TreeMenuConfig;
 import com.hrxc.auction.util.TreeMenuObject;
 import java.awt.Toolkit;
 import javax.swing.tree.DefaultMutableTreeNode;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.jdesktop.swingx.JXLabel;
 
 /**
@@ -12,6 +14,8 @@ import org.jdesktop.swingx.JXLabel;
  * @author user
  */
 public class AuctionFrame extends javax.swing.JFrame {
+
+    private static final Logger log = Logger.getLogger(AuctionFrame.class);
 
     /**
      * Creates new form AuctionFrame
@@ -30,6 +34,7 @@ public class AuctionFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
+        logStateBton = new org.jdesktop.swingx.JXButton();
         jSplitPane1 = new javax.swing.JSplitPane();
         leftPanel = new javax.swing.JScrollPane();
         menuTree = new org.jdesktop.swingx.JXTree();
@@ -47,6 +52,22 @@ public class AuctionFrame extends javax.swing.JFrame {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
+        logStateBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/print.png"))); // NOI18N
+        logStateBton.setText("关闭日志");
+        logStateBton.setFocusable(false);
+        logStateBton.setFont(new java.awt.Font("黑体", 0, 12)); // NOI18N
+        logStateBton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        logStateBton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        logStateBton.setMaximumSize(new java.awt.Dimension(100, 63));
+        logStateBton.setMinimumSize(new java.awt.Dimension(100, 63));
+        logStateBton.setPreferredSize(new java.awt.Dimension(100, 63));
+        logStateBton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logStateBtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(logStateBton);
+
         menuTree.setModel(TreeMenuConfig.generateTreeMenu());
         menuTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
@@ -62,6 +83,7 @@ public class AuctionFrame extends javax.swing.JFrame {
 
         logoutBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app-exit.png"))); // NOI18N
         logoutBton.setText("退出");
+        logoutBton.setFont(new java.awt.Font("黑体", 0, 12)); // NOI18N
         logoutBton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutBtonActionPerformed(evt);
@@ -70,6 +92,7 @@ public class AuctionFrame extends javax.swing.JFrame {
 
         modifyPasswordBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modify_password.png"))); // NOI18N
         modifyPasswordBton.setText("修改密码");
+        modifyPasswordBton.setFont(new java.awt.Font("黑体", 0, 12)); // NOI18N
         modifyPasswordBton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modifyPasswordBtonActionPerformed(evt);
@@ -110,22 +133,21 @@ public class AuctionFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_menuTreeValueChanged
-        DefaultMutableTreeNode node = (DefaultMutableTreeNode)evt.getPath().getLastPathComponent();
-        TreeMenuObject menu = (TreeMenuObject)node.getUserObject();
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode) evt.getPath().getLastPathComponent();
+        TreeMenuObject menu = (TreeMenuObject) node.getUserObject();
         if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_00_01)) {
             rightPanel.setViewportView(new ProjectInfoPanel());
-        }else if(menu.getTreeName().equals(TreeMenuConfig.MenuName.M_00_02)){
+        } else if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_00_02)) {
             rightPanel.setViewportView(new ClientSidePanel());
-        } 
-        else if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_09_00_01)) {
+        } else if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_09_00_01)) {
             rightPanel.setViewportView(new GoodsListPanel(menu.getProjectNo()));
         } else if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_09_00_02)) {
             rightPanel.setViewportView(new BiddingPaddlePanel(menu.getProjectNo()));
         } else if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_09_00_03)) {
             rightPanel.setViewportView(new BargainRecordPanel(menu.getProjectNo()));
-        }else if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_09_00_04)) {
+        } else if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_09_00_04)) {
             rightPanel.setViewportView(new BargainRecordSettlePanel(menu.getProjectNo()));
-        }else if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_09_00_05)) {
+        } else if (menu.getTreeName().equals(TreeMenuConfig.MenuName.M_09_00_05)) {
             rightPanel.setViewportView(new SingleProjectStatReportPanel(menu.getProjectNo()));
         }
     }//GEN-LAST:event_menuTreeValueChanged
@@ -142,10 +164,31 @@ public class AuctionFrame extends javax.swing.JFrame {
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
     }//GEN-LAST:event_modifyPasswordBtonActionPerformed
+
+    private void logStateBtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logStateBtonActionPerformed
+        Level curLevel = Logger.getRootLogger().getLevel();
+        if (curLevel.equals(Level.DEBUG)) {
+            //将日志关闭并改变按钮状态
+            Logger.getRootLogger().setLevel(Level.INFO);
+            logStateBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/printer-error-2.png")));
+            logStateBton.setText("开启日志");
+            logStateBton.setToolTipText("日志输出已关闭，再次点击可开启！");
+        } else if (curLevel.equals(Level.INFO)) {
+            //将日志开启并改变按钮状态
+            Logger.getRootLogger().setLevel(Level.DEBUG);
+            logStateBton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/print.png")));
+            logStateBton.setText("关闭日志");
+            logStateBton.setToolTipText("日志输出开启，再次点击可关闭！");
+        } else {
+            log.error("日志状态错误：" + curLevel.toString());
+        }
+
+    }//GEN-LAST:event_logStateBtonActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JScrollPane leftPanel;
+    private org.jdesktop.swingx.JXButton logStateBton;
     private org.jdesktop.swingx.JXButton logoutBton;
     private org.jdesktop.swingx.JXTree menuTree;
     private org.jdesktop.swingx.JXButton modifyPasswordBton;
@@ -156,11 +199,11 @@ public class AuctionFrame extends javax.swing.JFrame {
     public JXLabel getUserInfoLabel() {
         return userInfoLabel;
     }
-    
+
     /**
      * 重新加载系统菜单
      */
-    public void reLoadMenuTree(){
+    public void reLoadMenuTree() {
         menuTree.setModel(TreeMenuConfig.generateTreeMenu());
     }
 }
