@@ -1,7 +1,6 @@
 package com.hrxc.auction.ui;
 
 import com.hrxc.auction.action.BargainRecordAction;
-import com.hrxc.auction.util.MyTableModel;
 import com.hrxc.auction.action.BiddingPaddleAction;
 import com.hrxc.auction.action.PaymentListAction;
 import com.hrxc.auction.domain.BargainRecord;
@@ -14,6 +13,7 @@ import com.hrxc.auction.util.DictEnum;
 import com.hrxc.auction.util.DictEnum.SettleState;
 import com.hrxc.auction.util.ExcelHelper;
 import com.hrxc.auction.util.MyTableConfig;
+import com.hrxc.auction.util.MyTableModel;
 import com.hrxc.auction.util.UITools;
 import java.util.ArrayList;
 import java.util.List;

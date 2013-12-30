@@ -1,7 +1,6 @@
 package com.hrxc.auction.ui;
 
 import com.hrxc.auction.util.JdbcUtil;
-import java.awt.Dimension;
 import java.io.File;
 import java.util.HashMap;
 import net.sf.jasperreports.engine.JRException;
@@ -10,7 +9,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
-import net.sf.jasperreports.view.JasperViewer;
+import net.sf.jasperreports.view.JRViewer;
 import org.apache.log4j.Logger;
 
 /**
@@ -44,7 +43,7 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
         showBton = new org.jdesktop.swingx.JXButton();
         jXLabel1 = new org.jdesktop.swingx.JXLabel();
         fd_filePath = new org.jdesktop.swingx.JXTextField();
-        reportPanel = new javax.swing.JScrollPane();
+        reportPanel = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(702, 443));
 
@@ -83,9 +82,18 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
         fd_filePath.setBounds(340, 10, 300, 30);
         checkLayeredPanel.add(fd_filePath, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        reportPanel.setMinimumSize(new java.awt.Dimension(700, 360));
-        reportPanel.setPreferredSize(new java.awt.Dimension(700, 360));
-        reportPanel.setBounds(0, 50, 700, 360);
+        javax.swing.GroupLayout reportPanelLayout = new javax.swing.GroupLayout(reportPanel);
+        reportPanel.setLayout(reportPanelLayout);
+        reportPanelLayout.setHorizontalGroup(
+            reportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 690, Short.MAX_VALUE)
+        );
+        reportPanelLayout.setVerticalGroup(
+            reportPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 360, Short.MAX_VALUE)
+        );
+
+        reportPanel.setBounds(0, 50, 690, 360);
         checkLayeredPanel.add(reportPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTabbedPane1.addTab("成交信息统计", checkLayeredPanel);
@@ -143,11 +151,25 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
         try {
             JasperPrint print = initReportContext();
 
-            //使用JasperViewer预览报表
-            JasperViewer view = new JasperViewer(print, false);
-            view.setPreferredSize(new Dimension(1024, 600));
-            view.pack();
-            view.setVisible(true);
+//            //TODO：使用JasperViewer预览报表，弹出了单独的jframe，不是很友好
+//            JasperViewer view = new JasperViewer(print, false);
+//            view.setPreferredSize(new Dimension(1024, 600));
+//            view.pack();
+//            view.setVisible(true);
+            
+            log.debug("----------------reportPanel.getParent().getWidth()=" + reportPanel.getParent().getWidth());
+            log.debug("----------------reportPanel.getParent().getHeight()=" + reportPanel.getParent().getHeight());
+            
+            //对报表显示面板进行动态计算其宽高
+            int p_width = reportPanel.getParent().getWidth();
+            int p_height = reportPanel.getParent().getHeight();
+            reportPanel.setBounds(5, 50, p_width - 5, p_height-50);
+            
+            //TODO：在面板上进行报表预览，必须使用setBounds重新移动组件并使用repaint生效
+            JRViewer view = new JRViewer(print);
+            view.setBounds(0, 0, reportPanel.getWidth(), reportPanel.getHeight());
+            reportPanel.add(view);
+            reportPanel.repaint();
         } catch (Exception ex) {
             log.error("error:", ex);
         }
@@ -163,7 +185,7 @@ public class SingleProjectStatReportPanel extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXTextField fd_filePath;
     private javax.swing.JTabbedPane jTabbedPane1;
     private org.jdesktop.swingx.JXLabel jXLabel1;
-    private javax.swing.JScrollPane reportPanel;
+    private javax.swing.JPanel reportPanel;
     private org.jdesktop.swingx.JXButton showBton;
     // End of variables declaration//GEN-END:variables
 }
